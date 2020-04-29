@@ -1,0 +1,124 @@
+/* 
+   @file _timeline.sass 
+   @theme Local
+   @description  Loads SASS files for local theme. */
+.tl-timeline   
+  .tl-storyslider
+    .tl-slider-container-mask
+      .tl-slider-container
+        .tl-slider-item-container
+          .tl-slide
+            .tl-slide-background
+              display: block
+              background: #ECF3F8
+              opacity: 1
+.tl-timeline   
+  .tl-storyslider
+    .tl-slider-container-mask
+      .tl-slider-container
+        .tl-slider-item-container
+          .tl-slide-titleslide
+            .tl-slide-background
+              display: block
+              &:before
+                content: ""
+                background: rgb(0,0,0);
+                background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+                height: 100%
+                display: block
+
+.tl-slide-content-container
+  .tl-text
+    .tl-text-content-container
+      .tl-headline
+        border-bottom: 0
+        a
+          color: $black
+.tl-slider-item-container
+  .tl-slide
+    .tl-slide-scrollable-container
+      .tl-slide-content-container
+        .tl-slide-content
+          width: 100%!important
+.tl-slide-titleslide
+  .tl-slide-content
+    z-index: 3
+
+
+.tl-text
+  p
+    color: $black!important
+.tl-slidenav-next 
+  .tl-slidenav-icon
+    &:before
+      content: url(../../asset/img/svg/icons/right_chevron_fire.svg)!important
+.tl-slidenav-previous 
+  .tl-slidenav-icon
+    &:before
+      content: url(../../asset/img/svg/icons/left_chevron_fire.svg)!important
+.tl-slidenav-icon
+  width: 25px
+.tl-slidenav-title
+    opacity: 1!important
+    font-size: font-value(-1)!important
+    line-height: font-value(-1)!important
+.tl-slidenav-description
+  display: none
+.tl-slidenav-title
+  text-shadow: unset!important
+  color: $clr1!important
+  display: none!important
+.tl-text
+  .tl-text-content-container
+    h3.tl-headline-date
+      font-weight: 900
+      color: $black
+      font-family: $basefont
+      margin-bottom: rv(-1)
+.tl-timenav-item-container
+  .tl-timemarker
+    .tl-timemarker-content-container
+      border-bottom-right-radius: 0
+    .tl-timemarker-content
+      .tl-timemarker-text
+        .tl-headline
+          font-family: $basefont
+          font-size: font-value(4)
+            
+          +bp($stack)
+            font-size: font-value(2)
+
+.tl-slide-titleslide 
+  .tl-slide-content
+    text-align: left
+    span
+      color: $white
+      font-family: $basefont
+      font-weight: $bold
+    h1
+      color: $white
+      font-size: $h2fontsize
+      line-height: $h2fontsize
+
+
+.tl-timemarker 
+  .tl-timemarker-content-container 
+    .tl-timemarker-content 
+      .tl-timemarker-media-container 
+        .tl-timemarker-media
+          opacity: 1!important
+.tl-timemarker-text
+  .tl-headline
+    color: $black!important
+    font-size: font-value(-1)!important
+.tl-timemarker 
+  .tl-timemarker-content-container
+    width: 200px!important
+.tl-timeaxis-tick
+  &:before
+    border-color: $black!important
+.tl-timeaxis-tick-text
+  color: $black!important
+.tl-slide 
+  &.tl-slide-titleslide
+    background: $black

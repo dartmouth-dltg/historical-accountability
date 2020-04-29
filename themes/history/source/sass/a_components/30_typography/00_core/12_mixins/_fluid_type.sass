@@ -1,0 +1,57 @@
+/* Scales typography for any screen size. h/t https://www.madebymike.com.au/writing/precise-control-responsive-typography/
+  and Indrek Paas https://www.sassmeister.com/gist/7f22e44ace49b5124eec
+  
+  @var
+  $min_size: Minimum font size in em or rem
+  $max_size: Maximum font size in em or rem
+  $min_viewport_width: Sets the lower bound breakpoint to stop scaling. E.g. map-get($breakpoints,'med') */
+  
+$default_min_width: map-get($breakpoints,$stack_breakpoint)
+
+=fluid-type($min_value: $min_font_size, $max_value: $max_font_size,$min-vw: $min_viewwidth, $max-vw: $max_viewwidth, $properties: font-size)
+
+  // Assume that passed integers are relative font size values
+
+  @if is_integer($min_value) and unit($min_value) == ''
+    $min_value: font-value($min_value)
+
+  @if is_integer($max_value) and unit($max_value) == ''
+    $max_value: font-value($max_value)
+    
+  $break: false
+
+  // Capture compatibility errors
+  
+  @if comparable($min_value,$max_value) == false
+    $minfunit: unit($min_value)
+    $maxfunit: unit($max_value)
+    @warn "Fluid type: Minimum and maximum font size units are not compatible (#{$minfunit} and #{$maxfunit}"
+    $break: true
+    
+  @if comparable($min_viewwidth,$max_viewwidth) == false
+    $minvunit: unit($min_viewwidth)
+    $maxvunit: unit($max_viewwidth)
+    @warn "Fluid type: Minimum and maximum view units are not compatible (#{$minvunit} and #{$maxvunit}"
+    $break: true
+  
+  @if $break == false
+
+    @each $property in $properties
+      #{$property}: $min_value
+  
+    @media (min-width: $min-vw)
+      $sizefactor: strip-unit($max_value - $min_value)
+      $viewfactor: strip-unit($max-vw - $min-vw)
+    
+      @each $property in $properties
+        #{$property}: calc(#{$min_value} + #{$sizefactor} * (100vw - #{$min-vw}) / #{$viewfactor})
+  
+    @media (min-width: $max-vw)
+      @each $property in $properties
+        #{$property}: $max_value
+        
+    // Container elements must be set to an em value to properly cascade fluid type
+        
+    address, article, aside, section, ul
+      font-size: 1em
+      line-height: inherit

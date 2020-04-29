@@ -1,0 +1,58 @@
+/** 
+ *  @file _homepage_featured_exhibits.sass 
+ *  @category 60_site_elements
+ *  @theme LOCAL
+ *  @description Styles the homepage featured exhibit block. */
+
+
+#homepage-featured-exhibits
+  +wide()
+  padding: rv(1) 1.5rem!important
+  display: grid
+  grid-template-columns: 1fr
+  grid-row-gap: rv(2)
+  
+  +bp($stack)
+    padding: rv(3) 0
+    grid-template-columns: 1fr 2fr
+    grid-column-gap: rv(4)
+    align-items: center
+  
+  .callout-items
+    display: grid
+    grid-template-columns: 1fr
+    grid-column-gap: rv(0)
+    grid-row-gap: rv(0)
+    
+    +bp($stack)
+      grid-template-columns: 1fr 1fr
+      
+      > *
+        &:first-child
+          grid-column-end: span 2
+          
+        &:nth-child(2), &:nth-child(3)
+          figure
+            height: rv(8)
+            
+            img
+              height: 100%
+              object-fit: cover
+        
+        
+    figure
+      +huronia_drop_shadow()
+    
+  h2
+    border: 0
+    
+  .btn
+    background-color: set-colour(4,'shade')
+    color: $white
+    border-color: $white
+    margin: rv(1) 0
+    text-decoration: underline
+    
+  > * > *
+    margin-left: 0
+    margin-right: 0

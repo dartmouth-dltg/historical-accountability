@@ -1,0 +1,19 @@
+%logo-grid
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-content: center
+  
+  > *
+    +set-margin(1)
+
+    img, picture
+      +spacing('height',2)
+      width: auto
+
+%logo-grid-neutral
+  @extend %logo-grid
+  
+  figure
+    +figure-neutral-wash()

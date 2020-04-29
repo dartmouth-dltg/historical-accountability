@@ -1,0 +1,33 @@
+/* 
+   @file _grid.sass 
+   @category 10_layout
+   @component layout_foundation_basic
+   @description  Establishes responsiveness for top-level sections. Requires a set DOM structure. 
+   @todo  Uses display: grid. Polyfill this for pre-grid support. */
+      
+body > *, .tier
+  margin-top: 0
+  margin-bottom: 0
+  width: 100%
+  
+  &:not(.full) > *
+    +responsive-inset() // Also consider standard-edge-padding() for top-level tiers
+        
+body > *:not(.full) > *, .tier:not(.full) > *
+  display: grid
+  grid-template-columns: 1fr
+  
+  +bp($stack_breakpoint)
+    grid-template-columns: [left] $left_sidebar_width [main] 1fr [right] $right_sidebar_width
+    grid-column-gap: rv(0)
+    grid-row-gap: rv(0)
+      
+    > div, > main, > article
+      grid-column-start: main
+      grid-column-end: right
+      
+    > div:first-child, > article:first-child
+      grid-column-start: left
+      
+    > div:last-child, > article:last-child
+      grid-column-end: end

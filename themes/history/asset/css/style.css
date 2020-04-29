@@ -1,0 +1,1808 @@
+/*!
+ * history-theme v1.0.0
+ * A custom Omeka theme for the Historical Accountability project.
+ * (c) 2020 Agile Humanities Agency
+ * MIT License
+ * https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git
+ */
+
+@charset "UTF-8";
+/* Core Styles for this application */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file _components This file loads components from the b_components folder. Note that the b_components path needs to be declared as an includePath (e.g. via Gulp or config.rb) for these declarations to work. */
+/* @folder 10_layout/00_core @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file General Configuration. Copy this file to your theme configuration folder of your local theme or component and adjust its _index file to import. */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass @component 00_general/00_core @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file _logical_operators @component 00_general/00_core @description A set of static functions (e.g. functions that do not return a value) that perform logical operations on CSS variables. CSS variables must be passed AS strings, include the variable to be assigned a value and any required variables. CSS variable arguments should be set to 1 or 0 Thanks to https://css-tricks.com/logical-operations-with-css-variables/ */
+/* Strips units from a value. h/t to https://css-tricks.com/snippets/sass/strip-unit-function/ */
+/** @file _string_replace A function to replace one string with another. Thanks to https://stackoverflow.com/questions/12728634/string-replace-in-sass */
+/** @file _type_checking.sass @category 00_general @group a_components @description A suite of functions to check value type. With thanks to https://css-tricks.com/snippets/sass/advanced-type-checking/ */
+/** @file _get_asset_url.sass @category 00_general @group a_components @description A suite of functions that compose asset urls from configured values. */
+/** @file _convert_unit.sass @category 00_general @group a_components @description Converts value to chosen unit. With thanks to https://www.sitepoint.com/converting-typographic-units-sass/ */
+/* @folder 10_layout/00_core @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file Layout Configuration. Set a modular scale and standardized spacing. Define breakpoints. Copy this file to your theme configuration folder of your local theme or component and adjust its _index file to import. */
+/* !BREAKPOINTS */
+/*  Values for your responsive design breakpoints. This has now been rethought thanks to https://medium.freecodecamp.com/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862#.rduwqht4g 336px 	  21em       xsml 600px 	  37.5em     sml 900px 	  46.25      med 1200px    75em       lrg 1800px	  100em      xlrg   */
+/* Modular scale reference double-octave    : 4 pi               : 3.14159265359 major-twelfth    : 3 major-eleventh   : 2.666666667 major-tenth      : 2.5 octave           : 2 major-seventh    : 1.875 minor-seventh    : 1.777777778 major-sixth      : 1.666666667 phi              : 1.618034 golden           : $phi minor-sixth      : 1.6 fifth            : 1.5 augmented-fourth : 1.41421 fourth           : 1.333333333 major-third      : 1.25 minor-third      : 1.2 major-second     : 1.125 minor-second     : 1.066666667       */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file _relative_value.sass @category 10_layout @group a_components @description Returns a value in the standardized site scale. Uses the modular scale SASS library. See https://www.modularscale.com @args  $factor: An integer corresponding to a step on the scale. Defaults to 0. @args  $base: The base unit (e.g. 1.5rem) to be evaluated. Defaults to $blh (from 00_layout_configuration) @args  $ratio: The ratio (with a denominator of 1) denoting the distance between steps on the scale. Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale). */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* Sets standard viewport to the device-width */
+/** @file _proportional_thumbnail.sass @category 10_layout @component 00_core @description Creates a fixed container with aspect ratio. Overflow content is hidden Proportion defaults to 1/$scale. Note: The element MUST have a defined width. Set to 'none' if the default is set elsewhere. */
+/** @file _proportional_thumbnail.sass @category 10_layout @component 00_core @description Sets a thumbnail image to a proportion of its with. Proportion defaults to 1/$scale. NOTE: The element must have an explicit $width set as per proportional_height() */
+/** @file _responsive_inset.sass @category 10_layout @group a_components @description Mixins pertaining to standardized content widths using relative values. */
+/* @file _separated_row.sass @category 10_layout @component 00_core @description  Mixin to create a rudimentary grid. $wrap and $rows are legacy parameters.  */
+/** @file Block Spacing Mixin @group 10_layout @description Sets a standardized space for stacked content blocks. */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* @folder 20_colour/00_core @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file Colour System Configuration. A standardized approach to defining and modulating colour. Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import. */
+/* !COLOUR GRID Define your design’s palette by choosing the main colours */
+/** @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. @directory  Contains a library of SASS functions  */
+/* Retrives a derivative colour from a colour map */
+/* @file Converts HSB colours (e.g. as defined in Adobe CC or Sketch) into SASS-supported HSL colours. */
+/* Retrieves a neutral based on intensity. Higher intensities are darker. */
+/* Based on a preset neutral array. Must be a factor of 10 between 10 and 90. */
+/* Creates a neutral by mixing dark and light colours to the provided percentage. */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file Typography Configuration. Used to define a standard proportion across the site as per the modularscale library. Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import. */
+/** @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. @directory  Contains a library of SASS functions  */
+/** @file _font_value.sass @category 20_typography @group a_components @description Function to return value based on relative value $factor, $basetypesize and $scale. */
+/* Scales typography for any screen size. h/t https://www.madebymike.com.au/writing/precise-control-responsive-typography/ @var $min_size: Minimum font size in em or rem $max_size: Maximum font size in em or rem $min_viewport_width: Sets the lower bound breakpoint to stop scaling. E.g. map-get($breakpoints,'med') $max_viewport_width: Sets the upper bound breakpoint to stop scaling. E.g. map-get($breakpoints,'xxlrg') */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* Scales typography for any screen size. h/t https://www.madebymike.com.au/writing/precise-control-responsive-typography/ and Indrek Paas https://www.sassmeister.com/gist/7f22e44ace49b5124eec @var $min_size: Minimum font size in em or rem $max_size: Maximum font size in em or rem $min_viewport_width: Sets the lower bound breakpoint to stop scaling. E.g. map-get($breakpoints,'med') */
+/** @file _font_size.sass @category 20_typography @group a_components @description Creates a font-size declaration based on relative value $factor, $basetypesize and $scale. */
+/* @file _horizontal_list.sass @category 30_typography */
+/** @file _image_bullets.sass @category 30_typography @group a_components @description Places an image to the left of an element. */
+/** @file _icons.sass @component 30_typography @group a_components @description Handy icon-related mixins. */
+/** @file _load_font.sass @description  A font loading utility based on standardized filenames. The font loader is keyed to standardized naming. Each weight of a font must have its own directory, named $basefilename-$weight. Weights should be numeric (100-900). The folder should contain any style variants of that weight, named $basefilename-$style-$weight.$extension A full array of webfonts is expected for each style (.eot, .woff, .otf, .svg, .ttf) Example: times-new-roman-400/times-new-roman-400-italic.eot Note that $styles 'normal' and 'italic' are also font-style keywords so they should not be passed as strings (i.e. in quotations). TO DO: Not happy with how this handles local names, which are specific and too idiosyncratic for an standardized treatment. */
+/* Thankyou Natalia Onischuk http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation */
+/** @file _link_underline.sass @category 30_typography @component 00_Core @description  Adds an underline. Allows themes to override with by redefining it, e.g. to change from a text-underline to border-bottom approach */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file UI Configuration. A standardized approach to defining buttons and other ui elements. Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import. */
+/** @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file Animation Configuration. A standardized approach to site animation.  WORK IN PROGRESS. Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import. */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file _relative_duration.sass @category 50_animation @group a_components @description Returns a value in seconds according to the standardized site scale. Uses the modular scale SASS library. See https://www.modularscale.com @args  $factor: An integer corresponding to a step on the scale. Defaults to 0. @args  $base: A value in seconds. Defaults to the site’s $heartbeat @args  $ratio: The ratio (with a denominator of 1) denoting the distance between steps on the scale. Defaults to the site’s $scale Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale). */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. @directory  Contains a library of mixins  */
+/* @file _standard_transition.sass @category 50_animation @group a_components @description  Creates a standard transition property based on configuration values. */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+@keyframes build { from { opacity: 0; }
+  to { opacity: 1; } }
+
+@keyframes build-08 { from { opacity: 0; }
+  to { opacity: 0.8; } }
+
+@keyframes build-05 { from { opacity: 0; }
+  to { opacity: 0.5; } }
+
+@keyframes pulse { 0% { opacity: 0.5;
+    transform: scale(1, 1); }
+  50% { opacity: 1;
+    transform: scale(1.1, 1.1); }
+  100% { opacity: 0.5;
+    transform: scale(1, 1); } }
+
+/* @file _index.sass @theme Local @description  Loads SASS files for local theme. */
+/* @theme Local @folder c_local/00_configuration @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file General Configuration. Copy this file to your theme configuration folder of your local theme or component and adjust its _index file to import. */
+/** @file Layout Configuration. Set a modular scale and standardized spacing. Define breakpoints. Copy this file to your theme configuration folder of your local theme or component and adjust its _index file to import. */
+/* !BREAKPOINTS */
+/*  Values for your responsive design breakpoints. This has now been rethought thanks to https://medium.freecodecamp.com/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862#.rduwqht4g 336px 	  21em       xsml 600px 	  37.5em     sml 900px 	  46.25      med 1200px    75em       lrg 1800px	  100em      xlrg   */
+/* Modular scale reference double-octave    : 4 pi               : 3.14159265359 major-twelfth    : 3 major-eleventh   : 2.666666667 major-tenth      : 2.5 octave           : 2 major-seventh    : 1.875 minor-seventh    : 1.777777778 major-sixth      : 1.666666667 phi              : 1.618034 golden           : $phi minor-sixth      : 1.6 fifth            : 1.5 augmented-fourth : 1.41421 fourth           : 1.333333333 major-third      : 1.25 minor-third      : 1.2 major-second     : 1.125 minor-second     : 1.066666667       */
+/** @file Colour System Configuration. A standardized approach to defining and modulating colour. Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import. */
+/* !COLOUR GRID Define your design’s palette by choosing the main colours */
+/** @file Typography Configuration. Used to define a standard proportion across the site as per the modularscale library. Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import. */
+@font-face { font-family: "Lato"; font-style: normal; font-weight: 400; src: local("Lato Regular"), local("Lato-Regular"); src: url("../fonts/lato-400/lato-normal-400.eot"), url("../fonts/lato-400/lato-normal-400.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-400/lato-normal-400.otf") format("opentype"), url("../fonts/lato-400/lato-normal-400.woff") format("woff"), url("../fonts/lato-400/lato-normal-400.woff") format("woff"), url("../fonts/lato-400/lato-normal-400.ttf") format("truetype"), url("../fonts/lato-400/lato-normal-400.svg#Calluna Sans") format("svg"); }
+
+@font-face { font-family: "Lato"; font-style: italic; font-weight: 400; src: local("Lato Italic"), local("Lato-Italic"); src: url("../fonts/lato-400/lato-italic-400.eot"), url("../fonts/lato-400/lato-italic-400.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-400/lato-italic-400.otf") format("opentype"), url("../fonts/lato-400/lato-italic-400.woff") format("woff"), url("../fonts/lato-400/lato-italic-400.woff") format("woff"), url("../fonts/lato-400/lato-italic-400.ttf") format("truetype"), url("../fonts/lato-400/lato-italic-400.svg#Calluna Sans") format("svg"); }
+
+@font-face { font-family: "Lato"; font-style: normal; font-weight: 700; src: local("Lato Bold Regular"), local("Lato-Bold-Regular"); src: url("../fonts/lato-700/lato-normal-700.eot"), url("../fonts/lato-700/lato-normal-700.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-700/lato-normal-700.otf") format("opentype"), url("../fonts/lato-700/lato-normal-700.woff") format("woff"), url("../fonts/lato-700/lato-normal-700.woff") format("woff"), url("../fonts/lato-700/lato-normal-700.ttf") format("truetype"), url("../fonts/lato-700/lato-normal-700.svg#Calluna Sans") format("svg"); }
+
+@font-face { font-family: "Lato"; font-style: italic; font-weight: 700; src: local("Lato Bold Italic"), local("Lato-Bold-Italic"); src: url("../fonts/lato-700/lato-italic-700.eot"), url("../fonts/lato-700/lato-italic-700.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-700/lato-italic-700.otf") format("opentype"), url("../fonts/lato-700/lato-italic-700.woff") format("woff"), url("../fonts/lato-700/lato-italic-700.woff") format("woff"), url("../fonts/lato-700/lato-italic-700.ttf") format("truetype"), url("../fonts/lato-700/lato-italic-700.svg#Calluna Sans") format("svg"); }
+
+@font-face { font-family: "Lato"; font-style: normal; font-weight: 900; src: local("Lato Black Regular"), local("Lato-Black-Regular"); src: url("../fonts/lato-900/lato-normal-900.eot"), url("../fonts/lato-900/lato-normal-900.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-900/lato-normal-900.otf") format("opentype"), url("../fonts/lato-900/lato-normal-900.woff") format("woff"), url("../fonts/lato-900/lato-normal-900.woff") format("woff"), url("../fonts/lato-900/lato-normal-900.ttf") format("truetype"), url("../fonts/lato-900/lato-normal-900.svg#Calluna Sans") format("svg"); }
+
+@font-face { font-family: "Lato"; font-style: italic; font-weight: 900; src: local("Lato Black Italic"), local("Lato-Black-Italic"); src: url("../fonts/lato-900/lato-italic-900.eot"), url("../fonts/lato-900/lato-italic-900.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-900/lato-italic-900.otf") format("opentype"), url("../fonts/lato-900/lato-italic-900.woff") format("woff"), url("../fonts/lato-900/lato-italic-900.woff") format("woff"), url("../fonts/lato-900/lato-italic-900.ttf") format("truetype"), url("../fonts/lato-900/lato-italic-900.svg#Calluna Sans") format("svg"); }
+
+@font-face { font-family: "Aleo"; font-style: normal; font-weight: 400; src: local("Aleo Regular"), local("Aleo-Regular"); src: url("../fonts/aleo-400/aleo-normal-400.eot"), url("../fonts/aleo-400/aleo-normal-400.eot?#iefix") format("embedded-opentype"), url("../fonts/aleo-400/aleo-normal-400.otf") format("opentype"), url("../fonts/aleo-400/aleo-normal-400.woff") format("woff"), url("../fonts/aleo-400/aleo-normal-400.woff") format("woff"), url("../fonts/aleo-400/aleo-normal-400.ttf") format("truetype"), url("../fonts/aleo-400/aleo-normal-400.svg#Calluna Sans") format("svg"); }
+
+@font-face { font-family: "Aleo"; font-style: italic; font-weight: 400; src: local("Aleo Italic"), local("Aleo-Italic"); src: url("../fonts/aleo-400/aleo-italic-400.eot"), url("../fonts/aleo-400/aleo-italic-400.eot?#iefix") format("embedded-opentype"), url("../fonts/aleo-400/aleo-italic-400.otf") format("opentype"), url("../fonts/aleo-400/aleo-italic-400.woff") format("woff"), url("../fonts/aleo-400/aleo-italic-400.woff") format("woff"), url("../fonts/aleo-400/aleo-italic-400.ttf") format("truetype"), url("../fonts/aleo-400/aleo-italic-400.svg#Calluna Sans") format("svg"); }
+
+@font-face { font-family: "Aleo"; font-style: normal; font-weight: 700; src: local("Aleo Bold Regular"), local("Aleo-Bold-Regular"); src: url("../fonts/aleo-700/aleo-normal-700.eot"), url("../fonts/aleo-700/aleo-normal-700.eot?#iefix") format("embedded-opentype"), url("../fonts/aleo-700/aleo-normal-700.otf") format("opentype"), url("../fonts/aleo-700/aleo-normal-700.woff") format("woff"), url("../fonts/aleo-700/aleo-normal-700.woff") format("woff"), url("../fonts/aleo-700/aleo-normal-700.ttf") format("truetype"), url("../fonts/aleo-700/aleo-normal-700.svg#Calluna Sans") format("svg"); }
+
+@font-face { font-family: "Aleo"; font-style: italic; font-weight: 700; src: local("Aleo Bold Italic"), local("Aleo-Bold-Italic"); src: url("../fonts/aleo-700/aleo-italic-700.eot"), url("../fonts/aleo-700/aleo-italic-700.eot?#iefix") format("embedded-opentype"), url("../fonts/aleo-700/aleo-italic-700.otf") format("opentype"), url("../fonts/aleo-700/aleo-italic-700.woff") format("woff"), url("../fonts/aleo-700/aleo-italic-700.woff") format("woff"), url("../fonts/aleo-700/aleo-italic-700.ttf") format("truetype"), url("../fonts/aleo-700/aleo-italic-700.svg#Calluna Sans") format("svg"); }
+
+/** @file UI Configuration. A standardized approach to defining buttons and other ui elements. Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import. */
+/** @file Animation Configuration. A standardized approach to site animation.  WORK IN PROGRESS. Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import. */
+/** @file Fluid Type Component Configuration. Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import. */
+/* @profile ah_standard_base @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file _components This file loads components from the b_components folder. */
+/* @component layout_foundation_basic @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file _grid.sass @category 10_layout @component layout_foundation_basic @description  Establishes responsiveness for top-level sections. Requires a set DOM structure. @todo  Uses display: grid. Polyfill this for pre-grid support. */
+body > *, .tier { margin-top: 0; margin-bottom: 0; width: 100%; }
+
+body > *:not(.full) > *, .tier:not(.full) > * { padding-left: 0.84375rem; padding-right: 0.84375rem; }
+
+@media only screen and (min-width: 46.25em) { body > *:not(.full) > *, .tier:not(.full) > * { padding-left: 1.5rem; padding-right: 1.5rem; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+body > *:not(.full) > *, .tier:not(.full) > * { display: grid; grid-template-columns: 1fr; }
+
+@media only screen and (min-width: 46.25em) { body > *:not(.full) > *, .tier:not(.full) > * { grid-template-columns: [left] 12.49999% [main] 1fr [right] 24.99998%; grid-column-gap: 1.5rem; grid-row-gap: 1.5rem; }
+  body > *:not(.full) > * > div, body > *:not(.full) > * > main, body > *:not(.full) > * > article, .tier:not(.full) > * > div, .tier:not(.full) > * > main, .tier:not(.full) > * > article { grid-column-start: main; grid-column-end: right; }
+  body > *:not(.full) > * > div:first-child, body > *:not(.full) > * > article:first-child, .tier:not(.full) > * > div:first-child, .tier:not(.full) > * > article:first-child { grid-column-start: left; }
+  body > *:not(.full) > * > div:last-child, body > *:not(.full) > * > article:last-child, .tier:not(.full) > * > div:last-child, .tier:not(.full) > * > article:last-child { grid-column-end: end; } }
+
+/* @file _viewport.sass @category 10_layout @component layout_foundation_basic @description  Establishes viewport at device-width. */
+@-webkit-viewport { width: device-width; }
+
+@-moz-viewport { width: device-width; }
+
+@-ms-viewport { width: device-width; }
+
+@-o-viewport { width: device-width; }
+
+@viewport { width: device-width; }
+
+/* @file _primary_content.sass @category 10_layout @component layout_foundation_basic @description  Defines styles for the primary content section (#primary-content and main), including standardized spacing. */
+#primary-content > * > * > * { margin-top: 0; margin-bottom: 0.84375rem; }
+
+@media only screen and (min-width: 46.25em) { #primary-content > * > * > * { margin-bottom: 1.5rem; } }
+
+main > div { margin-top: 0; margin-bottom: 0.84375rem; }
+
+@media only screen and (min-width: 46.25em) { main > div { margin-bottom: 1.5rem; } }
+
+/** @component layout_css_variables @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file _set_css_variables @component layout_css_variables @file _index.sass @description  Sets breakpoints and breakpoint aliases as CSS variables, making them available to Javascript */
+:root { --breakpoint-xsml: 336; --breakpoint-sml: 740; --breakpoint-med: 900; --breakpoint-lrg: 1200; --breakpoint-xlrg: 1800; --breakpoint-xxlrg: 2080; --breakpoint-stack: 740; --breakpoint-tablet: 900; --breakpoint-desktop: 1200; --breakpoint-ultrawide: 1800; }
+
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file Vertical Breakpoint Configuration. Defines vertical breakpoints. Load _index_local_config */
+/* Vertical Breakpoints In pixels: xxshort: 400px xshort: 480px short: 640px med: 800px tall: 1024px // iPad xtall: 1200px */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+img { max-width: 100%; width: 100%; height: auto; border-width: 0; vertical-align: middle; -ms-interpolation-mode: bicubic; }
+
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* !BASIC STRUCTURE */
+html { scroll-behaviour: smooth; }
+
+html, body { height: 100%; }
+
+body { padding: 0; margin: 0; background-color: #FFFFFF; }
+
+div, main, aside, nav, article, section, header, footer { box-sizing: border-box; }
+
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* MOBILE */
+#mobile-header-nav { display: block; }
+
+@media only screen and (min-width: 56.25em) { #mobile-header-nav { display: none; } }
+
+#mobile-nav-block { display: none; }
+
+/* @file _index.sass @component root_colour_variables @category 20_colour @description  Handles basic animation settings. */
+/** @file colour_root_variables.sass @category 20_colour @component _root_colour_variables @description Adds CSS variables to be passed to javascript */
+:root { --colour--1: #FFC565; }
+
+:root { --colour--2: #943D21; }
+
+:root { --colour--3: #465D55; }
+
+:root { --colour--4: #78ADCC; }
+
+:root { --colour--5: #111111; }
+
+:root { --colour--6: #000000; }
+
+:root { --colour--7: #000000; }
+
+:root { --colour--8: #000000; }
+
+:root { --colour--9: #000000; }
+
+:root { --colour--1--shade: #D4A454; }
+
+:root { --colour--1--primary: #FFC565; }
+
+:root { --colour--1--tint: #FFD898; }
+
+:root { --colour--1--fade: #FFECCC; }
+
+:root { --colour--1--watermark: #FFF7E9; }
+
+:root { --colour--2--shade: #80351C; }
+
+:root { --colour--2--primary: #943D21; }
+
+:root { --colour--2--tint: #C59587; }
+
+:root { --colour--2--fade: #DEC4BB; }
+
+:root { --colour--2--watermark: #F3E7E3; }
+
+:root { --colour--3--shade: #586D66; }
+
+:root { --colour--3--primary: #465D55; }
+
+:root { --colour--3--tint: #909E99; }
+
+:root { --colour--3--fade: #ECF3F8; }
+
+:root { --colour--3--watermark: #F3F6F8; }
+
+:root { --colour--4--shade: #3C5766; }
+
+:root { --colour--4--primary: #78ADCC; }
+
+:root { --colour--4--tint: #9FC4DB; }
+
+:root { --colour--4--fade: #C5DCE9; }
+
+:root { --colour--4--watermark: #ECF3F8; }
+
+:root { --colour--5--shade: #0e0e0e; }
+
+:root { --colour--5--primary: #111111; }
+
+:root { --colour--5--tint: #292929; }
+
+:root { --colour--5--fade: #888888; }
+
+:root { --colour--5--watermark: #cfcfcf; }
+
+:root { --colour--6--shade: black; }
+
+:root { --colour--6--primary: #000000; }
+
+:root { --colour--6--tint: #1a1a1a; }
+
+:root { --colour--6--fade: gray; }
+
+:root { --colour--6--watermark: #cccccc; }
+
+:root { --colour--7--shade: black; }
+
+:root { --colour--7--primary: #000000; }
+
+:root { --colour--7--tint: #1a1a1a; }
+
+:root { --colour--7--fade: gray; }
+
+:root { --colour--7--watermark: #cccccc; }
+
+:root { --colour--8--shade: black; }
+
+:root { --colour--8--primary: #000000; }
+
+:root { --colour--8--tint: #1a1a1a; }
+
+:root { --colour--8--fade: gray; }
+
+:root { --colour--8--watermark: #cccccc; }
+
+:root { --colour--9--shade: black; }
+
+:root { --colour--9--primary: #000000; }
+
+:root { --colour--9--tint: #1a1a1a; }
+
+:root { --colour--9--fade: gray; }
+
+:root { --colour--9--watermark: #cccccc; }
+
+:root { --colour--black: #161109; --colour--white: #FFFFFF; --colour--impact: #943D21; --colour--cta: #283A44; }
+
+:root { --colour--neutral--10: #e8e7e6; }
+
+:root { --colour--neutral--20: #d0cfce; }
+
+:root { --colour--neutral--30: #b9b8b5; }
+
+:root { --colour--neutral--40: #a2a09d; }
+
+:root { --colour--neutral--50: #8b8884; }
+
+:root { --colour--neutral--60: #73706b; }
+
+:root { --colour--neutral--70: #5c5853; }
+
+:root { --colour--neutral--80: #45413a; }
+
+:root { --colour--neutral--90: #2d2922; }
+
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+html { font-family: "Lato", sans-serif; font-size: 100%; color: #161109; }
+
+@media only screen and (min-width: 21em) { html { font-size: 100%; } }
+
+@media only screen and (min-width: 46.25em) { html { font-size: 100%; } }
+
+@media only screen and (min-width: 56.25em) { html { font-size: 100%; } }
+
+@media only screen and (min-width: 75em) { html { font-size: 100%; } }
+
+@media only screen and (min-width: 112.5em) { html { font-size: 100%; } }
+
+@media only screen and (min-width: 130em) { html { font-size: 100%; } }
+
+body { font-size: 1.2rem; line-height: 1.5; }
+
+p, ol, ul, th, td, dl, dd, dt, address { font-size: 1.2rem; line-height: 1.5; margin-top: 0; margin-bottom: 0.84375rem; }
+
+@media only screen and (min-width: 46.25em) { p, ol, ul, th, td, dl, dd, dt, address { margin-bottom: 0.63281rem; } }
+
+blockquote { box-sizing: border-box; }
+
+dl { margin-bottom: 1.5rem; }
+
+dt { font-family: "Aleo", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; text-transform: uppercase; }
+
+dd { margin-bottom: 1.125rem; margin-left: 0; }
+
+menu, dir { margin: 0; padding: 0; }
+
+q { quotes: none; }
+
+abbr[title] { border-bottom: 1px dotted #5c5853; cursor: help; }
+
+b, strong, .strong { font-weight: 600; }
+
+dfn, .italic { font-style: italic; }
+
+ins { background-color: #a2a09d; color: #161109; text-decoration: none; }
+
+mark { background-color: #a2a09d; color: #161109; font-style: italic; font-weight: 700; }
+
+pre, code, kbd, samp { font-family: "Andale Mono", Monaco, Courier New, monospace; font-size: 1.2rem; line-height: 1.5; color: #45413a; }
+
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+sub, sup { position: relative; font-size: 0.9rem; line-height: 0; vertical-align: baselineheight; }
+
+sup { top: -0.3375rem; }
+
+sub { bottom: -0.16875rem; }
+
+.spaced { letter-spacing: 1px; }
+
+hr { border: 0; border-bottom: 1px solid #5c5853; margin-top: 0; margin-bottom: 0.84375rem; }
+
+@media only screen and (min-width: 46.25em) { hr { margin-bottom: 1.5rem; } }
+
+h1, h2, h3, h4, h5, h6 { margin: 0; color: #161109; font-family: "Aleo", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; box-sizing: border-box; line-height: 1; }
+
+h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a { color: #161109; text-decoration: none; }
+
+h1, h2, h3 { width: 100%; }
+
+h1, .h1 { font-size: 3.79259rem; margin-top: 2.0rem; margin-bottom: 1.5rem; }
+
+h2, .h2 { font-size: 2.84444rem; margin-top: 2.0rem; margin-bottom: 1.125rem; }
+
+h3, .h3 { font-size: 2.13333rem; margin-top: 2.0rem; margin-bottom: 0; text-transform: uppercase; }
+
+h4, .h4 { font-size: 1.6rem; margin-top: 2.0rem; margin-bottom: 0; }
+
+h5, .h5 { font-size: 1.2rem; margin-top: 1.5rem; font-weight: 400; font-style: italic; margin-bottom: 0; }
+
+h6, .h6 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0; font-weight: 400; color: #45413a; }
+
+a { color: #161109; cursor: pointer; text-decoration: none; transition: all 0.11865s ease-in 0s; }
+
+a:hover, a:active { text-decoration: underline; }
+
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+ol, ul { margin-top: 1.125rem; margin-bottom: 1.125rem; }
+
+li ul, li ol { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+p > a, p li > a, blockquote > a { color: #161109; text-decoration: underline; }
+
+p > a:hover, p > a:active, p li > a:hover, p li > a:active, blockquote > a:hover, blockquote > a:active { color: #161109; }
+
+/* @file _index.sass @component ui_element_base @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file _form_elements @component ui_element_base Defines a common set of rules for form elements. Overrides browser default form element styling. Values are set in the configuration file. */
+select:hover, input:hover[type='text'], input:hover[type='search'], input:hover[type='url'], input:hover[type='date'], input:hover[type='email'], input:hover[type='password'], .btn:hover, button:hover, input:hover[type='button'], .btn-submit:hover, input:hover[type='submit'], input:hover[type='reset'], .btn-inverted:hover, .btn-outline:hover, .btn-ghost:hover, textarea:hover, select:focus, input:focus[type='text'], input:focus[type='search'], input:focus[type='url'], input:focus[type='date'], input:focus[type='email'], input:focus[type='password'], .btn:focus, button:focus, input:focus[type='button'], .btn-submit:focus, input:focus[type='submit'], input:focus[type='reset'], .btn-inverted:focus, .btn-outline:focus, .btn-ghost:focus, textarea:focus, select:active, input:active[type='text'], input:active[type='search'], input:active[type='url'], input:active[type='date'], input:active[type='email'], input:active[type='password'], .btn:active, button:active, input:active[type='button'], .btn-submit:active, input:active[type='submit'], input:active[type='reset'], .btn-inverted:active, .btn-outline:active, .btn-ghost:active, textarea:active { text-decoration: none; border-color: #161109; box-shadow: inset 0 0 0 2px #161109; transition: all 0.5s ease-in 0s; }
+
+select, input[type='text'], input[type='search'], input[type='url'], input[type='date'], input[type='email'], input[type='password'], .btn, button, input[type='button'], .btn-submit, input[type='submit'], button[type='submit'], input[type='reset'], .btn-inverted, .btn-outline, .btn-ghost { display: flex; flex-direction: row; justify-content: flex-start; align-items: center; vertical-align: baseline; box-sizing: border-box; zoom: 1; font-family: "Lato", sans-serif; padding: 0.47461rem; font-size: 1.2rem; line-height: 1.5rem; font-weight: 400; vertical-align: middle; border-style: solid; border-width: 2px; border-color: #a2a09d; border-radius: 2px; background-clip: border-box; box-shadow: none; outline: none; transition: all 0.5s ease-in 0s; max-width: 100%; }
+
+select, input[type='text'], input[type='search'], input[type='url'], input[type='date'], input[type='email'], input[type='password'] { appearance: none; height: 60px; min-height: 60px; }
+
+textarea { box-sizing: border-box; max-width: 100%; padding: 0.47461rem; box-shadow: none; border-style: solid; border-width: 2px; border-color: #a2a09d; border-radius: 2px; background-clip: border-box; transition: all 0.5s ease-in 0s; }
+
+/* A note on element height Button base styling includes a logic intended to enforce consistent height between form inputs and buttons. This is particularly important for inline forms, where select, input and submit buttons must be consistent. The best approach is to enforce a $ui_element_height, and ensure that it's larger than the default button height. The fallback is a logic which takes into account ui elements border widths in the instances where text input has borders and buttons do not. */
+.btn, button, input[type='button'], .btn-submit, input[type='submit'], button[type='submit'], input[type='reset'], .btn-inverted, .btn-outline, .btn-ghost { height: 60px; flex-shrink: 0; border-color: #283A44; justify-content: center; text-align: center; background-clip: border-box; cursor: pointer; min-width: 200px; width: 280px; max-width: 375px; transition: all 0.5s ease-in 0s; white-space: nowrap; }
+
+.btn:hover, button:hover, input:hover[type='button'], .btn-submit:hover, input:hover[type='submit'], input:hover[type='reset'], .btn-inverted:hover, .btn-outline:hover, .btn-ghost:hover, .btn:focus, button:focus, input:focus[type='button'], .btn-submit:focus, input:focus[type='submit'], input:focus[type='reset'], .btn-inverted:focus, .btn-outline:focus, .btn-ghost:focus, .btn:active, button:active, input:active[type='button'], .btn-submit:active, input:active[type='submit'], input:active[type='reset'], .btn-inverted:active, .btn-outline:active, .btn-ghost:active { text-decoration: none; box-shadow: none; transition: all 0.11865s ease-in 0s; }
+
+.btn, button, input[type='button'] { color: #283A44; background-color: transparent; border: 2px solid #283A44; }
+
+.btn:hover, button:hover, input:hover[type='button'], .btn:focus, button:focus, input:focus[type='button'], .btn:active, button:active, input:active[type='button'] { background-color: #FFFFFF; color: #161109; border: 2px solid #161109; }
+
+.btn-submit, input[type='submit'], button[type='submit'] { color: #FFFFFF; background-color: #943D21; border: 2px solid #943D21; }
+
+.btn-submit:hover, input:hover[type='submit'], button:hover[type='submit'], .btn-submit:focus, input:focus[type='submit'], button:focus[type='submit'], .btn-submit:active, input:active[type='submit'], button:active[type='submit'] { background-color: #23150b; color: #FFFFFF; border: 2px solid #23150b; }
+
+input[type='reset'] { color: #5c5853; background-color: #FFFFFF; border: 2px solid #5c5853; }
+
+input:hover[type='reset'], input:focus[type='reset'], input:active[type='reset'] { background-color: #5c5853; color: #161109; }
+
+.btn-inverted { color: transparent; background-color: #283A44; border: 2px solid transparent; }
+
+.btn-inverted:hover, .btn-inverted:focus, .btn-inverted:active { background-color: #161109; color: #283A44; }
+
+.btn-outline { color: #73706b; background-color: transparent; border: 2px solid #73706b; }
+
+.btn-outline:hover, .btn-outline:focus, .btn-outline:active { color: #161109; background-color: transparent; border: 2px solid #161109; }
+
+.btn-ghost { color: #FFFFFF; background-color: transparent; border: 2px solid #FFFFFF; }
+
+.btn-ghost:hover, .btn-ghost:focus, .btn-ghost:active { border: 2px solid #FFFFFF; background-color: #040302; color: #FFFFFF; }
+
+/* @file _index.sass @component standardized_buttons @category 40_ui @group a_components @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* Defines a common set of rules for form elements. Definitions are set in a_core/10_Definitions/_forms.sass */
+input[type='submit'] { margin-top: 1.5rem; }
+
+.form-item { margin-top: 1.5rem; }
+
+.form-item:first-child { margin-top: 0; }
+
+/* @file _index.sass @component standardized_animation @category 50_animation @description  Handles basic animation settings. */
+/** @file _animation_root_variables.sass @category 50_animation @component standardized_animation @description Adds CSS variables to be passed to javascript */
+:root { --animation--heartbeat: 1000; --animation--slidetransition: 3000; }
+
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+figure { margin: 0; box-sizing: border-box; }
+
+figcaption { display: block; box-sizing: border-box; font-weight: normal; font-size: 1.2rem; font-style: italic; color: #161109; }
+
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+svg { width: inherit; height: inherit; fill: inherit; }
+
+svg .cls-1, svg .cls-2, svg .cls-3 { fill: inherit; }
+
+/* @component 30_typography/fluid_type @file _index_local_configuration.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/** @file _fluid_type_component.sass */
+.fluid-type { font-size: 1.2rem; }
+
+@media (min-width: 46.25em) { .fluid-type { font-size: calc(1.2rem + 0.4 * (100vw - 46.25em) / 66.25); } }
+
+@media (min-width: 112.5em) { .fluid-type { font-size: 1.6rem; } }
+
+.fluid-type address, .fluid-type article, .fluid-type aside, .fluid-type section, .fluid-type ul { font-size: 1em; line-height: inherit; }
+
+/* @theme Local @folder c_local/00_general @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
+/* Standardized Huronia drop shadow mixin. */
+/* @file _index.sass @theme Local @description  Loads SASS files for local theme. */
+/* @file _index.sass @theme Local @description  Loads SASS files for local theme. */
+/* @file _layout.sass @theme Local @description  Loads SASS files for local theme. */
+video { max-height: 100vh; width: 100%; }
+
+#secondary-content { background: #e8e7e6; margin-top: 6.32098rem; padding: 6.32098rem 0; }
+
+#secondary-content h2 { margin-top: 0; border-bottom: 1px solid #161109; }
+
+#secondary-content > div { margin-top: 4.74074rem; }
+
+#secondary-content > div > * { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { #secondary-content > div > * { padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto; max-width: 700px; } }
+
+#secondary-content > div > .site-guide-cont { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { #secondary-content > div > .site-guide-cont { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { #secondary-content > div > .site-guide-cont { max-width: calc(700px + (8.42797rem * 2) - 3rem); } }
+
+section main > div > * { margin-left: 1.5rem; margin-right: 1.5rem; }
+
+@media only screen and (min-width: 46.25em) { section main > div > * { margin-left: auto; margin-right: auto; } }
+
+section main > div > *:first-child { margin-top: 3.55555rem !important; }
+
+section main > div > .storymap { margin-left: auto; margin-right: auto; margin-top: 0 !important; }
+
+section main > div > .tl-timeline { max-width: 100% !important; margin-left: auto; margin-right: auto; margin-top: 0 !important; }
+
+section > div[class*="block-"] { margin-top: 4.74074rem; }
+
+section > div > div > div { margin-left: 1.5rem; margin-right: 1.5rem; }
+
+@media only screen and (min-width: 46.25em) { section > div > div > div { margin-left: auto; margin-right: auto; } }
+
+main > div { margin-bottom: 0; padding-left: 0; padding-right: 0; }
+
+main > div > * { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > * { padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto; max-width: 700px; } }
+
+main > div > .storymap { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 0; padding-right: 0; }
+
+main > div > .slideshow { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > .slideshow { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div > .slideshow { max-width: calc(700px + (4.74074rem * 2) - 3rem); } }
+
+main > div > .tl-timeline { max-width: 100% !important; max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 0; padding-right: 0; }
+
+main > div > .browse-controls { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > .browse-controls { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div > .browse-controls { max-width: calc(700px + (8.42797rem * 2) - 3rem); } }
+
+@media only screen and (min-width: 46.25em) { main > div { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div { max-width: calc(700px + (8.42797rem * 2) - 3rem); } }
+
+main > div > .hu-outset-margin { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > .hu-outset-margin { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div > .hu-outset-margin { max-width: calc(700px + (8.42797rem * 2) - 3rem); } }
+
+main > div > .explore-the-archive { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > .explore-the-archive { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div > .explore-the-archive { max-width: calc(700px + (8.42797rem * 2) - 3rem); } }
+
+main > div > .explore-the-archive > div { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > .explore-the-archive > div { padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto; max-width: 700px; } }
+
+main > div > .resource-list { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > .resource-list { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div > .resource-list { max-width: calc(700px + (8.42797rem * 2) - 3rem); } }
+
+main > div .slideshow-block, main > div .slideshow-with-audio { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div .slideshow-block, main > div .slideshow-with-audio { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div .slideshow-block, main > div .slideshow-with-audio { max-width: calc(700px + (11.23729rem * 2) - 3rem); } }
+
+main > div > .file { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > .file { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div > .file { max-width: calc(700px + (4.74074rem * 2) - 3rem); } }
+
+main > div > .file .caption { text-align: center; margin-top: 1.125rem; margin-bottom: 1.125rem; }
+
+main > div > .file h3 { display: none; }
+
+main > div > ul, main > div .item-list > ul { display: grid; grid-template-columns: 1fr; grid-column-gap: 3.55555rem; grid-row-gap: 0.84375rem; grid-auto-columns: min-content; padding: 0; list-style-type: none; }
+
+@media only screen and (min-width: 75em) { main > div > ul, main > div .item-list > ul { grid-template-columns: 1fr 1fr 1fr; } }
+
+main > div > ul li, main > div .item-list > ul li { position: relative; }
+
+main > div > ul li:before, main > div .item-list > ul li:before { content: "\2022"; color: #C59587; font-weight: bold; display: inline-block; width: 0.84375rem; position: absolute; top: -0.375rem; left: -1.5rem; font-size: 1.5rem; }
+
+main blockquote { border-top: 3px solid #632916; border-bottom: 3px solid #632916; color: #80351C; padding: 2.0rem 3.55555rem !important; font-family: "Aleo", Helvetica, Tahoma, Arial, sans-serif; }
+
+main th, main td { text-align: left; border-spacing: 0; padding: 0.35596rem; font-size: 0.9rem; }
+
+@media only screen and (min-width: 46.25em) { main th, main td { padding: 0.63281rem; font-size: 1.2rem; } }
+
+main th { background: #e8e7e6; }
+
+main tr:nth-child(even) > td { background: #f3f3f3; }
+
+main table { border: 1px solid #dcdbda; border-spacing: 0; }
+
+@media only screen and (min-width: 46.25em) { main table { width: 100%; } }
+
+.huronia-identity { background-color: #161109; height: 2.0rem; width: 60%; display: block; margin: 1.125rem; }
+
+@media only screen and (min-width: 46.25em) { .huronia-identity { background-color: #161109; height: 100%; width: 330px; margin: 0; } }
+
+@media only screen and (min-width: 46.25em) { .huronia-identity#logo-mobile { display: none; } }
+
+.huronia-identity#logo-mobile img { height: 100%; width: auto; }
+
+.huronia-identity#logo-stack { display: none; }
+
+@media only screen and (min-width: 46.25em) { .huronia-identity#logo-stack { display: flex; flex-direction: row; align-items: center; } }
+
+.huronia-identity#logo-stack img { width: 100%; transform: translateY(-6.5px); }
+
+.site-page-pagination { display: none; }
+
+body > header { align-items: center; display: grid; grid-template-columns: 3fr 1fr; border-bottom: 0.20023rem solid #FFFFFF; overflow: hidden; background: #161109; }
+
+@media only screen and (min-width: 46.25em) { body > header { display: grid; grid-template-rows: initial; grid-template-columns: 2fr 6fr 1fr; grid-row-gap: initial; } }
+
+body > header .access-button { display: none; }
+
+body > header .access-button.up-arrow-toggle .down-arrow-black { transform: rotate(180deg); position: relative; top: -4px; }
+
+body > header .access-button:hover { color: #FFFFFF; }
+
+@media only screen and (min-width: 46.25em) { body > header .access-button { background: #FFC565; padding: 0 0.63281rem; color: #161109; white-space: nowrap; display: flex; align-items: center; text-align: center; height: 100%; border-left: 0.08447rem solid #FFFFFF; } }
+
+body > header .menu-access-button { background: #FFC565; padding: 0 0.63281rem; color: #161109; white-space: nowrap; display: flex; align-items: center; text-align: left; height: 100%; line-height: 1.125rem; border-left: 0.08447rem solid #FFFFFF; }
+
+body > header .menu-access-button.up-arrow-toggle .down-arrow-black { transform: rotate(180deg); position: relative; top: -4px; }
+
+body > header .menu-access-button:hover { color: #FFFFFF; }
+
+@media only screen and (min-width: 46.25em) { body > header .menu-access-button { display: none !important; } }
+
+body > header img { width: 47.3538rem; float: left; }
+
+body > header nav { background: #161109; height: 100%; display: none; }
+
+@media only screen and (min-width: 46.25em) { body > header nav { display: block; text-align: right; padding: 10px 0; padding-right: 3%; } }
+
+body > header nav ul.navigation { display: inline-block; float: right; }
+
+body > header nav ul.navigation li { margin: 0 0.26697rem; white-space: nowrap; }
+
+body > header nav ul.navigation li.active a { color: #FFC565; }
+
+body > header nav ul.navigation li:last-child { display: none !important; }
+
+body > header a { color: #FFFFFF; font-weight: 700; }
+
+body > header a span { margin: 0 auto; }
+
+body > header a:hover { color: #FFC565; }
+
+body > header .down-arrow-black { vertical-align: top; display: inline-block; margin: -0.26697rem 0.35596rem; width: 1.125rem; height: 1.125rem; background: url("../../asset/img/svg/icons/down_arrow_black.svg") no-repeat; }
+
+@media only screen and (min-width: 46.25em) { body > header .down-arrow-black { vertical-align: initial; } }
+
+body > header ul li { display: inline; }
+
+body > footer { color: #FFFFFF; background-color: #161109; padding: 2.0rem; display: grid; grid-template-columns: 15% 1fr 15%; }
+
+@media only screen and (min-width: 46.25em) { body > footer { display: grid; grid-template-rows: initial; grid-row-gap: initial; padding: 1.125rem; font-size: 0.9rem; line-height: 1.125rem; grid-column-gap: 0.84375rem; } }
+
+@media only screen and (min-width: 46.25em) and (min-width: 46.25em) { body > footer { font-size: calc(0.9rem + 0.3 * (100vw - 46.25em) / 66.25); } }
+
+@media only screen and (min-width: 46.25em) and (min-width: 112.5em) { body > footer { font-size: 1.2rem; } }
+
+@media only screen and (min-width: 46.25em) { body > footer address, body > footer article, body > footer aside, body > footer section, body > footer ul { font-size: 1em; line-height: inherit; } }
+
+@media only screen and (min-width: 56.25em) { body > footer { grid-column-gap: 2.66667rem; padding: 2.66667rem 4.74074rem; } }
+
+body > footer div { margin: auto; grid-column: 1 / 3; }
+
+@media only screen and (min-width: 46.25em) { body > footer div { grid-column: auto; } }
+
+body > footer p { margin-top: 2.66667rem; font-size: 0.7em; }
+
+body > footer .footer--logo { margin: 0; text-align: right; grid-column: 3 / 3; }
+
+@media only screen and (min-width: 46.25em) { body > footer .footer--logo { margin: auto; grid-column: auto; } }
+
+body > footer .footer--logo img { width: 14.98305rem; }
+
+body > footer .footer--recountlogo { margin: auto; }
+
+body > footer .footer--recountlogo img { width: 26.63652rem; }
+
+body > footer nav { grid-column: 1 / 3; width: 100%; grid-template-columns: unset; display: grid; }
+
+@media only screen and (min-width: 46.25em) { body > footer nav { grid-column: 2 / 3; grid-template-columns: 1fr 1fr 1fr; } }
+
+body > footer nav ul { line-height: 2.13333rem; }
+
+body > footer nav ul li:first-child { margin-bottom: 0.63281rem; list-style-type: none; margin-left: -15px; }
+
+body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
+
+.site-guide-cont { padding-left: 0; padding-right: 0; display: grid; align-items: center; grid-column-gap: 1.125rem; grid-template-rows: none; grid-row-gap: 0; grid-template-columns: none; }
+
+@media only screen and (min-width: 46.25em) { .site-guide-cont { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { .site-guide-cont { max-width: calc(700px + (8.42797rem * 2) - 3rem); } }
+
+@media only screen and (min-width: 46.25em) { .site-guide-cont { display: flex; grid-template-columns: 3fr 2fr 2fr; } }
+
+.site-guide-cont > div { grid-column: auto; padding: 0; }
+
+@media only screen and (min-width: 46.25em) { .site-guide-cont > div { padding: 0 1.5rem; } }
+
+.site-guide-cont p { font-size: 0.9rem; margin-left: 2.0rem; }
+
+.site-guide-cont h5 { text-decoration: underline; margin-bottom: 0.63281rem; display: inline-block; }
+
+.site-guide-cont i { display: inline-block; background: black; border-radius: 3px; width: 20px; height: 20px; margin-right: 10px; }
+
+.site-guide-cont h1 { font-weight: 900; }
+
+.site-guide-head { align-self: flex-start; text-align: right; }
+
+.site-guide-head p { font-weight: 600; margin-left: 0; }
+
+.access-dropdown { color: #fff; text-align: left; padding-right: 0; background: black; float: right; width: auto; position: absolute; right: 0; }
+
+.access-dropdown ul { padding-left: 10px; grid-template-columns: unset; list-style-type: none; }
+
+.access-dropdown ul li .toggle-label { position: relative; top: -3px; }
+
+.access-dropdown-mobile { color: #fff; text-align: right; padding-right: 0; background: black; float: right; width: 100%; position: absolute; }
+
+@media only screen and (min-width: 46.25em) { .access-dropdown-mobile { display: none; } }
+
+.access-dropdown-mobile ul { padding-left: 10px; grid-template-columns: unset; list-style-type: none; }
+
+.access-dropdown-mobile li .toggle-label { position: relative; top: -3px; }
+
+.dark-switch { position: relative; display: inline-block; width: 40px; height: 24px; }
+
+.dark-switch input { opacity: 0; width: 0; height: 0; }
+
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; }
+
+.slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; -webkit-transition: .4s; transition: .4s; }
+
+input:checked + .slider { background-color: #FFC565; }
+
+input:focus + .slider { box-shadow: 0 0 1px #FFC565; }
+
+input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transform: translateX(16px); transform: translateX(16px); }
+
+.slider.round { border-radius: 34px; }
+
+.slider.round:before { border-radius: 50%; }
+
+.profile-overlay-btn { display: none; }
+
+.profile-overlay-logo { display: none !important; }
+
+@media only screen and (min-width: 46.25em) { #splash > * { height: 100%; min-height: 500px; } }
+
+#splash > div { margin-top: 0; }
+
+.down-arrow:hover { color: #FFFFFF; }
+
+#homepage-splash { margin-left: 0; margin-right: 0; display: flex; flex-direction: column; justify-content: flex-start; width: 100%; overflow-y: hidden; position: relative; }
+
+@media only screen and (min-width: 46.25em) { #homepage-splash .slick-slide { height: 100%; } }
+
+#homepage-splash figure { height: 14.98305rem !important; max-height: initial !important; }
+
+#homepage-splash figure a { display: block; height: 100%; }
+
+#homepage-splash figure img { object-fit: cover; height: 100%; }
+
+@media only screen and (min-width: 46.25em) { #homepage-splash figure { height: 100% !important; max-height: initial !important; } }
+
+@media only screen and (min-width: 46.25em) { #homepage-splash { flex-direction: row; justify-content: flex-end; }
+  #homepage-splash:after { position: absolute; content: ""; height: 100%; width: 100%; top: 0; left: 0; background: linear-gradient(90deg, rgba(2, 3, 4, 0.8) 36%, rgba(255, 197, 101, 0.1) 100%); } }
+
+#homepage-splash .items { position: relative; width: 100%; left: 0; top: 0; }
+
+@media only screen and (min-width: 46.25em) { #homepage-splash .items { position: absolute; height: 100%; } }
+
+#homepage-splash .item { height: 100%; }
+
+#homepage-splash .flame { height: 100%; z-index: 1; display: none; }
+
+@media only screen and (min-width: 46.25em) { #homepage-splash .flame { display: block; } }
+
+#homepage-splash .flame img { max-width: none; width: auto; height: 100%; }
+
+#homepage-splash .resource.introduction { z-index: 10; }
+
+@media only screen and (min-width: 46.25em) { #homepage-splash .resource.introduction { width: 27%; margin-left: -3px; height: 100%; } }
+
+#homepage-splash .resource.introduction .introductory-text { height: 100%; padding-right: 3.55555rem; padding-bottom: 8.42797rem; padding-top: 2.66667rem; padding-bottom: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; background-color: #FFFFFF; z-index: 2; flex: 1; font-weight: 700; }
+
+@media only screen and (min-width: 46.25em) { #homepage-splash .resource.introduction .introductory-text { padding-top: 1.5rem; padding-bottom: 1.5rem; font-weight: 400; } }
+
+#homepage-splash .scroll-down { display: none; }
+
+@media only screen and (min-width: 46.25em) { #homepage-splash .scroll-down { display: block; } }
+
+#homepage-splash .down-arrow { color: #161109; }
+
+#homepage-splash .down-arrow span { color: #161109; }
+
+#homepage-splash .down-arrow:hover { color: #FFC565; }
+
+#homepage-splash .down-arrow:hover span { color: #FFC565; }
+
+#homepage-splash .warning-lug { width: 100%; height: fit-content; background-color: #161109; opacity: 0.8; color: #FFFFFF; border-top: 2px solid #FFFFFF; padding: 1.5rem; font-size: 0.9rem; display: flex; flex-direction: column; justify-content: center; z-index: 1; }
+
+@media only screen and (min-width: 46.25em) { #homepage-splash .warning-lug { position: absolute; width: 14.98305rem; bottom: 2.0rem; left: 2.0rem; padding: 1.125rem; border: 1px solid #FFFFFF; } }
+
+#homepage-splash .warning-lug p { font-size: 1em; }
+
+#homepage-splash .warning-lug h4 { font-family: "Lato", sans-serif; font-size: 1.5em; color: #FFFFFF; text-transform: uppercase; text-decoration: underline; margin-top: 0px; margin-bottom: 0.84375rem; display: flex; flex-direction: row; align-items: center; }
+
+#homepage-splash .warning-lug h4 img { padding-right: 4px; }
+
+#huronia-splash-logo { margin-bottom: 1.5rem; }
+
+.section-intro-splash { margin-left: 0; margin-right: 0; width: 100%; max-width: 100%; position: relative; display: flex; flex-direction: column-reverse; overflow: hidden; }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash { background: #161109; } }
+
+.section-intro-splash figure { position: relative; }
+
+.section-intro-splash figure a { display: block; height: 100%; width: 100%; }
+
+.section-intro-splash figure:after { position: absolute; content: ""; height: 100%; width: 100%; top: 0; left: 0; opacity: 1; }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash figure:after { background: linear-gradient(270deg, rgba(22, 17, 9, 0.92) 36%, rgba(2, 3, 4, 0.7) 100%); } }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash .resource { height: 100%; }
+  .section-intro-splash .resource figure { height: 100%; width: 100%; }
+  .section-intro-splash .resource figure a { display: block; height: 100%; }
+  .section-intro-splash .resource img { display: block; background-position: center bottom; object-fit: cover; height: 100%; } }
+
+.section-intro-splash .introduction { width: 100%; height: 100%; justify-content: center; z-index: 1; padding: 1.5rem; }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash .introduction { position: absolute; top: 0; height: 100%; width: 50%; display: flex; flex-direction: column; flex: 1; justify-content: flex-end; background-color: transparent; } }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash .introduction { padding: 2.66667rem; right: 0; } }
+
+@media only screen and (min-width: 75em) { .section-intro-splash .introduction { padding: 6.32098rem 6.32098rem 6.32098rem 6.32098rem; } }
+
+.section-intro-splash .introduction .introductory-text { text-align: right; position: relative; margin: 0; }
+
+.section-intro-splash .introduction .introductory-text h1 { margin-bottom: 1.5rem; }
+
+.section-intro-splash .introduction .introductory-text p { display: block; text-align: right; line-height: 1.8; }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash .introduction .introductory-text p { font-size: 0.9rem; line-height: 1.5; } }
+
+@media only screen and (min-width: 75em) { .section-intro-splash .introduction .introductory-text p { font-size: 1.2rem; line-height: 1.8; } }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash .introduction .introductory-text h1, .section-intro-splash .introduction .introductory-text p, .section-intro-splash .introduction .introductory-text a { color: #FFFFFF; } }
+
+.section-intro-splash .introduction .introductory-text a { color: #FFC565; }
+
+.section-intro-splash.left:after { background: linear-gradient(90deg, rgba(22, 17, 9, 0.92) 36%, rgba(2, 3, 4, 0.7) 100%); }
+
+.section-intro-splash.left .introduction { width: 100%; height: 100%; justify-content: center; z-index: 1; padding: 1.5rem; }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash.left .introduction { position: absolute; top: 0; height: 100%; width: 50%; display: flex; flex-direction: column; flex: 1; justify-content: flex-end; background-color: transparent; } }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash.left .introduction { padding: 2.66667rem; left: 0; } }
+
+@media only screen and (min-width: 75em) { .section-intro-splash.left .introduction { padding: 6.32098rem 6.32098rem 6.32098rem 6.32098rem; } }
+
+.section-intro-splash.left .introduction .introductory-text, .section-intro-splash.left .introduction p { text-align: left; }
+
+.about .tl-timeline { max-width: 800px !important; }
+
+.explore-the-archive > p { font-style: italic; }
+
+.explore-the-archive h3 { font-family: "Aleo", Helvetica, Tahoma, Arial, sans-serif; margin-top: 3.55555rem; }
+
+.explore-the-archive img { width: 6.32098rem; float: left; margin: 3.55555rem; }
+
+.explore-the-archive .explore-warning { padding-top: 3.55555rem; padding-bottom: 3.55555rem; display: block; }
+
+.explore-the-archive .explore-warning p { color: #80351C; font-size: 0.9rem; }
+
+.explore-the-archive .explore-warning h6 { border-bottom: 1px solid; color: #80351C; font-weight: 600; text-transform: uppercase; font-family: "Lato", sans-serif; margin-bottom: 1.125rem; display: inline-block; }
+
+#search { margin: 2.0rem 0; width: 100%; max-width: 100%; }
+
+#search form { width: 100%; display: flex; flex-direction: column; }
+
+@media only screen and (min-width: 46.25em) { #search form { flex-direction: row; justify-content: stretch; } }
+
+#search input[name='search'] { flex-grow: 1; margin-bottom: 1.5rem; }
+
+@media only screen and (min-width: 46.25em) { #search input[name='search'] { margin-bottom: 0; margin-right: 2.0rem; } }
+
+#search + .advanced-search { display: block; transform: translateY(-1.125rem); }
+
+.advanced-search { text-transform: uppercase; font-size: 0.9rem; text-decoration: underline; }
+
+.hu-chevron-left { width: 2.66667rem; height: 2.66667rem; background: url("../../asset/img/svg/icons/left_chevron_fire_black.svg") no-repeat; position: absolute; right: 50px; margin-left: 130px; }
+
+@media only screen and (min-width: 46.25em) { .hu-chevron-left { right: unset; } }
+
+.hu-chevron-left:hover { background: url("../../asset/img/svg/icons/left_chevron_fire.svg") no-repeat; }
+
+.hu-chevron-left.inactive { display: none; }
+
+.hu-chevron-right { width: 2.66667rem; height: 2.66667rem; background: url("../../asset/img/svg/icons/right_chevron_black.svg") no-repeat; position: absolute; margin-left: 170px; right: 10px; }
+
+@media only screen and (min-width: 46.25em) { .hu-chevron-right { right: unset; } }
+
+.hu-chevron-right:hover { background: url("../../asset/img/svg/icons/right_chevron_fire.svg") no-repeat; }
+
+.pagination { text-align: left; margin-top: 48px; }
+
+@media only screen and (min-width: 46.25em) { .pagination { margin-top: -62px; text-align: right; } }
+
+.pagination .row-count { color: #969490; position: relative; top: -55px; font-size: 2.13333rem; font-family: "Aleo", Helvetica, Tahoma, Arial, sans-serif; }
+
+@media only screen and (min-width: 46.25em) { .pagination .row-count { top: 45px; left: -11px; } }
+
+@media only screen and (min-width: 56.25em) { .pagination .row-count { top: -4px; left: -500px; } }
+
+.pagination form { position: absolute; margin-top: 0.47461rem; display: inline-block; }
+
+.pagination form input[type=text] { display: inline-block; border: unset; border-radius: 0; border-bottom: 1px solid; text-align: center; height: auto; min-height: auto; padding: 0; width: 1.5rem; }
+
+.pagination form input[type=text]:active { border: unset; border-bottom: 1px solid #FFC565; box-shadow: unset; }
+
+.pagination form input[type=text]:hover { border: unset; border-bottom: 1px solid #FFC565; box-shadow: unset; }
+
+.pagination form input[type=text]:focus { border: unset; border-bottom: 1px solid #FFC565; box-shadow: unset; }
+
+.browse-controls { margin-top: 120px; text-align: left; }
+
+.browse-controls form { text-align: left; }
+
+.browse-controls form.sorting { position: relative; top: 0px; display: inline-block; width: 100%; }
+
+@media only screen and (min-width: 46.25em) { .browse-controls form.sorting { top: 10px; } }
+
+.browse-controls form.sorting select { display: inline-block; border: unset; text-decoration: underline; }
+
+.browse-controls form.sorting select:active { border: unset; box-shadow: unset; }
+
+.browse-controls form.sorting select:hover { border: unset; box-shadow: unset; }
+
+.browse-controls form.sorting select:focus { border: unset; box-shadow: unset; }
+
+.browse-controls form.sorting button { border: unset; display: inline-block; min-width: auto; width: 4.74074rem; font-size: 1.2rem; }
+
+.resource-list { column-count: initial; padding-left: initial; display: grid; grid-template-columns:  1fr 1fr; grid-column-gap: 1.5rem; grid-row-gap: 1.5rem; width: intial; }
+
+@media only screen and (min-width: 46.25em) { .resource-list { display: grid; grid-template-columns:  1fr 1fr 1fr; grid-column-gap: 2.0rem; grid-row-gap: 2.0rem; } }
+
+.resource-list .item { list-style-type: none; text-decoration: unset; display: block; height: 480px; }
+
+.resource-list .item > a { display: block; position: relative; overflow: hidden; width: 100%; filter: drop-shadow(0.47461rem 0.47461rem 0.47461rem #a2a09d); }
+
+.resource-list .item > a:before { position: relative; content: ''; display: block; padding-top: 75.00002%; }
+
+.resource-list .item > a > * { display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+.resource-list .item > a img { object-fit: cover; width: 100%; height: 100%; }
+
+.resource-list .item > h4 > a { text-decoration: underline; font-family: "Lato", sans-serif; }
+
+.resource-list .item:before { content: ""; }
+
+.resource-list .description { font-size: 0.9rem; line-height: 0.9rem; margin-top: 1.125rem; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; position: relative; -webkit-line-clamp: 5; }
+
+main > div > { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div > { max-width: calc(700px + (11.23729rem * 2) - 3rem); } }
+
+.field-meta #by-value-label { font-size: 2.13333rem; }
+
+.field-meta #by-resource-class-label { font-size: 2.13333rem; }
+
+.field-meta #by-item-set-label { font-size: 2.13333rem; }
+
+.remove-value { min-width: auto; width: auto; margin-left: 0; border: 0; }
+
+.remove-value:hover { border: 0; }
+
+@media only screen and (min-width: 46.25em) { .remove-value { margin-left: 5px; } }
+
+.advanced-search-content #property-queries { margin: 3.55555rem 0; }
+
+.advanced-search-content #resource-class { margin: 3.55555rem 0; }
+
+.advanced-search-content #item-sets { margin: 3.55555rem 0; }
+
+#advanced-search .value { display: block !important; }
+
+#advanced-search .value > * { margin-top: 10px !important; }
+
+@media only screen and (min-width: 46.25em) { #advanced-search .value { display: flex !important; } }
+
+#advanced-search .value select { margin-left: 0 !important; }
+
+@media only screen and (min-width: 46.25em) { #advanced-search .value select { margin-left: 5px !important; } }
+
+#advanced-search .value input { margin-left: 0 !important; }
+
+@media only screen and (min-width: 46.25em) { #advanced-search .value input { margin-left: 5px !important; } }
+
+#advanced-search .add-value { position: relative; top: 10px; text-decoration: underline; }
+
+.filter { margin-left: 1.5rem; margin-right: 1.5rem; }
+
+@media only screen and (min-width: 46.25em) { .filter { margin-right: 14.98305rem; margin-left: 0; } }
+
+@media only screen and (min-width: 56.25em) { .filter { float: left; } }
+
+.search-filters { display: contents; }
+
+body.dark { background: #161109; color: #FFFFFF; }
+
+body.dark h1, body.dark h2, body.dark h3, body.dark h4, body.dark h5, body.dark h6 { color: #FFFFFF; }
+
+body.dark h1 > a, body.dark h2 > a, body.dark h3 > a, body.dark h4 > a, body.dark h5 > a, body.dark h6 > a { color: #FFFFFF; }
+
+body.dark #secondary-content { background: #39352e; }
+
+body.dark .site-guide-cont i { background: #FFFFFF; }
+
+body.dark .resource-list .item > a { filter: unset; }
+
+body.dark select { background: none; color: #FFFFFF; }
+
+body.dark .tl-timenav { background-color: #161109 !important; }
+
+body.dark .tl-timeaxis-background { background: #2d2922 !important; border-color: #161109 !important; }
+
+body.dark .tl-timeaxis-tick:before { border-color: #FFFFFF !important; }
+
+body.dark .tl-timeaxis-tick-text { color: #FFFFFF !important; }
+
+body.dark .tl-slide.tl-slide-titleslide { background: #FFFFFF; }
+
+body.dark .tl-attribution { background-color: #39352e; }
+
+body.dark .cards { background-color: #283A44; }
+
+body.dark main th { background: #39352e; }
+
+body.dark main tr:nth-child(2n) > td { background: #221d15; }
+
+body.dark .card figure { filter: drop-shadow(0.47461rem 0.47461rem 0.47461rem #1c1c1c); }
+
+body.dark .btn { color: #FFFFFF; border-color: #FFFFFF; }
+
+body.dark .btn:hover { background-color: #161109; }
+
+body.dark .hu-chevron-right { background: url(../../asset/img/svg/icons/right_chevron_white.svg) no-repeat; }
+
+body.dark .hu-chevron-right:hover { background: url("../../asset/img/svg/icons/right_chevron_fire.svg") no-repeat; }
+
+body.dark .hu-chevron-left { background: url("../../asset/img/svg/icons/left_chevron_white.svg") no-repeat; }
+
+body.dark .hu-chevron-left:hover { background: url("../../asset/img/svg/icons/left_chevron_fire.svg") no-repeat; }
+
+body.dark .browse-controls .advanced-search { color: #FFFFFF; }
+
+body.dark a { color: #FFFFFF; }
+
+body.dark #homepage-splash .resource.introduction .introductory-text { background-color: #161109; }
+
+body.dark option { color: #161109; }
+
+body.dark #advanced-search .value input { background: inherit; color: #FFFFFF; }
+
+body.dark .remove-value { color: #FFFFFF; }
+
+body.dark .remove-value:hover { background: unset; }
+
+body.dark #homepage-featured-profiles figure { filter: drop-shadow(0.47461rem 0.47461rem 0.47461rem #1c1c1c); }
+
+body.dark #feature-tier-3 { background: #161109; }
+
+body.dark #feature-tier-1 { background: #161109; }
+
+body.dark #homepage-featured-exhibits .callout-items figure { filter: drop-shadow(0.47461rem 0.47461rem 0.47461rem #1c1c1c); }
+
+body.dark .card-compact { filter: drop-shadow(0.47461rem 0.47461rem 0.47461rem #1c1c1c); }
+
+body.dark #homepage-splash .down-arrow span { color: #FFFFFF; }
+
+.access-dropdown { color: #fff; text-align: left; padding-right: 0; background: black; float: right; width: auto; position: absolute; right: 0; z-index: 999; }
+
+.access-dropdown ul { padding-left: 10px; grid-template-columns: unset; list-style-type: none; }
+
+.access-dropdown ul li { width: 127px; }
+
+.access-dropdown ul li .toggle-label { position: absolute; top: -3px; left: 49px; width: 100px; }
+
+.access-dropdown-mobile { color: #fff; text-align: right; padding-right: 0; background: black; float: right; width: 100%; position: absolute; z-index: 999; }
+
+@media only screen and (min-width: 46.25em) { .access-dropdown-mobile { display: none; } }
+
+.access-dropdown-mobile ul { padding-left: 10px; grid-template-columns: unset; list-style-type: none; display: block; text-align: right; }
+
+.access-dropdown-mobile li { width: 100%; }
+
+.access-dropdown-mobile li.mobile-switch-pos { display: inline-block; width: 200px; }
+
+.access-dropdown-mobile li .dark-switch { right: 103px; }
+
+.access-dropdown-mobile li a { color: #FFFFFF; }
+
+.access-dropdown-mobile li .toggle-label { position: absolute; top: -3px; left: 42px; width: 100px; }
+
+.dark-switch { position: relative; display: inline-block; width: 40px; height: 24px; }
+
+.dark-switch input { opacity: 0; width: 0; height: 0; }
+
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; }
+
+.slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; -webkit-transition: .4s; transition: .4s; }
+
+input:checked + .slider { background-color: #FFC565; }
+
+input:focus + .slider { box-shadow: 0 0 1px #FFC565; }
+
+input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transform: translateX(16px); transform: translateX(16px); }
+
+.slider.round { border-radius: 34px; }
+
+.slider.round:before { border-radius: 50%; }
+
+/* @file _index.sass @theme Local @description  Loads SASS files for local theme. */
+/* @file _storymap.sass @theme Local @description  Loads SASS files for local theme. */
+.storymap { height: calc(100vh - 0px) !important; max-width: 100% !important; margin-bottom: 0 !important; }
+
+@media only screen and (min-width: 46.25em) { .storymap { height: calc(100vh - 110px) !important; max-width: 100% !important; } }
+
+.vco-slide .vco-slide-scrollable-container { margin: 0 1.125rem; }
+
+.vco-storymap .vco-text { width: 95% !important; }
+
+.vco-storymap .vco-text p { color: #161109; font-size: 0.9rem !important; }
+
+.vco-storymap .vco-slider-container { text-align: left !important; }
+
+.vco-storymap .vco-media-content img { width: 70% !important; max-width: 35.51536rem !important; }
+
+.vco-storymap .vco-credit, .vco-storymap .vco-caption, .vco-storymap .vco-menubar, .vco-storymap .leaflet-control { display: none !important; }
+
+.vco-storymap .vco-slidenav-previous .vco-slidenav-icon { margin-left: 2.0rem !important; width: 3.55555rem; height: 3.55555rem; background: url("../../asset/img/svg/icons/left_chevron_fire_black.svg") no-repeat; }
+
+.vco-storymap .vco-slidenav-previous .vco-slidenav-icon:before { content: unset !important; }
+
+.vco-storymap .vco-slidenav-next .vco-slidenav-icon { width: 3.55555rem; height: 3.55555rem; background: url("../../asset/img/svg/icons/right_chevron_black.svg") no-repeat; }
+
+.vco-storymap .vco-slidenav-next .vco-slidenav-icon:before { content: unset !important; }
+
+.vco-storymap .vco-map .vco-mapmarker-active { width: 3.55555rem; height: 3.55555rem; background: url("../../asset/img/svg/icons/map_marker_blue.svg") no-repeat; }
+
+.vco-storymap .vco-map .vco-mapmarker-active:after { content: unset !important; }
+
+.vco-storymap .vco-map .vco-mapmarker { width: 3.55555rem; height: 3.55555rem; background: url("../../asset/img/svg/icons/map_marker_black.svg") no-repeat; }
+
+.vco-storymap .vco-map .vco-mapmarker:after { content: unset !important; }
+
+.vco-storymap .fa:before, .vco-storymap [class*="o-icon-"]:before { display: none; }
+
+.vco-storymap h2.vco-headline-title, .vco-storymap h2.vco-headline { font-size: 2.13333rem !important; line-height: 2.84444rem !important; display: inline-block; width: auto; border: 0; }
+
+.vco-storymap h2.vco-headline-title:hover, .vco-storymap h2.vco-headline:hover { text-decoration: none; }
+
+.vco-storymap, .tl-timeline { font-family: unset; }
+
+.vco-storymap h1, .vco-storymap h2, .vco-storymap h3, .tl-timeline h1, .tl-timeline h2, .tl-timeline h3 { font-size: unset; line-height: unset; text-shadow: none !important; }
+
+.vco-storymap h1 small, .vco-storymap h2 small, .vco-storymap h3 small, .tl-timeline h1 small, .tl-timeline h2 small, .tl-timeline h3 small { font-size: unset; line-height: unset; }
+
+.vco-storymap h4, .vco-storymap h5, .vco-storymap h6, .tl-timeline h4, .tl-timeline h5, .tl-timeline h6 { font-size: unset; line-height: unset; margin: unset; text-shadow: none !important; }
+
+.vco-storymap h2, .tl-timeline h2 { margin-top: unset; margin-bottom: unset; }
+
+.vco-storymap h2.vco-headline-title, .vco-storymap h2.vco-headline, .tl-timeline h2.vco-headline-title, .tl-timeline h2.vco-headline { font-size: unset; line-height: unset; }
+
+.vco-storymap h2.vco-headline-title small, .vco-storymap h2.vco-headline small, .tl-timeline h2.vco-headline-title small, .tl-timeline h2.vco-headline small { font-size: unset; line-height: unset; }
+
+.vco-storymap h2.vco-headline-title a, .vco-storymap h2.vco-headline-title a:hover, .vco-storymap h2.vco-headline-title a:active, .vco-storymap h2.vco-headline a, .vco-storymap h2.vco-headline a:hover, .vco-storymap h2.vco-headline a:active, .tl-timeline h2.vco-headline-title a, .tl-timeline h2.vco-headline-title a:hover, .tl-timeline h2.vco-headline-title a:active, .tl-timeline h2.vco-headline a, .tl-timeline h2.vco-headline a:hover, .tl-timeline h2.vco-headline a:active { color: unset; text-decoration: unset; }
+
+.vco-storymap p, .tl-timeline p { margin-top: unset; margin-bottom: unset; font-size: unset; color: unset; text-shadow: none !important; }
+
+.vco-storymap p a, .tl-timeline p a { color: unset; text-decoration: unset; background: unset; text-shadow: unset; }
+
+.vco-storymap p a:hover, .vco-storymap p a:focus, .tl-timeline p a:hover, .tl-timeline p a:focus { color: unset; text-decoration: unset; }
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) { .vco-storymap p a, .tl-timeline p a { text-decoration: unset; background-image: unset; text-shadow: unset; }
+  .vco-storymap p a:hover, .vco-storymap p a:focus, .tl-timeline p a:hover, .tl-timeline p a:focus { color: unset; } }
+
+.vco-storymap b, .vco-storymap strong, .tl-timeline b, .tl-timeline strong { font-weight: unset; }
+
+.vco-storymap i, .vco-storymap em, .tl-timeline i, .tl-timeline em { font-style: unset; }
+
+.vco-storymap a, .tl-timeline a { text-decoration: unset; color: unset; }
+
+.vco-storymap a:hover, .tl-timeline a:hover { text-decoration: unset; color: unset; }
+
+.vco-storymap .vco-caption, .vco-storymap .vco-credit, .vco-storymap .vco-slidenav-next, .vco-storymap .vco-slidenav-previous, .tl-timeline .vco-caption, .tl-timeline .vco-credit, .tl-timeline .vco-slidenav-next, .tl-timeline .vco-slidenav-previous { top: 45% !important; font-size: 0.9rem; line-height: 1.125; }
+
+.vco-storymap .vco-caption a, .vco-storymap .vco-credit a, .vco-storymap .vco-slidenav-next a, .vco-storymap .vco-slidenav-previous a, .tl-timeline .vco-caption a, .tl-timeline .vco-credit a, .tl-timeline .vco-slidenav-next a, .tl-timeline .vco-slidenav-previous a { color: unset; }
+
+.vco-storymap blockquote, .vco-storymap blockquote p, .tl-timeline blockquote, .tl-timeline blockquote p { margin: unset; }
+
+.vco-storymap .vco-text ul, .tl-timeline .vco-text ul { padding: unset; margin: unset; }
+
+.vco-storymap .vco-text ul li, .tl-timeline .vco-text ul li { margin: unset; }
+
+.vco-storymap .vco-note, .tl-timeline .vco-note { color: unset; font-style: italic; }
+
+@media only screen and (max-width: 800px), only screen and (max-device-width: 800px) { .vco-storymap h1, .vco-storymap h2, .vco-storymap h3 { font-size: unset; line-height: unset; } }
+
+@media only screen and (max-width: 500px), only screen and (max-device-width: 500px) { .vco-storymap h1, .vco-storymap h2, .vco-storymap h3 { font-size: unset; line-height: unset; } }
+
+.vco-skinny h2 { margin-top: unset; padding-top: unset; }
+
+.tl-slide .tl-slide-background { opacity: initial; }
+
+/* Remove display: table */
+.vco-slide .vco-slide-content-container { display: block; }
+
+​ { /* Reset img element from content-box */ }
+
+​ { /* Timeline Content-Container */ }
+
+​ .vco-storymap * { box-sizing: border-box; }
+
+​ .tl-slide .tl-slide-content-container .tl-slide-content .tl-text { width: 100%; max-width: 100%; padding: 0; }
+
+​ { /* Timeline Text-Shadow */ }
+
+​ .tl-slide.tl-full-image-background, ​ .tl-slide.tl-full-color-background { text-shadow: none !important; }
+
+​ .tl-slide.tl-full-image-background p, ​ .tl-slide.tl-full-image-background h1, ​ .tl-slide.tl-full-image-background h2, ​ .tl-slide.tl-full-image-background h3, ​ .tl-slide.tl-full-image-background h4, ​ .tl-slide.tl-full-image-background h5, ​ .tl-slide.tl-full-image-background h6, ​ .tl-slide.tl-full-color-background p, ​ .tl-slide.tl-full-color-background h1, ​ .tl-slide.tl-full-color-background h2, ​ .tl-slide.tl-full-color-background h3, ​ .tl-slide.tl-full-color-background h4, ​ .tl-slide.tl-full-color-background h5, ​ .tl-slide.tl-full-color-background h6 { text-shadow: none !important; color: initial !important; }
+
+​ .tl-slide.tl-full-image-background a, ​ .tl-slide.tl-full-image-background a:hover, ​ .tl-slide.tl-full-image-background b, ​ .tl-slide.tl-full-image-background i, ​ .tl-slide.tl-full-image-background blockquote, ​ .tl-slide.tl-full-image-background blockquote p, ​ .tl-slide.tl-full-color-background a, ​ .tl-slide.tl-full-color-background a:hover, ​ .tl-slide.tl-full-color-background b, ​ .tl-slide.tl-full-color-background i, ​ .tl-slide.tl-full-color-background blockquote, ​ .tl-slide.tl-full-color-background blockquote p { text-shadow: none !important; }
+
+​ .tl-slide.tl-full-image-background .tl-caption, ​ .tl-slide.tl-full-image-background .tl-credit, ​ .tl-slide.tl-full-color-background .tl-caption, ​ .tl-slide.tl-full-color-background .tl-credit { text-shadow: none !important; }
+
+​ .tl-slide.tl-full-image-background .tl-media-twitter blockquote, ​ .tl-slide.tl-full-image-background .tl-media-blockquote blockquote, ​ .tl-slide.tl-full-color-background .tl-media-twitter blockquote, ​ .tl-slide.tl-full-color-background .tl-media-blockquote blockquote { text-shadow: none !important; }
+
+​ .tl-slide.tl-full-image-background .tl-media-twitter blockquote p, ​ .tl-slide.tl-full-image-background .tl-media-blockquote blockquote p, ​ .tl-slide.tl-full-color-background .tl-media-twitter blockquote p, ​ .tl-slide.tl-full-color-background .tl-media-blockquote blockquote p { text-shadow: none !important; }
+
+​ .tl-slide.tl-full-image-background .vcard a, ​ .tl-slide.tl-full-image-background .vcard .nickname, ​ .tl-slide.tl-full-color-background .vcard a, ​ .tl-slide.tl-full-color-background .vcard .nickname { text-shadow: none !important; }
+
+/* @file _index.sass @theme Local @description  Loads SASS files for local theme. */
+/* @file _slick.sass @theme Local @description  Loads SASS files for local theme. */
+.slideshow-block, .slideshow-with-audio { position: relative; overflow: hidden; width: 100%; max-width: calc(100vw - 3.0rem); height: 90vh; }
+
+@media only screen and (min-width: 46.25em) { .slideshow-block, .slideshow-with-audio { height: 800px; max-width: initial; } }
+
+.slideshow-with-audio { display: flex; flex-direction: column; }
+
+.slideshow, .slick-list, .slick-track { height: 100%; overflow: hidden; width: 100%; }
+
+.slideshow { background: #161109; }
+
+.slideshow .item { display: flex !important; flex-direction: column; justify-content: stretch; height: 100%; }
+
+.slideshow .item figure { height: 100%; flex-shrink: 1; min-height: 40%; }
+
+.slideshow .item img { height: 100%; object-fit: cover; }
+
+.slide-contents { flex-shrink: 0; padding: 1.5rem 1.5rem 5.0rem 1.5rem; color: #FFFFFF; border-top: 2px solid #FFFFFF; }
+
+.slide-contents h3 { color: #FFFFFF; font-family: "Aleo", Helvetica, Tahoma, Arial, sans-serif; margin: 0 0 0.84375rem 0; font-size: 0.9rem; }
+
+@media only screen and (min-width: 46.25em) { .slide-contents h3 { font-size: 2.13333rem; } }
+
+.slide-contents h3 a { color: #FFFFFF !important; text-decoration: underline; }
+
+.slide-contents p { font-size: 0.9rem; }
+
+#splash .slideshow-block, #splash .slideshow-with-audio { max-width: 100%; }
+
+#splash .introduction .slide-contents { background: unset; position: absolute; z-index: 9999; width: 100%; height: 100%; justify-content: center; z-index: 1; padding: 1.5rem; border-top: 0; }
+
+@media only screen and (min-width: 46.25em) { #splash .introduction .slide-contents { position: absolute; top: 0; height: 100%; width: 70%; display: flex; flex-direction: column; flex: 1; justify-content: flex-end; background-color: transparent; } }
+
+@media only screen and (min-width: 46.25em) { #splash .introduction .slide-contents { padding: 2.66667rem; left: 0; } }
+
+@media only screen and (min-width: 75em) { #splash .introduction .slide-contents { padding: 6.32098rem 6.32098rem 6.32098rem 6.32098rem; } }
+
+#splash .introduction .slide-contents h3 { text-transform: uppercase; color: #FFFFFF; }
+
+#splash .introduction .slide-contents h3 a { color: #FFFFFF !important; }
+
+#splash .introduction .slide-contents p { color: #FFFFFF; }
+
+#splash .slick-slide.introduction > figure { height: 100vh; max-height: 100vh; }
+
+#splash .slick-slide.introduction > figure:before { content: ''; background: linear-gradient(90deg, rgba(22, 17, 9, 0.92) 36%, rgba(2, 3, 4, 0.7) 100%); height: 100%; position: absolute; width: 100%; top: 0; left: 0; }
+
+@media only screen and (min-width: 46.25em) { #splash .slick-slide.introduction > figure { height: 100% !important; max-height: 100% !important; } }
+
+@media only screen and (min-width: 46.25em) { #splash .slide-contents, #splash .audio-controls { padding-left: 6.32098rem; padding-right: 6.32098rem; } }
+
+#splash .slide-contents { padding-top: 2.66667rem; }
+
+#splash .slide-contents p { font-size: 1.2rem; }
+
+.slide-fullscreen-openBtn { position: absolute; top: 0; right: 0; color: #FFC565; border-radius: 100px; background: none; border: 0px solid #FFC565; width: 50px; min-width: auto; height: 50px; margin: 10px; background: url(../../asset/img/svg/icons/full_screen_outlined.svg) no-repeat; }
+
+.slide-fullscreen-openBtn:hover { border: 2px solid #FFC565; background-color: unset; }
+
+.slide-fullscreen-closeBtn { position: absolute; top: 0; right: 0; color: #FFC565; border-radius: 100px; background: none; border: 2px solid #FFC565; width: 50px; min-width: auto; height: 50px; margin: 10px; }
+
+.slide-fullscreen-closeBtn:hover { border: 2px solid #FFC565; background: unset; }
+
+.slick-prev { position: absolute; width: 3.55555rem; height: 3.55555rem; top: 40%; transform: translateY(-50%); left: 20px; z-index: 9999; cursor: pointer; background: url("../../asset/img/svg/icons/left_chevron_white.svg") no-repeat; }
+
+.slick-prev:hover { background: url("../../asset/img/svg/icons/left_chevron_fire.svg") no-repeat; }
+
+.slick-next { position: absolute; width: 3.55555rem; height: 3.55555rem; top: 40%; transform: translateY(-50%); right: -5px; z-index: 9999; cursor: pointer; background: url("../../asset/img/svg/icons/right_chevron_white.svg") no-repeat; }
+
+.slick-next:hover { background: url("../../asset/img/svg/icons/right_chevron_fire.svg") no-repeat; }
+
+.slick-dots { position: absolute; text-align: center; width: 100%; column-count: unset; top: initial; bottom: 1.5rem; padding: 0; z-index: 9999; margin: 0; }
+
+.slick-dots li.slick-active:before { color: white; }
+
+.slick-dots li { width: 1.5rem; display: inline-block; cursor: pointer; }
+
+.slick-dots li:before { content: "\2022"; color: #c5c4c2; font-size: 2.0rem; font-weight: 700; display: inline-block; width: 5px; position: relative; top: 2px; left: -18px; }
+
+.slick-dots button { display: none !important; }
+
+.audio-controls { width: 100%; background: #161109; color: #FFFFFF; border-top: 0.35596rem solid #FFFFFF; margin: 0; padding-left: 1.5rem; padding-right: 1.5rem; }
+
+@media only screen and (min-width: 46.25em) { .audio-controls { height: 4.74074rem; display: flex; flex-direction: row; justify-content: flex-start; align-content: center; } }
+
+.audio-player, .audio-player > *, .audio-caption { display: flex; height: 100%; flex-direction: row; justify-content: flex-start; align-items: center; margin: 0; padding-right: 2.0rem; font-size: 0.9rem; }
+
+.audio-player a, .audio-player > * a, .audio-caption a { color: #FFC565; text-decoration: underline; }
+
+.audio-player a:hover, .audio-player > * a:hover, .audio-caption a:hover { color: #FFFFFF; }
+
+.audio-caption { display: none; }
+
+@media only screen and (min-width: 46.25em) { .audio-caption { display: flex; } }
+
+.audio-caption p { margin: 0; font-size: 0.9rem; }
+
+/* @file _index.sass @theme Local @description  Loads SASS files for local theme. */
+/* @file _timeline.sass @theme Local @description  Loads SASS files for local theme. */
+.tl-timeline .tl-storyslider .tl-slider-container-mask .tl-slider-container .tl-slider-item-container .tl-slide .tl-slide-background { display: block; background: #ECF3F8; opacity: 1; }
+
+.tl-timeline .tl-storyslider .tl-slider-container-mask .tl-slider-container .tl-slider-item-container .tl-slide-titleslide .tl-slide-background { display: block; }
+
+.tl-timeline .tl-storyslider .tl-slider-container-mask .tl-slider-container .tl-slider-item-container .tl-slide-titleslide .tl-slide-background:before { content: ""; background: black; background: linear-gradient(90deg, black 0%, rgba(255, 255, 255, 0) 100%); height: 100%; display: block; }
+
+.tl-slide-content-container .tl-text .tl-text-content-container .tl-headline { border-bottom: 0; }
+
+.tl-slide-content-container .tl-text .tl-text-content-container .tl-headline a { color: #161109; }
+
+.tl-slider-item-container .tl-slide .tl-slide-scrollable-container .tl-slide-content-container .tl-slide-content { width: 100% !important; }
+
+.tl-slide-titleslide .tl-slide-content { z-index: 3; }
+
+.tl-text p { color: #161109 !important; }
+
+.tl-slidenav-next .tl-slidenav-icon:before { content: url(../../asset/img/svg/icons/right_chevron_fire.svg) !important; }
+
+.tl-slidenav-previous .tl-slidenav-icon:before { content: url(../../asset/img/svg/icons/left_chevron_fire.svg) !important; }
+
+.tl-slidenav-icon { width: 25px; }
+
+.tl-slidenav-title { opacity: 1 !important; font-size: 0.9rem !important; line-height: 0.9rem !important; }
+
+.tl-slidenav-description { display: none; }
+
+.tl-slidenav-title { text-shadow: unset !important; color: #FFC565 !important; display: none !important; }
+
+.tl-text .tl-text-content-container h3.tl-headline-date { font-weight: 900; color: #161109; font-family: "Lato", sans-serif; margin-bottom: 1.125rem; }
+
+.tl-timenav-item-container .tl-timemarker .tl-timemarker-content-container { border-bottom-right-radius: 0; }
+
+.tl-timenav-item-container .tl-timemarker .tl-timemarker-content .tl-timemarker-text .tl-headline { font-family: "Lato", sans-serif; font-size: 3.79259rem; }
+
+@media only screen and (min-width: 46.25em) { .tl-timenav-item-container .tl-timemarker .tl-timemarker-content .tl-timemarker-text .tl-headline { font-size: 2.13333rem; } }
+
+.tl-slide-titleslide .tl-slide-content { text-align: left; }
+
+.tl-slide-titleslide .tl-slide-content span { color: #FFFFFF; font-family: "Lato", sans-serif; font-weight: 700; }
+
+.tl-slide-titleslide .tl-slide-content h1 { color: #FFFFFF; font-size: 3.6rem; line-height: 3.6rem; }
+
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-media-container .tl-timemarker-media { opacity: 1 !important; }
+
+.tl-timemarker-text .tl-headline { color: #161109 !important; font-size: 0.9rem !important; }
+
+.tl-timemarker .tl-timemarker-content-container { width: 200px !important; }
+
+.tl-timeaxis-tick:before { border-color: #161109 !important; }
+
+.tl-timeaxis-tick-text { color: #161109 !important; }
+
+.tl-slide.tl-slide-titleslide { background: #161109; }
+
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+html { font-family: "Lato", sans-serif; font-size: 100%; color: #161109; }
+
+@media only screen and (min-width: 21em) { html { font-size: 100%; } }
+
+@media only screen and (min-width: 46.25em) { html { font-size: 100%; } }
+
+@media only screen and (min-width: 56.25em) { html { font-size: 100%; } }
+
+@media only screen and (min-width: 75em) { html { font-size: 100%; } }
+
+@media only screen and (min-width: 112.5em) { html { font-size: 100%; } }
+
+@media only screen and (min-width: 130em) { html { font-size: 100%; } }
+
+body { font-size: 1.2rem; line-height: 1.5; }
+
+p, ol, ul, th, td, dl, dd, dt, address { font-size: 1.2rem; line-height: 1.5; margin-top: 0; margin-bottom: 0.84375rem; }
+
+@media only screen and (min-width: 46.25em) { p, ol, ul, th, td, dl, dd, dt, address { margin-bottom: 0.63281rem; } }
+
+blockquote { box-sizing: border-box; }
+
+dl { margin-bottom: 1.5rem; }
+
+dt { font-family: "Aleo", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; text-transform: uppercase; }
+
+dd { margin-bottom: 1.125rem; margin-left: 0; }
+
+menu, dir { margin: 0; padding: 0; }
+
+q { quotes: none; }
+
+abbr[title] { border-bottom: 1px dotted #5c5853; cursor: help; }
+
+b, strong, .strong { font-weight: 600; }
+
+dfn, .italic { font-style: italic; }
+
+ins { background-color: #a2a09d; color: #161109; text-decoration: none; }
+
+mark { background-color: #a2a09d; color: #161109; font-style: italic; font-weight: 700; }
+
+pre, code, kbd, samp { font-family: "Andale Mono", Monaco, Courier New, monospace; font-size: 1.2rem; line-height: 1.5; color: #45413a; }
+
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+sub, sup { position: relative; font-size: 0.9rem; line-height: 0; vertical-align: baselineheight; }
+
+sup { top: -0.3375rem; }
+
+sub { bottom: -0.16875rem; }
+
+.spaced { letter-spacing: 1px; }
+
+hr { border: 0; border-bottom: 1px solid #5c5853; margin-top: 0; margin-bottom: 0.84375rem; }
+
+@media only screen and (min-width: 46.25em) { hr { margin-bottom: 1.5rem; } }
+
+h1, h2, h3, h4, h5, h6 { margin: 0; color: #161109; font-family: "Aleo", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; box-sizing: border-box; line-height: 1; }
+
+h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a { color: #161109; text-decoration: none; }
+
+h1, h2, h3 { width: auto; }
+
+h1, .h1 { font-size: 3.79259rem; margin-top: 2.0rem; margin-bottom: 1.5rem; font-weight: 500; }
+
+h2, .h2 { font-size: 2.84444rem; margin-top: 2.0rem; margin-bottom: 1.125rem; border-bottom: 1px solid #b9b8b5; padding-bottom: 0.63281rem; }
+
+h3, .h3 { font-size: 2.13333rem; margin-top: 2.0rem; margin-bottom: 0; font-family: "Lato", sans-serif; text-transform: unset; }
+
+h4, .h4 { font-size: 1.6rem; margin-top: 2.0rem; margin-bottom: 0; }
+
+h5, .h5 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0; font-family: "Lato", sans-serif; font-style: unset; }
+
+h6, .h6 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0; font-weight: 400; color: #45413a; }
+
+a { color: #161109; cursor: pointer; text-decoration: none; transition: all 0.11865s ease-in 0s; }
+
+a:hover, a:active { text-decoration: underline; }
+
+p > a { color: #161109; }
+
+p > a:hover { color: #FFC565; }
+
+/* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
+ol, ul { margin-top: 1.125rem; margin-bottom: 1.125rem; box-sizing: border-box; }
+
+li ul, li ol { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+
+/* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
+.scroll-down { margin: 1.5rem 0; width: 3.55555rem; }
+
+.down-arrow { display: block; width: 100%; text-align: center; font-size: 0.9rem; color: #FFC565; }
+
+.down-arrow img { width: 100%; display: inline-block; }
+
+.down-arrow span { display: block; margin-top: 1.125rem; color: #FFC565; }
+
+.down-arrow:hover { color: #161109; }
+
+.left .scroll-down { float: left; }
+
+.right .scroll-down { float: right; }
+
+/* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
+/** @file _byline.sass @category 60_site_elements @theme LOCAL @description Styles the exhibit byline. */
+.byline { font-family: "Aleo", Helvetica, Tahoma, Arial, sans-serif; font-style: italic; }
+
+.byline > p { font-family: inherit; font-style: inherit; }
+
+/* @file _cards.sass @category 60_site_elements @theme LOCAL @component main @description Handles card content blocks. */
+main > div .listing-cards { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div .listing-cards { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div .listing-cards { max-width: calc(700px + (11.23729rem * 2) - 3rem); } }
+
+.cards { background-color: #F3F6F8; padding: 3.55555rem; }
+
+@media only screen and (min-width: 46.25em) { .cards { display: grid; grid-template-columns:  1fr 1fr; grid-column-gap: 3.55555rem; grid-row-gap: 3.55555rem; justify-content: flex-start; } }
+
+.card { position: relative; }
+
+.card figure { position: relative; overflow: hidden; width: 100%; filter: drop-shadow(0.47461rem 0.47461rem 0.47461rem #a2a09d); }
+
+.card figure:before { position: relative; content: ''; display: block; padding-top: 75.00002%; }
+
+.card figure > * { display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+.card figure img { object-fit: cover; width: 100%; height: 100%; }
+
+.card h3 { font-family: "Aleo", Helvetica, Tahoma, Arial, sans-serif; margin-bottom: 0; }
+
+.card h3 + .byline { margin-top: 0.63281rem; }
+
+.card .excerpt { margin: 1.5rem 0; }
+
+.card > .btn { margin: 2.0rem 0; }
+
+.card-compact { filter: drop-shadow(0.47461rem 0.47461rem 0.47461rem #a2a09d); }
+
+.card-compact figure { position: relative; overflow: hidden; width: 100%; }
+
+.card-compact figure:before { position: relative; content: ''; display: block; padding-top: 75.00002%; }
+
+.card-compact figure > * { display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+.card-compact figure img { object-fit: cover; width: 100%; height: 100%; }
+
+.card-compact h3 { margin: 0; padding: 0; text-align: right; color: #FFFFFF; font-size: 1.2rem; background-color: transparent; border-top: 0.26697rem solid #FFFFFF; }
+
+.card-compact h3 > a { display: block; box-sizing: border-box; width: 100%; height: 100%; padding: 1.5rem; text-align: right; color: inherit; text-decoration: underline; background-color: #161109; }
+
+.card-compact h3 > a:hover { background-color: #FFC565; color: #161109; }
+
+/** @file _compact_card_listing.sass @category 60_site_elements @theme LOCAL @description Handles compact card listing blocks. */
+.compact-card-listing { padding-left: 0; padding-right: 0; padding: 2.0rem 1.5rem; display: grid; grid-template-columns: 1fr; grid-row-gap: 2.66667rem; }
+
+@media only screen and (min-width: 46.25em) { .compact-card-listing { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { .compact-card-listing { max-width: calc(700px + (8.42797rem * 2) - 3rem) !important; } }
+
+@media only screen and (min-width: 46.25em) { .compact-card-listing { padding: 2.66667rem 0; grid-template-columns: 1fr 1fr; grid-gap: 4.5rem 4.5rem; align-items: center; }
+  .compact-card-listing .title-area { grid-column-end: span 2; padding-left: calc(50% + (4.5rem / 2)); padding-top: 3.55555rem; } }
+
+.compact-card-listing h2 { border: 0; }
+
+.compact-card-listing .btn { background-color: #161109; color: #FFFFFF; border-color: #161109; margin: 2.0rem 0; text-decoration: underline; }
+
+.compact-card-listing > * > * { margin-left: 0; margin-right: 0; }
+
+@media only screen and (min-width: 46.25em) { .compact-card-listing.item-count-2 .title-area { padding-left: 1.5rem; padding-right: calc(50% + (4.5rem / 2)); text-align: right; } }
+
+@media only screen and (min-width: 46.25em) { .compact-card-listing.item-count-2 { margin-bottom: -6.32098rem; } }
+
+.compact-card-listing.item-count-2 > *:nth-child(3) { transform: translateY(-6.32098rem); }
+
+.compact-card-listing.item-count-3 { margin-bottom: -14.98305rem; }
+
+.compact-card-listing.item-count-3 > *:nth-child(2), .compact-card-listing.item-count-3 > *:nth-child(4) { transform: translateY(-14.98305rem); }
+
+.compact-card-listing.item-count-3 > *:nth-child(2) { width: 90%; place-self: end; }
+
+.compact-card-listing.item-count-4 > *:nth-child(2), .compact-card-listing.item-count-4 > *:nth-child(4) { transform: translateY(-14.98305rem); }
+
+.compact-card-listing.item-count-4 > *:nth-child(2) { width: 90%; place-self: end; }
+
+.compact-card-listing.item-count-4 > *:nth-child(5) { width: 90%; }
+
+/** @file excerpts.sass @category 60_site_elements @description Hides excerpts in main content */
+main > div > .excerpt { display: none; }
+
+/** @file _feature_tiers.sass @category 60_site_elements @theme LOCAL @description Styles the background for homepage feature tiers. */
+#feature-tier-1 { background-repeat: no-repeat; background-image: url("../img/jpg/backgrounds/bg-feature-exhibits-50.jpg"); background-size: cover; }
+
+#feature-tier-3 { background-repeat: no-repeat; background-image: url("../img/jpg/backgrounds/bg-feature-collections-50.jpg"); background-size: cover; }
+
+/** @file _homepage_featured_collections.sass @category 60_site_elements @theme LOCAL @description Styles the homepage featured collections block. */
+#homepage-featured-collections { padding-left: 0; padding-right: 0; padding: 2.0rem 1.5rem; display: grid; grid-template-columns: 1fr; grid-row-gap: 2.66667rem; }
+
+@media only screen and (min-width: 46.25em) { #homepage-featured-collections { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { #homepage-featured-collections { max-width: calc(700px + (8.42797rem * 2) - 3rem) !important; } }
+
+@media only screen and (min-width: 46.25em) { #homepage-featured-collections { padding: 2.66667rem 0; grid-template-columns: 1fr 1fr; grid-gap: 4.5rem 4.5rem; align-items: center; margin-bottom: -19.9774rem; }
+  #homepage-featured-collections .title-area { grid-column-end: span 2; padding-left: calc(50% + (4.5rem / 2)); padding-top: 3.55555rem; }
+  #homepage-featured-collections > *:nth-child(2), #homepage-featured-collections > *:nth-child(4) { transform: translateY(-19.9774rem); }
+  #homepage-featured-collections > *:nth-child(2) { width: 80%; place-self: end; } }
+
+#homepage-featured-collections h2 { border: 0; }
+
+#homepage-featured-collections .btn { background-color: #161109; color: #FFFFFF; border-color: #161109; margin: 2.0rem 0; text-decoration: underline; }
+
+#homepage-featured-collections > * > * { margin-left: 0; margin-right: 0; }
+
+/** @file _homepage_featured_exhibits.sass @category 60_site_elements @theme LOCAL @description Styles the homepage featured exhibit block. */
+#homepage-featured-exhibits { padding-left: 0; padding-right: 0; padding: 2.0rem 1.5rem !important; display: grid; grid-template-columns: 1fr; grid-row-gap: 2.66667rem; }
+
+@media only screen and (min-width: 46.25em) { #homepage-featured-exhibits { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { #homepage-featured-exhibits { max-width: calc(700px + (8.42797rem * 2) - 3rem) !important; } }
+
+@media only screen and (min-width: 46.25em) { #homepage-featured-exhibits { padding: 3.55555rem 0; grid-template-columns: 1fr 2fr; grid-column-gap: 4.74074rem; align-items: center; } }
+
+#homepage-featured-exhibits .callout-items { display: grid; grid-template-columns: 1fr; grid-column-gap: 1.5rem; grid-row-gap: 1.5rem; }
+
+@media only screen and (min-width: 46.25em) { #homepage-featured-exhibits .callout-items { grid-template-columns: 1fr 1fr; }
+  #homepage-featured-exhibits .callout-items > *:first-child { grid-column-end: span 2; }
+  #homepage-featured-exhibits .callout-items > *:nth-child(2) figure, #homepage-featured-exhibits .callout-items > *:nth-child(3) figure { height: 14.98305rem; }
+  #homepage-featured-exhibits .callout-items > *:nth-child(2) figure img, #homepage-featured-exhibits .callout-items > *:nth-child(3) figure img { height: 100%; object-fit: cover; } }
+
+#homepage-featured-exhibits .callout-items figure { filter: drop-shadow(0.47461rem 0.47461rem 0.47461rem #a2a09d); }
+
+#homepage-featured-exhibits h2 { border: 0; }
+
+#homepage-featured-exhibits .btn { background-color: #3C5766; color: #FFFFFF; border-color: #FFFFFF; margin: 2.0rem 0; text-decoration: underline; }
+
+#homepage-featured-exhibits > * > * { margin-left: 0; margin-right: 0; }
+
+/** @file _homepage_featured_profiles.sass @category 60_site_elements @theme LOCAL @description Styles the homepage featured exhibit block. */
+#homepage-featured-profiles { padding-left: 0; padding-right: 0; padding: 2.0rem 1.5rem; display: grid; grid-template-columns: 1fr; grid-row-gap: 2.66667rem; }
+
+@media only screen and (min-width: 46.25em) { #homepage-featured-profiles { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { #homepage-featured-profiles { max-width: calc(700px + (8.42797rem * 2) - 3rem) !important; } }
+
+@media only screen and (min-width: 46.25em) { #homepage-featured-profiles { padding: 2.0rem 0; grid-template-columns: 1fr 1fr; grid-gap: 1.5rem 1.5rem; align-items: center; }
+  #homepage-featured-profiles .title-area { grid-column-end: span 2; padding-left: calc(50% + (1.5rem * 3)); }
+  #homepage-featured-profiles > *:nth-child(2), #homepage-featured-profiles > *:nth-child(4) { transform: translateY(-19.9774rem); } }
+
+#homepage-featured-profiles figure { filter: drop-shadow(0.47461rem 0.47461rem 0.47461rem #a2a09d); }
+
+#homepage-featured-profiles figcaption { display: none; }
+
+#homepage-featured-profiles h2 { border: 0; }
+
+#homepage-featured-profiles .btn { background-color: #FFC565; color: #161109; border-color: #FFC565; margin: 2.0rem 0; text-decoration: underline; }
+
+#homepage-featured-profiles > * > * { margin-left: 0; margin-right: 0; }
+
+/** @file excerpts.sass @category 60_site_elements @description Hide representative images in main content. Only displays when embedded in cards and other listings */
+main > div > .representative-image { display: none; }
+
+/** @file excerpts.sass @category 60_site_elements @description Manages the preview block in the main content stack. Also see 10_layout/exploreArchive.sass */
+main > div > .preview-block { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > .preview-block { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div > .preview-block { max-width: calc(700px + (11.23729rem * 2) - 3rem); } }
+
+/** Profile Pages Right now the site infers that a page is a profile page from the presence of a profile picture in the splash area. This is not ideal - preference would be to have a definitive class on all pages. Mark as @todo */
+#splash .profile-picture .scroll-down { display: none; }
+
+#splash .profile-picture figcaption { padding: 1.5rem; }
+
+#splash .profile-picture figcaption p { font-style: normal; font-size: 1.6rem; font-family: "Lato", sans-serif; }
+
+@media only screen and (min-width: 46.25em) { #splash .profile-picture .item { height: 100%; }
+  #splash .profile-picture .item figure { height: 100%; display: flex; flex-direction: row; }
+  #splash .profile-picture .item figure > a { display: block; width: 50%; height: 100%; }
+  #splash .profile-picture .item figure img { display: block; height: 100%; width: 100%; object-fit: cover; }
+  #splash .profile-picture .item figcaption { display: flex; flex-direction: column; justify-content: flex-end; width: 50%; height: 100%; padding: 6% 5% 2.66667rem 10%; text-align: right; background-color: #161109; color: #FFFFFF; }
+  #splash .profile-picture .item figcaption h1 { color: #FFFFFF; margin-bottom: 2.0rem; }
+  #splash .profile-picture .item figcaption .scroll-down { display: block; float: right; } }
+
+/* @file _cards.sass @category 60_site_elements @theme LOCAL @component main @description Handles profile grid section listing. */
+main > div .listing-cards { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div .listing-cards { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div .listing-cards { max-width: calc(700px + (11.23729rem * 2) - 3rem); } }
+
+.cards { background-color: #F3F6F8; padding: 3.55555rem; }
+
+.card { position: relative; }
+
+.card figure { position: relative; overflow: hidden; width: 100%; filter: drop-shadow(0.47461rem 0.47461rem 0.47461rem #a2a09d); }
+
+.card figure:before { position: relative; content: ''; display: block; padding-top: 75.00002%; }
+
+.card figure > * { display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+.card figure img { object-fit: cover; width: 100%; height: 100%; }
+
+#splash .block-introduction { width: 100%; display: flex; flex-direction: column; justify-content: flex-end; text-align: right; color: #fff; padding: 6% 5% 2.66667rem 10%; }
+
+@media only screen and (min-width: 46.25em) { #splash .block-introduction { width: 50%; } }
+
+#splash .block-introduction h2 { border-bottom: 0; color: #FFFFFF; }
+
+#splash .profile-grid { background: #161109; display: flex; flex-direction: column; }
+
+@media only screen and (min-width: 46.25em) { #splash .profile-grid { flex-direction: row; } }
+
+#splash .profile-grid .scroll-down { align-self: flex-end; }
+
+#splash .profile-grid-cont { background: #FFFFFF; width: 100%; display: inline-grid; height: 100%; grid-template-rows: 50% 50%; grid-template-columns: 1fr 1fr; grid-column-gap: 3px; grid-row-gap: 3px; border-right: 3px solid #FFFFFF; border-left: 3px solid #FFFFFF; border-bottom: 3px solid #FFFFFF; overflow: hidden; }
+
+@media only screen and (min-width: 46.25em) { #splash .profile-grid-cont { width: 50%; grid-template-rows: 33% 33% 33%; border-left: 0; border-bottom: 0; } }
+
+#splash .profile-grid-cont .profile-grid-item { display: none; margin: 0; }
+
+#splash .profile-grid-cont .profile-grid-item .item.resource { height: 100%; }
+
+#splash .profile-grid-cont .profile-grid-item .scroll-down { display: none !important; }
+
+#splash .profile-grid-cont .profile-grid-item .profile-picture .item figure { position: relative; height: 100%; }
+
+#splash .profile-grid-cont .profile-grid-item .profile-picture .item figure > a { width: 100%; cursor: default; z-index: 2; color: #161109; }
+
+#splash .profile-grid-cont .profile-grid-item .profile-picture .item figure > a img { height: 100%; object-fit: cover; }
+
+#splash .profile-grid-cont .profile-grid-item figcaption { justify-content: center; text-align: left; position: absolute; top: 0; bottom: 0; left: 0; z-index: 1; right: 0; height: 100%; width: 100%; opacity: 0; transition: .5s ease; font-style: unset; background-color: #FFC565; padding: 1.125rem; }
+
+@media only screen and (min-width: 46.25em) { #splash .profile-grid-cont .profile-grid-item figcaption { padding: 1.5rem; } }
+
+#splash .profile-grid-cont .profile-grid-item figcaption h1 { font-size: 1.2rem; color: #161109; font-family: "Lato", sans-serif; margin-top: 0; }
+
+@media only screen and (min-width: 46.25em) { #splash .profile-grid-cont .profile-grid-item figcaption h1 { margin-top: 2.0rem; } }
+
+#splash .profile-grid-cont .profile-grid-item figcaption p { font-size: 0.9rem; color: #161109; margin-top: 1.5rem; }
+
+#splash .profile-grid-cont .profile-grid-item:nth-child(1) { display: flex; }
+
+#splash .profile-grid-cont .profile-grid-item:nth-child(2) { display: flex; }
+
+#splash .profile-grid-cont .profile-grid-item:nth-child(3) { display: flex; }
+
+#splash .profile-grid-cont .profile-grid-item:nth-child(4) { display: flex; }
+
+#splash .profile-grid-cont .profile-grid-item:nth-child(5) { display: none; }
+
+@media only screen and (min-width: 46.25em) { #splash .profile-grid-cont .profile-grid-item:nth-child(5) { display: flex; } }
+
+#splash .profile-grid-cont .profile-grid-item:nth-child(6) { display: none; }
+
+@media only screen and (min-width: 46.25em) { #splash .profile-grid-cont .profile-grid-item:nth-child(6) { display: flex; } }
+
+#splash .profile-grid-cont figure:hover figcaption { z-index: 3 !important; opacity: 1 !important; }
+
+#splash .profile-grid-cont figure:hover .profile-overlay-btn { display: flex; }
+
+#splash .profile-grid-cont figure:hover .profile-overlay-logo { display: block !important; }
+
+.profile-overlay-btn { width: auto; min-width: 100%; white-space: pre-wrap; text-decoration: underline; color: #161109 !important; border-color: #161109; height: 55px; padding: 0.84375rem; font-size: 0.9rem; }
+
+@media only screen and (min-width: 46.25em) { .profile-overlay-btn { font-size: unset; } }
+
+.profile-overlay-logo { position: absolute; width: 1.5rem !important; height: 1.5rem !important; top: 0.63281rem; right: 0.47461rem; }
+
+.temp-profile-image { background: url("../../asset/img/png/splash/profiles_splash_mobile.png") no-repeat !important; background-size: cover !important; background-position: center !important; height: 26.63652rem !important; }
+
+@media only screen and (min-width: 46.25em) { .temp-profile-image { height: 100% !important; background: url("../../asset/img/png/splash/profiles_splash_desktop.png") no-repeat !important; background-size: cover !important; background-position: center !important; } }
+
+/** @file temp.sass @category 60_site_elements @description Ugh. Temp styles. Delete ASAP. */
+#block-42 { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { #block-42 { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { #block-42 { max-width: calc(700px + (11.23729rem * 2) - 3rem); } }
+
+/* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
+@media only screen and (min-width: 46.25em) { body.profiles .section-intro-splash figure { background-image: url(../img/png/splash/profiles_splash_desktop.png); background-repeat: no-repeat; background-size: cover; width: 50%; background-position: center center; }
+  body.profiles .section-intro-splash figure > a, body.profiles .section-intro-splash figure img { display: none; } }
+
+body.profiles .section-intro-splash figure:after { display: none; }
+
+@media only screen and (min-width: 46.25em) { body.profiles .section-intro-splash .introduction { background: #161109; border-left: 2px solid #FFFFFF; } }
+
+body.profiles main ul li:before { color: #FFC565; }

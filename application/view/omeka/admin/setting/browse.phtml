@@ -1,0 +1,16 @@
+<?php
+$translate = $this->plugin('translate');
+$this->htmlElement('body')->appendAttribute('class', 'settings');
+$form->prepare();
+?>
+
+<?php echo $this->pageTitle($translate('Global settings')); ?>
+<?php $this->trigger('view.browse.before'); ?>
+<?php echo $this->form()->openTag($form); ?>
+<div id="page-actions">
+    <button><?php echo $translate('Save'); ?></button>
+</div>
+<?php echo $this->formCollection($form); ?>
+<?php echo $this->form()->closeTag(); ?>
+
+<?php $this->trigger('view.browse.after'); ?>

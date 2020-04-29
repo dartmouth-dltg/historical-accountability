@@ -1,0 +1,474 @@
+/* 
+   @file _layout.sass 
+   @theme Local
+   @description  Loads SASS files for local theme. */
+
+
+video
+  max-height: 100vh
+  width: 100%
+
+#secondary-content
+  background: neutral(10)
+  margin-top: rv(5)
+  padding: rv(5) 0
+  h2
+    margin-top: 0
+    border-bottom: 1px solid $black
+  > div
+    margin-top: rv(4)
+    > *
+      +inset-text()
+    > .site-guide-cont
+      +negative-content-margin(6)
+    
+    
+// @todo:  There are some present factors in 00_configuration_layout like $mobile_edge_padding_factor and $edge_padding_factor that should be used here.
+section
+  main
+    > div
+      > *
+        margin-left: rv(0)
+        margin-right: rv(0) 
+        +bp($stack)
+          margin-left: auto
+          margin-right: auto
+        &:first-child
+          margin-top: rv(3)!important
+      > .storymap
+          margin-left: auto
+          margin-right: auto
+          margin-top: 0!important
+      > .tl-timeline
+          max-width: 100%!important
+          margin-left: auto
+          margin-right: auto
+          margin-top: 0!important
+  > div[class*="block-"]
+      margin-top: rv(4)
+  
+  > div
+    > div
+      > div
+        margin-left: rv(0)
+        margin-right: rv(0) 
+        
+        +bp($stack)
+          margin-left: auto
+          margin-right: auto
+
+main
+  > div
+    margin-bottom: 0
+    > *
+      +inset-text()
+    > .storymap
+      +inset-full()
+    > .slideshow
+      +negative-content-margin(4)
+    > .tl-timeline
+      max-width: 100%!important
+      +inset-full()
+    > .browse-controls
+      +negative-content-margin(6)
+    > .search-filters
+    +negative-content-margin(6)
+    > .hu-outset-margin
+      +negative-content-margin(6)
+    > .explore-the-archive
+      +negative-content-margin(6)
+      > div
+        +inset-text()
+    > .resource-list
+      +negative-content-margin(6)
+      
+    .slideshow-block, .slideshow-with-audio
+      +negative-content-margin(7)
+      
+    > .file
+      +negative-content-margin(4)
+      
+      .caption
+        text-align: center
+        margin-top: rv(-1)
+        margin-bottom: rv(-1)
+      h3 
+        display: none
+        
+    > ul, .item-list > ul
+      display: grid
+      grid-template-columns: 1fr
+      grid-column-gap: rv(3)
+      grid-row-gap: rv(-2)
+      grid-auto-columns: min-content
+      padding: 0
+      list-style-type: none
+      
+      +bp($desktop)
+        grid-template-columns: 1fr 1fr 1fr
+      
+      li
+        position: relative
+        
+        &:before
+          content: "\2022"
+          color: #C59587
+          font-weight: bold
+          display: inline-block
+          width: rv(-2)
+          position: absolute
+          top: rv(0) / -4
+          left: rv(0) * -1
+          font-size: rv(0)        
+        
+  blockquote
+    border-top: 3px solid set-color(2,'dark')
+    border-bottom: 3px solid set-color(2,'dark')
+    color: set-color(2,'shade')
+    padding: rv(1) rv(3)!important
+    font-family: $headingfont
+
+  th, td
+    text-align: left
+    border-spacing: 0
+    padding: rv(-5)
+    font-size: font-value(-1)
+    +bp($stack)
+      padding: rv(-3)
+      font-size: font-value(0)
+
+  th
+    background: neutral(10)
+  tr:nth-child(even)
+    > td
+      background: $lightest_neutral
+  table 
+    border: 1px solid neutral(15)
+    border-spacing: 0
+    +bp($stack)
+      width: 100%
+
+.huronia-identity
+  background-color: $black
+  height: rv(1)
+  width: 60%
+  display: block
+  margin: rv(-1)
+  
+  +bp($stack)
+    background-color: $black
+    height: 100%
+    width: 330px
+    margin: 0
+    
+  &#logo-mobile
+    +bp($stack)
+      display: none
+      
+    img
+      height: 100%
+      width: auto
+      
+  &#logo-stack
+    display: none
+    +bp($stack)
+      display: flex
+      flex-direction: row
+      align-items: center
+      
+    img
+      width: 100%
+      transform: translateY(-6.5px) // Fudge factor to bring the logo baseline in line with menu text baseline
+  
+.site-page-pagination
+  display: none
+
+body
+  > header
+    align-items: center
+    display: grid
+    grid-template-columns: 3fr 1fr
+    border-bottom: rv(-7) solid $white
+    overflow: hidden
+    background: $black
+    
+    +bp($stack)
+      display: grid
+      grid-template-rows: initial
+      grid-template-columns: 2fr 6fr 1fr
+      grid-row-gap: initial
+      
+    .access-button
+      &.up-arrow-toggle
+        .down-arrow-black
+          transform: rotate(180deg)
+          position: relative
+          top: -4px
+      display: none
+      &:hover
+        color: $white
+      +bp($stack)
+        background: $clr1
+        padding: 0 rv(-3)
+        color: $black
+        white-space: nowrap
+        display: flex
+        align-items: center
+        text-align: center
+        height: 100%
+        border-left: rv(-10) solid $white
+    .menu-access-button
+      &.up-arrow-toggle
+        .down-arrow-black
+          transform: rotate(180deg)
+          position: relative
+          top: -4px
+      background: $clr1
+      padding: 0 rv(-3)
+      color: $black
+      white-space: nowrap
+      display: flex
+      align-items: center
+      text-align: left
+      height: 100%
+      line-height: rv(-1)
+      border-left: rv(-10) solid $white
+      &:hover
+        color: $white
+      +bp($stack)
+        display:none!important
+
+    img
+      width: rv(12)
+      float: left
+    nav
+      background: $black
+      height: 100%
+      display: none
+      +bp($stack)
+        display: block
+        text-align: right
+        padding: 10px 0
+        padding-right: 3%
+
+
+      ul.navigation
+        display: inline-block
+        float: right
+        li
+          margin: 0 rv(-6)
+          white-space: nowrap
+          &.active
+            a
+              color: $clr1
+          &:last-child
+            display: none !important
+    a
+      color: $white
+      font-weight: $bold
+      span
+        margin: 0 auto
+    a:hover
+      color: $clr1
+    .down-arrow-black
+      vertical-align: top
+      display: inline-block
+      margin: -(rv(-6)) rv(-5)
+      width: rv(-1)
+      height: rv(-1)
+      background: url("../../asset/img/svg/icons/down_arrow_black.svg") no-repeat
+      +bp($stack)
+        vertical-align: initial
+    ul
+      li
+        display: inline
+  > footer
+    color: $white
+    background-color: $black
+    padding: rv(1)
+    display: grid
+    grid-template-columns: 15% 1fr 15%
+    +bp($stack)
+      display: grid
+      grid-template-rows: initial
+      //grid-template-columns: [footer-col1] 3fr [footer-col2] 2fr [footer-col3] 2fr [footer-col4] 2fr [footer-col5] 2fr
+      grid-row-gap: initial
+      padding: rv(-1)
+      +fluid_type(-1,0)
+      line-height: rv(-1)
+      grid-column-gap: rv(-2)
+    +bp($tablet)
+      grid-column-gap: rv(2)
+      padding: rv(2) rv(4)
+    div
+      margin: auto
+      grid-column: 1 / 3
+      +bp($stack)
+        grid-column: auto
+    p
+      margin-top: rv(2)
+      font-size: 0.7em
+    .footer--logo
+      margin: 0
+      text-align: right
+      grid-column: 3 / 3
+      +bp($stack)
+        margin: auto
+        grid-column: auto
+      img
+        width: rv(8)
+    .footer--recountlogo
+      margin: auto
+      img
+        width: rv(10)
+    nav
+      grid-column: 1 / 3
+      width: 100%
+      grid-template-columns: unset
+      display: grid
+      +bp($stack)
+        grid-column: 2 / 3
+        grid-template-columns: 1fr 1fr 1fr
+      ul
+        line-height: font-value(2)
+        li
+          &:first-child
+            margin-bottom: rv(-3)
+            list-style-type: none
+            margin-left: -15px
+
+          a
+            color: $white
+            text-decoration: underline
+
+.site-guide-cont
+  +negative-content-margin(6)
+  display: grid
+  align-items: center
+  grid-column-gap: rv(-1)
+  grid-template-rows: none
+  grid-row-gap: 0
+  grid-template-columns: none
+  +bp($stack)
+    display: flex
+    grid-template-columns: 3fr 2fr 2fr
+  > div
+    grid-column: auto
+    padding: 0
+    +bp($stack)
+      padding: 0 rv(0)
+  p
+    font-size: font-value(-1)
+    margin-left: rv(1)
+  h5
+    text-decoration: underline
+    margin-bottom: rv(-3)
+    display: inline-block
+  i 
+    display: inline-block
+    background: black
+    border-radius: 3px
+    width: 20px
+    height: 20px
+    margin-right: 10px
+  h1
+    font-weight: $heavy
+
+.site-guide-head
+  align-self: flex-start
+  text-align: right
+  p
+    font-weight: $semibold 
+    margin-left: 0
+
+.access-dropdown
+  color: #fff
+  text-align: left
+  padding-right: 0
+  background: black
+  float: right
+  width: auto
+  position: absolute
+  right: 0
+
+  ul
+    padding-left: 10px
+    grid-template-columns: unset
+    list-style-type: none
+    li
+      .toggle-label
+        position: relative
+        top: -3px
+        
+.access-dropdown-mobile
+  color: #fff
+  text-align: right
+  padding-right: 0
+  background: black
+  float: right
+  width: 100%
+  position: absolute
+  +bp($stack)
+    display: none
+  ul
+    padding-left: 10px
+    grid-template-columns: unset
+    list-style-type: none
+  li
+    .toggle-label
+      position: relative
+      top: -3px
+  
+.dark-switch 
+  position: relative
+  display: inline-block
+  width: 40px
+  height: 24px
+
+.dark-switch input 
+  opacity: 0
+  width: 0
+  height: 0
+
+.slider 
+  position: absolute
+  cursor: pointer
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: #ccc
+  -webkit-transition: .4s
+  transition: .4s
+
+.slider:before 
+  position: absolute
+  content: ""
+  height: 16px
+  width: 16px
+  left: 4px
+  bottom: 4px
+  background-color: white
+  -webkit-transition: .4s
+  transition: .4s
+
+input:checked + .slider 
+  background-color: $clr1
+
+input:focus + .slider 
+  box-shadow: 0 0 1px $clr1
+
+input:checked + .slider:before 
+  -webkit-transform: translateX(16px)
+  -ms-transform: translateX(16px)
+  transform: translateX(16px)
+
+.slider.round 
+  border-radius: 34px
+
+.slider.round:before 
+  border-radius: 50%
+.profile-overlay-btn
+  display: none
+.profile-overlay-logo
+  display: none!important

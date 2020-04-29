@@ -1,0 +1,20 @@
+// LEGACY: Flex implementation
+
+=separated-row-flex($columns: 4, $separator: -3, $wrap: nowrap, $rows: 2)
+  $sepbase: 100%/$columns
+  $sepcount: $columns - 1
+  $sepnumerator: relative_value($separator) * $sepcount
+  $separation: $sepnumerator / $columns
+  $vertical: $separation * $rows // TODO: Not sure why this works, lol. Or if it does in different circumstances.
+
+  display: flex
+  flex-direction: row
+  flex-wrap: $wrap
+  justify-content: space-between
+  align-items: flex-start
+  
+  --separator: calc(#{$sepbase} - #{$separation})
+  
+  > *
+     width: var(--separator)
+     margin-bottom: $vertical

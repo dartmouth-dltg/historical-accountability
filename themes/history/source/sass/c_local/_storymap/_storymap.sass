@@ -1,0 +1,247 @@
+/* 
+   @file _storymap.sass 
+   @theme Local
+   @description  Loads SASS files for local theme. */
+
+
+.storymap
+  height: calc(100vh - 0px)!important
+  max-width: 100%!important
+  margin-bottom: 0!important
+  +bp($stack)
+    height: calc(100vh - 110px)!important
+    max-width: 100%!important
+
+.vco-slide .vco-slide-scrollable-container
+  margin: 0 rv(-1)
+  
+.vco-storymap
+  .vco-text
+    width: 95%!important
+    p
+      color: $black
+      font-size: font-value(-1)!important 
+
+  .vco-slider-container
+    text-align: left!important
+
+  .vco-media-content img
+    width: 70%!important
+    max-width: rv(11)!important
+
+  .vco-credit, .vco-caption, .vco-menubar, .leaflet-control
+    display:none!important
+
+  .vco-slidenav-previous .vco-slidenav-icon
+    margin-left: rv(1)!important
+    width: rv(3)
+    height: rv(3)
+    background: url("../../asset/img/svg/icons/left_chevron_fire_black.svg") no-repeat
+    &:before
+      content: unset!important
+
+  .vco-slidenav-next .vco-slidenav-icon
+    width: rv(3)
+    height: rv(3)
+    background: url("../../asset/img/svg/icons/right_chevron_black.svg") no-repeat
+    &:before
+      content: unset!important
+
+  .vco-map .vco-mapmarker-active
+    width: rv(3)
+    height: rv(3)
+    background: url("../../asset/img/svg/icons/map_marker_blue.svg") no-repeat
+    &:before
+    &:after  
+      content: unset!important
+
+  .vco-map .vco-mapmarker
+    width: rv(3)
+    height: rv(3)
+    background: url("../../asset/img/svg/icons/map_marker_black.svg") no-repeat
+    &:before
+    &:after
+      content: unset!important
+
+  .fa, [class*="o-icon-"]
+    &:before
+      display: none
+
+  h2.vco-headline-title, h2.vco-headline
+    font-size: font-value(2)!important
+    line-height: font-value(3)!important
+    display: inline-block
+    width: auto
+    border: 0
+    a
+    &:hover
+      text-decoration: none
+
+
+​//unset styles for story map default style properties
+.vco-storymap, .tl-timeline
+  font-family: unset
+  
+  h1, h2, h3
+    font-size: unset
+    line-height: unset
+    text-shadow: none !important
+    
+    small
+      font-size: unset
+      line-height: unset
+      
+  h4, h5, h6
+    font-size: unset
+    line-height: unset
+    margin: unset
+    text-shadow: none !important
+  
+  h2
+    margin-top: unset
+    margin-bottom: unset
+      
+  h2.vco-headline-title, h2.vco-headline
+    font-size: unset
+    line-height: unset
+    
+    small
+      font-size: unset
+      line-height: unset
+        
+    a, a:hover, a:active
+      color: unset
+      text-decoration: unset
+      
+  p
+    margin-top: unset
+    margin-bottom: unset
+    font-size: unset
+    color: unset
+    text-shadow: none !important
+
+    a
+      color: unset
+      text-decoration: unset
+      background: unset
+      text-shadow: unset
+      
+      &:hover, &:focus
+        color: unset
+        text-decoration: unset
+      
+      @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) 
+        text-decoration: unset
+        background-image: unset
+        text-shadow: unset
+        &:hover, &:focus
+          color: unset
+  b, strong
+    font-weight: unset
+    
+  i, em
+    font-style: unset
+    
+  a
+    text-decoration: unset
+    color: unset
+    
+    &:hover
+      text-decoration: unset
+      color: unset
+      
+      
+  .vco-caption, .vco-credit, .vco-slidenav-next, .vco-slidenav-previous
+    top: 45%!important
+    +font-size(-1)
+    +line-height(-1)
+    
+    a
+      color: unset
+      
+  blockquote, blockquote p
+    margin: unset
+    
+    cite
+      
+  .vco-text
+    ul
+      padding: unset
+      margin: unset
+      
+      li
+        margin: unset
+        
+  .vco-note
+      color: unset
+      font-style: italic
+  
+  
+    
+@media only screen and (max-width: 800px), only screen and (max-device-width: 800px)
+  .vco-storymap
+    h1, h2, h3
+      font-size: unset
+      line-height: unset
+      
+@media only screen and (max-width: 500px), only screen and (max-device-width: 500px)
+  .vco-storymap
+    h1, h2, h3
+      font-size: unset
+      line-height: unset
+​
+.vco-skinny
+  h2
+    margin-top: unset
+    padding-top: unset
+    
+.tl-slide .tl-slide-background
+  opacity: initial
+    
+/* Remove display: table */
+​
+.vco-slide
+  .vco-slide-content-container 
+    display: block
+    
+​
+#splash
+​
+  /* Reset img element from content-box */
+​
+  .vco-storymap *
+    box-sizing: border-box
+    
+  /* Timeline Content-Container */
+    
+  .tl-slide .tl-slide-content-container .tl-slide-content .tl-text  
+    width: 100%
+    max-width: 100%
+    padding: 0
+​
+  /* Timeline Text-Shadow */
+​
+​
+  .tl-slide.tl-full-image-background, .tl-slide.tl-full-color-background
+    text-shadow: none !important
+    
+    p, h1, h2, h3, h4, h5, h6 
+      text-shadow: none !important
+      color: initial !important
+    
+    a, a:hover, b, i, blockquote, blockquote p 
+      text-shadow: none !important
+    
+    .tl-caption, .tl-credit 
+      text-shadow: none !important
+    
+    .tl-media-twitter, .tl-media-blockquote 
+      blockquote 
+        text-shadow: none !important
+        p 
+          text-shadow: none !important
+    .vcard 
+      a, .nickname  
+        text-shadow: none !important
+
+  

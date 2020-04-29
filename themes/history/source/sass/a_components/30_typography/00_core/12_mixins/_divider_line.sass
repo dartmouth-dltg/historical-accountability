@@ -1,0 +1,7 @@
+// divider line
+@mixin divider-line($border-width: 1px, $border-style: solid, $border-color: $black, $padfactor: 2)
+  width: 100%
+  display: block
+  border-bottom: $border-width $border-style $border-color
+  +spacing('padding-top',$padfactor)
+  +spacing('padding-bottom',$padfactor)

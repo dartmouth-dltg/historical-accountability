@@ -1,0 +1,28 @@
+// Defines the base type scale system.
+
+html
+  font-family: $basefont
+  font-size: ms(map-get($typescale,'base'),$rootsize,$scale)
+  color: $black
+  
+  +bp(xsml)
+    font-size: ms(map-get($typescale,'xsml'),$rootsize,$scale)
+  
+  +bp(sml)
+    font-size: ms(map-get($typescale,'sml'),$rootsize,$scale)
+    
+  +bp(med)
+    font-size: ms(map-get($typescale,'med'),$rootsize,$scale)
+    
+  +bp(lrg)
+    font-size: ms(map-get($typescale,'lrg'),$rootsize,$scale)
+    
+  +bp(xlrg)
+    font-size: ms(map-get($typescale,'xlrg'),$rootsize,$scale)
+
+  +bp(xxlrg)
+    font-size: ms(map-get($typescale,'xxlrg'),$rootsize,$scale)
+      
+body
+  font-size: $basetypesize
+  +standard-line-height()

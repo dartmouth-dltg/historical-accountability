@@ -1,0 +1,153 @@
+#homepage-splash    
+  .slick-slide
+    +bp($stack)
+      height: 100%
+      
+  figure
+    height: rv(8)!important
+    max-height: initial!important
+    
+    a
+      display: block
+      height: 100%
+    
+    img
+      object-fit: cover
+      height: 100%
+    
+    +bp($stack)
+      height: 100%!important
+      max-height: initial!important
+        
+  margin-left: 0
+  margin-right: 0
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  width: 100%
+  overflow-y: hidden
+  position: relative
+  
+  +bp($stack)
+    flex-direction: row
+    justify-content: flex-end
+      
+    &:after
+      position: absolute
+      content: ""
+      height: 100%
+      width: 100%
+      top: 0
+      left: 0
+      background: $home_rtl_dark_gradient
+      
+  .items
+    position: relative
+    width: 100%
+    left: 0
+    top: 0
+    
+    +bp($stack)
+      position: absolute
+      height: 100%
+    
+  .item
+    height: 100%
+
+  .flame
+    height: 100%
+    z-index: 1
+    display: none
+    +bp($stack)
+      display: block
+    img
+      max-width: none
+      width: auto
+      height: 100%
+  .resource.introduction
+    +bp($stack)
+      width: 27%
+      margin-left: -3px
+      height: 100%
+    z-index: 10
+
+    .introductory-text
+      height: 100%
+      padding-right: rv(3)
+      padding-bottom: rv(6)
+      padding-top: rv(2)
+      padding-bottom: 0
+      display: flex
+      flex-direction: column
+      justify-content: flex-end
+      align-items: flex-start
+      background-color: $white
+      z-index: 2
+      flex: 1
+      font-weight: $bold
+            
+      +bp($stack)
+        padding-top: rv(0)
+        padding-bottom: rv(0)
+        font-weight: $normal
+        
+  .scroll-down
+    display: none
+    
+    +bp($stack)
+      display: block
+        
+  .down-arrow
+    color: $black
+    
+    span
+      color: $black
+    
+    &:hover
+      color: set-colour(1)
+      
+      span
+        color: set-colour(1)
+        
+  .warning-lug
+    width: 100%
+    height: fit-content
+    background-color: $black
+    opacity: 0.8
+    color: $white
+    border-top: 2px solid $white
+    padding: 1.5rem //@todo replace with mobile edge factor
+    +font-size(-1)
+    display: flex
+    flex-direction: column
+    justify-content: center
+    z-index: 1
+    
+    +bp($stack)
+      position: absolute
+      width: rv(8)
+      bottom: rv(1)
+      left: rv(1)
+      padding: rv(-1)
+      border: 1px solid $white
+      
+    p
+      font-size: 1em
+
+    h4
+      font-family: $basefont
+      font-size: 1.5em
+      color: $white
+      text-transform: uppercase
+      text-decoration: underline
+      margin-top: 0px
+      margin-bottom: rv(-2)
+      display: flex
+      flex-direction: row
+      align-items: center
+
+      img
+        padding-right: 4px
+        
+#huronia-splash-logo
+  margin-bottom: rv(0)

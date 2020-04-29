@@ -1,0 +1,58 @@
+/**
+ * @file
+ * Font-face definition mixin
+ * Must be accompanied by full range of web fonts in the specified location path).
+ *
+ * Miller Display
+ * 
+ */
+ 
+=font-miller-display($path:'../fonts')
+
+  /* miller-display-light  */
+  @font-face 
+    font-family: 'MillerDisplay'
+    font-style: normal
+    font-weight: 300
+    src: url('#{$path}/miller-display/MillerDisplay-Light.eot') 
+    src: local('MillerDisplay Light'), local('MillerDisplay-Light'), url('#{$path}/miller-display/MillerDisplay-Light.eot?#iefix') format('embedded-opentype'),  url('#{$path}/miller-display/MillerDisplay-Light.woff') format('woff'), url('#{$path}/miller-display/MillerDisplay-Light.ttf') format('truetype'),url('#{$path}/miller-display/MillerDisplay-Roman.svg#MillerDisplay') format('svg')
+  
+  /* miller-display-roman  */
+  @font-face 
+    font-family: 'MillerDisplay'
+    font-style: normal
+    font-weight: 400
+    src: url('#{$path}/miller-display/MillerDisplay-Roman.eot') 
+    src: local('MillerDisplay Roman'), local('MillerDisplay-Roman'), url('#{$path}/miller-display/MillerDisplay-Roman.eot?#iefix') format('embedded-opentype'),  url('#{$path}/miller-display/MillerDisplay-Roman.woff') format('woff'), url('#{$path}/miller-display/MillerDisplay-Roman.ttf') format('truetype'),url('#{$path}/miller-display/MillerDisplay-Roman.svg#MillerDisplay') format('svg')
+  
+  /* miller-display-italic  */
+  @font-face 
+    font-family: 'MillerDisplay'
+    font-style: italic
+    font-weight: 400
+    src: url('#{$path}/miller-display/MillerDisplay-Italic.eot') 
+    src: local('MillerDisplay Italic'), local('MillerDisplay-Italic'), url('#{$path}/miller-display/MillerDisplay-Italic.eot?#iefix') format('embedded-opentype'),  url('#{$path}/miller-display/MillerDisplay-Italic.woff') format('woff'), url('#{$path}/miller-display/MillerDisplay-Italic.ttf') format('truetype'),url('#{$path}/miller-display/MillerDisplay-Italic.svg#MillerDisplay') format('svg')
+  
+  /* miller-display-600  */
+  @font-face 
+    font-family: 'MillerDisplay'
+    font-style: normal
+    font-weight: 600
+    src: url('#{$path}/miller-display/MillerDisplay-Semibold.eot') 
+    src: local('MillerDisplay SemiBold'), local('MillerDisplay-SemiBold'), url('#{$path}/miller-display/MillerDisplay-Semibold.eot?#iefix') format('embedded-opentype'), url('#{$path}/miller-display/MillerDisplay-Semibold.woff') format('woff'), url('#{$path}/miller-display/MillerDisplay-Semibold.ttf') format('truetype'),url('#{$path}/miller-display/MillerDisplay-Semibold.svg#MillerDisplay') format('svg')
+  
+  /* miller-display-600italic  */
+  @font-face 
+    font-family: 'MillerDisplay'
+    font-style: italic
+    font-weight: 600
+    src: url('#{$path}/miller-display/MillerDisplay-SemiboldItal.eot') 
+    src: local('MillerDisplay SemiBold Italic'), local('MillerDisplay-SemiBoldItalic'), url('#{$path}/miller-display/MillerDisplay-SemiboldItal.eot?#iefix') format('embedded-opentype'), url('#{$path}/miller-display/MillerDisplay-SemiboldItal.woff') format('woff'), url('#{$path}/miller-display/MillerDisplay-SemiboldItal.ttf') format('truetype'),url('#{$path}/miller-display/MillerDisplay-SemiboldItal.svg#MillerDisplay') format('svg')
+  
+  /* miller-display-700  */
+  @font-face 
+    font-family: 'MillerDisplay'
+    font-style: normal
+    font-weight: 700
+    src: url('#{$path}/miller-display/MillerDisplay-Bold.eot') 
+    src: local('MillerDisplay Bold'), local('MillerDisplay-Bold'), url('#{$path}/miller-display/MillerDisplay-Bold.eot?#iefix') format('embedded-opentype'), url('#{$path}/miller-display/MillerDisplay-Bold.woff') format('woff'), url('#{$path}/miller-display/MillerDisplay-Bold.ttf') format('truetype'),url('#{$path}/miller-display/MillerDisplay-Bold.svg#MillerDisplay') format('svg')

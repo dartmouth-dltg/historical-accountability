@@ -1,0 +1,339 @@
+/* 
+   @file _slick.sass 
+   @theme Local
+   @description  Loads SASS files for local theme. */
+
+
+.slick-prev
+  width: rv(3)
+  height: rv(3)
+  background: url("../../asset/img/svg/icons/left_chevron_white.svg") no-repeat
+  position: absolute
+  top: 40%
+  transform: translateY(-50%)
+  left: 20px
+  z-index: 9999
+  cursor: pointer
+  &:hover
+    background: url("../../asset/img/svg/icons/left_chevron_fire.svg") no-repeat
+
+.slick-next
+  width: rv(3)
+  height: rv(3)
+  background: url("../../asset/img/svg/icons/right_chevron_white.svg") no-repeat
+  position: absolute
+  top: 40%
+  transform: translateY(-50%)
+  right: -5px
+  z-index: 9999
+  cursor: pointer
+  &:hover
+    background: url("../../asset/img/svg/icons/right_chevron_fire.svg") no-repeat
+    
+    
+.slideshow-block, .slideshow-with-audio
+  position: relative
+  min-height: 860px
+  height: 860px
+  overflow: hidden
+  
+.slick-list, .slick-track
+  height: 100%
+  
+.slick-initialized
+  .slick-slide
+    +bp($stack)
+      display: flex !important
+      flex-direction: column
+      justify-content: stretch
+
+.slide-contents
+  padding: rv(0)
+  border-top: 2px solid $white
+
+  h3
+    color: $white
+    font-family: $headingfont
+    margin-bottom: rv(-2)
+    font-size: font-value(-1)
+    
+    +bp($stack)
+      margin-bottom: rv(0)
+      font-size: font-value(2)
+      
+    a
+      color: $white !important
+      text-decoration: underline
+  p
+    color: $white
+    font-size: font-value(-1)
+    display: -webkit-box
+    overflow: hidden
+    text-overflow: ellipsis
+    -webkit-box-orient: vertical
+    position: relative
+    -webkit-line-clamp: 2
+    
+.slick-slide
+  position: relative
+  
+  img
+    object-fit: cover
+  
+  figure
+    overflow: hidden
+    max-height: 200px
+    height: 200px
+    
+    +bp($stack)
+      min-height: 250px
+      max-height: initial
+      height: initial
+
+
+.slideshow
+  background: $black
+  
+  +bp($stack)
+    height: 100%
+    
+    
+
+  &:fullscreen
+    .slick-next, .slick-prev
+      top: 50%
+      
+    .slick-slide
+      figure
+        max-height: 100%!important
+        height: 100%!important
+            
+.slick-dots
+  position: absolute
+  text-align: center
+  width: 100%
+  column-count: unset
+  top: initial
+  bottom: rv(1)
+  padding: 0
+  z-index: 9999
+    
+  li.slick-active
+    &:before
+      color: white
+  li
+    width: rv(0)
+    display: inline-block
+    cursor: pointer
+    &:before
+      content: "\2022"
+      color: neutral(25)
+      font-size: rv(1)
+      font-weight: $bold
+      display: inline-block
+      width: 5px
+      position: relative
+      top: 2px
+      left: -18px
+      
+  button
+    display:none!important
+    
+.slide-fullscreen-openBtn
+  position: absolute
+  top: 0
+  right: 0
+  color: $clr1
+  border-radius: 100px
+  background: none
+  border: 0px solid $clr1
+  width: 50px
+  min-width: auto
+  height: 50px
+  margin: 10px
+  background: url(../../asset/img/svg/icons/full_screen_outlined.svg) no-repeat
+  &:hover
+    border: 2px solid $clr1
+    background-color: unset
+    
+.slide-fullscreen-closeBtn
+  position: absolute
+  top: 0
+  right: 0
+  color: $clr1
+  border-radius: 100px
+  background: none
+  border: 2px solid $clr1
+  width: 50px
+  min-width: auto
+  height: 50px
+  margin: 10px
+  &:hover
+    border: 2px solid $clr1
+    background: unset
+    
+.slide-item
+  display: flex
+  flex-direction: column
+  justify-content: stretch
+  
+  figure
+    height: initial
+      
+  .slide-contents
+    border-top: 2px solid $white
+    padding-left: $title_area_outside_padding
+    padding-right: $title_area_outside_padding
+
+
+#splash
+  .slideshow
+    height: 100%
+    overflow: hidden
+        
+    .slick-slide
+      img
+        max-width: unset
+        width: 100vw
+        height: 100vh
+        
+        +bp($stack)
+          max-width: 100%
+          width: 100vw
+          height: 100vh
+      
+    .slick-next
+      top: 50%
+    .slick-prev
+      top: 50%
+    .slide-contents
+      width: 100%
+      min-height: 188px
+      
+      p
+        +bp($stack)
+          font-size: font-value(0)
+          
+    .slide-item
+      figure
+        max-height: initial
+
+      
+    .introduction
+    
+      .slide-contents
+        background: unset
+        position: absolute
+        z-index: 9999
+        +splash_area_title_left(70%)
+        border-top: 0
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+          
+        h3
+          text-transform: uppercase
+          color: $white
+          
+          a
+            color: $white!important
+        p
+          color: $white
+          -webkit-line-clamp: 8
+          
+    .slick-slide
+      &.introduction
+        > figure
+          &:before
+            content: ''
+            background: $rtl_dark_gradient
+            height: 100%
+            position: absolute
+            width: 100%
+            top: 0
+            left: 0
+            
+          height: 100vh
+          max-height: 100vh
+          
+          +bp($stack)
+            height: 100%!important
+            max-height: 100%!important
+            
+  .slick-cloned
+    > figure
+      height: 100vh
+      max-height: 100vh
+      
+      +bp($stack)
+        height: 100%!important
+        max-height: 100%!important
+    .slide-contents
+      background: none
+      
+.slideshow-with-audio
+  position: relative
+  
+  +bp($stack)
+    .slideshow
+      .slick-dots
+        bottom: rv(4)
+        
+      
+#splash
+  .slideshow-with-audio
+    +bp($stack)
+      .slideshow
+        .slide-contents
+          padding-bottom: $title_area_bottom_padding + rv(4) + rv(1) // normal padding plus audio controller plus dot clearance
+  
+.audio-controls
+  width: 100%
+  background: $black
+  color: $white
+  border-top: rv(-5) solid $white
+  margin: 0
+  padding-left: 1.5rem
+  padding-right: 1.5rem
+  
+  +bp($stack)
+    position: absolute
+    bottom: 0
+    height: rv(4)
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-content: center
+    
+#splash
+  .audio-controls
+    +bp($stack)
+      padding-left: $title_area_outside_padding
+      padding-right: $title_area_outside_padding
+
+
+    
+.audio-player, .audio-player > *, .audio-caption
+  display: flex
+  height: 100%
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  margin: 0
+  padding-right: rv(1)
+  font-size: font-value(-1)
+  
+  a
+    color: $clr1
+    text-decoration: underline
+    &:hover
+      color: $white
+  
+.audio-caption
+  p
+    margin: 0
+    font-size: font-value(-1)
+
+          
+            
+      

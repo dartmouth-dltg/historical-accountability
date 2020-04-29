@@ -1,0 +1,36 @@
+<?php
+/**
+ * @var \Zend\View\Renderer\PhpRenderer $this
+ * @var \Timeline\Form\TimelineFieldset $fieldset
+ * @var array $data
+ * @var int $itemCount
+ */
+
+$translate = $this->plugin('translate');
+?>
+
+<div>
+    <p><?php
+        echo $translate('Items can be selected in the whole base or in a limited list via the query below.');
+        echo ' ' . $translate('The default item pool is the current site one.');
+        echo ' ' . $translate('Items without a date are automatically filtered.');
+        if (!is_null($itemCount)) {
+            $query = [];
+            parse_str($data['o:block[__blockIndex__][o:data][query]'], $query);
+            $itemDataId = $data['o:block[__blockIndex__][o:data][item_date_id]'];
+            $query['property'][] = ['joiner' => 'and', 'property' => $itemDataId, 'type' => 'ex'];
+            echo ' ' . sprintf(
+                $translate('There are currently %s items in this timeline’s pool.'),
+                $this->hyperlink(
+                    $itemCount,
+                    $this->url('admin/default', ['controller' => 'item'], ['query' => $query])
+                )
+            );
+        }
+        ?>
+    </p>
+</div>
+<a href="#" class="collapse" aria-label="<?= $translate('collapse') ?>"><h4><?= $translate('Options') ?></h4></a>
+<div class="collapsible">
+    <?= $this->formCollection($fieldset) ?>
+</div>

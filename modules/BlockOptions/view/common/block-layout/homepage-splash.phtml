@@ -1,0 +1,49 @@
+<div id="homepage-splash" class="block-<?php echo $this->blockId; ?> region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
+    <div class="items">
+        <?php foreach ($attachments as $attachment): ?>
+            <?php
+                $item = $attachment->item();
+            ?>
+            <div class="item resource">
+                <?php if ($item):
+                    $media = $attachment->media() ?: $item->primaryMedia();
+                    if ($media):
+                ?>
+                        <figure>
+                            <?php echo $item->linkRaw($this->thumbnail($media,$thumbnailType)); ?>
+                        </figure>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <!-- SLIDE TEXT BEGIN -->
+                <!-- Note: The homepage splash does not use slide captions. This code for reference only and can be deleted. -->
+                <!--
+                    <div class="slide-contents">
+                        <?php if ($showTitleOption == 'item_title'): ?>
+                            <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+                        <?php elseif ($showTitleOption == 'file_name'): ?>
+                            <h3><?php echo $media->displayTitle(); ?></h3>
+                        <?php endif; ?>
+                        <?php if ($attachment->caption()): ?>
+                            <?php echo $attachment->caption(); ?>
+                        <?php endif; ?>
+                    </div>
+                -->
+                <!-- SLIDE TEXT END -->
+            </div>
+        <?php endforeach; ?>
+    </div>
+   
+
+    <div class="item resource introduction">
+        <div class='introductory-text'>
+            <?php if (!empty($titleSlideTitle)): ?>
+                <h3><?php echo $titleSlideTitle; ?></h3>
+            <?php endif; ?>
+            <?php if (!empty($titleSlideIntro)): ?>
+                <?php echo $titleSlideIntro; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
+

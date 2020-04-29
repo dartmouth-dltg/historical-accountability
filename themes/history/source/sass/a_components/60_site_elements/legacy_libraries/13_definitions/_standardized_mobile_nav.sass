@@ -1,0 +1,106 @@
+/** 
+ *  @file _standardized_mobile_menu.sass 
+ *  @description  Loads all sass files or subdirectory indices in its directory.
+ *  @directory  Contains a library of SASS functions  */
+ 
+ 
+%standardized-mobile-nav
+  position: relative
+  top: 0
+  right: 0
+  text-align: right
+  height: inherit
+  
+  > a
+    height: inherit
+
+  +bp(med)
+    display: none
+// For backwards compatibility
+
+=standardized-mobile-nav()
+  @extend %standardized-mobile-nav    
+    
+ 
+// Hamburger pulldown
+
+%topnav-pulldown
+  position: absolute
+  width: 100%
+  display: none
+  float: left
+  top: $masthead_height
+  box-sizing: border-box
+  +set-padding(0)
+  background-color: $dark_neutral
+  z-index: 10
+  
+  .close_btn
+    float: right
+    position: absolute
+    top: $blh * 3
+    right: $blh
+    
+    +bp(sml)
+      top: $blh*2.5
+      
+// For backwards compatibility
+
+=topnav-pulldown($top:$masthead_height,$index:10)
+
+  @if $top != $masthead_height
+    top: $top
+    
+  @if $index != 10
+    z-index: $index      
+  
+  
+// Standardized Mobile Nav Block (Navigation menu)
+// DEPRECATED
+
+%standardized-mobile-nav-block
+  border-top: 2px solid $white
+  background-color: $neutral
+  display: none
+  padding-top: $blh * 2
+  
+  ul
+    padding: 0
+    margin: 0
+    
+    &.menu li
+      margin: 0 0 $blh/4 0
+     
+  li
+    list-style-type: none
+    display: block
+    width: 100%
+    text-transform: uppercase
+    color: $white
+    background-color: $lighter_neutral
+    box-sizing: border-box
+    font-weight: $normalfw
+    padding: 0 0 0 $blh/4
+    
+    &:hover
+      background-color: $light_neutral
+              
+    a
+      display: block
+      width: 100%
+      height: 100%
+      box-sizing: border-box
+      padding: $blh/4
+      text-decoration: none
+      color: $white
+      
+      &:hover
+        text-decoration: none
+        
+      &.is-active
+        color: $white
+        
+// For backwards compatibility
+
+=standardized-mobile-nav-block()
+  @extend %standardized-mobile-nav-block

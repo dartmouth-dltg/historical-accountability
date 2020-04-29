@@ -1,0 +1,13 @@
+/**
+ *  @file Block Spacing Mixin
+ *  @group 10_layout
+ *  @description Sets a standardized space for stacked content blocks.
+ * 
+ */
+
+=standardized-block-spacing($desktop_spacing: $block_spacing,$mobile_spacing: $mobile_block_spacing)
+  margin-top: 0
+  margin-bottom: rv($mobile_spacing)
+  
+  +bp($stack_breakpoint)
+    margin-bottom: rv($desktop_spacing)

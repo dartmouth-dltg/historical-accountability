@@ -1,0 +1,16 @@
+// Returns the line height as a factor of the baseline height to the given scale
+// Note that there are some shenanigans going on here. Right now the line-height is given as a ratio of the font size by stripping
+// the unit of the $blh. This allows $blh to be in rem units while linespacing is proportional to font size.
+// Ultimately proportion is maintained but $blh (baseline height) as a variable becomes a misnomer.
+
+=line-height($factor: 0,$ratio: $scale)
+  line-height: ms($factor,strip-unit($blh),$ratio)
+  
+=set-line-height($factor: 0,$ratio: $scale)
+  +line-height($factor,$ratio)
+  
+=standard-line-height()
+  +line-height(map-get($sizefactors,'base'))
+  
+=single-line-height()
+  line-height: 1

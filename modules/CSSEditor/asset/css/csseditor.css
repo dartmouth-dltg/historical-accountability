@@ -1,0 +1,12 @@
+.value {
+    display: flex;
+    align-items: flex-start;
+}
+
+.add-value:before {
+    margin-right: .25em;
+}
+
+.external-css-value:only-child .remove-value {
+    display: none;
+}

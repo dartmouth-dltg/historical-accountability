@@ -1,0 +1,21 @@
+// @file _standardized_splash_area.sass
+// @description 
+//    Defines a full-width, full-height area below the masthead.
+//    Must be supplied with the masthead height and
+//    optionally a background image url.
+
+=standardized-splash-area($mh_height: $masthead_height,$bg_img: null)
+  width: 100%
+  margin: 0
+  overflow: hidden
+  height: calc(100%)
+  
+  @if $mh_height != 0
+      height: calc(100% - #{$mh_height})      
+  
+  @if $bg_img != null
+    background-repeat: no-repeat
+    background-image: url($bg_img)
+    background-position: center center
+    background-size: cover
+  

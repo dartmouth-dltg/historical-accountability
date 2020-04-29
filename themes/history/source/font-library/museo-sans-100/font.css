@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'MuseoSans-100';
+  src: url('MuseoSans-100.eot');
+  src: url('MuseoSans-100.eot?#iefix') format('embedded-opentype'),
+       url('MuseoSans-100.svg#MuseoSans-100') format('svg'),
+       url('MuseoSans-100.ttf') format('truetype'),
+       url('MuseoSans-100.woff') format('woff'),
+       url('MuseoSans-100.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+

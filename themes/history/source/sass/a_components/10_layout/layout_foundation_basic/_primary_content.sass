@@ -1,0 +1,16 @@
+/* 
+   @file _primary_content.sass 
+   @category 10_layout
+   @component layout_foundation_basic
+   @description  Defines styles for the primary content section (#primary-content and main), including standardized spacing. */
+
+
+#primary-content
+  > * > * > *
+    +standardized_block_spacing()
+
+// For situations where main is divided into stacked content <div> blocks. Otherwise, spacing will be according to typographic definitions (for headings, paragraphs, etc.).
+
+main
+  > div
+    +standardized_block_spacing()

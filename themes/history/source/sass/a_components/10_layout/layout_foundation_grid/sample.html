@@ -1,0 +1,49 @@
+<?php
+/**
+ * A style overview page for initial theme development. NOT wired into Wordpress. 
+ *
+ */
+?><!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link type='text/css' href="/build/assets/css/style.min.css" rel="stylesheet" />
+</head>
+<body>
+  <header class='inset' contentTier>
+    <div>Header</div>
+  </header>
+  <section id='splash' class='full' contentTier>
+    <p><strong>Splash Area</strong></p>
+  </section>
+  <section id='primary-content' contentTier>
+    <aside contentSidebar>Aside Left</aside>
+    <main  contentContainer>
+      <h1>Main title</h1>
+      <h2>Primary Tier</h2>
+    </main>
+    <aside contentSidebar>Aside Right</aside>
+  </section>
+  <section id='secondary-content' contentTier>
+    <div contentContainer>
+      <h2>Secondary Tier</h2>
+    </div>
+    <aside contentSidebar>Aside Right</aside>
+  </section>
+  <section id='tertiary-content' contentTier>
+    <aside contentSidebar>Aside Left</aside>
+    <div contentContainer>
+      <h2>Tertiary Tier</h2>
+    </div>
+  </section>
+  <section id='quaternary-content' contentTier>
+    <div contentContainer>
+      <h2>Quaternary Tier</h2>
+    </div>
+  </section>
+  <footer class='full' contentTier>
+    <p>Footer</p>
+  </footer>
+</body>
+</html>

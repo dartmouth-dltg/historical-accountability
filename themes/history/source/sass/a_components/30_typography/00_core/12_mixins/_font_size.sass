@@ -1,0 +1,25 @@
+/**
+ * @file _font_size.sass
+ * @category 20_typography
+ * @group a_components
+ * @description Creates a font-size declaration based on relative value $factor, $basetypesize and $scale.
+ *
+ */
+
+=font-size($factor: 0,$ratio: $scale)
+  font-size: font-value($factor,$ratio)
+  
+// Set notation
+
+=set-font-size($factor: 0,$ratio: $scale)
+  +font-size($factor,$ratio)
+  
+// Unscaled font-size
+
+=base-font-size()
+  font-size: $basetypesize
+  
+// Alias of above
+  
+=base-type-size()
+  +base-font-size()

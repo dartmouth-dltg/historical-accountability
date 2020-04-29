@@ -1,0 +1,260 @@
+.explore-the-archive 
+  > p
+    font-style: italic
+  h3
+    font-family: $headingfont
+    margin-top: rv(3)
+    
+  img
+    width: rv(5)
+    float: left
+    margin: rv(3)
+  .explore-warning
+    padding-top: rv(3)
+    padding-bottom: rv(3)
+    display: block
+    p
+      color: #80351C
+      font-size: font-value(-1)
+    h6
+      border-bottom: 1px solid
+      color: #80351C
+      font-weight: 600
+      text-transform: uppercase
+      font-family: $basefont
+      margin-bottom: rv(-1)
+      display: inline-block
+      
+#search
+  margin: rv(1) 0
+  width: 100%
+  max-width: 100%
+  
+  form
+    width: 100%
+    display: flex
+    flex-direction: column
+    
+    +bp($stack)
+      flex-direction: row
+      justify-content: stretch
+    
+  input[name='search']
+    flex-grow: 1
+    margin-bottom: rv(0)
+    
+    +bp($stack)
+      margin-bottom: 0
+      margin-right: rv(1)
+    
+  & + .advanced-search
+    display: block
+    transform: translateY(rv(-1) * -1)
+    
+.advanced-search
+  text-transform: uppercase
+  font-size: font-value(-1)
+  text-decoration: underline
+    
+.hu-chevron-left
+  width: rv(2)
+  height: rv(2)
+  background: url("../../asset/img/svg/icons/left_chevron_fire_black.svg") no-repeat
+  position: absolute
+  right: 50px
+  margin-left: 130px
+  +bp($stack)
+    right: unset
+
+  &:hover
+    background: url("../../asset/img/svg/icons/left_chevron_fire.svg") no-repeat
+.hu-chevron-left
+  &.inactive
+    display: none
+.hu-chevron-right
+  width: rv(2)
+  height: rv(2)
+  background: url("../../asset/img/svg/icons/right_chevron_black.svg") no-repeat
+  position: absolute
+  margin-left: 170px
+  right: 10px
+  +bp($stack)
+    right: unset
+  &:hover
+    background: url("../../asset/img/svg/icons/right_chevron_fire.svg") no-repeat
+.pagination
+  text-align: left
+  margin-top: 48px
+  +bp($stack)
+    margin-top: -62px
+    text-align: right
+  .row-count
+    color: neutral(45)
+    position: relative
+    top: -55px
+    font-size: font-value(2)
+    font-family: $headingfont
+    +bp($stack)
+      top: 45px
+      left: -11px
+    +bp($tablet)
+      top: -4px
+      left: -500px
+
+  form
+    position: absolute
+    margin-top: rv(-4)
+    display: inline-block
+    +bp($stack)
+    input[type=text]
+      display: inline-block
+      border: unset
+      border-radius: 0
+      border-bottom: 1px solid
+      text-align: center
+      height: auto
+      min-height: auto
+      padding: 0
+      width: rv(0)
+      &:active
+        border: unset
+        border-bottom: 1px solid $clr1
+        box-shadow: unset
+      &:hover
+        border: unset
+        border-bottom: 1px solid $clr1
+        box-shadow: unset
+      &:focus
+        border: unset
+        border-bottom: 1px solid $clr1
+        box-shadow: unset
+.browse-controls
+  margin-top: 120px
+  text-align: left
+  form
+    text-align: left
+    &.sorting
+      position: relative
+      top: 0px
+      display: inline-block
+      width: 100%
+      +bp($stack)
+        top: 10px
+      select
+        display: inline-block
+        border: unset
+        text-decoration: underline
+        &:active
+          border: unset
+          box-shadow: unset
+        &:hover
+          border: unset
+          box-shadow: unset
+        &:focus
+          border: unset
+          box-shadow: unset
+      button
+        border: unset
+        display: inline-block
+        min-width: auto
+        width: rv(4)
+        font-size: font-value(0)
+      
+.resource-list
+  column-count: initial
+  padding-left: initial
+  +separated_row(2,0)
+  width: intial
+  
+  +bp($stack)
+    +separated_row(3,1)
+    
+    
+  .item
+    list-style-type: none
+    text-decoration: unset
+    display: block
+    height: 480px
+    
+    > a
+      display: block
+      +proportional_thumbnail()
+      +huronia_drop_shadow()
+      
+    > h4
+      > a
+        text-decoration: underline
+        font-family: $basefont
+    &:before
+      content: ""
+  .description
+    font-size: font-value(-1)
+    line-height: font-value(-1)
+    margin-top: rv(-1)
+    display: -webkit-box
+    overflow: hidden
+    text-overflow: ellipsis
+    -webkit-box-orient: vertical
+    position: relative
+    -webkit-line-clamp: 5
+
+
+main > div > 
+  .resource-list, .explore-the-archive, .browse-controls, .search-filters
+  +negative-content-margin(7)
+
+.field-meta
+  #by-value-label
+    font-size: font-value(2)
+  #by-resource-class-label
+    font-size: font-value(2)
+  #by-item-set-label
+    font-size: font-value(2)
+.remove-value
+  min-width: auto
+  width: auto
+  margin-left: 0
+  border: 0
+  &:hover
+    border: 0
+  +bp($stack)
+    margin-left: 5px
+
+.advanced-search-content
+  #property-queries
+    margin: rv(3) 0
+  #resource-class
+    margin: rv(3) 0
+  #item-sets
+    margin: rv(3) 0
+#advanced-search
+  .value
+    > *
+      margin-top: 10px!important
+    display: block!important
+    +bp($stack)
+      display: flex!important
+    select
+      margin-left: 0!important
+      +bp($stack)
+       margin-left: 5px!important
+    input
+      margin-left: 0!important
+      +bp($stack)
+       margin-left: 5px!important
+  .add-value
+    position: relative
+    top: 10px
+    text-decoration: underline
+.filter
+  margin-left: rv(0)
+  margin-right: rv(0)
+  +bp($stack)
+    margin-right: rv(8)
+    margin-left: 0
+  +bp($tablet)
+    float: left
+
+.search-filters
+  display: contents
+

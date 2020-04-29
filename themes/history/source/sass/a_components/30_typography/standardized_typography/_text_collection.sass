@@ -1,0 +1,78 @@
+p, ol, ul, th, td, dl, dd, dt, address
+  +font-size(map-get($sizefactors,'base'))
+  +standard-line-height()
+  +standardized-block-spacing($block_spacing - 3)
+  
+blockquote
+  box-sizing: border-box
+
+dl
+  margin-bottom: rv(0)
+  
+dt
+  font-family: $headingfont
+  font-weight: $boldfw
+  text-transform: uppercase
+  
+dd
+  margin-bottom: rv(-1)
+  margin-left: 0
+      
+menu, dir
+  margin: 0
+  padding: 0
+
+q
+  quotes: none
+
+abbr[title]
+  border-bottom: 1px dotted $dark_neutral
+  cursor: help
+
+b, strong, .strong
+  font-weight: $semiboldfw
+
+dfn, .italic
+  font-style: italic
+
+ins
+  background-color: $light_neutral
+  color: $black
+  text-decoration: none
+
+mark
+  background-color:  $light_neutral
+  color: $black
+  font-style: italic
+  font-weight: $boldfw
+
+pre, code, kbd, samp
+  font-family: $codefont
+  +font-size(0)
+  +line-height(0)
+  color: $darker_neutral
+
+pre
+  white-space: pre
+  white-space: pre-wrap
+  word-wrap: break-word
+
+sub, sup
+  position: relative
+  +font-size(-1)
+  line-height: 0
+  vertical-align: baselineheight
+
+sup
+  top: ms(-2,$basetypesize,$scale) * -0.5
+  
+sub
+  bottom: ms(-2,$basetypesize,$scale) * -0.25
+
+.spaced
+  letter-spacing: 1px
+ 
+hr
+  border: 0
+  border-bottom: 1px solid $dark_neutral
+  +standardized_block_spacing()

@@ -1,0 +1,95 @@
+/* Reference pages */
+.reference-pagination.pagination {
+    display: inline-block;
+    float: none;
+    margin: 12px 0;
+    padding: 0 0 1em;
+    height: auto;
+    width: auto;
+}
+.reference-pagination ul.pagination-list {
+    height: auto;
+    margin: auto;
+    padding: 0;
+    list-style: none;
+    cursor: default;
+}
+.reference-pagination li.pagination-range {
+    height: auto;
+    line-height: initial;
+    display: initial;
+    margin-right: 2px;
+}
+.reference-pagination li.pagination-range a,
+.reference-pagination li.pagination-range span {
+    display: inline-block;
+    margin-right: 0px;
+    padding: 0.375em 9px;
+    vertical-align: top;
+}
+.reference-pagination li.pagination-range a {
+    border: 1px solid #000000;
+    text-decoration: none;
+}
+.reference-pagination li.pagination-range span {
+    border: 1px solid transparent;
+}
+.reference-pagination li.pagination-range a:hover {
+    background-color: #CCCCCC;
+    color: #000;
+    text-decoration: none;
+}
+
+ul.references {
+    list-style: inside none disc;
+}
+ol.references {
+    list-style: inside none decimal;
+}
+ul.references ul,
+ol.references ul {
+    list-style: inside none circle;
+    margin-left: 15px;
+}
+ol.references ol,
+ul.references ol {
+    list-style: inside none lower-latin;
+    margin-left: 15px;
+}
+ul.references li {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+/* Advanced search */
+/* These rules should be adapted to the theme, in particular the sizes. */
+#property-queries .chosen-container-single {
+    min-width: 40%;
+    max-width: 80%;
+}
+#property-queries .chosen-container-single .chosen-single {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: inherit;
+    border: inherit;
+    border-radius: inherit;
+    color: inherit;
+    height: inherit;
+    font-family: inherit;
+    vertical-align: inherit;
+    height: inherit;
+    font-size: 16px;
+    line-height: 32px;
+    margin: 0 0 0 5px;
+    padding: 6px;
+}
+/* Adaptation for official theme Cozy */
+/*
+#property-queries .chosen-container-single .chosen-single {
+    border: 1px solid #000;
+    height: 36px;
+    line-height: inherit;
+    padding: 5px;
+}
+*/

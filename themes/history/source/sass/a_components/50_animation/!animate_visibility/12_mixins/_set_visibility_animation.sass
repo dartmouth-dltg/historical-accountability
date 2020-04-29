@@ -1,0 +1,60 @@
+/** 
+ *  @file _set_visibility_animation.sass 
+ *  @category 50_animation
+ *  @component animate_visibility
+ *  @description  Allows elements to delay presentation when their container box becomes visible. Measured in seconds after $heartbeat. */
+ 
+
+// WARNING
+// The selector must be scoped BELOW the .visible block (as defined in the component configuration).
+// The function creates a root element to manage the transition. For example, if assigned
+// to div.block h2, the function will declare .visible div.block h2 to set its visbility.
+// If visibility is set on the div.block itself, however, the function will not work as expected,
+// because .visible div.block h2 would not select the block.
+
+
+
+ 
+// NOTE: @arg $properties defaults to all to allow for various transitions. Set to opacity explicitly if you need more control.
+// @arg $pseudo_element  Apply visibility to pseudo element. Assign the transition to the parent block.
+    
+=set_visibility_animation($speed: 0, $delay: null, $easing: $standard_easing, $properties: all,$pseudo_element: 'none')    
+  @if ($pseudo_element == 'none')
+    opacity: 0
+    +transition($properties,$speed,$delay,$easing)
+    
+    @at-root .visible &
+      opacity: 1
+      
+  @else
+    &:#{$pseudo_element}
+      opacity: 0
+      +transition($properties,$speed,$delay,$easing)
+
+    @at-root .visible &:#{$pseudo_element}
+      opacity: 1
+      
+// Presets
+
+=set_visibility_animation_after($speed: 0, $delay: null, $easing: $standard_easing, $properties: all)
+  +set_visibility_animation($speed,$delay,$easing,$properties,'after')
+  
+=set_visibility_animation_before($speed: 0, $delay: null, $easing: $standard_easing, $properties: all)
+  +set_visibility_animation($speed,$delay,$easing,$properties,'before')
+
+// Delay visibility
+ 
+=delay_visibility($delay:0,$speed: 0,$easing: $standard_easing, $properties: all)
+  +set_visibility_animation($speed,$delay,$easing,$properties)
+
+// Aliases
+
+=animate_visibility($speed: 0, $delay: null, $easing: $standard_easing, $properties: all)
+  +set_visibility_animation($speed,$delay,$easing,$properties)
+  
+=animate_visibility_after($speed: 0, $delay: null, $easing: $standard_easing, $properties: all)
+  +set_visibility_animation($speed,$delay,$easing,$properties,'after')
+  
+=animate_visibility_before($speed: 0, $delay: null, $easing: $standard_easing, $properties: all)
+  +set_visibility_animation($speed,$delay,$easing,$properties,'before')
+  

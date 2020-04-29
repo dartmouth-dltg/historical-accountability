@@ -1,0 +1,78 @@
+/**
+ * @file
+ * Typography Configuration. Used to define a standard proportion across the site as per the modularscale library.
+ * 
+ * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
+ */
+ 
+$basetypesize: 1.2rem // Body font size relative to rootsize above. Establishes core unit for other font sizes (rem, em, px, etc.).
+
+// NOTE baseline height ($blh) is defined in the 10_layout core, tying leading together with general spacing.
+
+// Set size factors for type. Size factors are a funciton of $basetypesize, $scale and device-width determined $typesscale.
+
+$sizefactors: (base: 0, h1: 4, h2: 3, h3: 2, h4: 1, h5: 0, h6: 0)
+
+// Scale factor for type at each breakpoint. Set to 0 to keep size consistent.
+
+$typescale: (base: 0, xsml: 0, sml: 0, med:0, lrg: 0, xlrg: 0, xxlrg: 0)
+
+// Type faces are defined in 00_configuration folders, which get loaded before all other styles.
+
+// Default fonts. Use the font loader to load fonts.
+$extralight: 100
+$thin: 200
+$light: 300       // b, h
+$normal: 400      // b, h, a
+$medium: 500
+$semibold: 600    // a
+$bold: 700        // b, a
+$extrabold: 800   // h
+$heavy: 900
+
++load_font('Lato','lato',($normal,$bold,$heavy),(normal,italic))
++load_font('Aleo','aleo',($normal,$bold),(normal,italic))
+
+
+$basefont: "Lato", sans-serif
+$headingfont: "Aleo", Helvetica, Tahoma, Arial, sans-serif
+$altfont: $headingfont
+$codefont: "Andale Mono", Monaco, Courier New, monospace
+
+$font_path: '../fonts'
+
+// available base (b), heading (h) and alt (a) sizes listed
+
+
+
+
+// legacy
+
+$extralightfw: $extralight
+$thinfw: $thin
+$lightfw: $light       // b, h
+$normalfw: $normal      // b, h, a
+$mediumfw: $medium
+$semiboldfw: 600    // a
+$boldfw: $bold        // b, a
+$extraboldfw: $extrabold   // h
+$blackfw: $heavy
+
+// Headers
+
+$headingfw: $bold
+
+// Tables
+
+$row_header_bg: neutral(10)
+$row_border_color: neutral(10)
+$row_zebra_stripe_color: neutral(3)
+
+// Aliases
+
+$h1fontsize: $basetypesize * map-get($sizefactors,'h1')
+$h2fontsize: $basetypesize * map-get($sizefactors,'h2')
+$h3fontsize: $basetypesize * map-get($sizefactors,'h3')
+$h4fontsize: $basetypesize * map-get($sizefactors,'h4')
+$h5fontsize: $basetypesize * map-get($sizefactors,'h5')
+$h6fontsize: $basetypesize * map-get($sizefactors,'h6')

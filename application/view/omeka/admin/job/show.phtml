@@ -1,0 +1,68 @@
+<?php
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+$this->htmlElement('body')->appendAttribute('class', 'jobs show');
+if ($job->started()) {
+    $started = $this->i18n()->dateFormat($job->started(), 'long', 'long');
+} else {
+    $started = $translate('[not started]');
+}
+if ($job->ended()) {
+    $ended = $this->i18n()->dateFormat($job->ended(), 'long', 'long');
+} else {
+    $ended = $translate('[not ended]');
+}
+if ($owner = $job->owner()) {
+    $ownerText = $this->escapeHtml($owner->email());
+} else {
+    $ownerText = $translate('[no owner]');
+}
+?>
+<?php echo $this->pageTitle('#' . $escape($job->id()), 1, $translate('Jobs')); ?>
+<div id="page-actions">
+    <?php if ('in_progress' == $job->status()): ?>
+        <?php echo $this->form($confirmForm); ?>
+    <?php endif; ?>
+</div>
+
+<div class="meta-group">
+    <h4><?php echo $translate('Status'); ?></h4>
+    <div class="value"><?php echo $job->statusLabel(); ?></div>
+</div>
+<div class="meta-group">
+    <h4><?php echo $translate('Started'); ?></h4>
+    <div class="value"><?php echo $started; ?></div>
+</div>
+<div class="meta-group">
+    <h4><?php echo $translate('Ended'); ?></h4>
+    <div class="value"><?php echo $ended; ?></div>
+</div>
+<div class="meta-group">
+    <h4><?php echo $translate('Class'); ?></h4>
+    <div class="value"><?php echo $job->jobClass(); ?></div>
+</div>
+<div class="meta-group">
+    <h4><?php echo $translate('Owner'); ?></h4>
+    <div class="value"><?php echo $ownerText; ?></div>
+</div>
+<div class="meta-group">
+    <h4><?php echo $translate('Args'); ?></h4>
+    <?php if ($job->args()): ?>
+        <?php $args = json_encode($job->args(), JSON_PRETTY_PRINT); ?>
+        <div class="value"><pre><?php echo $args; ?></pre></div>
+    <?php else: ?>
+    <div class="value"><?php echo $translate('[no args]') ?></div>
+    <?php endif; ?>
+</div>
+<div class="meta-group">
+    <h4><?php echo $translate('Log'); ?></h4>
+    <div class="value">
+    <?php if ($job->log()): ?>
+    <?php echo $this->hyperlink($translate('view log'),
+        $this->url(null, ['action' => 'log'], true),
+        ['target' => '_blank']); ?>
+    <?php else: ?>
+    <?php echo $translate('[no log]'); ?>
+    <?php endif; ?>
+    </div>
+</div>

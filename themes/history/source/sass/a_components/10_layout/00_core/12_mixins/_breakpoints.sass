@@ -1,0 +1,31 @@
+// Breakpoints for Media Queries ------------------------------
+
+=bp($point)
+
+  @if $point == xxsml
+    @media only #{$media_type} and ($feature: map-get($breakpoints,'xsml') - 5em)
+      @content
+
+  @else if $point == xsml
+    @media only #{$media_type} and ($feature: map-get($breakpoints,'xsml'))
+      @content
+
+  @else if $point == sml
+    @media only #{$media_type} and ($feature: map-get($breakpoints,'sml'))
+      @content
+
+  @else if $point == med
+    @media only #{$media_type} and ($feature: map-get($breakpoints,'med'))
+      @content
+
+  @else if $point == lrg
+    @media only #{$media_type} and ($feature: map-get($breakpoints,'lrg'))
+      @content
+
+  @else if $point == xlrg
+    @media only #{$media_type} and ($feature: map-get($breakpoints,'xlrg'))
+      @content
+
+  @else if $point == xxlrg
+    @media only #{$media_type} and ($feature: map-get($breakpoints,'xxlrg'))
+      @content

@@ -1,0 +1,16 @@
+/** 
+ *  @file _set_visibility_stack.sass 
+ *  @category 50_animation
+ *  @component animate_visibility
+ *  @description  Animates DOM objects when they are in view. Requires https://github.com/camwiegert/in-view to set visiblity classes via js */
+ 
+$rootvar: ':root' // See https://github.com/sass/libsass/issues/2511
+   
+=set_visibility_stack($speed: $visibility_stack_animation_speed, $delay: $visibility_stack_animation_delay, $easing: $standard_easing, $properties: opacity)    
+  @each $selector in $visibility_stack
+    #{$selector}
+      +set_visibility_animation($speed,$delay,$easing,$properties)
+      opacity: 0
+      
+      &.visible
+        opacity: 1

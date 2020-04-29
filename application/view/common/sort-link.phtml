@@ -1,0 +1,15 @@
+<?php
+$translate = $this->plugin('translate');
+if ('sorted-asc' == $class) {
+    $title = $translate('Switch to descending order');
+} elseif ('sorted-desc' == $class) {
+    $title = $translate('Switch to ascending order');
+} else {
+    $title = sprintf($translate('Sort by %s'), $label);
+}
+?>
+<a href="<?php echo $this->escapeHtml($url); ?>"
+    class="<?php echo $this->escapeHtml($class); ?>"
+    title="<?php echo $this->escapeHtml($title); ?>">
+    <?php echo $this->escapeHtml($label); ?>
+</a>

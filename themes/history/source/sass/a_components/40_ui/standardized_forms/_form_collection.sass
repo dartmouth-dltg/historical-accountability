@@ -1,0 +1,41 @@
+/*
+ * Defines a common set of rules for form elements.
+ * Definitions are set in a_core/10_Definitions/_forms.sass
+ */    
+
+// .trigger is a Drupal class for contextual menus.
+
+input
+  &[type='button']
+    @extend %btn
+
+  &[type='submit']
+    @extend %btn-submit
+    margin-top: rv(0)
+  
+  &[type='reset']
+    @extend %btn-reset
+    
+  &[type='text']
+    @extend %text-element-base
+    
+  &[type='search']
+    @extend %text-element-base    
+  
+  &[type='url'], &[type='date'], &[type='email'], &[type='password']
+    @extend %text-element-base
+    
+select
+  @extend %select-element-base
+  
+textarea
+  @extend %textarea-base
+  
+  @extend %form-element-hover
+
+.form-item
+  margin-top: rv(0)
+  
+  &:first-child
+    margin-top: 0
+

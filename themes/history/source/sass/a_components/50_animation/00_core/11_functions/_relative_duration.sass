@@ -1,0 +1,22 @@
+/**
+ * @file _relative_duration.sass
+ * @category 50_animation
+ * @group a_components
+ * @description Returns a value in seconds according to the standardized site scale. Uses the modular scale SASS library. See https://www.modularscale.com
+ *
+ * @args  $factor: An integer corresponding to a step on the scale. Defaults to 0.
+ * @args  $base: A value in seconds. Defaults to the site’s $heartbeat
+ * @args  $ratio: The ratio (with a denominator of 1) denoting the distance between steps on the scale. Defaults to the site’s $scale
+ *
+ * Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale). 
+ */
+ 
+@function relative_duration($factor: 0,$base: $heartbeat, $ratio:$scale)
+  @if $factor == null
+    @return 0s
+  @else
+    @return ms($factor,$base,$ratio)
+  
+// Alias  
+@function rd($factor: 0,$base: $heartbeat, $ratio:$scale)
+  @return relative_duration($factor,$base,$ratio)

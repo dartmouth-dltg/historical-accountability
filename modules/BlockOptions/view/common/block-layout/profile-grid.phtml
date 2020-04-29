@@ -1,0 +1,30 @@
+<div id="block-<?php echo $this->blockId; ?>" class="profile-grid region <?php echo $this->regionClass; ?> <?php echo $this->classes ?>" data-target-region-id="<?php echo $this->targetID; ?>">
+    <?php if ($this->hasPages): ?>
+    <!-- remove temp-profile-image class when switching to dynamic grid -->
+        <div class="profile-grid-cont temp-profile-image"> 
+            <!-- <?php  // foreach($this->pages as $page): ?>
+                <div class="profile-grid-item">
+                    <?php // if ($page['hasEmbeddedBlocks'] && array_key_exists('profilePicture',$page['embeddedBlocks'])): ?>
+                        <?php  // echo $page['embeddedBlocks']['profilePicture'][0]; ?>
+                    <?php // endif; ?>
+                </div>
+            <?php // endforeach ?> -->
+        </div>
+           
+            <?php if ($this->hasIntroduction): ?>
+                <div class='block-introduction'>
+                    <?php if ($this->hasTitle): ?>
+                        <h2><?php echo $this->title; ?></h2>
+                    <?php endif; ?>
+                    <?php echo $this->introduction; ?>
+                    <div class="scroll-down">
+                        <a class='down-arrow' href="#main-content" alt='Scroll down to see content'>
+                            <img src="./../../../themes/huronia/asset/img/svg/icons/down_chevron_fire.svg" alt="Down arrow">
+                            <span>Scroll Down</span>
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
+        
+    <?php endif; ?>
+</div>

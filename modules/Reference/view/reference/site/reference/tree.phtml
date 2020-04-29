@@ -1,0 +1,20 @@
+<?php
+/**
+ * @var \Zend\View\Renderer\PhpRenderer $this
+ * @var array $references
+ * @var array $args
+ * @var array $options
+ */
+
+$translate = $this->plugin('translate');
+$this->htmlElement('body')->appendAttribute('class', 'reference browse hierarchy');
+?>
+
+<div id="primary" class="reference">
+    <h2><?php echo sprintf($translate('Tree of references (%d total)'), count($references)); ?></h2>
+    <?php if (count($references)): ?>
+    <?php echo $this->reference()->displayTree($references, $args, $options); ?>
+    <?php else: ?>
+    <p><?php echo $this->escapeHtml($translate('There is no list of references.')); ?></p>
+    <?php endif; ?>
+</div>

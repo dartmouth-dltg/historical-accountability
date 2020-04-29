@@ -1,0 +1,273 @@
+/* 
+   @file _slick.sass 
+   @theme Local
+   @description  Loads SASS files for local theme. */
+
+
+.slideshow-block, .slideshow-with-audio
+  position: relative
+  overflow: hidden
+  width: 100%
+  max-width: calc(100vw - 3.0rem) // Cheat
+  height: 90vh
+  
+  +bp($stack)
+    height: 800px
+    max-width: initial
+  
+.slideshow-with-audio
+  display: flex
+  flex-direction: column
+
+.slideshow, .slick-list, .slick-track
+  height: 100%
+  overflow: hidden
+  width: 100%
+  
+  
+.slideshow
+  background: $black
+
+  .item
+    display: flex !important
+    flex-direction: column
+    justify-content: stretch
+    height: 100%
+    
+    figure
+      height: 100%
+      flex-shrink: 1
+      min-height: 40%
+          
+    img
+      height: 100%
+      object-fit: cover
+      
+
+.slide-contents
+  flex-shrink: 0 
+  padding: rv(0) 1.5rem (rv(0) + rv(0) + rv(1)) 1.5rem
+  color: $white
+  border-top: 2px solid $white
+
+  h3
+    color: $white
+    font-family: $headingfont
+    margin: 0 0 rv(-2) 0
+    font-size: font-value(-1)
+    
+    +bp($stack)
+      font-size: font-value(2)
+      
+    a
+      color: $white !important
+      text-decoration: underline
+      
+  p
+    font-size: font-value(-1)
+    
+    
+// !SPLASH VERSION
+
+#splash
+
+  .slideshow-block, .slideshow-with-audio
+    max-width: 100%
+
+  // !Splash Title Page
+  
+  .introduction
+  
+    .slide-contents
+      background: unset
+      position: absolute
+      z-index: 9999
+      +splash_area_title_left(70%)
+      border-top: 0
+        
+      h3
+        text-transform: uppercase
+        color: $white
+        
+        a
+          color: $white!important
+      p
+        color: $white
+        
+  .slick-slide
+    &.introduction
+      > figure
+        &:before
+          content: ''
+          background: $rtl_dark_gradient
+          height: 100%
+          position: absolute
+          width: 100%
+          top: 0
+          left: 0
+          
+        height: 100vh
+        max-height: 100vh
+        
+        +bp($stack)
+          height: 100%!important
+          max-height: 100%!important
+          
+  .slide-contents, .audio-controls
+  
+    +bp($stack)
+      padding-left: $title_area_outside_padding
+      padding-right: $title_area_outside_padding
+      
+  .slide-contents
+    padding-top: rv(2)
+    
+    p
+      font-size: +font-value(0)
+
+// !UI CONTROLS
+
+.slide-fullscreen-openBtn
+  position: absolute
+  top: 0
+  right: 0
+  color: $clr1
+  border-radius: 100px
+  background: none
+  border: 0px solid $clr1
+  width: 50px
+  min-width: auto
+  height: 50px
+  margin: 10px
+  background: url(../../asset/img/svg/icons/full_screen_outlined.svg) no-repeat
+  &:hover
+    border: 2px solid $clr1
+    background-color: unset
+    
+.slide-fullscreen-closeBtn
+  position: absolute
+  top: 0
+  right: 0
+  color: $clr1
+  border-radius: 100px
+  background: none
+  border: 2px solid $clr1
+  width: 50px
+  min-width: auto
+  height: 50px
+  margin: 10px
+  &:hover
+    border: 2px solid $clr1
+    background: unset
+
+
+
+// !Slick Controls
+
+.slick-prev
+  position: absolute
+  width: rv(3)
+  height: rv(3)
+  top: 40%
+  transform: translateY(-50%)
+  left: 20px
+  z-index: 9999
+  cursor: pointer
+  background: url("../../asset/img/svg/icons/left_chevron_white.svg") no-repeat
+  &:hover
+    background: url("../../asset/img/svg/icons/left_chevron_fire.svg") no-repeat
+
+.slick-next
+  position: absolute
+  width: rv(3)
+  height: rv(3)
+  top: 40%
+  transform: translateY(-50%)
+  right: -5px
+  z-index: 9999
+  cursor: pointer
+  background: url("../../asset/img/svg/icons/right_chevron_white.svg") no-repeat
+  &:hover
+    background: url("../../asset/img/svg/icons/right_chevron_fire.svg") no-repeat
+
+.slick-dots
+  position: absolute
+  text-align: center
+  width: 100%
+  column-count: unset
+  top: initial
+  bottom: rv(0)
+  padding: 0
+  z-index: 9999
+  margin: 0
+    
+  li.slick-active
+    &:before
+      color: white
+  li
+    width: rv(0)
+    display: inline-block
+    cursor: pointer
+    &:before
+      content: "\2022"
+      color: neutral(25)
+      font-size: rv(1)
+      font-weight: $bold
+      display: inline-block
+      width: 5px
+      position: relative
+      top: 2px
+      left: -18px
+      
+  button
+    display:none!important
+
+
+
+// !AUDIO PLAYER
+
+.audio-controls
+  width: 100%
+  background: $black
+  color: $white
+  border-top: rv(-5) solid $white
+  margin: 0
+  padding-left: 1.5rem
+  padding-right: 1.5rem
+  
+  +bp($stack)
+    height: rv(4)
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-content: center
+    
+.audio-player, .audio-player > *, .audio-caption
+  display: flex
+  height: 100%
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  margin: 0
+  padding-right: rv(1)
+  font-size: font-value(-1)
+  
+  a
+    color: $clr1
+    text-decoration: underline
+    &:hover
+      color: $white
+  
+.audio-caption
+  display: none
+  
+  +bp($stack)
+    display: flex
+  
+  p
+    margin: 0
+    font-size: font-value(-1)
+
+          
+            
+      

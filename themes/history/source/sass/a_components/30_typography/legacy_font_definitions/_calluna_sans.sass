@@ -1,0 +1,36 @@
+/**
+ * @file
+ * Font-face definition mixin
+ * Must be accompanied by full range of web fonts in the specified location path).
+ *
+ * Calluna Sans
+ * 
+ */
+ 
+=font-callunasans($path:'../fonts')
+
+
+  /* callunasans-regular - latin */
+  @font-face 
+    font-family: 'Calluna Sans'
+    font-style: normal
+    font-weight: 400
+    src: url('#{$path}/calluna_sans/callunasans-regular.eot') 
+    src: local('Calluna Sans Regular'), local('Calluna-Sans-Regular'), url('#{$path}/calluna_sans/callunasans-regular.eot?#iefix') format('embedded-opentype'), url('#{$path}/calluna_sans/callunasans-regular.woff') format('woff'),  url('#{$path}/calluna_sans/callunasans-regular.woff') format('woff'), url('#{$path}/calluna_sans/callunasans-regular.ttf') format('truetype'),url('#{$path}/calluna_sans/callunasans-regular.svg#Calluna Sans') format('svg')
+  
+  /* callunasans-italic - latin */
+  @font-face 
+    font-family: 'Calluna Sans'
+    font-style: italic
+    font-weight: 400
+    src: url('#{$path}/calluna_sans/callunasans-italic.eot') 
+    src: local('Calluna Sans Italic'), local('Calluna-Sans-Italic'), url('#{$path}/calluna_sans/callunasans-italic.eot?#iefix') format('embedded-opentype'), url('#{$path}/calluna_sans/callunasans-italic.woff') format('woff'),  url('#{$path}/calluna_sans/callunasans-italic.woff') format('woff'), url('#{$path}/calluna_sans/callunasans-italic.ttf') format('truetype'),url('#{$path}/calluna_sans/callunasans-italic.svg#Calluna Sans') format('svg')
+  
+  
+  /* callunasans-bold - latin */
+  @font-face 
+    font-family: 'Calluna Sans'
+    font-style: normal
+    font-weight: 800
+    src: url('#{$path}/calluna_sans/callunasans-bold.eot') 
+    src: local('Calluna Sans Bold'), local('Calluna-Sans-Bold'), url('#{$path}/calluna_sans/callunasans-bold.eot?#iefix') format('embedded-opentype'), url('#{$path}/calluna_sans/callunasans-bold.woff') format('woff'),  url('#{$path}/calluna_sans/callunasans-bold.woff') format('woff'), url('#{$path}/calluna_sans/callunasans-bold.ttf') format('truetype'),url('#{$path}/calluna_sans/callunasans-bold.svg#Calluna Sans') format('svg')

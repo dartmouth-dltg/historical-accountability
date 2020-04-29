@@ -1,0 +1,13 @@
+/* Retrives a derivative colour from a colour map */
+
+
+@function set-colour($colour: 1,$derivative: 'primary')
+  $colourmaps: (1: $clr1_map, 2: $clr2_map, 3: $clr3_map, 4: $clr4_map, 5: $clr5_map, 6: $clr6_map)
+  $map: map-get($colourmaps,$colour)
+  @return map-get($map,$derivative)
+  
+
+// Alias for Americans
+  
+@function set-color($colour: 1,$derivative: 'primary')
+  @return set-colour($colour,$derivative)

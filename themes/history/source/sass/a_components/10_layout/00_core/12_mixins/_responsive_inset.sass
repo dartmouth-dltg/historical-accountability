@@ -1,0 +1,100 @@
+/**
+ * @file _responsive_inset.sass
+ * @category 10_layout
+ * @group a_components
+ * @description Mixins pertaining to standardized content widths using relative values.
+ *
+ */
+ 
+// @args $factor: Padding factor for top-level boxes. Set to null for zero (margin: 0)
+// @args $mobile_factor: Padding factor for mobile. Set to null for zero (margin: 0)
+// @args $max Max width of the inset. Defaults to $max_width. Set to null for no max width
+// @args $base: Base spacing value. Defaults to $blh
+// @args $ratio: Relative scale. Defaults to $scale
+  
+=responsive-inset($factor: $edge_padding_factor, $mobile_factor: $mobile_edge_padding_factor, $max: $max_width, $important: true, $base: $blh, $ratio: $scale)  
+  padding-left: rv($mobile_factor,$base,$ratio)
+  padding-right: rv($mobile_factor,$base,$ratio)
+  
+  +bp($stack_breakpoint)
+    padding-left: rv($factor,$base,$ratio)
+    padding-right: rv($factor,$base,$ratio)
+    
+    @if $important == true
+      margin-left: auto !important
+      margin-right: auto !important
+    @else
+      margin-left: auto
+      margin-right: auto
+
+    
+    @if $max != null
+      max-width: $max
+
+  // Alias
+  
+=inset-content($factor: $edge_padding_factor, $mobile_factor: $mobile_edge_padding_factor, $max: $max_width, $base: $blh, $ratio: $scale)
+  +responsive-inset($factor,$mobile_factor, $max, $base, $ratio)
+  
+
+// Insets to the standard edge with no maximum width margin setting
+    
+=standard-inset($padding: $edge_padding_factor, $mobile_padding: $mobile_edge_padding_factor)
+  padding-left: rv($mobile_padding)
+  padding-right: rv($mobile_padding)
+  
+  +bp($stack_breakpoint)
+    padding-left: rv($padding)
+    padding-right: rv($padding)
+         
+
+// Alternative to full width presentation. Allows you to set a negative margin left 
+// by a factor to the legible width. This allows you expand by a set amount
+// left and right of a primary text column without necessarily moving to the max width.
+      
+=negative-content-margin($factor: 7,$important: false)  
+  $adjustment: rv($factor)
+  $adjustment_neg: $adjustment * -1
+  $edge: rv($edge_padding_factor) * 2
+  $max: calc(#{$legible_inset_width} + (#{$adjustment} * 2) - #{$edge})
+  +responsive-inset(null, null)
+  +bp($stack_breakpoint)
+    @if $important != false
+      max-width: $max !important // Important declaration this style to be added as a standalone class, e.g. .wide, even if a max-width has already been declared.
+    @else
+      max-width: $max
+    
+// Standardized handler for creating legible line lengths
+  
+=inset-text($factor: null, $mobile_factor: null, $max: $legible_inset_width, $base: $blh, $ratio: $scale)
+  +inset-content($factor, $mobile_factor, $max, $base, $ratio)
+
+// Alias
+=inset-legible($factor: null, $mobile_factor: null, $max: $legible_inset_width, $base: $blh, $ratio: $scale)
+  +inset-text($factor, $mobile_factor, $max, $base, $ratio)
+
+// Allows you to manually reset width (e.g. for use at different breakpoints).
+
+=inset-full()
+  max-width: $max_width
+  margin-left: auto
+  margin-right: auto
+  padding-left: 0
+  padding-right: 0
+
+// Currently an alias for insetting text to legible maximum. Different grid implementations may override this.
+
+=narrow($factor: null, $mobile_factor: null, $max: $legible_inset_width, $base: $blh, $ratio: $scale)
+  +inset-text($factor, $mobile_factor, $max, $base, $ratio)
+  
+// Currently an alias for establishing a negative content margin. Different grid implementations may override this.
+  
+=wide($factor: 6, $mobile_factor: $mobile_edge_padding_factor)
+  +negative-content-margin($factor, $mobile_factor)
+
+// Legacy aliases
+=full-width-text()
+  +inset-full()
+
+=full-width()
+  +inset-full()

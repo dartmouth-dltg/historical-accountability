@@ -1,0 +1,10 @@
+// Standardized handler for reponsive margins. Legacy mixin replaces core mixin.
+  
+=responsive-inset($factor: 0, $increment: 1,$ratio:$scale)
+  margin: 0 auto
+  @if $factor != null
+    +spacing('padding-left',$factor,$increment,$ratio)
+    +spacing('padding-right',$factor,$increment,$ratio)
+  
+  +bp(med)
+    max-width: $max_width

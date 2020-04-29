@@ -1,0 +1,282 @@
+/* 
+   @file _cards.sass 
+   @category 60_site_elements
+   @theme LOCAL
+   @component main
+   @description Handles profile grid section listing. */
+
+main
+  > div
+    .listing-cards
+      +negative-content-margin(7)
+
+.cards
+  background-color: set-color(3,'watermark')
+  padding: rv(3)
+ 
+.card
+  position: relative
+  
+  figure
+    +proportional_thumbnail()
+    +huronia_drop_shadow()
+
+#splash
+  .block-introduction
+    width: 100%
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    text-align: right
+    color: #fff
+    padding: 6% 5% rv(2) 10%
+    +bp($stack)
+      width: 50%
+    h2
+      border-bottom: 0
+      color: $white
+  .profile-grid
+    background: $black
+    display: flex
+    flex-direction: column
+    +bp($stack)
+      flex-direction: row
+    .scroll-down
+      align-self: flex-end
+  .profile-grid-cont
+    background: $white
+    width: 100%
+    display: inline-grid
+    height: 100%
+    grid-template-rows: 50% 50%
+    grid-template-columns: 1fr 1fr
+    grid-column-gap: 3px
+    grid-row-gap: 3px
+    border-right: 3px solid $white
+    border-left: 3px solid $white
+    border-bottom: 3px solid $white
+    overflow: hidden
+    +bp($stack)
+      width: 50%
+      grid-template-rows: 33% 33% 33%
+      border-left: 0
+      border-bottom: 0
+    .profile-grid-item
+      display: none
+      margin: 0
+      .item.resource
+        height: 100%
+      .scroll-down
+        display:none!important
+      .profile-picture 
+        .item 
+          figure
+            position: relative
+            height: 100%
+            > a
+              width: 100%
+              cursor: default
+              z-index: 2
+              color: $black
+              img
+                height: 100%
+                object-fit: cover
+
+      figcaption
+        justify-content: center
+        text-align: left
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        z-index: 1
+        right: 0
+        height: 100%
+        width: 100%
+        opacity: 0
+        transition: .5s ease
+        font-style: unset
+        background-color: $clr1
+        padding: rv(-1)
+        +bp($stack)
+          padding: rv(0) 
+        h1
+          font-size: font-value(0)
+          color: $black
+          font-family: $basefont
+          margin-top: 0
+          +bp($stack)
+            margin-top: rv(1)
+        p
+          font-size: font-value(-1)
+          color: $black
+          margin-top: rv(0)
+    .profile-grid-item:nth-child(1)
+      display: flex
+    .profile-grid-item:nth-child(2)
+      display: flex
+    .profile-grid-item:nth-child(3)
+      display: flex
+    .profile-grid-item:nth-child(4)
+      display: flex
+    .profile-grid-item:nth-child(5)
+      display: none
+      +bp($stack)
+        display: flex
+    .profile-grid-item:nth-child(6)
+      display: none
+      +bp($stack)
+        display: flex
+    figure:hover
+      figcaption
+        z-index: 3!important
+        opacity: 1!important
+      .profile-overlay-btn
+        display: flex
+      .profile-overlay-logo
+        display: block!important
+
+.profile-overlay-btn
+  width: auto
+  min-width: 100%
+  white-space: pre-wrap
+  text-decoration: underline
+  color: $black!important
+  border-color: $black
+  height: 55px
+  padding: rv(-2)
+  font-size: font-value(-1)
+  +bp($stack)
+    font-size: unset
+
+.profile-overlay-logo
+  position: absolute
+  width: rv(0)!important
+  height: rv(0)!important
+  top: rv(-3)
+  right: rv(-4)
+
+
+
+
+
+
+
+//copy without splash for default styling
+// .block-introduction
+//     width: 100%
+//     display: flex
+//     flex-direction: column
+//     justify-content: flex-end
+//     text-align: right
+//     color: #fff
+//     padding: 6% 5% rv(2) 10%
+//     +bp($stack)
+//       width: 50%
+//     h2
+//       border-bottom: 0
+//       color: $white
+// .profile-grid
+//   background: $black
+//   display: flex
+//   flex-direction: column
+//   +bp($stack)
+//     flex-direction: row
+//   .scroll-down
+//     align-self: flex-end
+// .profile-grid-cont
+//   background: $white
+//   width: 100%
+//   display: inline-grid
+//   height: 100%
+//   grid-template-rows: auto
+//   grid-template-columns: 1fr 1fr
+//   grid-column-gap: 3px
+//   grid-row-gap: 3px
+//   border-right: 3px solid $white
+//   +bp($stack)
+//     width: 50%
+//     grid-template-rows: 33% 33% 33%
+//   .profile-grid-item
+//     display: none
+//     margin: 0
+//     .item.resource
+//       height: 100%
+//     .scroll-down
+//       display:none!important
+//     .profile-picture 
+//       .item 
+//         figure
+//           position: relative
+//           height: 100%
+//           > a
+//             width: 100%
+//             cursor: default
+//             z-index: 2
+//             color: $black
+//             img
+//               height: 100%
+//               object-fit: cover
+
+//     figcaption
+//       justify-content: center
+//       text-align: left
+//       position: absolute
+//       top: 0
+//       bottom: 0
+//       left: 0
+//       z-index: 1
+//       right: 0
+//       height: 100%
+//       width: 100%
+//       opacity: 0
+//       transition: .5s ease
+//       font-style: unset
+//       background-color: $clr1
+//       padding: rv(-1)
+//       +bp($stack)
+//         padding: rv(0) 
+//       h1
+//         font-size: font-value(0)
+//         color: $black
+//         font-family: $basefont
+//       p
+//         font-size: font-value(-1)
+//         color: $black
+//         margin-top: rv(0)
+//   .profile-grid-item:nth-child(1)
+//     display: flex
+//   .profile-grid-item:nth-child(2)
+//     display: flex
+//   .profile-grid-item:nth-child(3)
+//     display: flex
+//   .profile-grid-item:nth-child(4)
+//     display: flex
+//   .profile-grid-item:nth-child(5)
+//     display: none
+//     +bp($stack)
+//       display: flex
+//   .profile-grid-item:nth-child(6)
+//     display: none
+//     +bp($stack)
+//       display: flex
+//   figure:hover
+//     figcaption
+//       z-index: 3!important
+//       opacity: 1!important
+//     .profile-overlay-btn
+//       display: flex
+//     .profile-overlay-logo
+//       display: block!important
+
+
+.temp-profile-image //remove this class for dynamic profile (also remove in profile-grid.phtml)
+  background: url("../../asset/img/png/splash/profiles_splash_mobile.png") no-repeat!important
+  background-size: cover!important
+  background-position: center!important
+  height: rv(10)!important
+  +bp($stack)
+    height: 100%!important
+    background: url("../../asset/img/png/splash/profiles_splash_desktop.png") no-repeat!important
+    background-size: cover!important
+    background-position: center!important

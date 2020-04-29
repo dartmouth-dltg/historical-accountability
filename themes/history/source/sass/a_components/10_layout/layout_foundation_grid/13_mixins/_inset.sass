@@ -1,0 +1,26 @@
+/* 
+   @file _inset.sass 
+   @category 10_layout
+   @component 00_core
+   @description  Standardizes left and right padding for content blocks. Assist in centre-out content. */
+   
+   
+=inset-content($factor: null, $base: $blh,$ratio:$scale)
+      
+
+// Breaks inset content column by $factor.
+// Creates a special breakpoint that factors in the maximum legible inset width, edge and negative margin factor.
+      
+=negative-content-margin($factor: 4)  
+    
+// Standardized handler for creating legible line lengths
+  
+=inset-text($factor: null, $base: $blh,$ratio:$scale)
+  
+// Allows you to manually reset width (e.g. for use at different breakpoints).
+
+=inset-full()
+  
+
+// Legacy alias
+=full-width-text()

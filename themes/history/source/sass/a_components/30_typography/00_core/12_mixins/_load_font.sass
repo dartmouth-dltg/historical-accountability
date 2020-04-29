@@ -1,0 +1,40 @@
+/**
+  * @file _load_font.sass 
+  * @description  A font loading utility based on standardized filenames. 
+  *
+  * The font loader is keyed to standardized naming.
+  * Each weight of a font must have its own directory, named $basefilename-$weight. Weights should be numeric (100-900).
+  * The folder should contain any style variants of that weight, named $basefilename-$style-$weight.$extension
+  * A full array of webfonts is expected for each style (.eot, .woff, .otf, .svg, .ttf)
+  *
+  * Example: times-new-roman-400/times-new-roman-400-italic.eot
+  *
+  * Note that $styles 'normal' and 'italic' are also font-style keywords so they should not be passed as strings (i.e. in quotations).
+  * 
+  * TO DO: Not happy with how this handles local names, which are specific and too idiosyncratic for an standardized treatment.
+  */
+  
+
+$weightmap: (100: 'Hairline',200: 'Thin',300: 'Light', 400: 'Regular', 500: 'Medium',600: 'Semibold',700: 'Bold',800: 'ExtraBold',900: 'Black');
+ 
+  
+=load_font($family,$basefilename,$weights: (400,700),$styles:(normal,italic),$local_suffixes:(normal: 'Regular',italic: 'Italic'),$weightlabels: $weightmap,$path: $font_path)
+
+  @each $weight in $weights 
+    @each $style in $styles
+      
+      $directory: '#{$basefilename}-#{$weight}'
+      $filename: '#{$basefilename}-#{$style}-#{$weight}'
+      @font-face 
+        font-family: $family
+        font-style: $style
+        font-weight: $weight
+        @if map-has-key($local_suffixes, $style) != null
+          $suffix: map-get($local_suffixes,$style)
+          $weightlabel: map-get($weightlabels,$weight)
+          $localname: '#{$family} #{$weightlabel} #{$suffix}'
+          @if $weight == 400
+            $localname: '#{$family} #{$suffix}'
+          $altlocalname: str_replace($localname,' ','-')
+          src: local('#{$localname}'), local('#{$altlocalname}'), 
+        src: url('#{$path}/#{$directory}/#{$filename}.eot'), url('#{$path}/#{$directory}/#{$filename}.eot?#iefix') format('embedded-opentype'), url('#{$path}/#{$directory}/#{$filename}.otf') format('opentype'), url('#{$path}/#{$directory}/#{$filename}.woff') format('woff'), url('#{$path}/#{$directory}/#{$filename}.woff') format('woff'), url('#{$path}/#{$directory}/#{$filename}.ttf') format('truetype'),url('#{$path}/#{$directory}/#{$filename}.svg#Calluna Sans') format('svg')

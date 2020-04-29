@@ -1,0 +1,46 @@
+/**
+  * @file _logical_operators
+  * @component 00_general/00_core
+  * @description A set of static functions (e.g. functions that do not return a value) that perform logical operations on CSS variables.
+  * 
+  * CSS variables must be passed AS strings, include the variable to be assigned a value and any required variables.
+  * CSS variable arguments should be set to 1 or 0
+  *
+  * Thanks to https://css-tricks.com/logical-operations-with-css-variables/
+  */
+  
+// Not
+// !1 => 0, !0 => 1
+  
+=not($var, $argvar)
+  #{$var}: calc(1 - var(#{$argvar}))
+
+// And  
+// 0 && 0 => 0, 0 && 1 => 0, 1 && 0 => 0, 1 && 1 => 1
+  
+=and($var, $argvar1, $argvar2)
+  #{$var}: calc(var(#{$argvar1})*var(#{$argvar2}))
+
+// Nand  
+// 0 !&& 0 => 1, 0 !&& 1 => 1, 1 !&& 0 => 1, 1 !&& 1 => 0
+  
+=nand($var, $argvar1, $argvar2)
+  #{$var}: calc(1 - var(#{$argvar1})*var(#{$argvar2}))
+ 
+// Or 
+// 0 || 0 => 0, 0 || 1 => 1, 1 || 0 => 1, 1 || 1 => 1
+  
+=or($var, $argvar1, $argvar2)
+  #{$var}: calc(1 - (1 - var(#{$argvar1}))*(1 - var(#{$argvar2})))
+
+// Nor
+// 0 || 0 => 1, 0 || 1 => 0, 1 || 0 => 0, 1 || 1 => 0
+
+=nor($var, $argvar1, $argvar2)
+  #{$var}: calc((1 - var(#{$argvar1}))*(1 - var(#{$argvar2})))
+  
+// Exclusive or. Evaluates to 1 if and only if ONE of the arguments is set.
+// 0 ^ 0 = 0, 1 ^ 1 = 0, 1 ^ 0 = 1, 0 ^ 1 = 1
+  
+=xor($var, $argvar1, $argvar2)
+  #{$var}: calc((var(#{$argvar1}) - var(#{$argvar2}))*(var(#{$argvar1}) - var(#{$argvar2})))

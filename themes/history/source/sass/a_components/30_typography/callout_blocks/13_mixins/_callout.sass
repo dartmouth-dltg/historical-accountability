@@ -1,0 +1,85 @@
+/**  
+ *  @file _index.sass 
+ *  @category 30_typography
+ *  @component callout_blocks
+ *  @description Creates a floating “callout” to the left or right of the main text. The callout can be
+ *  floating off of the main column (default), or inset into the text (use callout-inset() as an alias)
+ *  Requires two sibling elements – .callout--main and .callout--text. See snippet.html
+ *
+ *  NOTE: The legacy version has no class names. It uses the first and second child of the main container.
+ *  This was modified in case more precise control was needed */ 
+ 
+
+// @args $direction: 'left' or 'right'
+// @args $shift: Integer as relative value indicating the callout's horizontal shift.
+// @args $width of the callout column. Can be a percentage of the container.
+// @args $inset. Integer as relative value indicating the inset of the callout. Set to null for no inset.
+// @args $breakpoint. The callout breakpoint, below which the callout stacks in its DOM order.
+  
+=callout($direction: 'left',$shift: 3, $callout_width: 40%, $inset: null, $breakpoint: lrg)
+
+  $shiftval: rv($shift)
+    
+  .callout--main  // Main
+    width: 100%    
+
+  .callout--text
+    --callout-width: #{$callout_width}
+    
+    @if $inset == null
+      padding: 0 rv($shift)
+      margin: 0 // set locally
+      
+    +bp($breakpoint)    
+      position: relative
+      width: calc(#{$callout_width} + #{$shiftval})
+      
+      @if $inset != null
+        margin: 0 0 rv($inset) 0
+      
+      > *:first-child
+        margin-top: 0
+        padding-top: 0
+        
+      > *:last-child
+        margin-bottom: 0
+        padding-bottom: 0
+      
+      @if $direction == 'left'    
+        float: left
+        text-align: right
+        
+        @if $inset == null
+          right: calc(#{$shiftval} + var(--callout-width))
+          margin-right: calc((#{$shiftval} + var(--callout-width)) * -1)
+        @else
+          padding-right: rv($inset)
+          right: calc(#{$shiftval} + (var(--callout-width)/2))
+          margin-right: calc((#{$shiftval} + (var(--callout-width)/2)) * -1)
+          
+      @if $direction == 'right'    
+        float: right
+        
+        @if $inset == null
+          left: calc(#{$shiftval} + var(--callout-width))
+          margin-left: calc((#{$shiftval} + var(--callout-width)) * -1)
+        @else
+          padding-left: rv($inset)
+          left: calc(#{$shiftval} + (var(--callout-width)/2))
+          margin-left: calc((#{$shiftval} + (var(--callout-width)/2)) * -1)
+            
+=callout-left($shift: 3, $callout_width: 40%, $inset: null, $breakpoint: lrg)
+  +callout('left',$shift, $callout_width, $inset, $breakpoint)
+  
+=callout-right($shift: 3, $callout_width: 40%, $inset: null, $breakpoint: lrg)
+  +callout('right',$shift, $callout_width, $inset, $breakpoint)
+  
+  
+=callout-inset($direction: 'left',$shift: 3, $callout_width: 40%, $inset: 1, $breakpoint: lrg)
+  +callout('left',$shift, $callout_width, $inset, $breakpoint)
+  
+=callout-inset-left($direction: 'left',$shift: 3, $callout_width: 40%, $inset: 1, $breakpoint: lrg)
+  +callout('left',$shift, $callout_width, $inset, $breakpoint)
+  
+=callout-inset-right($direction: 'left',$shift: 3, $callout_width: 40%, $inset: 1, $breakpoint: lrg)
+  +callout('right',$shift, $callout_width, $inset, $breakpoint)

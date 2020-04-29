@@ -1,0 +1,110 @@
+<?php
+/*
+ * Copyright BibLibre, 2016
+ *
+ * This software is governed by the CeCILL license under French law and abiding
+ * by the rules of distribution of free software.  You can use, modify and/ or
+ * redistribute the software under the terms of the CeCILL license as circulated
+ * by CEA, CNRS and INRIA at the following URL "http://www.cecill.info".
+ *
+ * As a counterpart to the access to the source code and rights to copy, modify
+ * and redistribute granted by the license, users are provided only with a
+ * limited warranty and the software's author, the holder of the economic
+ * rights, and the successive licensors have only limited liability.
+ *
+ * In this respect, the user's attention is drawn to the risks associated with
+ * loading, using, modifying and/or developing or reproducing the software by
+ * the user in light of its specific status of free software, that may mean that
+ * it is complicated to manipulate, and that also therefore means that it is
+ * reserved for developers and experienced professionals having in-depth
+ * computer knowledge. Users are therefore encouraged to load and test the
+ * software's suitability as regards their requirements in conditions enabling
+ * the security of their systems and/or data to be ensured and, more generally,
+ * to use and operate it in the same conditions as regards security.
+ *
+ * The fact that you are presently reading this means that you have had
+ * knowledge of the CeCILL license and that you accept its terms.
+ */
+?>
+
+
+<?php
+    $escape = $this->plugin('escapeHtml');
+    $this->headLink()->appendStylesheet($this->assetUrl('css/search.css', 'Search'));
+    $this->headScript()->appendFile($this->assetUrl('js/search.js', 'Search'));
+?>
+
+<?php $this->pageTitle($this->translate('Search')); ?>
+
+<div id="content" role="main">
+    <?php echo $this->searchForm(); ?>
+
+    <?php if (isset($response)): ?>
+        <div class="search-results-wrapper">
+            <div class="search-results">
+                <?php if ($response->getTotalResults() > 0): ?>
+                    <?php
+                        echo $this->partial('search/results-header', [
+                            'query' => $query,
+                            'response' => $response,
+                            'sortOptions' => $sortOptions,
+                        ]);
+                    ?>
+
+                    <?php $itemSetsCount = $response->getResourceTotalResults('item_sets'); ?>
+                    <?php echo $this->partial('search/resource-list', [
+                        'title' => sprintf($this->translatePlural('%s item set', '%s item sets', $itemSetsCount), $itemSetsCount),
+                        'response' => $response,
+                        'resourceName' => 'item_sets',
+                    ]); ?>
+
+                    <?php $itemsCount = $response->getResourceTotalResults('items'); ?>
+                    <?php echo $this->partial('search/resource-list', [
+                        'title' => sprintf($this->translatePlural('%s item', '%s items', $itemsCount), $itemsCount),
+                        'response' => $response,
+                        'resourceName' => 'items',
+                        'site' => $site
+                    ]); ?>
+
+                    <?php
+                        echo $this->partial('search/results-footer', [
+                            'query' => $query,
+                            'response' => $response,
+                            'sortOptions' => $sortOptions,
+                        ]);
+                    ?>
+                <?php else: ?>
+                    <div class="noresults"><?php echo $this->translate('Your query returned no results'); ?></div>
+                <?php endif; ?>
+            </div>
+
+            <?php echo $this->partial('search/facets', ['facets' => $facets]); ?>
+        </div>
+    <?php endif; ?>
+</div>
+<script>
+    $(document).ready(function() {
+        $('.search-results-sort select').on('change', function() {
+            Search.sortBy($(this).val());
+        });
+
+        $('.search-view-type-list').on('click', function(e) {
+            e.preventDefault();
+            Search.setViewType('list');
+            $('.search-view-type').removeClass('active');
+            $(this).addClass('active');
+        });
+        $('.search-view-type-grid').on('click', function(e) {
+            e.preventDefault();
+            Search.setViewType('grid');
+            $('.search-view-type').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        var view_type = localStorage.getItem('search_view_type');
+        if (!view_type) {
+            view_type = 'list';
+        }
+        $('.search-view-type-' + view_type).click();
+    });
+</script>

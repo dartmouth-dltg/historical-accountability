@@ -1,0 +1,6 @@
+<?php $form->prepare(); ?>
+<?php echo $attachments; ?>
+<a href="#" class="expand" aria-label="expand"><h4><?php echo $this->translate('Advanced Options'); ?></h4></a>
+<div class="collapsible">
+    <?php echo $this->formCollection($form, false); ?>
+</div>

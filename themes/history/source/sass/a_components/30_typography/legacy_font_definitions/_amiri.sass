@@ -1,0 +1,42 @@
+/**
+ * @file
+ * Font-face definition mixin
+ * Must be accompanied by full range of web fonts in the specified location path).
+ *
+ * Amiri
+ * 
+ */
+ 
+=font-amiri($path:'../fonts')
+
+  /* amiri-regular - latin */
+  @font-face 
+    font-family: 'Amiri'
+    font-style: normal
+    font-weight: 400
+    src: url('#{$path}/amiri/Amiri-Regular.eot') 
+    src: local('Amiri Regular'), local('Amiri-Regular'), url('#{$path}/amiri/Amiri-Regular.eot?#iefix') format('embedded-opentype'), url('#{$path}/amiri/Amiri-Regular.woff2') format('woff2'),  url('#{$path}/amiri/Amiri-Regular.woff') format('woff'), url('#{$path}/amiri/Amiri-Regular.ttf') format('truetype'),url('#{$path}/amiri/Amiri-Regular.svg#Amiri') format('svg')
+  
+  /* amiri-italic - latin */
+  @font-face 
+    font-family: 'Amiri'
+    font-style: italic
+    font-weight: 400
+    src: url('#{$path}/amiri/Amiri-Slanted.eot') 
+    src: local('Amiri Italic'), local('Amiri-Slanted'), url('#{$path}/amiri/Amiri-Slanted.eot?#iefix') format('embedded-opentype'), url('#{$path}/amiri/Amiri-Slanted.woff2') format('woff2'),  url('#{$path}/amiri/Amiri-Slanted.woff') format('woff'), url('#{$path}/amiri/Amiri-Slanted.ttf') format('truetype'),url('#{$path}/amiri/Amiri-Slanted.svg#Amiri') format('svg')
+  
+  /* amiri-700 - latin */
+  @font-face 
+    font-family: 'Amiri'
+    font-style: normal
+    font-weight: 700
+    src: url('#{$path}/amiri/Amiri-Bold.eot') 
+    src: local('Amiri Bold'), local('Amiri-Bold'), url('#{$path}/amiri/Amiri-Bold.eot?#iefix') format('embedded-opentype'), url('#{$path}/amiri/Amiri-Bold.woff2') format('woff2'),  url('#{$path}/amiri/Amiri-Bold.woff') format('woff'), url('#{$path}/amiri/Amiri-Bold.ttf') format('truetype'),url('#{$path}/amiri/Amiri-Bold.svg#Amiri') format('svg')
+  
+  /* amiri-700italic - latin */
+  @font-face 
+    font-family: 'Amiri'
+    font-style: italic
+    font-weight: 700
+    src: url('#{$path}/amiri/Amiri-BoldSlanted.eot') 
+    src: local('Amiri Bold Italic'), local('Amiri-BoldSlanted'), url('#{$path}/amiri/Amiri-BoldSlanted.eot?#iefix') format('embedded-opentype'), url('#{$path}/amiri/Amiri-BoldSlanted.woff2') format('woff2'),  url('#{$path}/amiri/Amiri-BoldSlanted.woff') format('woff'), url('#{$path}/amiri/Amiri-BoldSlanted.ttf') format('truetype'),url('#{$path}/amiri/Amiri-BoldSlanted.svg#Amiri') format('svg')

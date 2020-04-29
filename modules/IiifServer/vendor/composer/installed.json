@@ -1,0 +1,124 @@
+[
+    {
+        "name": "daniel-km/deepzoom",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Daniel-KM/LibraryDeepzoom.git",
+            "reference": "4b2a1187b0b98d46c3b292cf565e0e8b94d6df19"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Daniel-KM/LibraryDeepzoom/zipball/4b2a1187b0b98d46c3b292cf565e0e8b94d6df19",
+            "reference": "4b2a1187b0b98d46c3b292cf565e0e8b94d6df19",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2017-08-13T22:00:00+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "DanielKm\\Deepzoom\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jeremy Tubbs",
+                "email": "jeremytubbs@gmail.com",
+                "homepage": "http://jeremytubbs.com"
+            },
+            {
+                "name": "Daniel Berthereau",
+                "email": "daniel.packagist@berthereau.net",
+                "homepage": "http://www.daniel.berthereau.net"
+            }
+        ],
+        "description": "Stand-alone deepzoom tile generator (format DZI) for use with OpenSeadragon, OpenLayers and various viewers.",
+        "keywords": [
+            "ImageMagick",
+            "OpenLayers",
+            "deepzoom",
+            "dzi",
+            "gd",
+            "image",
+            "imagick",
+            "openseadragon",
+            "stand-alone",
+            "tiled",
+            "zoom",
+            "zoomable"
+        ]
+    },
+    {
+        "name": "daniel-km/zoomify",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Daniel-KM/LibraryZoomify.git",
+            "reference": "5a1e1b9478a08afa86de1d39907c92c4a20cab83"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Daniel-KM/LibraryZoomify/zipball/5a1e1b9478a08afa86de1d39907c92c4a20cab83",
+            "reference": "5a1e1b9478a08afa86de1d39907c92c4a20cab83",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2017-08-13T22:00:00+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "DanielKm\\Zoomify\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Daniel Berthereau",
+                "email": "daniel.packagist@berthereau.net",
+                "homepage": "http://www.daniel.berthereau.net"
+            },
+            {
+                "name": "Adam Smith",
+                "email": "asmith@agile-software.com"
+            },
+            {
+                "name": "Wes Wright",
+                "homepage": "http://greengaloshes.cc"
+            },
+            {
+                "name": "Justin Henry",
+                "homepage": "http://greengaloshes.cc"
+            }
+        ],
+        "description": "Stand-alone zoomify tile generator (format Zoomify) for use with OpenSeadragon, OpenLayers and various viewers.",
+        "keywords": [
+            "ImageMagick",
+            "OpenLayers",
+            "gd",
+            "image",
+            "imagick",
+            "openseadragon",
+            "stand-alone",
+            "tiled",
+            "zoom",
+            "zoomable",
+            "zoomify"
+        ]
+    }
+]

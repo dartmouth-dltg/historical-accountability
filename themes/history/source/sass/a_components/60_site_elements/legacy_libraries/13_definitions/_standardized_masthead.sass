@@ -1,0 +1,84 @@
+%standardized-masthead
+  height: $masthead_height
+  width: 100%
+  max-width: 100%
+  +spacing('padding',-2,0)
+  background-color: $black
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+  justify-content: space-between
+  align-items: center
+    
+  &, > *, > * *
+    color: $white
+    
+  // .contextual-links is a Drupal class for contextual menus.
+  
+  ul:not(.contextual-links)
+    +horizontal-list
+    
+    li
+      +font-size(0)
+      font-weight: $normalfw
+      +set-left-padding(-1)
+    
+    a
+      text-decoration: none
+      color: $white
+      
+      &.is-active
+        font-weight: $boldfw
+        
+  .logo
+    height: inherit
+    
+    > *
+      height: 100%
+      display: block
+      box-sizing: border-box
+      +set-top-padding(-4)
+      +set-bottom-padding(-4)
+      
+    img
+      width: initial
+      height: 100%
+      display: block
+        
+  .mobile-nav
+    @extend %standardized-mobile-nav    
+
+
+// Mixin for backwards compatibility
+// Also can be used to override default values
+
+=standardized-masthead($height: $masthead_height,$typefactor: 0,$padding: -2, $bgcolor: $black, $text_colour: $white)
+  @extend %standardized-masthead
+  
+  @if $padding != -2
+    +spacing('padding',$padding,0)
+  
+  @if $height != $masthead_height
+    height: $height
+
+  @if $typefactor != 0
+    ul:not(.contextual-links)
+      li
+        +font-size($typefactor)
+        
+  @if $bgcolor != $black
+    background-color: $bgcolor
+    
+  @if $text_colour != $white
+    ul:not(.contextual-links)
+      a
+        color: $text_colour
+        
+    &, > *, > * *
+      color: $text_colour
+
+        
+// Alias of standardized-masthead
+
+=standardized-header($height: $masthead_height, $typefactor: -1)
+  +standardized-masthead($height, $typefactor)

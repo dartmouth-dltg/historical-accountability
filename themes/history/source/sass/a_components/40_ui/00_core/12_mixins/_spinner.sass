@@ -1,0 +1,20 @@
+=spinner($color:rgba(0, 0, 0, 0.75))
+  &:after
+    content: ""
+    width: 5em
+    height: 5em
+    position: absolute
+    top: 0 
+    bottom: 0
+    right: 0
+    left: 0
+    margin: auto
+    border-top: 0.5rem solid $color
+    border-right: 0.25rem solid transparent
+    border-left: 0.5rem solid $color
+    border-radius: 50%
+    animation: spin 1.5s infinite linear
+  
+  @keyframes spin
+    100%
+      transform: rotate(360deg)

@@ -1,0 +1,118 @@
+.tablesaw tr {
+    overflow: hidden;
+    margin-bottom: 0;
+
+    &:first-of-type {
+        border-top: 1px solid $border-gray;
+    }
+}
+
+.browse td:not(:first-of-type) .tablesaw-cell-content,
+#properties td:not(:first-of-type) .tablesaw-cell-content {
+    display: inline-block;
+}
+
+
+.tablesaw td:first-of-type {
+    background-color: $gray-on-white;
+
+    .tablesaw-cell-label {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+        display: block;
+    }
+
+    .tablesaw-cell-content {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.batch-edit.tablesaw td:first-of-type {
+    width: 100%;
+    background: $gray-on-white;
+
+    img {
+        margin-bottom: 0;
+    }
+
+    .tablesaw-cell-label {
+        width: 0;
+        overflow: hidden;
+        padding: 0;
+    }
+}
+
+.batch-edit .tablesaw-cell-content {
+    display: inline-flex;
+}
+
+.tablesaw-cell-content {
+    width: 70%;
+    max-width: 70%;
+}
+
+.tablesaw-cell-content img {
+    margin: 0 $spacing-small 0 0;
+}
+
+.tablesaw tr:last-of-type td,
+.tablesaw tr:last-of-type th,
+.tablesaw th,
+.tablesaw td {
+    padding-top: $spacing-small;
+    padding-bottom: $spacing-small;
+    vertical-align: top;
+}
+
+.tablesaw th:not(:last-of-type),
+.tablesaw td:not(:last-of-type) {
+    border-bottom: 1px solid $border-gray;
+}
+
+.tablesaw tr.delete {
+    border: 0;
+
+    td {
+        border: 0;
+    }
+
+    td:not(:first-of-type) {
+        display: none;
+    }
+}
+
+/* @group ----- Special cases ----- */
+
+.resource-template th:first-of-type,
+.resource-template td:first-of-type {
+    width: 100%;
+}
+
+#site-user-permissions tr.user.value {
+    position: relative;
+}
+
+#site-user-permissions td:nth-child(3) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 $spacing-small 0 0;
+
+    .tablesaw-cell-label {
+        display: none;
+    }
+
+    .tablesaw-cell-content {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+#site-user-permissions.tablesaw-stack tbody tr {
+    border-bottom: 0;
+}
+
+/* @end */

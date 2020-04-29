@@ -1,0 +1,55 @@
+/*
+ * @appliesto: figure
+ * 
+ * Adds a zoom-reveal effect for figure captions.
+ *
+ * 
+ */
+
+
+%figure-hidden-caption
+  position: relative
+  
+  img
+    object-position: center // Default value. Here to illustrate zoom-in-out effect.
+    margin: 0 // Allows for positioning animation later.
+    transition: all 0.2s ease-in-out
+    
+  > *
+    position: relative
+          
+  figcaption 
+    position: absolute
+    box-sizing: border-box
+    width: 100%
+    bottom: 0
+    opacity: 0
+    z-index: 3  // Intended to work with the _figure_colour_wash z-indexing
+    transition: opacity 0.2s ease-in-out
+    background-color: $white
+     
+  &:hover
+    figcaption
+      opacity: 1
+      transition: opacity 0.2s ease-in-out
+      
+%figure-hover-zoom
+  position: relative
+  overflow: hidden
+  
+  img
+    max-width: initial
+    width: 100%
+    overflow: hidden
+    transition: all 0.2s ease-in-out
+
+    &:hover 
+      transition: all 0.2s ease-in-out
+      transform: scale(1.1)
+      
+      
+// Note Figure-zoom-caption causes performance and rendering issues on Safari (Chrome is OK). Use with caution.
+      
+%figure-zoom-caption
+  @extend %figure-hidden-caption
+  @extend %figure-hover-zoom

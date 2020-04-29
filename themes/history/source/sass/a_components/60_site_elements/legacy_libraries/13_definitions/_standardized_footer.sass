@@ -1,0 +1,93 @@
+// Standardized Footer
+// Expects the following structure:
+// - footer
+//   - div: footer content
+//     - div/ul
+//     - div/ul  
+
+
+%standardized-footer
+  box-sizing: border-box
+  background-color: $black
+  color: $white
+  font-weight: normal 
+  width: 100%
+  background-repeat: no-repeat
+  +set-margin-top(0)
+  
+  +bp(med)
+    min-height: rv(5)
+    
+  +bp(lrg)
+    min-height: rv(7)
+  
+  // Footer content wrapper
+  > *
+    +responsive-inset()
+    +set-top-padding(1)
+    +set-bottom-padding(1)
+    width: 100%
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: top
+    color: inherit
+    background-repeat: no-repeat
+    
+    +bp(med)
+      flex-direction: row
+      justify-content: space-between
+      flex-wrap: nowrap
+            
+    // Footer content blocks
+      
+    > *
+      +set-margin-top(1)
+      
+      +bp(med)
+        margin-top: 0
+        +set-right-padding(1)
+      
+        &:last-child
+          right-padding: 0
+      
+      
+  p, a, h2, h3, h4, h5, h6, ul, li
+    font-family: inherit
+    color: inherit
+    margin-top: 0
+    
+  ul.menu, ul.footer-menu
+    margin: 0
+    padding-left: 0
+    
+    li
+      list-style-type: none
+      text-transform: uppercase
+        
+      &:first-child
+        margin-top: 0
+        padding-top: 0
+    
+    a
+      text-decoration: none
+  
+  .region-content
+    padding-top: $blh
+    
+    +bp(med)
+      padding-top: 1em
+  
+// For backwards compatibility
+
+=standardized-footer()
+  @extend %standardized-footer
+  
+  
+  .contact-info
+    padding-top: 1em
+    text-align: center
+    
+    +bp(med)
+      text-align: left
+      

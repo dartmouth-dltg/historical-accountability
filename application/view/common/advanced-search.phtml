@@ -1,0 +1,50 @@
+<?php
+$this->headLink()->prependStylesheet($this->assetUrl('css/advanced-search.css', 'Omeka'));
+$this->headScript()->appendFile($this->assetUrl('js/advanced-search.js', 'Omeka'));
+
+$query = isset($query) ? $query : null;
+$resourceType = isset($resourceType) ? $resourceType : null;
+$isPool = isset($isPool) ? $isPool : null;
+
+$partials = [
+    'common/advanced-search/fulltext',
+    'common/advanced-search/properties',
+    'common/advanced-search/resource-class',
+];
+if ($this->status()->isAdminRequest()) {
+    $partials[] = 'common/advanced-search/resource-template';
+}
+switch ($resourceType) {
+    case 'item':
+        $partials[] = 'common/advanced-search/item-sets';
+        if ($this->status()->isAdminRequest() && !$isPool) {
+            $partials[] = 'common/advanced-search/site-pool';
+        }
+        break;
+    case 'media':
+        $partials[] = 'common/advanced-search/media-type';
+        break;
+}
+if ($this->status()->isSiteRequest()) {
+    $partials[] = 'common/advanced-search/resource-template-restrict';
+}
+
+$filterResults = $this->trigger(
+    'view.advanced_search',
+    [
+        'query' => $query,
+        'resourceType' => $resourceType,
+        'partials' => $partials,
+    ],
+    true
+);
+$partials = $filterResults['partials'];
+?>
+
+<div class="advanced-search-content">
+<?php
+foreach ($partials as $partial) {
+    echo $this->partial($partial, ['query' => $query]);
+}
+?>
+</div>

@@ -1,0 +1,36 @@
+<?php
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+
+$this->htmlElement('body')->appendAttribute('class', 'item-set resource browse');
+?>
+
+<?php echo $this->pageTitle($translate('Item sets'), 2); ?>
+
+<?php echo $this->searchFilters(); ?>
+
+<div class="browse-controls">
+    <?php echo $this->pagination(); ?>
+    <?php echo $this->hyperlink($translate('Advanced search'), $this->url(null, ['action' => 'search'], true), ['class' => 'advanced-search']); ?>
+</div>
+
+<?php $this->trigger('view.browse.before'); ?>
+<ul class="resource-list">
+<?php
+$headingTerm = $this->siteSetting('browse_heading_property_term');
+$bodyTerm = $this->siteSetting('browse_body_property_term');
+foreach ($itemSets as $itemSet):
+    $heading = $headingTerm ? $itemSet->value($headingTerm, ['default' => $translate('[Untitled]')]) : $itemSet->displayTitle();
+    $body = $bodyTerm ? $itemSet->value($bodyTerm) : $itemSet->displayDescription();
+?>
+    <li class="item-set resource">
+        <?php echo $itemSet->linkRaw($this->thumbnail($itemSet, 'medium')); ?>
+        <h4><?php echo $itemSet->link($heading); ?></h4>
+        <?php if ($body): ?>
+        <div class="description"><?php echo $body; ?></div>
+        <?php endif; ?>
+    </li>
+<?php endforeach; ?>
+</ul>
+<?php $this->trigger('view.browse.after'); ?>
+<?php echo $this->pagination(); ?>

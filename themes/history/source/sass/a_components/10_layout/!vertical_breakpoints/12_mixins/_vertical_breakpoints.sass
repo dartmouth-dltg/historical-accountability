@@ -1,0 +1,5 @@
+// Vertical breakpoints
+      
+=vbp($point)
+  @media only #{$media_type} and ($vfeature: map-get($vbreakpoints,$point))
+    @content

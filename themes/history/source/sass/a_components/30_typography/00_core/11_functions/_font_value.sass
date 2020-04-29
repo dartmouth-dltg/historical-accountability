@@ -1,0 +1,14 @@
+/**
+ * @file _font_value.sass
+ * @category 20_typography
+ * @group a_components
+ * @description Function to return value based on relative value $factor, $basetypesize and $scale.
+ *
+ */
+
+@function font-value($factor: 0,$ratio: $scale)
+  @return ms($factor,$basetypesize,$ratio)
+
+
+@function base-font-value()
+  @return $basetypesize

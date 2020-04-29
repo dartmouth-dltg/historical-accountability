@@ -1,0 +1,6 @@
+p > a, p li > a, blockquote > a
+  color: $link_colour
+  +link-underline()
+  
+  &:hover, &:active
+    color: mix($link_colour,$black,10%)

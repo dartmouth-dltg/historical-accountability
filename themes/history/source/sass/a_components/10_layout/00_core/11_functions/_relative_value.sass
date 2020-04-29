@@ -1,0 +1,29 @@
+/**
+ * @file _relative_value.sass
+ * @category 10_layout
+ * @group a_components
+ * @description Returns a value in the standardized site scale. Uses the modular scale SASS library. See https://www.modularscale.com
+ *
+ * @args  $factor: An integer corresponding to a step on the scale. Defaults to 0.
+ * @args  $base: The base unit (e.g. 1.5rem) to be evaluated. Defaults to $blh (from 00_layout_configuration)
+ * @args  $ratio: The ratio (with a denominator of 1) denoting the distance between steps on the scale.
+ *
+ * Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale). 
+ */
+ 
+@function relative_value($factor: 0,$base: $blh, $ratio:$scale)
+  @if $factor == null
+    @return 0
+  @else
+    @if (is_integer($factor))
+      @return ms($factor,$base,$ratio)
+    @else
+      @error "Relative value factor #{$factor} must be an integer."
+  
+// Alias  
+@function rv($factor: 0,$base: $blh, $ratio:$scale)
+  @return relative_value($factor,$base,$ratio)
+  
+// Another Alias
+@function rs($factor: 0,$base: $blh, $ratio:$scale)
+  @return relative_value($factor,$base,$ratio)

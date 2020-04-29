@@ -1,0 +1,52 @@
+<?php
+$this->headLink()->appendStylesheet($this->assetUrl('css/csseditor.css', 'CSSEditor'));
+$this->headScript()->appendFile($this->assetUrl('js/csseditor.js', 'CSSEditor'));
+echo $this->pageTitle($this->translate('CSS Editor'));
+?>
+
+<?php echo $this->form()->openTag($form); ?>
+
+<div id="page-actions">
+  <button type="submit"><?php echo $this->translate('Save'); ?></button>
+</div>
+
+<div class="field">
+    <div class="field-meta">
+        <label for="custom-css"><?php echo $this->translate('CSS'); ?></label>
+    </div>
+    <div class="inputs">
+        <textarea rows="20" name="css" id="css"><?php echo (isset($css)) ? $css : ''; ?></textarea>
+    </div>
+</div>
+
+<div class="field external-css">
+    <div class="field-meta">
+          <label id="external-css-label"><?php echo $this->translate('External stylesheets'); ?></label>
+    </div>
+    <div class="inputs">
+        <div class="values">
+            <?php if (isset($externalCss) && (!empty($externalCss))): ?>
+                <?php
+                $externalCssFieldCount = 0;
+                $externalCssValue = '';
+                ?>
+                <?php foreach ($externalCss as $uri): ?>
+                <?php $externalCssValue = $uri; ?>
+                <?php echo $this->partial('css-editor/external-css', [
+                    'externalCssValue' => $externalCssValue,
+                    'externalCssFieldCount' => $externalCssFieldCount,
+                ]); ?>
+                <?php $externalCssFieldCount++; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <?php echo $this->partial('css-editor/external-css', [
+                    'externalCssValue' => '',
+                    'externalCssFieldCount' => 0,
+                ]); ?>
+            <?php endif; ?>
+        </div>
+        <button type="button" class="add-value o-icon-add"><?php echo $this->translate('Add another stylesheet'); ?></button>
+    </div>
+</div>
+
+<?php echo $this->form()->closeTag($form); ?>

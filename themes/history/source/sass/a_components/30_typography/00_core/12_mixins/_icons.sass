@@ -1,0 +1,48 @@
+/**
+ * @file _icons.sass
+ * @component 30_typography
+ * @group a_components
+ * @description Handy icon-related mixins.
+ *
+ */
+ 
+
+// Prepends an icon. $icon must be a path to an icon as per get_icon_url().
+// See _image_bullets for more information.
+
+// Centres to the first line
+=prepend_icon_top($icon,$width: 0, $height: 0, $offset: 0, $lineheight: 0, $mode: inline, $ext: 'svg')
+  +set-image-bullet(url(get_icon_url($icon,$ext)),$width,$height,$offset,$lineheight,$mode)
+
+// Centres icon to the block
+=prepend_icon($icon,$width: 0, $height: 0, $offset: 0, $lineheight: 0, $ext: 'svg')
+  +set-image-bullet(url(get_icon_url($icon,$ext)),$width,$height,$offset,$lineheight,flex)
+
+// Hanging to the left. Centred to the first line.  
+=prepend_negative_icon_top($icon,$width: 0, $height: 0, $offset: 0, $lineheight: 0,  $mode: inline, $ext: 'svg')
+  +set-negative-image-bullet(url(get_icon_url($icon,$ext)),$width,$height,$offset,$lineheight,$mode)
+
+// Hanging to the left. Centred to the block.
+=prepend_negative_icon($icon,$width: 0, $height: 0, $offset: 0, $lineheight: 0, $ext: 'svg')
+  +set-negative-image-bullet(url(get_icon_url($icon,$ext)),$width,$height,$offset,$lineheight,flex)
+  
+// Set a different icon for a hover state
+=set_hover_icon($icon,$ext: 'svg')
+  &:hover
+    &:after
+      background-image: url(get_icon_url($icon,$ext))
+      
+      
+// Centres to the first line
+=append_icon($icon,$width: 0, $height: 0, $offset: 0, $lineheight: 0, $mode: inline, $ext: 'svg')
+  +set-image-bullet(url(get_icon_url($icon,$ext)),$width,$height,$offset,$lineheight,$mode)
+  padding-left: 0
+  padding-right: rv($offset) + rv($width)
+  
+  &:after
+    left: initial
+    right: 0
+    
+// Centres icon to the block
+=append_icon_flex($icon,$width: 0, $height: 0, $offset: 0, $lineheight: 0, $ext: 'svg')
+  +set-image-bullet-flex(url(get_icon_url($icon,$ext)),$width,$height,$offset,$lineheight,false)

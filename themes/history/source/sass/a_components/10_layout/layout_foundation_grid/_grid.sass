@@ -1,0 +1,50 @@
+/* 
+   @file _Grid.sass 
+   @category 10_layout
+   @component layout_foundation_grid
+   @description  Establishes responsiveness for top-level sections. Requires a set DOM structure. 
+   @todo  Uses display: grid. Polyfill this for pre-grid support. 
+   
+   NOTE: Still broken. Working through concepts here: https://www.smashingmagazine.com/2019/10/editorial-design-patterns-css-grid-subgrid-naming */
+   
+   
+body
+  margin: 0
+  padding: 0
+  width: 100%
+  
+  > *
+    width: 100%
+    
+  > section
+    border: 1px dotted red
+  
+    > *
+      display: grid
+      grid-template-columns: [full-start] minmax(0,1fr) [wide-start left-start] minmax(min-content,auto) [left-end content-start] minmax(0,$max_width) [content-end right-start] minmax(min-content,auto) [right-end wide-end] minmax(0,1fr) [full-end]
+      border: 1px dotted green
+      
+      > *
+        grid-column: wide
+        max-width: $max_width
+        display: grid
+        grid-row-gap: rv(0)
+        grid-template-columns:  [full-start] minmax(0,1fr) [wide-start] minmax(0,1fr) [content-start] minmax(0,$legible_inset_width) [content-end] minmax(0,2fr) [wide-end] minmax(0,1fr) [full-end]
+        border: 1px dotted blue
+        
+        > *
+          margin: 0 auto
+          
+        > *:not(h1, h2, h3, h4, h5, h6, p)
+          margin: 0 auto
+        
+      > aside
+        grid-column left
+        
+      > aside:nth-of-type(2)
+        grid-column right
+        
+  > section#splash, >section.full 
+    > *
+      > *
+        grid-column: full

@@ -1,0 +1,35 @@
+
+.scroll-down
+  margin: rv(0) 0
+  width: rv(3)
+
+.down-arrow
+  display: block
+  width: 100%
+  text-align: center
+  +font-size(-1)
+
+  img
+    width: 100%
+    display: inline-block
+    
+  span
+    display: block
+    margin-top: rv(-1)
+    color: set-color(1)
+  
+  color: set-color(1)
+  
+  &:hover
+    color: $black
+    
+.left
+  .scroll-down
+    float: left
+      
+.right
+  .scroll-down
+    float: right
+    
+button[type='submit']
+  @extend %btn-submit

@@ -1,0 +1,97 @@
+.section-intro-splash
+  margin-left: 0
+  margin-right: 0
+  width: 100%
+  max-width: 100%
+  position: relative
+  display: flex
+  flex-direction: column-reverse
+  overflow: hidden
+  
+  +bp($stack)
+    background: $black
+    
+  figure
+    position: relative
+    
+    a
+      display: block
+      height: 100%
+      width: 100%
+
+    &:after
+      position: absolute
+      content: ""
+      height: 100%
+      width: 100%
+      top: 0
+      left: 0
+      opacity: 1
+      
+      +bp($stack)
+        background: $ltr_dark_gradient
+      
+
+  .resource
+    +bp($stack)
+      height: 100%
+      
+      figure
+        height: 100%
+        width: 100%
+        
+        a
+          display: block
+          height: 100%
+        
+      img
+        display: block
+        background-position: center bottom
+        object-fit: cover
+        height: 100%
+
+
+  .introduction
+    +splash_area_title_right()    
+        
+        
+    .introductory-text
+      text-align: right
+      position: relative
+      margin: 0
+
+      h1
+        margin-bottom: rv(0)
+        
+      p
+
+        display: block
+        text-align: right
+        line-height: 1.8
+        
+        +bp($stack)
+          font-size: +font-value(-1)
+          line-height: 1.5
+        
+        +bp($desktop)
+          font-size: +font-value(0)
+          line-height: 1.8
+          
+      h1, p, a
+        +bp($stack)
+          color: $white
+
+      a
+        color: $clr1
+              
+
+          
+  &.left
+    &:after
+      background: $rtl_dark_gradient
+      
+    .introduction
+      +splash_area_title_left()    
+      
+      .introductory-text, p
+        text-align: left

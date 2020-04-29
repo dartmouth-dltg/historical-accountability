@@ -1,0 +1,29 @@
+// Standardized handler for creating legible line lengths. Legacy mixin replaces core mixin.
+  
+=inset-text($factor: null, $increment: 1,$ratio:$scale)
+
+  // Detects for legacy variable
+  
+  @if variable_exists('inset_text_width')
+    max-width: $inset_text_width 
+  @else
+    max-width: $legible_inset_width
+    
+  margin-left: auto
+  margin-right: auto
+
+  @if $factor != null
+    +spacing('padding-left',$factor,$increment,$ratio)
+    +spacing('padding-right',$factor,$increment,$ratio)
+    
+=full-width-text($horizontalpadding: null)
+  max-width: $max_width
+  margin-left: auto
+  margin-right: auto
+
+  @if $horizontalpadding != null
+    +set-left-padding($horizontalpadding)
+    +set-right-padding($horizontalpadding)
+  @else
+    padding-left: 0
+    padding-right: 0

@@ -1,0 +1,59 @@
+{
+ "name": "history-theme",
+ "version": "1.0.0",
+ "description": "A custom Omeka theme for the Historical Accountability project.",
+ "main": "./assets/js/default.js",
+ "author": {
+  "name": "Agile Humanities Agency",
+  "url": "https://agilehumanities.ca"
+ },
+ "license": "MIT",
+ "repository": {
+  "type": "git",
+  "url": "https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git"
+ },
+ "keywords": [
+  "omeka-s",
+  "theme",
+  "history"
+ ],
+ "devDependencies": {
+  "acorn": "^7.1.0",
+  "autoprefixer": "^9.7.1",
+  "browser-sync": "^2.26.3",
+  "cssnano": "^4.1.10",
+  "del": "^3.0.0",
+  "gulp": "^4.0.2",
+  "gulp-concat": "^2.6.1",
+  "gulp-eslint": "^6.0.0",
+  "gulp-flatmap": "^1.0.2",
+  "gulp-header": "^2.0.5",
+  "gulp-imagemin": "^6.2.0",
+  "gulp-jshint": "^2.1.0",
+  "gulp-modernizr": "^3.4.0",
+  "gulp-optimize-js": "^1.1.0",
+  "gulp-postcss": "^8.0.0",
+  "gulp-rename": "^1.4.0",
+  "gulp-sass": "^4.0.2",
+  "gulp-sourcemaps": "^2.6.5",
+  "gulp-svgmin": "^2.1.0",
+  "gulp-terser": "^1.2.0",
+  "gulp-uglify": "^3.0.2",
+  "jshint": "^2.9.6",
+  "jshint-stylish": "^2.2.1",
+  "lazypipe": "^1.0.1",
+  "node-sass": "^4.12.0",
+  "pump": "^3.0.0"
+ },
+ "dependencies": {
+  "in-view": "^0.6.1",
+  "jquery": "^3.4.1",
+  "jquery-colorbox": "^1.6.4",
+  "jquery-reflow-table": "^1.0.3",
+  "slick-carousel": "^1.8.1"
+ },
+ "browserslist": [
+  "> 5%",
+  "> 2% in US"
+ ]
+}

@@ -1,0 +1,16 @@
+// Important when using SVG Symbols
+// The core svg fill should be set to “inherit”, which should apply to all predefined svg <symbols>.
+// This allows symbols referenced through a <use> tag to inherit colour from their context,
+// putting them into the scope of the css. Otherwise they are simply references and exist outside
+// the DOM.
+
+
+svg
+  width: inherit
+  height: inherit
+  fill: inherit
+  
+  // Standard Adobe Illustrator SVG classes
+  
+  .cls-1, .cls-2, .cls-3
+    fill: inherit

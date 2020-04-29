@@ -1,0 +1,26 @@
+{
+  "name": "huronia-block-options",
+  "version": "1.0.0",
+  "description": "A custom Omeka module for the Recounting Huronia project.",
+  "main": "./assets/js/slideshow.js",
+  "author": {
+    "name": "Agile Humanities Agency",
+    "url": "https://agilehumanities.ca"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git"
+  },
+  "keywords": [
+    "omeka-s",
+    "huronia"
+  ],
+  "dependencies": {
+    "slick-carousel": "^1.8.1"
+  },
+  "browserslist": [
+    "> 5%",
+    "> 2% in US"
+  ]
+}

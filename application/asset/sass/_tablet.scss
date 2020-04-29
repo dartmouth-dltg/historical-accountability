@@ -1,0 +1,558 @@
+@import "font-awesome/variables";
+
+script {
+    display: none !important;
+}
+
+body {
+    padding: 0;
+}
+
+.mobile-only {
+    display: block;
+}
+
+button.mobile-only {
+    width: 100%;
+}
+
+/* @group ----- Header ----- */
+
+header {
+    width: 100%;
+    float: none;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0;
+    right: 0;
+    z-index: 1000;
+    min-height: 0;
+
+    .button {
+        border-radius: 0px;
+        position: absolute;
+        top: 0;
+        z-index: 1001;
+        color: #fff;
+        background-color: darken($blue, 15%);
+        box-shadow: none;
+    }
+
+    .o-icon-menu.button {
+        left: 0;
+        border-right: 1px solid rgba(0,0,0,.08);
+        width: (1.5 * $spacing-large);
+    }
+
+    .o-icon-search.button {
+        left: (1.5 * $spacing-large);
+    }
+
+    .o-icon-user.button {
+        right: 0;
+    }
+
+    nav ul.navigation > li:not(:first-of-type) {
+        margin-top: 0;
+    }
+}
+
+.logo {
+    line-height: 1.5 * $base-line-height;
+    padding: 0 gutter(1);
+    width: 100%;
+    text-align: center;
+    display: block;
+    background-color: $blue;
+}
+
+#user,
+#search,
+header nav {
+    position: fixed;
+    top: -9999px;
+    left: -9999px;
+    z-index: 1000;
+}
+
+header nav#site-nav {
+    position: static;
+    background-color: #fff;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+header nav#site-nav h5 {
+    border-top: 1px solid $border-gray;
+    padding-top: ($spacing-small -1px);
+    margin-bottom: 0;
+}
+
+header nav#site-nav h5 a {
+    padding: 0;
+    border-bottom: 0;
+}
+
+#menu.active,
+#user.active,
+#search.active {
+    top: (1.5 * $spacing-large);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    margin: 0;
+}
+
+/* @end */
+
+/* @group ----- Footer ----- */
+
+footer {
+    margin: 0;
+    padding: 0;
+    position: static;
+    width: 100%;
+    text-align: center;
+
+    &:after {
+        position: static;
+        background: transparent;
+    }
+}
+
+/* @end */
+
+/* @group ----- Tables ----- */
+
+.browse td:first-child,
+.browse th:first-child {
+    width: 100%;
+}
+
+td .o-icon-private,
+td .o-icon-user-inactive {
+    vertical-align: top;
+    margin: 0;
+}
+
+/* @end */
+
+/* @group ----- Global content ----- */
+
+div[role="main"] {
+    margin: (1.5 * $spacing-large) 0 0 0;
+    width: 100%;
+    min-height: calc(100% - #{3 * $spacing-large});
+    position: relative;
+    padding-top: (2 * $spacing-large);
+
+    & > h1:first-of-type {
+        width: auto;
+        position: static;
+        padding: $spacing-medium gutter();
+        height: auto;
+        margin: 0 -#{gutter()} $spacing-medium;
+        white-space: normal;
+        line-height: 1.5 * $base-line-height;
+    }
+}
+
+/* @end */
+
+/* @group ----- Navigation ----- */
+
+#menu {
+    text-align: left;
+    background-color: #fff;
+    position: fixed;
+    overflow: scroll;
+}
+
+#menu ul {
+    margin-bottom: 0;
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+#menu a {
+    display: block;
+    padding: $spacing-small $spacing-medium #{$spacing-small - 1px};
+    color: #676767;
+    border-bottom: 1px solid $border-gray;
+}
+
+#menu li:last-child a {
+    border-bottom: 0;
+    padding-bottom: $spacing-small;
+}
+
+#menu h5 a {
+    padding: 0;
+    border-bottom: 0;
+}
+
+#menu h5 {
+    height: 1.5 * $base-line-height;
+    color: #676767;
+    background-color: $gray-on-white;
+    padding: $spacing-small $spacing-medium #{($spacing-small - 1px)};
+    border: 1px solid $border-gray;
+    border-width: 1px 0;
+}
+
+#menu h4 {
+    background-color: opacify($gray-on-white, .08);
+    margin-bottom: 0;
+
+    &:not(:first-of-type) {
+        margin-top: 0;
+    }
+}
+
+#menu a.public,
+#menu a.expand,
+#menu a.collapse {
+    height: 1.5 * $base-line-height;
+    margin: #{-(1.5 * $spacing-large)} 0 0;
+    padding: 0 $spacing-medium 0 0;
+
+    &:before,
+    &:after {
+        height: 1.5 * $base-line-height;
+        line-height: 1.5 * $base-line-height;
+    }
+}
+
+#mobile-nav {
+    display: block;
+}
+
+#mobile-nav a.active {
+    background-color: darken($red, 20%);
+}
+
+#user {
+    text-align: center;
+}
+
+#user .user-id {
+    color: $copy-gray;
+    width: 100%;
+    margin: 0 $spacing-small $spacing-large;
+
+    a {
+        color: $red;
+    }
+}
+
+#user .logout {
+    display: block;
+    margin: $spacing-medium $spacing-small;
+    font-size: $base-font-size;
+    color: $copy-gray;
+    border-radius: 3px;
+    width: calc(100% - #{$spacing-medium});
+    min-height: (1.5 * $spacing-large);
+    background-color: rgba(0,0,0,.08);
+    border-radius: 3px;
+    border: 0;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15) inset;
+    padding: $spacing-small 10px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 $spacing-small;
+
+    &:last-of-type:before {
+        content: "";
+    }
+
+    a {
+        color: $copy-gray;
+    }
+}
+
+#page-actions {
+    top: (1.5 * $spacing-large);
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    height: 2 * $spacing-large;
+    padding-bottom: ($spacing-small - 1px);
+}
+
+/* @end */
+
+/* @group ----- Sidebars ----- */
+
+#sidebar {
+    position: fixed;
+    top: (1.5 * $spacing-large);
+    z-index: 100;
+    width: 100%;
+
+    #content.sidebar-open {
+        left: 0;
+    }
+}
+
+body.sidebar-open #content {
+    width: 100%;
+}
+
+.sidebar {
+    width: 100%;
+    top: 1.5 * $spacing-large;
+    z-index: 1000;
+}
+
+.sidebar.always-open {
+    left: 100%;
+}
+
+.sidebar.active,
+.confirm-panel {
+    left: 0;
+    width: 100%;
+}
+
+fieldset.section > .always.active {
+    content: "";
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2 * $spacing-large;
+    background-color: #fff;
+    position: fixed;
+    border-top: 1px solid $gray-on-white;
+
+    button {
+        width: 100%;
+        margin: $spacing-small;
+    }
+}
+
+/* @end */
+
+/* @group ----- Module: Browse ----- */
+
+#modules .module-meta,
+#modules .module-actions {
+    width: 100%;
+    max-width: 100%;
+}
+
+#modules .module-meta {
+    margin-bottom: $spacing-medium;
+}
+
+#modules .module-actions {
+    text-align: left;
+}
+
+#modules button,
+#modules .button {
+    margin: 0 $spacing-small 0 0;
+}
+
+/* @end */
+
+/* @group ----- Vocabulary: Update ----- */
+
+.vocabs.update td {
+    width: 100% !important;
+}
+
+/* @end */
+
+/* @group ----- Search ----- */
+
+#search-form {
+    margin: (2 * $spacing-large) gutter(4);
+}
+
+/* @end */
+
+/* @group ----- Browse views ----- */
+
+.batch-edit.button {
+    margin: 0;
+    border-radius: 0px;
+    position: relative;
+    z-index: 1;
+}
+
+.browse table {
+    position: relative;
+}
+
+.browse .sorting {
+    float: left;
+}
+
+.browse .pagination {
+    margin-right: 2 * $spacing-large;
+}
+
+.jobs.browse th:first-child, 
+.jobs.browse td:first-child {
+    width: 100%;
+}
+
+/* @end */
+
+/* @group ----- Add/Edit views ----- */
+
+fieldset.section,
+fieldset.section {
+    margin-bottom: 0;
+    position: relative;
+}
+
+fieldset.section > legend:first-child {
+    position: relative;
+    left: auto;
+    display: block;
+    width: 100%;
+    font-size: 1.25 * $base-font-size;
+    padding: $spacing-small (1.5 * $spacing-small) $spacing-small 0;
+    color: $red;
+    cursor: pointer;
+    border-bottom: 3px solid rgba(0,0,0,.08);
+    padding-bottom: -3px;
+    margin-bottom: $spacing-medium;
+}
+
+fieldset.section > legend:after {
+    content: "\f0da";
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    right: (1.5 * $spacing-small);
+    top: $spacing-medium;
+}
+
+fieldset.section.mobile-active > legend:after{
+    content: "\f0d7";
+}
+
+.add .active.section > .button,
+.edit .active.section > .button {
+    display: inline-block;
+}
+
+.field-meta,
+.inputs {
+    width: 100%;
+}
+
+.field-actions {
+    position: absolute;
+    top: 1.5 * $spacing-small;
+    right: gutter(10);
+    z-index: 1;
+    width: 50%;
+
+    a {
+        float: right;
+        display: block;
+
+        &.button {
+            margin-left: .5em !important;
+        }
+
+    }
+}
+
+.field-meta label,
+.field-description p {
+    line-height: $base-line-height;
+    margin-bottom: $spacing-small;
+}
+
+.field-meta label {
+    font-weight: bold;
+}
+
+
+.unset .field-meta {
+    width: 100%;
+}
+/* @end */
+
+/* @group ----- Show views ----- */
+
+.show .sidebar.active {
+    position: static;
+    border: 1px solid $border-gray;
+    padding: ($spacing-medium - 1px);
+    margin-top: $spacing-large;
+}
+
+.show .section .property,
+.show .section .meta-group {
+    margin-bottom: $spacing-small;
+    box-shadow: 0 0 0 1px $border-gray;
+    border-radius: 2px;
+}
+
+.show .section .meta-group h4,
+.show .section .property h4 {
+    padding-bottom: $spacing-small;
+    border-bottom: 1px solid $border-gray;
+    background-color: $gray-on-white;
+}
+
+.show .section .meta-group h4,
+.show .section .meta-group .value,
+.show .section .property h4,
+.show .section .property .values {
+    width: 100% !important;
+    padding: $spacing-small !important;
+}
+
+.show .section .meta-group .value:not(:first-of-type),
+.show .section .property .value:not(:first-of-type) {
+    border-top: 1px solid $border-gray;
+    padding-top: ($spacing-small -1px);
+    margin-top: $spacing-small;
+}
+
+.show .sidebar .meta-group .value:not(:first-of-type),
+.show .sidebar .property .value:not(:first-of-type) {
+    padding-top: $spacing-small;
+}
+
+/* @end */
+
+/* @group ----- Minimalist views ----- */
+
+body.minimal {
+    width: 100%;
+    margin: 0;
+
+    .logo {
+        background-color: transparent;
+    }
+
+    div[role="main"] {
+        padding: $spacing-large span(1 of 16);
+    }
+
+    div[role="main"] > .messages {
+        margin-top: $spacing-large;
+    }
+
+    .inputs {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    footer {
+        color: white;
+    }
+}
+
+/* @end */

@@ -1,0 +1,38 @@
+/**
+ * @file _get_asset_url.sass
+ * @category 00_general
+ * @group a_components
+ * @description A suite of functions that compose asset urls from configured values.
+ * 
+ */
+
+// Relative to base image path
+
+@function get_img_url($path)
+  @return $dir_img + _asset_path_prefix($path)
+
+// Relative to SVG path
+@function get_svg_url($path)
+  @return map-get($asset_dirs,'svg') + asset_path_prefix(asset_path_extension($path,'svg'))
+  
+@function get_png_url($path)
+  @return map-get($asset_dirs,'png') + asset_path_prefix(asset_path_extension($path,'png'))
+
+@function get_jpg_url($path)
+  @return map-get($asset_dirs,'jpg') + asset_path_prefix(asset_path_extension($path,'jpg'))
+  
+@function get_icon_url($iconname,$ext: 'svg')
+  @return map-get($asset_dirs,$ext) + $subdir_icons + asset_path_prefix(asset_path_extension($iconname))
+  
+@function get_mark_url($markname,$ext: 'svg')
+  @return map-get($asset_dirs,$ext) + $subdir_marks + asset_path_prefix(asset_path_extension($markname))
+  
+@function asset_path_prefix($path)
+  @if str-index($path,'/') != 1
+    $path: '/' + $path
+  @return $path
+  
+@function asset_path_extension($path,$ext: 'svg')
+  @if str-index($path,$ext) != (str-length($path) - 2)
+    $path: $path + '.' + $ext
+  @return $path

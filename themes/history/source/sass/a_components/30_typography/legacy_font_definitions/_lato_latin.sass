@@ -1,0 +1,63 @@
+/**
+ * @file
+ * Font-face definition mixin
+ * Must be accompanied by full range of web fonts in the specified location path).
+ *
+ * Lato Latin contains only Latin characters to keep down the file size. Use Lato if a full character set is required
+ *
+ * This is a compact set. Lato comes in a full range of weights.
+ * 
+ */
+ 
+=font-lato-latin($path:'../fonts')
+
+  /* lato-regular - latin */
+  @font-face 
+    font-family: 'Lato'
+    font-style: normal
+    font-weight: 400
+    src: url('#{$path}/lato-latin/LatoLatin-Regular.eot') 
+    src: local('Lato Regular'), local('Lato-Regular'), url('#{$path}/lato-latin/LatoLatin-Regular.eot?#iefix') format('embedded-opentype'), url('#{$path}/lato-latin/LatoLatin-Regular.woff2') format('woff2'),  url('#{$path}/lato-latin/LatoLatin-Regular.woff') format('woff'), url('#{$path}/lato-latin/LatoLatin-Regular.ttf') format('truetype'),url('#{$path}/lato-latin/LatoLatin-Regular.svg#Lato') format('svg')
+  
+  /* lato-italic - latin */
+  @font-face 
+    font-family: 'Lato'
+    font-style: italic
+    font-weight: 400
+    src: url('#{$path}/lato-latin/LatoLatin-Italic.eot') 
+    src: local('Lato Italic'), local('Lato-Italic'), url('#{$path}/lato-latin/LatoLatin-Italic.eot?#iefix') format('embedded-opentype'), url('#{$path}/lato-latin/LatoLatin-Italic.woff2') format('woff2'),  url('#{$path}/lato-latin/LatoLatin-Italic.woff') format('woff'), url('#{$path}/lato-latin/LatoLatin-Italic.ttf') format('truetype'),url('#{$path}/lato-latin/LatoLatin-Italic.svg#Lato') format('svg')
+  
+  /* lato-700 - latin */
+  @font-face 
+    font-family: 'Lato'
+    font-style: normal
+    font-weight: 700
+    src: url('#{$path}/lato-latin/LatoLatin-Bold.eot') 
+    src: local('Lato Bold'), local('Lato-Bold'), url('#{$path}/lato-latin/LatoLatin-Bold.eot?#iefix') format('embedded-opentype'), url('#{$path}/lato-latin/LatoLatin-Bold.woff2') format('woff2'),  url('#{$path}/lato-latin/LatoLatin-Bold.woff') format('woff'), url('#{$path}/lato-latin/LatoLatin-Bold.ttf') format('truetype'),url('#{$path}/lato-latin/LatoLatin-Bold.svg#Lato') format('svg')
+  
+  /* lato-700italic - latin */
+  @font-face 
+    font-family: 'Lato'
+    font-style: italic
+    font-weight: 700
+    src: url('#{$path}/lato-latin/LatoLatin-BoldItalic.eot') 
+    src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url('#{$path}/lato-latin/LatoLatin-BoldItalic.eot?#iefix') format('embedded-opentype'), url('#{$path}/lato-latin/LatoLatin-BoldItalic.woff2') format('woff2'),  url('#{$path}/lato-latin/LatoLatin-BoldItalic.woff') format('woff'), url('#{$path}/lato-latin/LatoLatin-BoldItalic.ttf') format('truetype'),url('#{$path}/lato-latin/LatoLatin-BoldItalic.svg#Lato') format('svg')
+  
+  /* lato-900 - latin */
+  @font-face 
+    font-family: 'Lato'
+    font-style: normal
+    font-weight: 900
+    src: url('#{$path}/lato-latin/LatoLatin-Black.eot') 
+    src: local('Lato Black'), local('Lato-Black'), url('#{$path}/lato-latin/LatoLatin-Black.eot?#iefix') format('embedded-opentype'), url('#{$path}/lato-latin/LatoLatin-Black.woff2') format('woff2'),  url('#{$path}/lato-latin/LatoLatin-Black.woff') format('woff'), url('#{$path}/lato-latin/LatoLatin-Black.ttf') format('truetype'),url('#{$path}/lato-latin/LatoLatin-Black.svg#Lato') format('svg')
+  
+  /* lato-900italic - latin */
+  @font-face 
+    font-family: 'Lato'
+    font-style: italic
+    font-weight: 900
+    src: url('#{$path}/lato-latin/LatoLatin-Blackitalic.eot') 
+    src: local('Lato Black Italic'), local('Lato-BlackItalic'), url('#{$path}/lato-latin/LatoLatin-Blackitalic.eot?#iefix') format('embedded-opentype'), url('#{$path}/lato-latin/LatoLatin-Blackitalic.woff2') format('woff2'),  url('#{$path}/lato-latin/LatoLatin-Blackitalic.woff') format('woff'), url('#{$path}/lato-latin/LatoLatin-Blackitalic.ttf') format('truetype'),url('#{$path}/lato-latin/LatoLatin-Blackitalic.svg#Lato') format('svg')  
+
+
+

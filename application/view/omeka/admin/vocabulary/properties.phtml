@@ -1,0 +1,61 @@
+<?php
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+$this->htmlElement('body')->appendAttribute('class', 'browse vocabularies vocabulary-properties');
+?>
+
+<?php echo $this->pageTitle($translate($vocabulary->label()), 1, $translate('Vocabularies'), $translate('Properties')); ?>
+
+<p><?php echo $escape($translate($vocabulary->comment())); ?></p>
+<p><strong><?php echo $translate('Prefix:'); ?></strong> <?php echo $escape($vocabulary->prefix()); ?><br>
+<strong><?php echo $translate('Namespace URI:'); ?></strong> <?php echo $escape($vocabulary->namespaceUri()); ?></p>
+
+<?php if (count($properties)): ?>
+
+<?php echo $this->pagination(); ?>
+
+<table class="tablesaw" data-tablesaw-mode="stack">
+    <thead>
+        <tr>
+            <th><?php echo $this->sortLink($translate('Label'), 'label'); ?></th>
+            <th><?php echo $this->sortLink($translate('Term'), 'local_name'); ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($properties as $property): ?>
+        <tr>
+            <td>
+                <span class="property-name">
+                    <?php echo $escape($translate($property->label())); ?>
+                </span>
+                <ul class="actions">
+                <li><?php echo $this->hyperlink('', '#', [
+                    'data-sidebar-content-url' => $property->url('show-details'),
+                    'class' => 'o-icon-more sidebar-content',
+                    'title' => $translate('Details'),
+                ]); ?></li>
+                </ul>
+            </td>
+            <td><?php echo $escape($translate($property->term())); ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php echo $this->pagination(); ?>
+
+<div class="sidebar">
+    <?php echo $this->hyperlink('', '#', [
+        'class' => 'sidebar-close o-icon-close',
+        'title' => $translate('Close'),
+    ]); ?>
+    <div class="sidebar-content"></div>
+</div>
+
+<?php else: ?>
+
+<div class="no-resources">
+    <p><?php echo $translate('This vocabulary has no properties.'); ?></p>
+</div>
+
+<?php endif; ?>

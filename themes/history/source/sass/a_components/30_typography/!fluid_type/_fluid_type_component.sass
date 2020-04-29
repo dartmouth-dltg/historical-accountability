@@ -1,0 +1,14 @@
+/**
+ * @file _fluid_type_component.sass
+ * 
+ */
+
+
+@if $universal_fluid_type == true
+  $basetypesize: 1em
+  
+  body
+    +fluid_type($min_font_size,$max_font_size,$min_viewwidth,$max_viewwidth)
+          
+.fluid-type
+  +fluid_type($min_font_size,$max_font_size,$min_viewwidth,$max_viewwidth)

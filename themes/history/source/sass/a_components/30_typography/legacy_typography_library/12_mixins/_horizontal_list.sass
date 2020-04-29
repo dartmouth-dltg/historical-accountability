@@ -1,0 +1,28 @@
+/* 
+   @file _horizontal_list.sass 
+   @category 30_typography 
+   @component legacy_typography_library */
+   
+// @description: Apply to ul element to create a horizontal list. Intended for list elements but could be applied elsewhere
+// @args $$item_spacing: Item spacing.  $bullets: Include bullets. Default is off.  @mode: flex \ inline Sets the display mode. Flex is now default
+
+
+=horizontal-list($item_spacing: 0 rv(-1) 0 0,$bullets: false)
+  display: inline-block
+  position: relative
+  margin: 0
+  padding: 0
+  
+  @if ($bullets == false)
+    list-style-type: none
+  
+  > *
+    display: inline-block
+    position: relative
+    margin: $item_spacing
+    padding: 0
+    
+    &:last-of-type 
+      margin-right: 0
+    a 
+      display: inline-block

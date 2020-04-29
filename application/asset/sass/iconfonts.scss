@@ -1,0 +1,211 @@
+@import "font-awesome/fontawesome";
+
+[class*="o-icon-"]:before {
+    @extend .fa;
+    @extend .#{$fa-css-prefix};
+}
+
+.o-icon-menu {
+    @extend .fa-bars;
+}
+
+.o-icon-search {
+    @extend .fa-search;
+}
+
+.o-icon-user {
+    @extend .fa-user;
+}
+
+.o-icon-items {
+    @extend .fa-cube;
+}
+
+.o-icon-item-sets,
+.o-icon-resource {
+    @extend .fa-cubes;
+}
+
+.o-icon-text,
+.o-icon-literal {
+    @extend .fa-keyboard;
+}
+
+.o-icon-item-set {
+    @extend .fa-archive;
+}
+
+.o-icon-vocab {
+    @extend .fa-book;
+}
+
+.o-icon-module {
+    @extend .fa-plus-square;
+}
+
+.o-icon-media {
+    @extend .fa-image;
+}
+
+.o-icon-site {
+    @extend .fa-laptop;
+}
+
+.o-icon-settings {
+    @extend .fa-cogs;
+}
+
+.o-icon-users {
+    @extend .fa-users;
+}
+
+.o-icon-first {
+    @extend .fa-angle-double-left;
+}
+
+.o-icon-last {
+    @extend .fa-angle-double-right;
+}
+
+.o-icon-prev {
+    @extend .fa-angle-left;
+}
+
+.o-icon-next {
+    @extend .fa-angle-right;
+}
+
+.o-icon-close {
+    @extend .fa-times;
+}
+
+.o-icon-delete {
+    @extend .fa-trash-alt;
+}
+
+.o-icon-edit {
+    @extend .fa-pencil-alt;
+}
+
+.o-icon-more {
+    @extend .fa-ellipsis-h;
+}
+
+.o-icon-add {
+    @extend .fa-plus;
+}
+
+.o-icon-upload {
+    @extend .fa-upload;
+}
+
+.o-icon-uri {
+    @extend .fa-link;
+}
+
+.o-icon-flickr {
+    @extend .fa-flickr;
+}
+
+.o-icon-youtube {
+    @extend .fa-youtube;
+}
+
+.o-icon-view,
+.o-icon-public {
+    @extend .fa-eye;
+}
+
+.o-icon-private {
+    @extend .fa-eye-slash;
+}
+
+.o-icon-user-inactive {
+    @extend .fa-user-times;
+}
+
+.o-icon-activate {
+    @extend .fa-toggle-off;
+}
+.o-icon-deactivate {
+    @extend .fa-toggle-on;
+}
+
+.o-icon-configure {
+    @extend .fa-wrench;
+}
+
+.o-icon-uninstall {
+    @extend .fa-upload;
+}
+
+.o-icon-install {
+    @extend .fa-download;
+}
+
+.o-icon-upgrade {
+    @extend .fa-arrow-up;
+}
+
+.o-icon-info {
+    @extend .fa-info-circle;
+}
+
+.o-icon-revert {
+    @extend .fa-undo;
+}
+
+.o-icon-up {
+    @extend .fa-caret-up;
+}
+
+.o-icon-down {
+    @extend .fa-caret-down;
+}
+
+.o-icon-right {
+    @extend .fa-caret-right;
+}
+
+.o-icon-left {
+    @extend .fa-caret-left;
+}
+
+.o-icon-developer {
+    @extend .fa-code;
+}
+
+.o-icon-stop {
+    @extend .fa-stop;
+}
+
+.o-icon-jobs {
+    @extend .fa-tasks;
+}
+
+.o-icon-undo {
+    @extend .fa-undo;
+}
+
+.o-icon-language {
+    @extend .fa-globe;
+}
+
+.o-icon-lock {
+    @extend .fa-lock;
+}
+
+.o-icon-unlock {
+    @extend .fa-unlock;
+}
+
+.o-icon-external {
+    @extend .fa-external-link-alt;
+}
+
+.screen-reader-text {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+

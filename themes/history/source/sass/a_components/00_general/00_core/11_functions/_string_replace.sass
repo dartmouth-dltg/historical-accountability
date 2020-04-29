@@ -1,0 +1,12 @@
+/**
+  * @file _string_replace
+  * A function to replace one string with another.
+  *
+  * Thanks to https://stackoverflow.com/questions/12728634/string-replace-in-sass
+  */
+  
+@function str-replace($string, $search, $replace: '')
+  $index: str-index($string, $search)
+  @if $index
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace)
+  @return $string

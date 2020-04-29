@@ -1,0 +1,27 @@
+<?php
+$item = $attachment->item();
+
+$media = null;
+
+if ($item) {
+    $media = $attachment->media() ?: $item->primaryMedia();
+}
+
+$caption = $attachment->caption();
+?>
+<div class="representative-image <?php echo $this->thumbnailType; ?>">
+    <div class="item resource">
+        <?php if ($media): ?>
+            <figure>
+                <?php if (isset($this->block->page_title) && isset($this->block->page_url)): ?>
+                  <?php printf('<a href="%s" title="Visit %s">%s</a>',$this->block->page_url, $this->block->page_title, $this->thumbnail($media,$thumbnailType));  ?>
+                <?php else: ?>
+                  <?php echo $item->linkRaw($this->thumbnail($media,$thumbnailType)); ?>
+                <?php endif; ?>
+                <?php if ($caption): ?>
+                    <figcaption><?php echo $caption; ?></figcaption>
+                <?php endif; ?>
+            </figure>
+        <?php endif; ?>
+    </div>
+</div>

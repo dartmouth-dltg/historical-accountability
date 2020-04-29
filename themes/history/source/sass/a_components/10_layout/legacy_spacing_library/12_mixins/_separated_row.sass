@@ -1,0 +1,18 @@
+/* 
+   @file _separated_row.sass 
+   @category 10_layout
+   @component legacy_spacing_library
+   @description  Mixin to create a rudimentary grid. $wrap and $rows are legacy parameters.  */
+
+// Note the hyphen. Now called separated_row() in main library.
+=separated-row($columns: 4, $separator: -3)  
+  $coldef: ""
+  
+  @for $i from 1 through $columns
+    $coldef: $coldef + " 1fr"
+  
+  display: grid
+  width: 100%
+  grid-template-columns: #{$coldef}
+  grid-column-gap: rv($separator)
+  grid-row-gap: rv($separator)

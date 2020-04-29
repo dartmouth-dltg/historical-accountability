@@ -1,0 +1,135 @@
+// Spacing-related mixins
+// $factor is an integer supplied to the modularscale
+// NB: Remember that a $factor of 0 will return the set baseline height value ($blh from the configuration file). Set spacing of 0 expliticly (e.g. padding: 0) as there is no way to set a zero padding via these mixins.
+
+
+// Scale factor spacing
+// $increment sets different sizes for different device widths. Set to 0 for consistent widths.
+// $limit ensures that the bottom and top end are limited to a single $increment to prevent extreme spacing (good for typography)
+
+=spacing($property: padding,$factor: 0,$increment: 0,$limit: false,$ratio:$scale)
+  @if $increment == 0
+    #{$property}: ms($factor,$blh,$ratio)
+  @else
+    @if $limit
+      #{$property}: ms($factor - $increment,$blh,$ratio)
+    @else 
+      #{$property}: ms($factor - (2 * $increment),$blh,$ratio)
+    +bp(sml)
+      #{$property}: ms($factor - $increment,$blh,$ratio)
+    +bp(med)
+      #{$property}: ms($factor, $blh, $ratio)
+    +bp(lrg)
+      @if $limit
+        #{$property}: ms($factor + $increment,$blh,$ratio)
+      @else 
+        #{$property}: ms($factor + (2 * $increment),$blh,$ratio)
+    +bp(xlrg)
+      @if $limit
+        #{$property}: ms($factor + $increment,$blh,$ratio)
+      @else 
+        #{$property}: ms($factor + (3 * $increment),$blh,$ratio)
+    
+// !SET PADDING AND MARGIN SYNTAX
+// Use for scale factor spacing on specific properties
+  
+=set-padding($factor: 0, $increment: 0, $ratio: $scale)
+  +spacing('padding',$factor,$increment,$ratio)
+  
+=set-top-padding($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('padding-top', $factor, $increment,$ratio)
+  
+=set-bottom-padding($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('padding-bottom',$factor, $increment, $ratio)
+    
+=set-left-padding($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('padding-left', $factor, $increment,$ratio)
+  
+=set-right-padding($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('padding-right',$factor, $increment, $ratio)
+  
+=set-margin($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('margin',$factor, $increment, $ratio)
+  
+=set-top-margin($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('margin-top',$factor, $increment, $ratio)  
+  
+=set-bottom-margin($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('margin-bottom',$factor, $increment, $ratio)
+    
+=set-left-margin($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('margin-left',$factor, $increment, $ratio)
+  
+=set-right-margin($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('margin-right',$factor, $increment, $ratio)
+
+// !ALTERNATIVE SET SYNTAX
+// Because it keeps happening.
+
+  
+=set-padding-top($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('padding-top', $factor, $increment,$ratio)
+  
+=set-padding-bottom($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('padding-bottom',$factor, $increment, $ratio)
+    
+=set-padding-left($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('padding-left', $factor, $increment,$ratio)
+  
+=set-padding-right($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('padding-right',$factor, $increment, $ratio)
+    
+=set-margin-top($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('margin-top',$factor, $increment, $ratio)  
+  
+=set-margin-bottom($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('margin-bottom',$factor, $increment, $ratio)
+    
+=set-margin-left($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('margin-left',$factor, $increment, $ratio)
+  
+=set-margin-right($factor:0, $increment: 0, $ratio: $scale)
+  +spacing('margin-right',$factor, $increment, $ratio)  
+
+
+// Ignores device width and baselineheight
+// Returns a factor of the base typesize
+  
+=set-padding-fixed($factor,$ratio:$scale)
+  padding: ms($factor,$basetypesize,$ratio)
+
+
+
+// !STANDARDIZED SPACING
+// Use to regulate spacing across elements
+      
+// Standard single margins
+
+=standard-top-margin()
+  +spacing('margin-top',0,1,$scale)
+
+=standard-bottom-margin()
+  +spacing('margin-bottom',0,1,$scale)
+  
+=standard-left-margin()
+  +spacing('margin-left',0,1,$scale)
+
+=standard-right-margin()
+  +spacing('margin-right',0,1,$scale)
+
+// Even horizontal and vertical margins
+// You my provide an optional spacing factor for the other axis.
+  
+=standard-vertical-margin($horizontal: null,$factor: 1)
+  +standard-top-margin()
+  +standard-bottom-margin()
+  @if $horizontal != null
+    +spacing('margin-left',$factor,$increment,$ratio)
+    +spacing('margin-right',$factor,$increment,$ratio)
+  
+=standard-horizontal-margin($vertical: null)
+  +standard-left-margin()
+  +standard-right-margin()
+  @if $vertical != null
+    +spacing('margin-top',$factor,$increment,$ratio, $factor: 1)
+    +spacing('margin-bottom',$factor,$increment,$ratio)

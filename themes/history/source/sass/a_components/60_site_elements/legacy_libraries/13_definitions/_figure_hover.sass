@@ -1,0 +1,98 @@
+/*
+ * Creates a hover animation for figure/images.
+ * Requires two images ... ./ui/expand_up.svg and ./ui/expand_over.svg .
+ *
+ * TODO: Has use-case code. For instance, still sets a standard background colour. Genericize. 
+ */
+
+%figure-hover
+  position: relative
+  
+  // Inserts Expand Icon
+  
+  &:before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    pointer-events: none
+    top: 0
+    left: 0
+    background-image: url(../img/ui/expand_up.svg)
+    background-size: 30px
+    background-repeat: no-repeat
+    background-position: top ms(1,$blh,$scale) right ms(1,$blh,$scale)
+    transition: background-image 0.5s ease-out
+    z-index: 7
+  
+  &:after
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    background-color: set-colour(2,'tint')
+    mix-blend-mode: multiply
+    pointer-events: none
+    top: 0
+    left: 0
+    opacity: 0
+    transition: opacity 0.5s ease-out
+    z-index: 2
+    
+  
+  +bp(lrg)
+    z-index: 1
+    
+  &:hover
+    &:before
+      background-image: url(../img/ui/expand_over.svg)
+      transition: background-image 1s ease-out
+      
+    &:after
+      opacity: 0.4
+      transition: opacity 0.5s ease-out
+    
+    figcaption
+      +bp(lrg)
+        opacity: 1
+        transition: opacity 0.5s ease-out
+
+%figcaption-hover
+  width: 100%
+  text-align: center
+  position: relative
+  z-index: 3
+  +set-padding-top(0)
+  +set-padding-bottom(0)
+  
+  &:after
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    background-color: set-colour(2,'watermark')
+    background-blend-mode: screen
+    z-index: 2
+    opacity: 0.8
+    pointer-events: none
+
+  +bp(lrg)
+    position: absolute
+    bottom: 0
+    left: 0
+    opacity: 0
+    transition: opacity 0.5s ease-in
+
+// stack caption child elements above
+  
+  > *
+    position: relative
+    z-index: 4
+    
+    &:first-child
+      margin-top: 0
+      
+    &:last-child
+      margin-bottom: 0

@@ -1,0 +1,41 @@
+
+=splash_area_title_common($desktop_width: 50%)
+  width: 100%
+  height: 100%
+  justify-content: center
+  z-index: 1
+  padding: 1.5rem // @todo: should be $mobile_edge_padding_factor
+
+  +bp($stack)
+    position: absolute
+    top: 0
+    height: 100%
+    width: $desktop_width
+    display: flex
+    flex-direction: column
+    flex: 1
+    justify-content: flex-end
+    background-color: transparent
+  
+    
+=splash_area_title_right($desktop_width: 50%)
+  +splash_area_title_common($desktop_width)
+  
+  +bp($stack)
+    padding: rv(2)
+    right: 0
+  
+  +bp($desktop)
+    padding: $title_area_outside_padding $title_area_outside_padding $title_area_bottom_padding $title_area_inside_padding
+    
+    
+=splash_area_title_left($desktop_width: 50%)
+  +splash_area_title_common($desktop_width)
+  
+  +bp($stack)
+    padding: rv(2)
+    left: 0
+    
+  +bp($desktop)
+    padding: $title_area_outside_padding $title_area_inside_padding $title_area_bottom_padding $title_area_outside_padding
+

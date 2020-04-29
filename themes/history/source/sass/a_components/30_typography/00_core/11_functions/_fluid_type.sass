@@ -1,0 +1,14 @@
+/* Scales typography for any screen size. h/t https://www.madebymike.com.au/writing/precise-control-responsive-typography/
+  @var
+  
+  $min_size: Minimum font size in em or rem
+  $max_size: Maximum font size in em or rem
+  $min_viewport_width: Sets the lower bound breakpoint to stop scaling. E.g. map-get($breakpoints,'med')
+  $max_viewport_width: Sets the upper bound breakpoint to stop scaling. E.g. map-get($breakpoints,'xxlrg') */
+  
+@function fluid_type-deprecated($min_size,$max_size,$min_viewport_width: map-get($breakpoints,'med'),$max_viewport_width:map-get($breakpoints,'xxlrg'),$unit:'rem')
+  $max_size_factor: strip-unit($max_size - $min_size)
+      
+  $max_width_denominator: strip-unit($max_viewport_width - $min_viewport_width)
+  
+  @return calc(#{$min_size} + #{$max_size_factor} * ((100vw - #{$min_viewport_width}) / #{$max_width_denominator}))

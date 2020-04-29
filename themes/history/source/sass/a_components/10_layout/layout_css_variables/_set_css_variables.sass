@@ -1,0 +1,25 @@
+/** 
+ *  @file _set_css_variables
+ *  @component layout_css_variables
+ *  @file _index.sass 
+ *  @description  Sets breakpoints and breakpoint aliases as CSS variables, making them available to Javascript */
+ 
+$rootvar: ':root' // See https://github.com/sass/libsass/issues/2511
+
+$em_factor: convert($rootsize,px)
+
+#{$rootvar}
+  @each $bp, $value in $breakpoints
+    @if unit($value) != 'px'
+      $value: strip_unit(convert($value,px,$em_factor))
+    --breakpoint-#{$bp}: #{$value}
+    
+  $stack: strip_unit(convert(map-get($breakpoints,$stack_breakpoint),px,$em_factor))
+  $tablet: strip_unit(convert(map-get($breakpoints,$tablet_breakpoint),px,$em_factor))
+  $desktop: strip_unit(convert(map-get($breakpoints,$desktop_breakpoint),px,$em_factor))
+  $ultrawide: strip_unit(convert(map-get($breakpoints,$ultrawide_breakpoint),px,$em_factor))
+  
+  --breakpoint-stack: #{$stack}
+  --breakpoint-tablet: #{$tablet}
+  --breakpoint-desktop: #{$desktop}
+  --breakpoint-ultrawide: #{$ultrawide}

@@ -1,0 +1,198 @@
+body
+  &.dark
+    background: $black
+    color: $white
+    h1, h2, h3, h4, h5, h6
+      color: $white
+    h1>a, h2>a, h3>a, h4>a, h5>a, h6>a 
+      color: $white
+    #secondary-content
+      background: neutral(85)
+    .site-guide-cont i
+      background: $white
+    .resource-list .item>a
+      filter: unset
+    select
+      background: none
+      color: $white
+    .tl-timenav
+      background-color: $black!important
+    .tl-timeaxis-background
+      background: neutral(90)!important
+      border-color: $black!important
+    .tl-timeaxis-tick
+      &:before
+        border-color: $white!important
+    .tl-timeaxis-tick-text
+      color: $white!important
+    .tl-slide 
+      &.tl-slide-titleslide
+        background: $white
+    .tl-attribution
+      background-color: neutral(85)
+    .cards
+      background-color: #283A44
+    main 
+      th  
+        background: neutral(85)
+    main 
+      tr:nth-child(2n)>td
+        background: neutral(95)
+    .card 
+      figure
+        filter: drop-shadow(.47461rem .47461rem .47461rem #1c1c1c)
+    .btn
+      color: $white
+      border-color: $white
+      &:hover
+        background-color: $black
+    .hu-chevron-right
+      background: url(../../asset/img/svg/icons/right_chevron_white.svg) no-repeat
+      &:hover
+        background: url("../../asset/img/svg/icons/right_chevron_fire.svg") no-repeat
+    .hu-chevron-left
+      background: url("../../asset/img/svg/icons/left_chevron_white.svg") no-repeat
+      &:hover
+        background: url("../../asset/img/svg/icons/left_chevron_fire.svg") no-repeat
+    .browse-controls 
+      .advanced-search
+        color: $white
+    a
+      color: $white
+    #homepage-splash 
+      .resource.introduction 
+        .introductory-text
+          background-color: $black
+    option
+      color: $black
+    #advanced-search
+      .value 
+        input
+          background: inherit
+          color: $white
+    .remove-value
+      color: $white
+      &:hover
+        background: unset
+    #homepage-featured-profiles 
+      figure
+        filter: drop-shadow(.47461rem .47461rem .47461rem #1c1c1c)
+    #feature-tier-3
+      background: $black
+    #feature-tier-1
+      background: $black
+    #homepage-featured-exhibits 
+      .callout-items 
+        figure
+          filter: drop-shadow(.47461rem .47461rem .47461rem #1c1c1c)
+    .card-compact
+      filter: drop-shadow(.47461rem .47461rem .47461rem #1c1c1c)
+    #homepage-splash 
+      .down-arrow 
+        span
+          color: $white
+
+
+.access-dropdown
+  color: #fff
+  text-align: left
+  padding-right: 0
+  background: black
+  float: right
+  width: auto
+  position: absolute
+  right: 0
+  z-index: 999
+
+  ul
+    padding-left: 10px
+    grid-template-columns: unset
+    list-style-type: none
+    li
+      width: 127px
+      .toggle-label
+        position: absolute
+        top: -3px
+        left: 49px
+        width: 100px
+.access-dropdown-mobile
+  color: #fff
+  text-align: right
+  padding-right: 0
+  background: black
+  float: right
+  width: 100%
+  position: absolute
+  z-index: 999
+  +bp($stack)
+    display: none
+  ul
+    padding-left: 10px
+    grid-template-columns: unset
+    list-style-type: none
+    display: block
+    text-align: right
+  li
+    width: 100%
+    &.mobile-switch-pos
+      display: inline-block
+      width: 200px
+    .dark-switch 
+      right: 103px
+    a
+      color: $white
+    .toggle-label
+      position: absolute
+      top: -3px
+      left: 42px
+      width: 100px
+  
+.dark-switch 
+  position: relative
+  display: inline-block
+  width: 40px
+  height: 24px
+
+.dark-switch input 
+  opacity: 0
+  width: 0
+  height: 0
+
+.slider 
+  position: absolute
+  cursor: pointer
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: #ccc
+  -webkit-transition: .4s
+  transition: .4s
+
+.slider:before 
+  position: absolute
+  content: ""
+  height: 16px
+  width: 16px
+  left: 4px
+  bottom: 4px
+  background-color: white
+  -webkit-transition: .4s
+  transition: .4s
+
+input:checked + .slider 
+  background-color: $clr1
+
+input:focus + .slider 
+  box-shadow: 0 0 1px $clr1
+
+input:checked + .slider:before 
+  -webkit-transform: translateX(16px)
+  -ms-transform: translateX(16px)
+  transform: translateX(16px)
+
+.slider.round 
+  border-radius: 34px
+
+.slider.round:before 
+  border-radius: 50%

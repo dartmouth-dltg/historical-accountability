@@ -1,0 +1,71 @@
+/**
+ * @file
+ * Colour System Configuration. A standardized approach to defining and modulating colour.
+ * 
+ * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
+ */
+ 
+ /* !COLOUR GRID
+    Define your design’s palette by choosing the main colours */
+
+$clr1: #FFC565 // fire
+$clr2: #943D21 // huronia exterior
+$clr3: #465D55 // juniper
+$clr4: #78ADCC // huronia interior
+
+
+// Define alternative blackpoint, whitepoint and neutrals.
+
+$black: #161109
+$white: #FFFFFF
+
+
+// Color map examples
+
+$clr1_map: (dark: #554222, shade: #D4A454, primary: $clr1, tint: #FFD898, fade: #FFECCC, watermark: #FFF7E9)
+$clr2_map: (dark: #632916, shade: #80351C, primary: $clr2, tint: #C59587, fade: #DEC4BB, watermark: #F3E7E3)
+$clr3_map: (dark: #465D55, shade: #586D66, primary: $clr3, tint: #909E99, fade: #ECF3F8, watermark: #F3F6F8)
+$clr4_map: (dark: #283A44, shade: #3C5766, primary: $clr4, tint: #9FC4DB, fade: #C5DCE9, watermark: #ECF3F8)
+
+
+
+// Neutrals
+// neutral() function mixes blackpoint and whitepoint.
+
+$lightest_neutral: neutral(5)
+$lighter_neutral: neutral(30)
+$light_neutral: neutral(40)
+$neutral: neutral()
+$mid_neutral: neutral(60)
+$dark_neutral: neutral(70)
+$darker_neutral: neutral(80)
+$darkest_neutral: neutral(90)
+
+// Background
+
+$bgcolor: $white
+$bgcolor2: #FFD898
+$bgcolor3: #FFF7E9
+$bgcolor4: #DEC4BB
+$bgcolor5: #D9D8D7
+$bgcolor6: #F7F6F5
+
+
+
+// Aliases
+
+$impact: $clr2
+$cta: set-color(4,'dark')
+$de_emphasized: $light_neutral
+$de_activated: $lighter_neutral
+$link_colour: $black
+
+// !LOCAL
+
+// Gradients
+
+$dark_interior: darken(set-color(4,'dark'),20%);
+
+$ltr_dark_gradient: linear-gradient(270deg, rgba($black, 0.92) 36%, rgba($dark_interior,0.7) 100%)
+$rtl_dark_gradient: linear-gradient(90deg, rgba($black, 0.92) 36%, rgba($dark_interior,0.7) 100%)
+$home_rtl_dark_gradient: linear-gradient(90deg, rgba($dark_interior, 0.8) 36%, rgba($clr1,0.1) 100%)

@@ -1,0 +1,121 @@
+/**
+ * @file _image_bullets.sass
+ * @category 30_typography
+ * @group a_components
+ * @description Places an image to the left of an element.
+ * 
+ */
+
+
+
+// image-bullets-compass() is DEPRECATED and is left for legacy reasons. Use image-bullets instead.
+// This implementation requires Compass
+// http://compass-style.org/reference/compass/typography/lists/bullets/#mixin-pretty-bullets
+
+=image-bullets-compass($bullet-icon, $width: image-width($bullet-icon), $height: image-height($bullet-icon), $line-height: 18px, $offset: 14px) 
+  margin-left: 0
+  li 
+    padding-left: $offset
+    background: image-url($bullet-icon) no-repeat ($offset - $width) / 2 ($line-height - $height) / 2
+    list-style-type: none
+    
+
+
+=image-bullets($bullet-icon, $width: 0, $height: 0, $offset: 0, $lineheight: 0)
+  margin-left: 0
+  list-style-type: none
+  
+  > *
+    +set-image-bullet($bullet-icon, $width, $height, $offset, $lineheight)
+    
+// set-image-bullet()
+// @arg $bullet-icon A path to the icon. Must be wrapped in an url() reference.
+// @arg $width and $height: Relative values representing the height and width of the icon.
+// @arg $offset: Offset to the left of the element boundary.
+// @arg $lineheight: The lineheight of the element. NOTE: This function ENFORCES
+//      the lineheight, setting it explicity as a property. It defaults to factor zero.
+// @arg $mode: Defaults to inline, centering the icon to the first line. 
+//      If you want to center the icon to the height of a block, use flex
+//
+// HOW IT WORKS
+// The function calculates the difference between the icon height and the lineheight,
+// dividing it by two to establish the vertical offset. For example, if the
+// icon is 50px high and the line-height is 30px, the difference would be 20px.
+// Divided by (negative) two, the offset would be 10px up. In the reverse case,
+// with an icon 30px high but the lineheight at 50px, the difference would be -20px,
+// divided by -2 would give us a positive 10px shift (down). Thus the icon stays
+// centered to the lineheight.
+
+=set-image-bullet($bullet-icon, $width: 0, $height: 0, $offset: 0, $lineheight: 0, $mode: inline) 
+  position: relative
+  padding-left: rv($offset) + rv($width)
+  line-height: rv($lineheight)  
+
+  &:after
+    content: ''
+    display: block
+    box-sizing: border-box
+    position: absolute
+    width: rv($width)
+    height: rv($height)
+    left: 0
+    background-repeat: no-repeat
+    background-image: $bullet_icon
+    background-size: auto 100%
+    border: 1px solid transparent // hack that seems to help with rounding errors in Chrome. 
+    
+    @if $height == $lineheight
+      top: 0
+    @else
+      top: (rv($height) - rv($lineheight))/-2
+        
+        
+=set-image-bullet-flex($bullet-icon, $width: 0, $height: 0, $offset: 0, $lineheight: 0, $prepend: true) 
+  position: relative
+  display: flex
+  flex-direction: row
+  align-items: center
+  
+  @if $prepend == true    
+    &:before
+      margin-right: rv($offset)
+      content: ''
+      display: block
+      box-sizing: border-box
+      width: rv($width)
+      height: rv($height)
+      background-repeat: no-repeat
+      background-image: $bullet_icon
+      background-size: auto 100%
+      border: 1px solid transparent // hack that seems to help with rounding errors in Chrome.
+      
+  @else
+    &:after
+      margin-left: rv($offset)
+      content: ''
+      display: block
+      box-sizing: border-box
+      width: rv($width)
+      height: rv($height)
+      background-repeat: no-repeat
+      background-image: $bullet_icon
+      background-size: auto 100%
+      border: 1px solid transparent // hack that seems to help with rounding errors in Chrome.
+
+    
+// Sets a negative margin on the bullet icon. Acts as a “hanging” bullet, letting the text remain flush to the left content margin. 
+  
+=set-negative-image-bullet($bullet_icon, $width: 0, $height: 0, $offset: 0, $lineheight: 0,$mode: inline)
+  +set-image-bullet($bullet_icon,$width,$height,$offset,$lineheight,$mode)
+  padding-left: initial
+  
+  &:after
+    left: (rv($offset) + rv($width)) * -1
+    
+=set-negative-image-flex($bullet_icon, $width: 0, $height: 0, $offset: 0, $lineheight: 0)
+  +set-image-bullet-flex($bullet_icon,$width,$height,$offset,$lineheight)
+  padding-left: initial
+  
+  &:after
+    left: (rv($offset) + rv($width)) * -1
+  

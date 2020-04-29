@@ -1,0 +1,39 @@
+/** 
+ *  @file colour_root_variables.sass 
+ *  @category 20_colour
+ *  @component _root_colour_variables
+ *  @description Adds CSS variables to be passed to javascript */
+
+$rootvar: ':root' // See https://github.com/sass/libsass/issues/2511
+
+$colours: $clr1 $clr2 $clr3 $clr4 $clr5 $clr6 $clr7 $clr8  $clr9
+
+@for $i from 1 through 9
+  #{$rootvar}
+    $colour: nth($colours,$i);
+    --colour--#{$i}: #{$colour}
+    
+
+$colour_maps: $clr1_map $clr2_map $clr3_map $clr4_map $clr5_map $clr6_map $clr7_map $clr8_map $clr9_map
+$colour_grid_keys: 'shade','primary','tint','fade','watermark'
+
+@for $i from 1 through 9
+  $map: nth($colour_maps,$i)
+  @each $key in $colour_grid_keys
+    #{$rootvar}
+      $value: map-get($map,$key)
+      --colour--#{$i}--#{$key}: #{$value}
+      
+      
+#{$rootvar}
+  --colour--black: #{$black}
+  --colour--white: #{$white}
+  --colour--impact: #{$impact}
+  --colour--cta: #{$cta}
+  
+  
+@for $i from 1 through 9
+  $key: $i * 10
+  $neutral: neutral($key)
+  #{$rootvar}
+    --colour--neutral--#{$key}: #{$neutral}

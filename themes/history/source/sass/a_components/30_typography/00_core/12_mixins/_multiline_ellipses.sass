@@ -1,0 +1,28 @@
+/* Thankyou Natalia Onischuk http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation */
+
+=multiline_ellipses($lineCount: 5, $ellipsis: '...', $bgColor: transparent, $lineHeight: $blh ,$overflow: hidden)
+  overflow: $overflow
+  position: relative
+  line-height: $lineHeight
+  max-height: $lineHeight * $lineCount 
+  text-align: left
+  margin-right: -1em
+  padding-right: 1em
+  
+  &:before 
+    content: $ellipsis
+    position: absolute
+    right: 0
+    bottom: 0
+  
+  &:after 
+    content: ''
+    position: absolute
+    right: 0
+    width: 1em
+    height: 1em
+    margin-top: 0.2em
+    background: $bgColor
+    
+=multiline_ellipses_scroll($lineCount: 5, $ellipsis: '...', $bgColor: transparent, $lineHeight: $blh )
+  +multiline_ellipses($lineCount,$ellipsis, $bgColor,$lineHeight,scroll)

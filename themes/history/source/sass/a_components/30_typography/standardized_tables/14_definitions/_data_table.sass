@@ -1,0 +1,30 @@
+/**
+ * @file _data_table.sass
+ * @category 30_typography
+ * @group a_components
+ * @description A base set of styles for data-oriented table elements.
+ * 
+ */
+ 
+ 
+%data-table
+  table-layout: fixed
+  border-bottom: 1px solid $row_border_color
+  max-width: 100%
+  overflow: hidden
+  
+  tr, tr.even, tr.odd
+    background-color: transparent              
+    
+%data-table-zebra
+  tbody
+    tr
+      border: 0
+            
+      &:nth-child(2n)
+        td
+          background-color: $row_zebra_stripe_color
+      
+      &:nth-child(2n-1)
+        td
+          background-color: $white

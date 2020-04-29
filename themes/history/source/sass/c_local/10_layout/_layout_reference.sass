@@ -1,0 +1,62 @@
+
+main
+  > div
+    margin-bottom: 0
+    > *
+      +inset-text()
+    > .storymap
+      +inset-full()
+    > .slideshow
+      +negative-content-margin(4)
+    > .tl-timeline
+      max-width: 100%!important
+      +inset-full()
+    > .browse-controls
+      +negative-content-margin(6)
+    > .hu-outset-margin
+      +negative-content-margin(6)
+    > .explore-the-archive
+      +negative-content-margin(6)
+      > div
+        +inset-text()
+    > .resource-list
+      +negative-content-margin(6)
+      
+    .slideshow-block, .slideshow-with-audio
+      +negative-content-margin(7)
+      
+    > .file
+      +negative-content-margin(4)
+      
+      .caption
+        text-align: center
+        margin-top: rv(-1)
+        margin-bottom: rv(-1)
+      h3 
+        display: none
+        
+    > ul, > .list-item > ul
+      display: grid
+      grid-template-columns: 1fr
+      grid-column-gap: rv(3)
+      grid-row-gap: rv(-2)
+      grid-auto-columns: min-content
+      padding: 0
+      list-style-type: none
+      
+      +bp($desktop)
+        grid-template-columns: 1fr 1fr 1fr
+      
+      li
+        position: relative
+        
+        &:before
+          content: "\2022"
+          color: #C59587
+          font-weight: bold
+          display: inline-block
+          width: rv(-2)
+          position: absolute
+          top: rv(0) / -4
+          left: rv(0) * -1
+          font-size: rv(0)

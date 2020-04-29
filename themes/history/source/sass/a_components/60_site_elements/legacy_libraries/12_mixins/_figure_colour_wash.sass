@@ -1,0 +1,69 @@
+=figure-colour-wash($colour: $cta, $subcolour: $lightest_neutral,$wash_blend_mode: color,$image_blend_mode: multiply)
+
+  // Create a three layer structure: A base layer (:before), the image layer and a colour wash layer
+  
+  position: relative
+  display: block
+  overflow: hidden
+  margin: 0
+  padding: 0
+  
+  // Grey substrate. Sized and positioned to parent
+      
+  &:before 
+    content: ''
+    position: absolute
+    display: block
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: -1 // Display it beneath its sibling image
+    background-color: $subcolour  // Set a base layer with a light grey. This layer will slightly darken the image and ensure that all white space has this grey value
+    transition: background-color 0.2s ease-in-out // Animate on mouseout
+    -webkit-backface-visibility: hidden
+
+  
+  // Image layer. Sized and positioned to parent
+    
+  img 
+    z-index: 0  //Display the image between the grey layer and the colour wash.
+    display: block
+    object-fit: cover   // Ensures that the image covers inside of its box.
+    mix-blend-mode: $image_blend_mode // Make sure that the background grey darkens all elements of the image. Ensures that whitespace is slightly grey.
+   
+  // Colour wash. Sized and positioned to parent
+  
+  &:after 
+    content: ''
+    position: absolute
+    display: block
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    mix-blend-mode: $wash_blend_mode  // Ditches original RGB values and applied grey values to the background-colour
+    transition: background-color 0.2s ease-in-out // Animate on mouseout.
+    z-index: 1
+    pointer-events: none
+    -webkit-backface-visibility: hidden
+    
+  +set-wash-colour($colour)
+    
+
+// Separated out to make it easier to change when wash extended from %figure-colour-wash definition
+
+=set-wash-colour($colour: $cta)
+  &:after
+    background-color: $colour
+    
+  &:hover:before
+    transition: background-color 0.2s ease-in-out
+    background-color: transparent // Tried using an opacity transformation but this created colour flashes. Background colour transition was smoother.
+  
+  &:hover:after
+    transition: background-color 0.2s ease-in-out
+    background-color: transparent
+
+=figure-neutral-wash($colour: $neutral)
+  +figure-colour-wash($colour,$white)

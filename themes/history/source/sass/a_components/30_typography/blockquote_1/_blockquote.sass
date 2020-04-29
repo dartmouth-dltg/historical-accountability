@@ -1,0 +1,27 @@
+blockquote
+  +standard-bottom-margin()
+  +set-padding(-1)
+  border-left: ms(-3,$blh,$scale) solid $neutral
+  font-style: normal
+  font-family: $altfont
+
+
+  &.pull-right
+    float: right
+
+    p, small
+      text-align: right
+
+  small
+    &:before
+      content: "— "
+
+    &:after
+      content: ""
+
+  cite
+    font-style: normal
+    font-weight: $boldfw
+
+blockquote:before, blockquote:after, q:before, q:after
+  content: ""

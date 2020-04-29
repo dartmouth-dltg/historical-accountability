@@ -1,0 +1,20 @@
+/* !BASIC GRID RULES */
+  
+/* 
+  First-level blocks are for meta-structure (overlays, Drupal admin toolbar, etc.). 
+  The second level is the “page”. 
+  Third-level are regions, which span the full width. 
+  Fourth-level blocks are limited to the max-width. */
+
+// More Drupal Specific. TO DO: Mark to move.
+  
+#content-area, body > header
+  +responsive-inset()
+  
+.region
+  margin-top: 0
+  margin-bottom: 0
+  
+.region > *
+  +responsive-inset()
+  +flex-sidebar($standard_sidebar_width)

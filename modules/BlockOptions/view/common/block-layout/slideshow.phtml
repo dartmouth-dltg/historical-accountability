@@ -1,0 +1,67 @@
+<div id="block-<?php echo $this->blockId; ?>" class="region <?php echo $this->regionClass; ?> <?php echo $hasAudioAttachment ? 'slideshow-with-audio' : 'slideshow-block'; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
+    <div class="slideshow">
+        <?php if ($useTitleSlide): ?>
+            <div class="item resource introduction">
+                <figure>
+                    <?php
+                        if ($titleSlideMedia):
+                            echo $this->thumbnail($titleSlideMedia, $thumbnailType);
+                        endif;
+                    ?>
+                </figure>
+                <div class='slide-contents'>
+                    <?php if (!empty($titleSlideTitle)): ?>
+                        <h3><?php echo $titleSlideTitle; ?></h3>
+                    <?php endif; ?>
+                    <?php if (!empty($titleSlideIntro)): ?>
+                        <?php echo $titleSlideIntro; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php foreach ($attachments as $attachment): ?>
+            <?php
+                $item = $attachment->item();
+            ?>
+            <div class="item resource slide-item">
+                <?php if ($item):
+                    $media = $attachment->media() ?: $item->primaryMedia();
+                    if ($media):
+                ?>
+                        <figure>
+                            <?php echo $this->thumbnail($media,$thumbnailType); ?>
+                        </figure>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <div class="slide-contents">
+                    <?php if ($showTitleOption == 'item_title'): ?>
+                        <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+                    <?php elseif ($showTitleOption == 'file_name'): ?>
+                        <h3><?php echo $media->displayTitle(); ?></h3>
+                    <?php endif; ?>
+                    <?php if ($attachment->caption()): ?>
+                        <?php echo $attachment->caption(); ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <?php if($hasAudioAttachment): ?>
+        <div class="audio-controls">
+            <div class="audio-player">
+                <?php echo $audioAttachment->media()->render(); ?>
+                <div class="audio-message">
+                    <a href=='#' class='audio-text-play-control' title='Play audio' data-playbtnmsg='Play audio slideshow' data-stopbtnmsg='Pause audio slideshow'>Play audio slideshow.</a>
+                </div>
+            </div>
+            <?php if ($audioAttachment->caption()): ?>
+                <div class="audio-caption">
+                    <?php echo $audioAttachment->caption(); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+</div>
+
+

@@ -1,0 +1,28 @@
+<?php
+$translate = $this->plugin('translate');
+$this->htmlElement('body')->appendAttribute('class', 'system-info');
+echo $this->pageTitle($translate('System information'));
+?>
+
+<table id="system-info-table">
+<col class="label-col">
+<col class="value-col">
+<?php foreach ($info as $section => $sectionInfo): ?>
+<tbody>
+<tr><th scope="rowgroup" colspan="2"><?php echo $this->escapeHtml($section); ?></th></tr>
+    <?php foreach ($sectionInfo as $label => $data): ?>
+    <tr>
+        <th scope="row"><?php echo $this->escapeHtml($label); ?></th>
+        <?php
+        if (is_bool($data)):
+            $data = $data ? $translate('Yes') : $translate('No');
+        elseif (is_array($data)):
+            $data = implode(', ', $data);
+        endif;
+        ?>
+        <td><?php echo $this->escapeHtml($data); ?></td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
+<?php endforeach; ?>
+</table>

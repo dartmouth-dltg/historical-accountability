@@ -1,0 +1,30 @@
+/** 
+ *  @file _proportional_thumbnail.sass 
+ *  @category 10_layout
+ *  @component legacy_spacing_library
+ *  @description Creates a fixed container with aspect ratio. Overflow content is hidden Proportion defaults to 1/$scale. 
+ *
+ *  Note: The element MUST have a defined width. Set to 'none' if the default is set elsewhere.
+ */
+
+// Legacy version. Note the hyphen.
+=proportional-height($width: 'none',$ratio: 1)
+  position: relative
+  overflow: hidden
+  
+  @if width != 'none'
+    width: $width
+  
+  &:before
+    position: relative
+    content: ''
+    display: block
+    padding-top: 100% * $ratio
+  
+  > *
+    display: block
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0

@@ -1,0 +1,17 @@
+=flex-sidebar($width: $standard_sidebar_width)
+  display: flex
+  flex-direction: column
+  flex-wrap: nowrap
+  justify-content: space-between
+  
+  +bp(med)
+    flex-direction: row
+   
+  > aside  
+  
+    +bp(med)
+      flex-shrink: 0
+      width: $width
+  
+  > div
+    flex-grow: 1 

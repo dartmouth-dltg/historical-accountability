@@ -1,0 +1,74 @@
+<?php
+/**
+ * @var \Zend\View\Renderer\PhpRenderer $this
+ * @var \Log\Api\Representation\LogRepresentation $log
+ */
+
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+$hyperlink = $this->plugin('hyperlink');
+
+$this->headLink()->appendStylesheet($this->assetUrl('css/log.css', 'Log'));
+
+$job = $log->job();
+$owner = $log->owner();
+if ($owner):
+    $ownerText = $hyperlink($owner->email(), $this->url('admin/id', ['controller' => 'user', 'action' => 'show', 'id' => $owner->id()]));
+else:
+    $ownerText = '';
+endif;
+ ?>
+
+<div class="resource-details">
+    <h3 class="o-title"><?= $escape(sprintf($translate('Log #%d on %s'), $log->id(), $log->created()->format('Y-m-d H:i:s'))) ?></h3>
+    <div class="meta-group">
+        <h4><?= $escape($translate('Severity')) ?></h4>
+        <div class="value"><?= $escape($translate($log->severityLabel())) ?></div>
+    </div>
+    <div class="meta-group">
+        <h4><?= $escape($translate('Reference')) ?></h4>
+        <div class="value"><?php
+        $reference = $log->reference();
+        echo $reference ? $escape($translate($reference)) : '-';
+        ?></div>
+    </div>
+    <div class="meta-group">
+        <h4><?= $escape($translate('User')) ?></h4>
+        <div class="value"><?= $ownerText ?: '-' ?></div>
+    </div>
+    <div class="meta-group">
+        <?php if ($job): ?>
+        <h4><?= $escape(sprintf($translate('Job #%d'), $job->id())) ?></h4>
+        <div class="value"><?php
+        echo $escape(sprintf($translate('Started at %s'), $job->started()->format('Y-m-d H:i:s')));
+        ?></div>
+        <div class="value"><?php
+        echo $escape(sprintf($translate('Ended at %s'), $job->ended() ? $job->ended()->format('Y-m-d H:i:s') : '-'));
+        ?></div>
+        <div class="value"><?php
+        echo $hyperlink($translate('Parameters'), $this->url('admin/id', ['controller' => 'job', 'action' => 'show', 'id' => $job->id()]));
+        ?></div>
+        <?php if ($job->log()): ?>
+        <div class="value"><?php
+        echo $hyperlink($translate('Log'), $this->url('admin/id', ['controller' => 'job', 'action' => 'log', 'id' => $job->id()]), ['target' => '_blank']);
+        ?></div>
+        <?php endif; ?>
+    <?php else: ?>
+        <h4><?= $escape($translate('Job')) ?></h4>
+        -
+    <?php endif; ?>
+    </div>
+    <div class="meta-group">
+        <h4><?= $translate('Message') ?>
+        <?php /*
+        <span class="actions"><?= $hyperlink('', '#', [
+            'class' => 'o-icon- fa fa-expand popover',
+            'title' => $translate('Full log'),
+        ]) ?>
+        </span>
+        */ ?>
+        </h4>
+        <div class="value log-message webui-popover-content"><?= $log->text() ?></div>
+    </div>
+    <?php $this->trigger('view.details', array('entity' => $log)); ?>
+</div>

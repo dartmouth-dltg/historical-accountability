@@ -1,0 +1,116 @@
+<?php
+/**
+ * @var \Zend\View\Renderer\PhpRenderer $this
+ * @var array $references
+ * @var string $term
+ * @var string $resourceName
+ * @var array $args
+ * @var array $options
+ * @var array $query
+ */
+
+if (count($references)):
+    $hyperlink = $this->plugin('hyperlink');
+    $url = $this->plugin('url');
+    $siteSlug = $this->params()->fromRoute('site-slug');
+    // $api = $this->api();
+
+    $this->headLink()->appendStylesheet($this->assetUrl('vendor/jquery-simplefolders/main.css', 'Reference'));
+    $this->headScript()->appendFile($this->assetUrl('vendor/jquery-simplefolders/main.js', 'Reference'));
+
+    $this->headStyle()->appendStyle('.tree .no-resource { font-style: italic; }');
+
+    $mapResourcesControllers = ['resources' => 'resource', 'items' => 'item', 'item_sets' => 'item-set', 'media' => 'media'];
+    $controllerName = $mapResourcesControllers[$resourceName];
+
+    // Set default values if needed.
+    $options += ['query_type' => 'eq', 'link_to_single' => true, 'total' => true, 'raw' => false, 'expanded' => true, 'custom_url' => false];
+    $options['custom_url'] = $options['custom_url'] && $options['link_to_single'];
+    if (!$options['custom_url']):
+        $tempPlaceholder = '00999999990999999001';
+        $templateUrlSingle = str_replace($tempPlaceholder, '{reference}',
+            $url('site/resource-id', ['site-slug' => $siteSlug, 'controller' => $controllerName, 'id' => $tempPlaceholder], false));
+        $query = ['property' => [['property' => $term, 'type' => $options['query_type'], 'text' => $tempPlaceholder]]];
+        $templateUrl = str_replace($tempPlaceholder, '{reference}',
+            $url('site/resource', ['site-slug' => $siteSlug, 'controller' => $controllerName], ['query' => $query], false));
+        endif;
+    ?>
+<div id="reference-headings">
+    <ul class="tree">
+        <?php
+            // Create the tree.
+            $previous_level = null;
+            foreach ($references as $referenceData):
+                $reference = $referenceData['val'];
+                $level = $referenceData['level'];
+
+                // Close the previous line (done before, because next line is
+                // not known yet).
+                if (is_null($previous_level)):
+                    // Nothing for the first value (first level).
+                    $previous_level = 0;
+                // Deeper level is always the next one.
+                elseif ($level > $previous_level):
+                    // Nothing to do.
+                // Higher level.
+                elseif ($level < $previous_level):
+                    echo '</li>' . PHP_EOL . str_repeat('</ul></li>' . PHP_EOL, $previous_level - $level);
+                // First line, deeper or equal level.
+                else:
+                    echo '</li>' . PHP_EOL;
+                endif;
+
+                // Start the line with or without a new sub-list.
+                if ($level > $previous_level):
+                    // Deeper level is always the next one.
+                    echo PHP_EOL . '<div class="expander' . ($options['expanded'] ? ' expanded' : '') . '"></div>';
+                    echo '<ul' . ($options['expanded'] ? ' class="expanded"' : '') . '><li>';
+                else:
+                    echo '<li>';
+                endif;
+
+                if ($options['raw']):
+                    $referenceText = $reference;
+                    $referenceNumber = true;
+                else:
+                    $referenceNumber = !$options['link_to_single'] || $referenceData['total'] > 1;
+                    if (empty($referenceData['total'])):
+                        $referenceText = '<span class="no-resource">' . $reference . '</span>';
+                    else:
+                        if ($referenceNumber):
+                            $referenceOrBranch = $options['branch'] ? $referenceData['branch'] : $reference;
+                            if ($options['custom_url']):
+                                $query = ['property' => [['property' => $term, 'type' => $options['query_type'], 'text' => $referenceOrBranch]]];
+                                $referenceUrl = $url('site/resource', ['site-slug' => $siteSlug, 'controller' => $controllerName], ['query' => $query], false);
+                            else:
+                                $referenceUrl = str_replace('{reference}', rawurlencode($referenceOrBranch), $templateUrl);
+                            endif;
+                        else:
+                            if ($options['custom_url']):
+                                // Don't use the resource to get the url, it's too slow, even if it allows to have customized url. Disable the feature if needed.
+                                // $resource = $api()->read($resourceName, $referenceData['first_id'])->getContent();
+                                // $referenceUrl = $resource->siteUrl();
+                                $referenceUrl = $url('site/resource-id', ['site-slug' => $siteSlug, 'controller' => $controllerName, 'id' => $referenceData['first_id']], false);
+                            else:
+                                $referenceUrl = str_replace('{reference}', rawurldecode($referenceData['first_id']), $templateUrlSingle);
+                            endif;
+                        endif;
+                        $referenceText = $hyperlink($reference, $referenceUrl);
+                    endif;
+                endif;
+
+                echo $referenceText;
+                // Can be null when references are set directly.
+                if ($options['total'] && $referenceNumber && @$referenceData['total']):
+                    echo ' (' . $referenceData['total'] . ')';
+                endif;
+
+                $previous_level = $level;
+            endforeach;
+
+            // Manage last line.
+            echo '</li>' . PHP_EOL . str_repeat('</ul></li>' . PHP_EOL, $previous_level);
+        ?>
+    </ul>
+</div>
+<?php endif;

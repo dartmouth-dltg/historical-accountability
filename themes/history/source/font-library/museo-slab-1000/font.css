@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'MuseoSlab-1000';
+  src: url('MuseoSlab-1000.eot');
+  src: url('MuseoSlab-1000.eot?#iefix') format('embedded-opentype'),
+       url('MuseoSlab-1000.svg#MuseoSlab-1000') format('svg'),
+       url('MuseoSlab-1000.ttf') format('truetype'),
+       url('MuseoSlab-1000.woff') format('woff'),
+       url('MuseoSlab-1000.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+

@@ -1,0 +1,19 @@
+%paginator-circle-link
+  display: inline-block
+  box-sizing: border-box
+  background-color: $mid_neutral
+  height: rv(-2)
+  width: rv(-2)
+  border-radius: rv(-2)/2
+  color: transparent
+  
+  &:hover, &:active, &.current
+    background-color: $impact
+
+%paginator-circle
+  display: block
+  
+  a
+    @extend %paginator-circle-link
+  
+  

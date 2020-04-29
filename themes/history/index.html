@@ -1,0 +1,60 @@
+<?php
+/**
+ * A style overview page for initial theme development.
+ * 
+ * Static content attributes (contentWrapper, contentContainer, etc.) are not used natively by the JS or CSS
+ * but are there for reference when debugging. They can be omitted at the risk of inscrutibility.
+ *
+ */
+?><!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link type='text/css' href="/build/assets/css/style.min.css" rel="stylesheet" />
+</head>
+<body>
+  <header class='inset' contentTier>
+    <div>Header</div>
+  </header>
+  <section id='splash' class='full' contentTier>
+    <p><strong>Splash Area</strong></p>
+  </section>
+  <section id='primary-content' contentTier>
+    <div contentWrapper>
+      <aside contentSidebar>Aside Left</aside>
+      <main contentContainer>
+        <h1>Main title</h1>
+        <h2>Primary Tier</h2>
+      </main>
+      <aside contentSidebar>Aside Right</aside>
+    </div>
+  </section>
+  <section id='secondary-content' contentTier>
+    <div contentWrapper>
+      <div contentContainer>
+        <h2>Secondary Tier</h2>
+      </div>
+      <aside>Aside Right</aside>
+    </div>
+  </section>
+  <section id='tertiary-content' contentTier>
+    <div contentWrapper>
+      <aside contentSidebar>Aside Left</aside>
+      <div contentContainer>
+        <h2>Tertiary Tier</h2>
+      </div>
+    </div>
+  </section>
+  <section id='quaternary-content' contentTier>
+    <div contentWrapper>
+      <div contentContainer>
+        <h2>Quaternary Tier</h2>
+      </div>
+    </div>
+  </section>
+  <footer class='full'>
+    <p>Footer</p>
+  </footer>
+</body>
+</html>

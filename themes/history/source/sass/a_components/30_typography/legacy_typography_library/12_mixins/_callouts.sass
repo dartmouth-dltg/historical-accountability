@@ -1,0 +1,51 @@
+/** 
+ *  @file _callouts.sass 
+ *  @category 30_typography
+ *  @component legacy_typography_library
+ *  @description  Legacy version of Callout mixin. */
+  
+=callout($direction: 'left',$shift: 3, $callout_width: 40%)
+
+  $shiftval: rv($shift)
+  $main_width: 100% - $callout_width
+  
+  > *:first-child
+    +set-bottom-margin(-1)
+  
+  +bp(lrg)
+
+    display: flex
+    align-items: center
+    align-content: center
+    position: relative
+    
+    > *
+      margin-bottom: 0
+    
+    
+    @if $direction == 'left'
+      justify-content: flex-end
+    
+      > *:first-child // Callout
+        position: relative
+        float: left
+        flex-shrink: 0  
+        width: $callout_width
+        left: $shiftval * -1
+        
+      > *:nth-child(2)  // Main
+        width: $main_width    
+         
+    @else
+      justify-content: flex-start
+      flex-direction: row-reverse
+  
+      > *:first-child // Callout
+        position: relative
+        float: right
+        flex-shrink: 0  
+        width: $callout_width
+        left: $shiftval
+        
+      > *:nth-child(2)  // Main
+        width: $main_width

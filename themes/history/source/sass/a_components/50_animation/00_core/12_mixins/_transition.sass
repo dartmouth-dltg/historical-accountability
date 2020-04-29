@@ -1,0 +1,20 @@
+/* 
+   @file _standard_transition.sass 
+   @category 50_animation
+   @group a_components
+   @description  Creates a standard transition property based on configuration values. */
+
+=transition($properties: all,$timing: 0, $delay: $base_delay, $easing: $standard_easing)
+
+  $transitions: ()
+  
+  @each $property in $properties
+    $transition: $property rd($timing) $easing rd($delay)
+    $transitions: append($transitions,$transition,comma)
+      
+  transition: $transitions
+
+// Legacy
+
+=standard-transition($properties: all,$timing: 0, $delay: $base_delay, $easing: $standard_easing)
+  +transition($properties,$timing,$delay,$easing)

@@ -1,0 +1,31 @@
+// Typography
+
+$base-font-size:        16px;
+$base-line-height:      24px;
+$spacing-large:         $base-line-height;
+$spacing-medium:        .5 * $base-line-height;
+$spacing-small:         .25 * $base-line-height;
+
+// Layout
+
+$susy: (
+    columns: 16,
+    gutters: 1/2,
+    math: fluid,
+    output: float,
+    gutter-position: inside,
+    global-box-sizing: border-box
+);
+
+// Colors
+
+$red:                 #A91919;
+$delete-bg:           #FFCCCC;
+$gray-on-white:       rgba(0,0,0,.04);
+$border-gray:         #dfdfdf;
+$copy-gray:           #676767;
+$blue:                #404E61;
+
+// Prefix settings
+
+$graceful-usage-threshold: .5;

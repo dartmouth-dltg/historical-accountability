@@ -1,0 +1,13 @@
+/**
+ * @file
+ * Fluid Type Component Configuration.
+ * 
+ * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
+ */
+
+$universal_fluid_type: false  // Assign fluid type at the root level.
+
+$min_font_size: rv(0,$basetypesize)             // Lower bound for type scaling on <body> element. 
+$max_font_size: rv(1,$basetypesize)             // Upper bound for type scaling on body element.
+$min_viewwidth: map-get($breakpoints,'sml');
+$max_viewwidth: map-get($breakpoints,'xlrg');

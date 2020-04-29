@@ -1,0 +1,14 @@
+/** 
+ *  @file _animation_root_variables.sass 
+ *  @category 50_animation
+ *  @component standardized_animation
+ *  @description Adds CSS variables to be passed to javascript */
+
+$rootvar: ':root' // See https://github.com/sass/libsass/issues/2511
+
+$heartbeat_seconds: ceil(strip_unit($heartbeat)) * 1000
+$slide_transition_seconds: ceil(strip_unit($slide_transition)) * 1000
+
+#{$rootvar}
+  --animation--heartbeat: #{$heartbeat_seconds}
+  --animation--slidetransition: #{$slide_transition_seconds}
