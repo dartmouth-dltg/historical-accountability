@@ -30,12 +30,17 @@ $bold: 700        // b, a
 $extrabold: 800   // h
 $heavy: 900
 
-+load_font('Lato','lato',($normal,$bold,$heavy),(normal,italic))
-+load_font('Aleo','aleo',($normal,$bold),(normal,italic))
++load_font('Lato','lato',($bold),(normal,italic))
++load_font('BentonSansBook','bentonbook',($normal),(normal,italic))
++load_font('BentonSans','bentonsans',($light, $normal, $medium, $bold, $heavy),(normal,italic))
++load_font('NunitoSans','nunitosans',($medium, $bold),(normal,italic))
++load_font('Sentinel','sentinel',($light, $medium, $semibold, $bold, $heavy),(normal,italic))
++load_font('SentinelBook','sentinelbook',($normal),(normal,italic))
 
 
-$basefont: "Lato", sans-serif
-$headingfont: "Aleo", Helvetica, Tahoma, Arial, sans-serif
+
+$basefont: "BentonSansBook", sans-serif
+$headingfont: "Lato", Helvetica, Tahoma, Arial, sans-serif
 $altfont: $headingfont
 $codefont: "Andale Mono", Monaco, Courier New, monospace
 
