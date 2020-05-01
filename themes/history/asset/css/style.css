@@ -730,9 +730,11 @@ body > footer div { margin: auto; }
 
 @media only screen and (min-width: 46.25em) { body > footer div { grid-column: auto; } }
 
-body > footer p { font-size: 0.9rem; padding: 0; }
+body > footer .footer--text p { margin-top: 1.125rem; padding: 0; }
 
-@media only screen and (min-width: 46.25em) { body > footer p { padding: 0 1.5rem; line-height: 2.0rem; } }
+@media only screen and (min-width: 46.25em) { body > footer .footer--text p { padding: 0; } }
+
+@media only screen and (min-width: 56.25em) { body > footer .footer--text p { padding: 0 2.0rem; line-height: 2.66667rem; } }
 
 body > footer .footer--logo { margin: 0; grid-column: 2 / 2; margin-top: 2.0rem; }
 

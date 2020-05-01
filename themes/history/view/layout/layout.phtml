@@ -98,7 +98,7 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
                     <img src="<?php echo $this->assetUrl('img/svg/marks/around_white_mark.svg'); ?>" alt=" Logo">
                 </a>
             </div>
-            <div>
+            <div class="footer--text">
             <p>  
                     <?php if ( $footerText = $this->themeSetting('footer') ): ?>
                         <?php echo $footerText; ?>
@@ -106,7 +106,7 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
                         <p> Go to Theme > Edit Theme Settings > Footer Content to enter content here</p>
                     <?php endif; ?>
             </p>
-            </div>
+            </div class="footer--links">
             <?php if ( $footerText = $this->themeSetting('footer_links') ): ?>
                 <?php echo $footerText; ?>
             <?php else: ?>

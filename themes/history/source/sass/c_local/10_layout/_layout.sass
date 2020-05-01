@@ -333,17 +333,20 @@ body
     +bp($tablet)
       grid-column-gap: rv(2)
       padding: rv(2) rv(4)
+    
     div
       margin: auto
       +bp($stack)
         grid-column: auto
-    p
-      font-size: font-value(-1)
-      padding: 0
-      +bp($stack)
-        padding: 0 rv(0)
-        line-height: rv(1)
- 
+    .footer--text
+      p
+        margin-top: rv(-1)
+        padding: 0 
+        +bp($stack)
+          padding: 0 
+        +bp($tablet)
+          padding: 0 rv(1)
+          line-height: rv(2)
     .footer--logo
       margin: 0
       grid-column: 2 / 2
