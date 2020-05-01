@@ -148,7 +148,7 @@ main
     +bp($stack)
       width: 100%
 
-.huronia-identity
+.huronia-identity     // marked for deletion
   background-color: $black
   height: rv(1)
   width: 60%
@@ -179,6 +179,40 @@ main
     img
       width: 100%
       transform: translateY(-6.5px) // Fudge factor to bring the logo baseline in line with menu text baseline
+
+
+.history-identity
+  background-color: $black
+  display: block
+  font-family: BentonSans
+  font-weight: 900
+  padding: rv(-1) 
+  font-size: font-value(-1)
+  min-width: 235px
+  max-width: 300px
+  
+  +bp($stack)
+    background-color: $black
+    height: 100%
+    width: 100%
+    margin: 0
+    font-size: inherit
+    min-width: 100%
+    max-width: 100%
+         
+    img
+      height: 100%
+      width: auto
+      
+  &#logo-stack
+    +bp($stack)
+      display: flex
+      flex-direction: row
+      align-items: center
+      
+    img
+      width: rv(2)
+      padding-right:  rv(-1)
   
 .site-page-pagination
   display: none
@@ -195,7 +229,7 @@ body
     +bp($stack)
       display: grid
       grid-template-rows: initial
-      grid-template-columns: 2fr 6fr 1fr
+      grid-template-columns: 2fr 3fr
       grid-row-gap: initial
       
     .access-button
@@ -223,7 +257,6 @@ body
           transform: rotate(180deg)
           position: relative
           top: -4px
-      background: $clr1
       padding: 0 rv(-3)
       color: $black
       white-space: nowrap
@@ -232,7 +265,6 @@ body
       text-align: left
       height: 100%
       line-height: rv(-1)
-      border-left: rv(-10) solid $white
       &:hover
         color: $white
       +bp($stack)
@@ -266,6 +298,7 @@ body
     a
       color: $white
       font-weight: $bold
+      font-family: BentonSans
       span
         margin: 0 auto
     a:hover
@@ -273,25 +306,25 @@ body
     .down-arrow-black
       vertical-align: top
       display: inline-block
-      margin: -(rv(-6)) rv(-5)
-      width: rv(-1)
-      height: rv(-1)
-      background: url("../../asset/img/svg/icons/down_arrow_black.svg") no-repeat
+      width: rv(1)
+      height: rv(1)
+      background: url("../../asset/img/svg/icons/hamburger_menu.svg") no-repeat
       +bp($stack)
         vertical-align: initial
     ul
       li
         display: inline
   > footer
+    border-top-right-radius: rv(-1)
     color: $white
     background-color: $black
     padding: rv(1)
     display: grid
-    grid-template-columns: 15% 1fr 15%
+    grid-template-columns: 1fr 1fr
     +bp($stack)
       display: grid
       grid-template-rows: initial
-      //grid-template-columns: [footer-col1] 3fr [footer-col2] 2fr [footer-col3] 2fr [footer-col4] 2fr [footer-col5] 2fr
+      grid-template-columns: 15% 1fr 1fr 15%
       grid-row-gap: initial
       padding: rv(-1)
       +fluid_type(-1,0)
@@ -302,40 +335,46 @@ body
       padding: rv(2) rv(4)
     div
       margin: auto
-      grid-column: 1 / 3
       +bp($stack)
         grid-column: auto
     p
-      margin-top: rv(2)
-      font-size: 0.7em
+      font-size: font-value(-1)
+      padding: 0
+      +bp($stack)
+        padding: 0 rv(0)
+        line-height: rv(1)
+ 
     .footer--logo
       margin: 0
-      text-align: right
-      grid-column: 3 / 3
+      grid-column: 2 / 2
+      margin-top: rv(1)
       +bp($stack)
-        margin: auto
         grid-column: auto
+        align-self: flex-end
       img
         width: rv(8)
     .footer--recountlogo
       margin: auto
       img
-        width: rv(10)
+        width: 80%
+        +bp($stack)
+          width: rv(10)
     nav
-      grid-column: 1 / 3
+      grid-column: 2 /2
       width: 100%
       grid-template-columns: unset
       display: grid
       +bp($stack)
-        grid-column: 2 / 3
+        grid-column: 3/ 3
         grid-template-columns: 1fr 1fr 1fr
       ul
+        padding-left: 0
         line-height: font-value(2)
         li
+          list-style-type: none
           &:first-child
             margin-bottom: rv(-3)
             list-style-type: none
-            margin-left: -15px
 
           a
             color: $white

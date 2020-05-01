@@ -50,38 +50,19 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
     <?php echo $pageClass ? $this->htmlElement('body')->appendAttribute('class', $pageClass) : $this->htmlElement('body'); ?>
         <div class="full"><?php echo $userBar; ?> </div>
         <header class="full">
-            <a id='logo-mobile' href="<?php echo $site->url(); ?>" class="site-title huronia-identity" title="Link to homepage" aria-hidden='true'><img src="<?php echo $this->assetUrl('img/svg/marks/recount_badge_white.svg'); ?>" alt="Huronia Logo" aria-hidden='true'></a>
-            <a id='logo-stack' href="<?php echo $site->url(); ?>" class="site-title huronia-identity" title="Link to homepage"><img src="<?php echo $this->assetUrl('img/svg/marks/black_badge.svg'); ?>" alt=" Logo"></a>
+            <a id='logo-stack' href="<?php echo $site->url(); ?>" class="site-title history-identity" title="Link to homepage"><img src="<?php echo $this->assetUrl('img/svg/marks/circle_white.svg'); ?>" alt=" Logo"> Dartmouth Historical Accountability Program</a>
             <nav>
                 <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>0]); ?>
             </nav>
-            <a class="access-button" href="#">
-                <span>
-                    Accessibility 
-                    <i class="down-arrow-black"></i>
-                </span>
-            </a>
-           
             <a class="menu-access-button" href="#">
                 <span>
-                    Menu & <br>
-                    Accessibility
+                  
                     <i class="down-arrow-black"></i>
                 </span>
             </a>
             
         </header>
-        <nav class="access-dropdown" style="display:none">
-                <ul>
-                    <li><label class="dark-switch">
-                            <input type="checkbox" aria-labelledby='darkmode-togglelabel'>
-                            <span class="slider round"></span>
-                            <span id='darkmode-togglelabel' class="toggle-label">Dark Mode</span>
-                        </label>
-                        
-                    </li>
-                </ul>
-        </nav>
+       
         <nav class="access-dropdown-mobile" style="display:none" aria-hidden='true'>
                 <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>0]); ?>
                 <ul>
@@ -114,15 +95,17 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
         <footer class="full">
             <div>
                 <a href="<?php echo $site->url(); ?>" class="footer--recountlogo" title='Link to homepage'>
-                    <img src="<?php echo $this->assetUrl('img/svg/marks/recount_badge_white.svg'); ?>" alt=" Logo">
+                    <img src="<?php echo $this->assetUrl('img/svg/marks/around_white_mark.svg'); ?>" alt=" Logo">
                 </a>
-                <p>  
+            </div>
+            <div>
+            <p>  
                     <?php if ( $footerText = $this->themeSetting('footer') ): ?>
                         <?php echo $footerText; ?>
                     <?php else: ?>
                         <p> Go to Theme > Edit Theme Settings > Footer Content to enter content here</p>
                     <?php endif; ?>
-                </p>
+            </p>
             </div>
             <?php if ( $footerText = $this->themeSetting('footer_links') ): ?>
                 <?php echo $footerText; ?>
@@ -130,7 +113,7 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
                 <p> Go to Theme > Edit Theme Settings > Footer Links to display footer links</p>
             <?php endif; ?>
             <div class="footer--logo">
-                <img src="<?php echo $this->assetUrl('img/svg/marks/logo_gold.svg'); ?>" alt=" Badge Logo">
+                <img src="<?php echo $this->assetUrl('img/svg/marks/text_only_mark.svg'); ?>" alt=" Badge Logo">
             </div>
         </footer>
     </body>
