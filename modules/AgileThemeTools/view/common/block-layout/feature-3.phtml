@@ -1,0 +1,41 @@
+<?php
+$itemCount = count($this->pages);
+
+// Add a cell for the introduction
+if ($this->hasTitle || $this->hasIntroduction) {
+    $itemCount++;
+}
+
+// Cell count should be even
+if ($itemCount % 2 == 1) {
+    $itemCount++;
+}
+?>
+<div id="feature-3" class="region callout-image-grid item-count-<?php echo $itemCount; ?> <?php echo $this->regionClass; ?> block-<?php echo $this->blockId; ?> <?php echo $this->classes ?>" data-target-region-id="<?php echo $this->targetID; ?>">
+    <?php if ($this->hasTitle || $this->hasIntroduction): ?>
+        <div class='title-area'>
+            <?php if ($this->hasTitle): ?>
+                <h2><?php echo $this->title; ?></h2>
+            <?php endif; ?>
+            <?php if ($this->hasIntroduction): ?>
+                <div class='block-introduction'>
+                    <?php echo $this->introduction; ?>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->hasButton): ?>
+                <?php printf('<a class="btn" href="%s" alt="%s">%s</a>',$this->buttonPath,$this->buttonText,$this->buttonText); ?>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->hasPages): ?>
+        <div class='callout-items'>
+          <?php foreach($this->pages as $page): ?>
+              <div class="callout-item">
+                  <?php if ($page['hasEmbeddedBlocks'] && array_key_exists('representativeImage',$page['embeddedBlocks'])): ?>
+                      <?php echo $page['embeddedBlocks']['representativeImage'][0]; ?>
+                  <?php endif; ?>
+              </div>
+          <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+</div>
