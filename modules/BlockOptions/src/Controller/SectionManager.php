@@ -63,9 +63,12 @@ class SectionManager extends AbstractActionController {
     public function getPagesBySection($sectionSlug,$count=null){
         $view = new PhpRenderer();
         $sectionPages = [];
+
         foreach($this->pages as $page) {
+
             if (array_key_exists('params',$page) && array_key_exists('page-slug',$page['params']) && $page['params']['page-slug'] == $sectionSlug && array_key_exists('pages',$page) && count($page['pages']) > 0) {
                 foreach($page['pages'] as $childPage) {
+
                     if (array_key_exists('params',$childPage) && array_key_exists('page-slug',$childPage['params'])) {
 
                         $childPageRepresentation = $this->api->read('site_pages',[
@@ -92,7 +95,9 @@ class SectionManager extends AbstractActionController {
                             $serializedBlockInfo['o:blockRepresentation'] = $block;
                             $childPageData['o:blocks'][$block->id()] = $serializedBlockInfo;
 
-                            $blockLayout = !empty($serializedBlockInfo['o:layout']) ? $serializedBlockInfo['o:layout'] : null;
+                            // Ensure that a layout is set and that the Section Listing blocks are removed to prevent recursion.
+
+                            $blockLayout = empty($serializedBlockInfo['o:layout']) || $serializedBlockInfo['o:layout'] == 'sectionPageListing' ? null : $serializedBlockInfo['o:layout'];
 
                             if ($blockLayout) {
                                 if (!array_key_exists($blockLayout,$childPageData['o:blocks-by-layout'])) {
