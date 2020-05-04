@@ -122,13 +122,24 @@ main
           font-size: rv(0)        
         
   blockquote
-    border-top: 3px solid set-color(2,'dark')
-    border-bottom: 3px solid set-color(2,'dark')
-    color: set-color(2,'shade')
+    background: $bgcolor2
+    color: $clr4
     padding: rv(1) rv(3)!important
-    font-family: $headingfont
-
-  th, td
+    font-family: $codefont
+    &:after
+      content: " "
+      width: rv(1)
+      height: rv(1)
+      background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat
+      position: relative
+      float: right
+      border: 1px solid
+      padding: rv(1)
+      background-size: rv(2)
+      background-position: center
+      border-radius: 100%
+      
+    th, td
     text-align: left
     border-spacing: 0
     padding: rv(-5)
@@ -295,6 +306,12 @@ body
               color: $clr1
           &:last-child
             display: none !important
+          a
+             padding-right: rv(2)
+             background-position-x: right
+          a:hover
+            background: url("../../asset/img/svg/icons/menu_dot.svg") no-repeat
+            background-position-x: right
     a
       color: $white
       font-weight: $bold
@@ -302,7 +319,9 @@ body
       span
         margin: 0 auto
     a:hover
-      color: $clr1
+      color: $clr2
+      text-decoration: none
+
     .down-arrow-black
       vertical-align: top
       display: inline-block
@@ -382,6 +401,7 @@ body
           a
             color: $white
             text-decoration: underline
+           
 
 .site-guide-cont
   +negative-content-margin(6)

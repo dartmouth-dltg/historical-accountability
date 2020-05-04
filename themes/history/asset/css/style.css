@@ -378,7 +378,7 @@ blockquote { box-sizing: border-box; }
 
 dl { margin-bottom: 1.5rem; }
 
-dt { font-family: "Lato", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; text-transform: uppercase; }
+dt { font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; text-transform: uppercase; }
 
 dd { margin-bottom: 1.125rem; margin-left: 0; }
 
@@ -396,7 +396,7 @@ ins { background-color: #a5aba9; color: #1D2C27; text-decoration: none; }
 
 mark { background-color: #a5aba9; color: #1D2C27; font-style: italic; font-weight: 700; }
 
-pre, code, kbd, samp { font-family: "Andale Mono", Monaco, Courier New, monospace; font-size: 1.2rem; line-height: 1.5; color: #4a5652; }
+pre, code, kbd, samp { font-family: "SentinelBook", Monaco, Courier New, monospace; font-size: 1.2rem; line-height: 1.5; color: #4a5652; }
 
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 
@@ -412,7 +412,7 @@ hr { border: 0; border-bottom: 1px solid #616b68; margin-top: 0; margin-bottom: 
 
 @media only screen and (min-width: 46.25em) { hr { margin-bottom: 1.5rem; } }
 
-h1, h2, h3, h4, h5, h6 { margin: 0; color: #1D2C27; font-family: "Lato", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; box-sizing: border-box; line-height: 1; }
+h1, h2, h3, h4, h5, h6 { margin: 0; color: #1D2C27; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; box-sizing: border-box; line-height: 1; }
 
 h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a { color: #1D2C27; text-decoration: none; }
 
@@ -629,11 +629,11 @@ main > div > ul li, main > div .item-list > ul li { position: relative; }
 
 main > div > ul li:before, main > div .item-list > ul li:before { content: "\2022"; color: #C59587; font-weight: bold; display: inline-block; width: 0.84375rem; position: absolute; top: -0.375rem; left: -1.5rem; font-size: 1.5rem; }
 
-main blockquote { border-top: 3px solid #632916; border-bottom: 3px solid #632916; color: #80351C; padding: 2.0rem 3.55555rem !important; font-family: "Lato", Helvetica, Tahoma, Arial, sans-serif; }
+main blockquote { background: #FCFADE; color: #D84F37; padding: 2.0rem 3.55555rem !important; font-family: "SentinelBook", Monaco, Courier New, monospace; text-align: left; border-spacing: 0; padding: 0.35596rem; font-size: 0.9rem; }
 
-main th, main td { text-align: left; border-spacing: 0; padding: 0.35596rem; font-size: 0.9rem; }
+main blockquote:after { content: " "; width: 2.0rem; height: 2.0rem; background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat; position: relative; float: right; border: 1px solid; padding: 2.0rem; background-size: 2.66667rem; background-position: center; border-radius: 100%; }
 
-@media only screen and (min-width: 46.25em) { main th, main td { padding: 0.63281rem; font-size: 1.2rem; } }
+@media only screen and (min-width: 46.25em) { main blockquote { padding: 0.63281rem; font-size: 1.2rem; } }
 
 main th { background: #e8eae9; }
 
@@ -702,11 +702,15 @@ body > header nav ul.navigation li.active a { color: #74AF9D; }
 
 body > header nav ul.navigation li:last-child { display: none !important; }
 
+body > header nav ul.navigation li a { padding-right: 2.66667rem; background-position-x: right; }
+
+body > header nav ul.navigation li a:hover { background: url("../../asset/img/svg/icons/menu_dot.svg") no-repeat; background-position-x: right; }
+
 body > header a { color: #FFFFFF; font-weight: 700; font-family: BentonSans; }
 
 body > header a span { margin: 0 auto; }
 
-body > header a:hover { color: #74AF9D; }
+body > header a:hover { color: #F2E55B; text-decoration: none; }
 
 body > header .down-arrow-black { vertical-align: top; display: inline-block; width: 2.0rem; height: 2.0rem; background: url("../../asset/img/svg/icons/hamburger_menu.svg") no-repeat; }
 
@@ -940,7 +944,7 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .explore-the-archive > p { font-style: italic; }
 
-.explore-the-archive h3 { font-family: "Lato", Helvetica, Tahoma, Arial, sans-serif; margin-top: 3.55555rem; }
+.explore-the-archive h3 { font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; margin-top: 3.55555rem; }
 
 .explore-the-archive img { width: 6.32098rem; float: left; margin: 3.55555rem; }
 
@@ -982,7 +986,7 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 @media only screen and (min-width: 46.25em) { .pagination { margin-top: -62px; text-align: right; } }
 
-.pagination .row-count { color: #99a09e; position: relative; top: -55px; font-size: 2.13333rem; font-family: "Lato", Helvetica, Tahoma, Arial, sans-serif; }
+.pagination .row-count { color: #99a09e; position: relative; top: -55px; font-size: 2.13333rem; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; }
 
 @media only screen and (min-width: 46.25em) { .pagination .row-count { top: 45px; left: -11px; } }
 
@@ -1338,7 +1342,7 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .slide-contents { flex-shrink: 0; padding: 1.5rem 1.5rem 5.0rem 1.5rem; color: #FFFFFF; border-top: 2px solid #FFFFFF; }
 
-.slide-contents h3 { color: #FFFFFF; font-family: "Lato", Helvetica, Tahoma, Arial, sans-serif; margin: 0 0 0.84375rem 0; font-size: 0.9rem; }
+.slide-contents h3 { color: #FFFFFF; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; margin: 0 0 0.84375rem 0; font-size: 0.9rem; }
 
 @media only screen and (min-width: 46.25em) { .slide-contents h3 { font-size: 2.13333rem; } }
 
@@ -1497,7 +1501,7 @@ blockquote { box-sizing: border-box; }
 
 dl { margin-bottom: 1.5rem; }
 
-dt { font-family: "Lato", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; text-transform: uppercase; }
+dt { font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; text-transform: uppercase; }
 
 dd { margin-bottom: 1.125rem; margin-left: 0; }
 
@@ -1515,7 +1519,7 @@ ins { background-color: #a5aba9; color: #1D2C27; text-decoration: none; }
 
 mark { background-color: #a5aba9; color: #1D2C27; font-style: italic; font-weight: 700; }
 
-pre, code, kbd, samp { font-family: "Andale Mono", Monaco, Courier New, monospace; font-size: 1.2rem; line-height: 1.5; color: #4a5652; }
+pre, code, kbd, samp { font-family: "SentinelBook", Monaco, Courier New, monospace; font-size: 1.2rem; line-height: 1.5; color: #4a5652; }
 
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 
@@ -1531,7 +1535,7 @@ hr { border: 0; border-bottom: 1px solid #616b68; margin-top: 0; margin-bottom: 
 
 @media only screen and (min-width: 46.25em) { hr { margin-bottom: 1.5rem; } }
 
-h1, h2, h3, h4, h5, h6 { margin: 0; color: #1D2C27; font-family: "Lato", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; box-sizing: border-box; line-height: 1; }
+h1, h2, h3, h4, h5, h6 { margin: 0; color: #1D2C27; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; box-sizing: border-box; line-height: 1; }
 
 h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a { color: #1D2C27; text-decoration: none; }
 
@@ -1579,7 +1583,7 @@ li ul, li ol { margin-top: 1.5rem; margin-bottom: 1.5rem; }
 
 /* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
 /** @file _byline.sass @category 60_site_elements @theme LOCAL @description Styles the exhibit byline. */
-.byline { font-family: "Lato", Helvetica, Tahoma, Arial, sans-serif; font-style: italic; }
+.byline { font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-style: italic; }
 
 .byline > p { font-family: inherit; font-style: inherit; }
 
@@ -1604,7 +1608,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 .card figure img { object-fit: cover; width: 100%; height: 100%; }
 
-.card h3 { font-family: "Lato", Helvetica, Tahoma, Arial, sans-serif; margin-bottom: 0; }
+.card h3 { font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; margin-bottom: 0; }
 
 .card h3 + .byline { margin-top: 0.63281rem; }
 
