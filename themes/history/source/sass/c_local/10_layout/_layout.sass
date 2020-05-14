@@ -87,11 +87,23 @@ main
       
     > .file
       +negative-content-margin(4)
+      .media-render
+        &:before
+          content: ""
+          height: rv(-2)
+          width: 100%
+          background: $black
+          display: block
+          margin-bottom: rv(-5)
       
       .caption
         text-align: center
-        margin-top: rv(-1)
-        margin-bottom: rv(-1)
+        margin-top: rv(-5)
+        padding-top: rv(-1)
+        padding-bottom: rv(-2)
+        color: $white
+        background: $black
+        border-bottom-right-radius: $borderRadius
       h3 
         display: none
         
@@ -103,22 +115,27 @@ main
       grid-auto-columns: min-content
       padding: 0
       list-style-type: none
-      
-      +bp($desktop)
-        grid-template-columns: 1fr 1fr 1fr
+
       
       li
         position: relative
+        left: rv(0)
+        +bp($stack)
+          left: rv(3)
+        h5
+          font-family: $basefont
+          margin-top: 0
+          margin-bottom: rv(-3)
         
         &:before
-          content: "\2022"
-          color: #C59587
+          content: "\2012"
+          color: $black
           font-weight: bold
           display: inline-block
           width: rv(-2)
           position: absolute
           top: rv(0) / -4
-          left: rv(0) * -1
+          left: rv(1) * -1
           font-size: rv(0)        
         
   blockquote
@@ -177,13 +194,29 @@ main
     *
       +untilt
 
+  
+  th, td
+    text-align: left
+    border-spacing: 0
+    padding: rv(-5)
+    font-size: font-value(-2)
+    font-family: $basefont
+    +bp($stack)
+      padding: rv(-3)
+      font-size: font-value(-1)
   th
-    background: neutral(10)
+    background: $clr5
+    color: $white
   tr:nth-child(even)
     > td
-      background: $lightest_neutral
+      background: neutral(10)
+      border-top: 5px solid $white
+  tr
+    > td
+      background: neutral(5)
+      border-top: 5px solid white
+
   table 
-    border: 1px solid neutral(15)
     border-spacing: 0
     +bp($stack)
       width: 100%
@@ -262,7 +295,7 @@ body
     align-items: center
     display: grid
     grid-template-columns: 3fr 1fr
-    border-bottom: rv(-7) solid $white
+    border-bottom: $borderWidth solid $white
     overflow: hidden
     background: $black
     
@@ -328,7 +361,7 @@ body
         display: inline-block
         float: right
         li
-          margin: 0 rv(-6)
+          margin: 0 rv(-5)
           white-space: nowrap
           &.active
             a
@@ -336,11 +369,13 @@ body
           &:last-child
             display: none !important
           a
-             padding-right: rv(2)
+             padding-right: rv(-1)
              background-position-x: right
           a:hover
             background: url("../../asset/img/svg/icons/menu_dot.svg") no-repeat
             background-position-x: right
+            background-size: rv(-2)
+            background-position-y: center
     a
       color: $white
       font-weight: $bold
@@ -363,7 +398,7 @@ body
       li
         display: inline
   > footer
-    border-top-right-radius: rv(-1)
+    border-top-right-radius: $borderRadius
     color: $white
     background-color: $black
     padding: rv(1)

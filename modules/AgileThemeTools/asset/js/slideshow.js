@@ -69,7 +69,9 @@
             fade: true,
             cssEase: 'linear',
             dots: true,
-            arrows: false,
+            arrows: true,
+            prevArrow: "<div class='slick-prev-splash'></div>",
+            nextArrow: "<div class='slick-next-splash'></div>",
             accessibility: true,
         });
 

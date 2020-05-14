@@ -1,4 +1,40 @@
-#homepage-splash    
+#homepage-splash
+  .slick-prev-splash
+    position: absolute
+    width: rv(5)
+    height: rv(5)
+    top: 49%
+    transform: translateY(-50%)
+    left: 20px
+    z-index: 9999
+    cursor: pointer
+    display: none
+    background: url("../../asset/img/svg/icons/left_arrow_white.svg") no-repeat
+    &:hover
+      background: url("../../asset/img/svg/icons/left_arrow_white_active.svg") no-repeat
+    +bp($stack)
+      display: block
+
+  .slick-next-splash
+    position: absolute
+    width: rv(5)
+    height: rv(5)
+    top: 49%
+    transform: translateY(-50%)
+    right: 15px
+    z-index: 9999
+    cursor: pointer
+    display: none
+    background: url("../../asset/img/svg/icons/right_arrow_white.svg") no-repeat
+    &:hover
+      background: url("../../asset/img/svg/icons/right_arrow_white_active.svg") no-repeat
+    +bp($stack)
+      display: block
+
+  .slick-dots
+    width: 67%
+    +bp($stack)
+      width: 60%    
   .slick-slide
     +bp($stack)
       height: 100%
@@ -22,7 +58,7 @@
   margin-left: 0
   margin-right: 0
   display: flex
-  flex-direction: column
+  flex-direction: column-reverse
   justify-content: flex-start
   width: 100%
   overflow-y: hidden
@@ -30,7 +66,9 @@
   
   +bp($stack)
     flex-direction: row
-    justify-content: flex-end
+    justify-content: flex-start
+    grid-template-columns: 1fr 70%
+    display: grid
       
     &:after
       position: absolute
@@ -44,13 +82,14 @@
   .items
     position: relative
     width: 100%
-    left: 0
-    top: 0
+    right: 0
+    top: -20px
     
     +bp($stack)
       position: absolute
       height: 100%
-    
+      width: 70%
+      top: unset
   .item
     height: 100%
 
@@ -66,30 +105,36 @@
       height: 100%
   .resource.introduction
     +bp($stack)
-      width: 27%
+      width: 100%
       margin-left: -3px
       height: 100%
     z-index: 10
 
     .introductory-text
       height: 100%
-      padding-right: rv(3)
-      padding-bottom: rv(6)
-      padding-top: rv(2)
-      padding-bottom: 0
+      margin-right: 0
+      margin-left: 0
+      padding: rv(2)
+      padding-top: 0
       display: flex
       flex-direction: column
-      justify-content: flex-end
+      justify-content: flex-start
       align-items: flex-start
-      background-color: $white
+      background-color: $clr2
       z-index: 2
       flex: 1
       font-weight: $bold
+      border-right: $borderWidth solid $white
+      border-bottom-right-radius: $borderRadius
+      border-bottom: $borderWidth solid #fff;
+      border-left: $borderWidth solid #fff;
             
       +bp($stack)
         padding-top: rv(0)
         padding-bottom: rv(0)
         font-weight: $normal
+        boder-bottom: 0
+        border-left: 0
         
   .scroll-down
     display: none

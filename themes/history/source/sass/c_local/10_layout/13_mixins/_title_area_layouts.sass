@@ -14,11 +14,13 @@
     display: flex
     flex-direction: column
     flex: 1
-    justify-content: flex-end
-    background-color: transparent
+    justify-content: flex-start
+    background-color: $black
+    border-left: $borderWidth solid $white
+    border-right: $borderWidth solid $white
   
     
-=splash_area_title_right($desktop_width: 50%)
+=splash_area_title_right($desktop_width: 33%)
   +splash_area_title_common($desktop_width)
   
   +bp($stack)
@@ -26,10 +28,10 @@
     right: 0
   
   +bp($desktop)
-    padding: $title_area_outside_padding $title_area_outside_padding $title_area_bottom_padding $title_area_inside_padding
+    //padding: $title_area_outside_padding $title_area_outside_padding $title_area_bottom_padding $title_area_inside_padding
     
     
-=splash_area_title_left($desktop_width: 50%)
+=splash_area_title_left($desktop_width: 33%)
   +splash_area_title_common($desktop_width)
   
   +bp($stack)

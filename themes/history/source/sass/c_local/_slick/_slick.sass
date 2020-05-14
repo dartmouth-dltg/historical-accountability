@@ -46,7 +46,7 @@
 
 .slide-contents
   flex-shrink: 0 
-  padding: rv(0) 1.5rem (rv(0) + rv(0) + rv(1)) 1.5rem
+  padding: rv(2) 1.5rem 2.5rem 1.5rem
   color: $white
   border-top: 2px solid $white
 
@@ -70,6 +70,11 @@
 // !SPLASH VERSION
 
 #splash
+  
+  .slideshow-block
+    border-bottom-right-radius: 0
+    &:before
+      content: unset
 
   .slideshow-block, .slideshow-with-audio
     max-width: 100%
@@ -79,11 +84,12 @@
   .introduction
   
     .slide-contents
-      background: unset
-      position: absolute
+      // background: unset
+      // position: absolute
       z-index: 9999
-      +splash_area_title_left(70%)
-      border-top: 0
+      // +splash_area_title_left(70%)
+      border-top: 5px solid
+      background: $black
         
       h3
         text-transform: uppercase
@@ -120,79 +126,96 @@
       padding-right: $title_area_outside_padding
       
   .slide-contents
-    padding-top: rv(2)
+    // padding-top: rv(2)
     
     p
       font-size: +font-value(0)
 
 // !UI CONTROLS
+.fullscreen-label
+  text-align: left
+  font-size: font-value(-2)
+  line-height: font-value(-1)
+  position: absolute
+  left: -68px
 
 .slide-fullscreen-openBtn
   position: absolute
   top: 0
   right: 0
-  color: $clr1
-  border-radius: 100px
+  color: $white
   background: none
   border: 0px solid $clr1
-  width: 50px
+  width: 25px
   min-width: auto
-  height: 50px
-  margin: 10px
-  background: url(../../asset/img/svg/icons/full_screen_outlined.svg) no-repeat
+  height: 25px
+  margin: 20px
+  background: url(../../asset/img/svg/icons/fullscreen_white_icon.svg) no-repeat
   &:hover
-    border: 2px solid $clr1
+    border: 0px solid $clr1
     background-color: unset
+    color: $white
     
 .slide-fullscreen-closeBtn
   position: absolute
   top: 0
   right: 0
-  color: $clr1
+  color: $white
   border-radius: 100px
   background: none
-  border: 2px solid $clr1
-  width: 50px
+  border: 2px solid $white
+  width: 30px
   min-width: auto
-  height: 50px
+  height: 30px
   margin: 10px
+  padding: 0
   &:hover
-    border: 2px solid $clr1
+    border: 2px solid $white
     background: unset
+    color: $white
 
-
-
+.slideshow-block
+  border-bottom-right-radius: $borderRadius
+  &:before
+    content: ""
+    background: $black
+    height: 1.3rem
+    width: 100%
+    top: rv(0) * -1
+    display: block
+    z-index: 999
+    border-bottom: 3px solid $white
 // !Slick Controls
 
 .slick-prev
   position: absolute
-  width: rv(3)
-  height: rv(3)
+  width: rv(4)
+  height: rv(4)
   top: 40%
   transform: translateY(-50%)
   left: 20px
   z-index: 9999
   cursor: pointer
-  background: url("../../asset/img/svg/icons/left_chevron_white.svg") no-repeat
+  background: url("../../asset/img/svg/icons/left_arrow_white_active.svg") no-repeat
   &:hover
-    background: url("../../asset/img/svg/icons/left_chevron_fire.svg") no-repeat
+    background: url("../../asset/img/svg/icons/left_arrow_yellow.svg") no-repeat
 
 .slick-next
   position: absolute
-  width: rv(3)
-  height: rv(3)
+  width: rv(4)
+  height: rv(4)
   top: 40%
   transform: translateY(-50%)
-  right: -5px
+  right: 15px
   z-index: 9999
   cursor: pointer
-  background: url("../../asset/img/svg/icons/right_chevron_white.svg") no-repeat
+  background: url("../../asset/img/svg/icons/right_arrow_white_active.svg") no-repeat
   &:hover
-    background: url("../../asset/img/svg/icons/right_chevron_fire.svg") no-repeat
+    background: url("../../asset/img/svg/icons/right_arrow_yellow.svg") no-repeat
 
 .slick-dots
   position: absolute
-  text-align: center
+  text-align: right
   width: 100%
   column-count: unset
   top: initial
@@ -203,22 +226,25 @@
     
   li.slick-active
     &:before
-      color: white
+      color: $clr2
   li
     width: rv(0)
     display: inline-block
     cursor: pointer
+    margin: 0 rv(-2)
     &:before
-      content: "\2022"
+      content: " "
       color: neutral(25)
       font-size: rv(1)
       font-weight: $bold
       display: inline-block
-      width: 5px
+      width: 25px
+      height: 25px
       position: relative
-      top: 2px
+      top: -20px
       left: -18px
-      
+      border-radius: 100px
+      border: 1px solid
   button
     display:none!important
 
