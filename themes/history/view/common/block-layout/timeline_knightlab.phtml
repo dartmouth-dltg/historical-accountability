@@ -1,10 +1,24 @@
-<div id="timeline-<?php echo $blockId; ?>" style="width: 100%; height: 600px"></div>
+<?php
+/**
+ * @var \Zend\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SitePageBlockRepresentation $block
+ * @var array $data
+ */
+
+$escape = $this->plugin('escapeHtml');
+?>
+
+<?php if (!empty($data['heading'])): ?>
+<h2><?= $escape($data['heading']) ?></h2>
+<?php endif; ?>
+
+<div id="timeline-<?= $block->id() ?>" style="width: 100%; height: 600px"></div>
 
 <script>
   jQuery(document).ready(function($) {
-        var centerDate = <?php echo json_encode($data['center_date']); ?>;
+        var centerDate = <?= json_encode($data['center_date']) ?>;
         // get the location for the json data
-        var jsonTimelineUri = '<?php echo $this->url('timeline-block', ['block-id' => $blockId]); ?>';
+        var jsonTimelineUri = <?= json_encode($this->url('timeline-block', ['block-id' => $block->id()]), 320) ?>
 
         $.getJSON(jsonTimelineUri, function(data) {
           // console.log('data ', data);
@@ -49,13 +63,9 @@
             // If a pdf is attached, it does not show it or indicate it.
             // If an mp3 is attached in Files, it does not appear.
             if (data.events[i].image) {
-              timelineEntry["media"] = { 
-                "url": data.events[i].image,
-                "thumbnail": data.events[i].image,
-                "alt": data.events[i].alt
-              };
-              
+              timelineEntry["media"] = { "url": data.events[i].image };
             }
+
             // Add the slide to the events
             timelineEvents.push(timelineEntry);
           }
@@ -71,8 +81,8 @@
             "events": timelineEvents
           };
 
-          var timelineDivID = 'timeline-<?php echo $blockId; ?>';
-          var timelineOptions = <?php echo $data['viewer']; ?>;
+          var timelineDivID = 'timeline-<?= $block->id() ?>';
+          var timelineOptions = <?= $data['viewer'] ?>;
 
           // initialize the timeline instance
           window.timeline = new TL.Timeline(timelineDivID, slides, timelineOptions);
@@ -93,42 +103,43 @@
 </script>
 
 
+
 <script>
 //checks every 100ms for img element to load then finds the large size and places it as background splash for timeline
-checkInit();
+// checkInit();
 
-function checkInit() {
-  check = setInterval(checkTrigger, 100);
-}
+// function checkInit() {
+//   check = setInterval(checkTrigger, 100);
+// }
 
-function checkClear() {
-  clearInterval(check);
-}
+// function checkClear() {
+//   clearInterval(check);
+// }
 
-function checkTrigger() {
-  var firstImg =   $('.tl-slide:nth-child(2)').find("img");
-  if ( firstImg.length > 0) {
-    var imgSrc = firstImg[0].src
-    getLargeImg = imgSrc.replace("square", "large");
-    $(".tl-slide-titleslide > .tl-slide-background").css("background", "url("+ getLargeImg +") no-repeat center center / cover");
-    $(".tl-slide-titleslide > .tl-slide-background").css("z-index", "1");
-    var title = document.getElementsByTagName("title")[0].innerHTML; //get of page to insert on title slide
-    var regexp = /\·(.*?)\·/; //used to parse title, finds anything between these dots "·"
-    var parsedTitle = regexp.exec(title);
-    $(".tl-slide-titleslide .tl-slide-content").append("<span>TIMELINE</span>");
-    $(".tl-slide-titleslide .tl-slide-content").append("<h1>" + parsedTitle[1] + "</h1>");
-    checkClear();
-  }
+// function checkTrigger() {
+//   var firstImg =   $('.tl-slide:nth-child(2)').find("img");
+//   if ( firstImg.length > 0) {
+//     var imgSrc = firstImg[0].src
+//     getLargeImg = imgSrc.replace("square", "large");
+//     $(".tl-slide-titleslide > .tl-slide-background").css("background", "url("+ getLargeImg +") no-repeat center center / cover");
+//     $(".tl-slide-titleslide > .tl-slide-background").css("z-index", "1");
+//     var title = document.getElementsByTagName("title")[0].innerHTML; //get of page to insert on title slide
+//     var regexp = /\·(.*?)\·/; //used to parse title, finds anything between these dots "·"
+//     var parsedTitle = regexp.exec(title);
+//     $(".tl-slide-titleslide .tl-slide-content").append("<span>TIMELINE</span>");
+//     $(".tl-slide-titleslide .tl-slide-content").append("<h1>" + parsedTitle[1] + "</h1>");
+//     checkClear();
+//   }
   
-  if (typeof $('.tl-timemarker-media').first().attr('alt') == 'undefined') {
-    $('.tl-timemarker-media').each(function() {
-      var description = $(this).closest('.tl-timemarker-content').find('.tl-headline').text();
-      $(this).attr('alt', description + " thumbnail");
-      $(this).attr('aria-hidden','true');
-    });
-  }
-}
+//   if (typeof $('.tl-timemarker-media').first().attr('alt') == 'undefined') {
+//     $('.tl-timemarker-media').each(function() {
+//       var description = $(this).closest('.tl-timemarker-content').find('.tl-headline').text();
+//       $(this).attr('alt', description + " thumbnail");
+//       $(this).attr('aria-hidden','true');
+//     });
+//   }
+// }
 
 
 
-</script>
+// </script>

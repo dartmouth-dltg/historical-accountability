@@ -48,10 +48,12 @@ All these parameters can be customized for each timeline.
 Usage
 -----
 
-Once enabled, the module adds a new block for site pages. Simply select it and
-config it (the item pool and eventually the options).
+Once enabled, the module adds two new block for site pages. The first allows to
+create an automatic timeline, the other one an exhibit with selected items.
+Simply select one of them and config it (the item pool and eventually the
+options).
 
-### Add a Timeline Block
+### Add a Timeline Block or an Timeline Exhibit
 
 Creating a timeline is a two-step process:
 
@@ -121,9 +123,12 @@ possible and to be as specific as possible.
 
 ### Parameters of the viewer
 
-Some parameters of the viewer may be customized for each timeline. Currently,
-only the `CenterDate` and the `bandInfos` are managed for the Simile timeline.
-The default is automatically included when the field is empty.
+Some parameters of the viewer may be customized for each timeline.
+
+#### Simile timeline
+
+Currently, only the `CenterDate` and the `bandInfos` are managed for the Simile
+timeline. The default is automatically included when the field is empty.
 
 ```javascript
 {
@@ -157,6 +162,20 @@ The default is automatically included when the field is empty.
 }
 ```
 
+#### Knightlab timeline
+
+You can find all the available parameters in the [Knightlab timeline documentation].
+
+Notes:
+- When a field is not filled, the properties of the resource are used (title,
+  description, creator).
+- Date should be ISO-8601, partial ("YYYY", etc.) or full ("YYYY-MM-DDT00:00:00Z").
+  Let blank to use the date of the attachment.
+- The main display date override start and end dates in some places.
+- The resource can be an item id, a media id, or any other resource id.
+- If the resource is not set, it’s possible to use an external content,
+  generally an url, but the viewer supports some other content.
+- Events are automatically sorted.
 
 ### Modifying the block template for Timeline
 
@@ -169,6 +188,12 @@ The template file used to load the timeline is `asset/js/timeline.js`.
 You can copy it in your `themes/my_theme/asset/js` folder to customize it. The
 same for the default css. See the main [wiki], an [example of use] with Neatline
 for Omeka Classic, and the [examples] of customization on the wiki.
+
+
+TODO
+----
+
+- Integrate attachments for the exhibit and improve the form (hide all by default except resource),
 
 
 Warning
@@ -225,7 +250,7 @@ Copyright
 ### Module
 
 * Copyright The Board and Visitors of the University of Virginia, 2010–2012
-* Copyright Daniel Berthereau, 2016-2019 (see [Daniel-KM] on GitHub)
+* Copyright Daniel Berthereau, 2016-2020 (see [Daniel-KM] on GitHub)
 
 ### Translations
 
@@ -244,6 +269,7 @@ Copyright
 [wiki]: http://www.simile-widgets.org/wiki/Timeline
 [ISO 8601]: http://www.iso.org/iso/home/standards/iso8601.htm
 [Knightlab timeline]: https://timeline.knightlab.com
+[Knightlab timeline documentation]: https://timeline.knightlab.com/docs/options.html
 [example of use]: https://docs.neatline.org/working-with-the-simile-timeline-widget.html
 [examples]: http://www.simile-widgets.org/timeline/examples/index.html
 [module issues]: https://github.com/Daniel-KM/Omeka-S-module-Timeline/issues

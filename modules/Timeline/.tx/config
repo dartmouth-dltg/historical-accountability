@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[omeka-s.module-Timeline]
+file_filter = language/<lang>.po
+source_file = language/template.pot
+source_lang = en
+

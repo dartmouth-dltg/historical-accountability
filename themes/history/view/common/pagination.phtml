@@ -11,22 +11,22 @@ $translate = $this->plugin('translate');
     </form>
 
     <?php if ($currentPage != 1): ?>
-    <?php echo $this->hyperlink('', $previousPageUrl, ['class' => 'previous hu-chevron-left button', 'title' => $translate('Previous'), 'aria-label' => $translate('Previous')]); ?>
+    <?php echo $this->hyperlink('', $previousPageUrl, ['class' => 'previous explore-left button', 'title' => $translate('Previous'), 'aria-label' => $translate('Previous')]); ?>
     <?php else: ?>
     <span class="previous hu-chevron-left button inactive"></span>
     <?php endif; ?>
 
     <?php if ($currentPage < $pageCount): ?>
-    <?php echo $this->hyperlink('', $nextPageUrl, ['class' => 'next hu-chevron-right button', 'title' => $translate('Next'), 'aria-label' => $translate('Next')]); ?>
+    <?php echo $this->hyperlink('', $nextPageUrl, ['class' => 'next explore-right button', 'title' => $translate('Next'), 'aria-label' => $translate('Next')]); ?>
     <?php else: ?>
-    <span class="next hu-chevron-right button inactive"></span>
+    <span class="next explore-right button inactive"></span>
     <?php endif; ?>
 
     <?php
     $from = $offset + 1;
     $to = ($currentPage < $pageCount) ? $offset + $perPage : $totalCount;
     ?>
-    <span class="row-count"><?php echo sprintf($translate('(%s Results)'), $totalCount); ?></span>
+    <span class="row-count"><?php echo sprintf($translate('%s results'), $totalCount); ?></span>
 <?php else: ?>
     <?php echo $translate('0 results'); ?>
 <?php endif; ?>

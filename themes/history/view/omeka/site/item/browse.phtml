@@ -42,23 +42,15 @@ $sortHeadings = [
 <?php else: ?>
     <div class="explore-the-archive">
         <div>
-            <h1>Explore the Archive</h1>
-            <p>The archive is an historical repository and is not built to act in the service of ongoing projects, 
-                so it is not able to provide links to ongoing activist/scholarly work. 
+            <h1>Item Browser</h1>
+            <p>The Item Browser is a standard Omeka display pattern. It shows a list of items in a grid alongside
+             a navigational user interface. It can appear in many contexts,
+             including the standardized “Browse Items” page and as an in-page block displaying selected items.  
             </p>
-            <div class="explore-warning">
-                <img src="<?php echo $this->assetUrl('img/svg/icons/warning_red.svg'); ?>" title="Warning">
-                <div> 
-                    <h6>Warning</h6>
-                    <p>
-                        All information received will be treated in accordance 
-                        with the Freedom of Information and Protection of Privacy Act (FIPPA). 
-                    </p>
-                </div>
-            </div>
+            
         </div>
         <div id="search"><?php echo $this->partial('common/search-form'); ?></div>
-        <?php echo $this->hyperlink($translate('Use advanced search'), $this->url('site/resource', ['controller' => 'item', 'action' => 'search'], ['query' => $query], true), ['class' => 'advanced-search']); ?>
+        <?php echo $this->hyperlink($translate('Use advanced search'), $this->url('site/resource', ['controller' => 'item', 'action' => 'search'], ['query' => $query], true), ['class' => 'advanced-`search`']); ?>
         <h3>Browse Items </h3>
     </div>
 <?php endif; ?>
@@ -67,7 +59,6 @@ $sortHeadings = [
 
 <div class="browse-controls">
     <?php echo $this->pagination(); ?>
-    <?php echo $this->sortSelector($sortHeadings); ?>
 </div>
 
 <?php $this->trigger('view.browse.before'); ?>

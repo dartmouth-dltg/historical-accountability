@@ -4,6 +4,7 @@
   h3
     font-family: $headingfont
     margin-top: rv(3)
+    text-align: center
     
   img
     width: rv(5)
@@ -24,7 +25,8 @@
       font-family: $basefont
       margin-bottom: rv(-1)
       display: inline-block
-      
+
+
 #search
   margin: rv(1) 0
   width: 100%
@@ -38,7 +40,9 @@
     +bp($stack)
       flex-direction: row
       justify-content: stretch
-    
+  button[type=submit]
+      background-color: $clr1
+      border-color: $clr1  
   input[name='search']
     flex-grow: 1
     margin-bottom: rv(0)
@@ -56,83 +60,98 @@
   font-size: font-value(-1)
   text-decoration: underline
     
-.hu-chevron-left
+.explore-left
   width: rv(2)
   height: rv(2)
-  background: url("../../asset/img/svg/icons/left_chevron_fire_black.svg") no-repeat
+  background: url("../../asset/img/svg/icons/left_arrow_black.svg") no-repeat
+  float: unset
+  top: unset
   position: absolute
-  right: 50px
-  margin-left: 130px
+  left: 10px
   +bp($stack)
-    right: unset
+    float: left
+    top: 315px
+    position: relative
+    width: rv(4)
+    height: rv(4)
+    bottom: unset
 
   &:hover
-    background: url("../../asset/img/svg/icons/left_chevron_fire.svg") no-repeat
-.hu-chevron-left
+    background: url("../../asset/img/svg/icons/left_arrow_black_active.svg") no-repeat
+.explore-left
   &.inactive
     display: none
-.hu-chevron-right
+.explore-right
   width: rv(2)
   height: rv(2)
-  background: url("../../asset/img/svg/icons/right_chevron_black.svg") no-repeat
+  background: url("../../asset/img/svg/icons/right_arrow_black.svg") no-repeat
+  float: unset
+  top: unset
   position: absolute
-  margin-left: 170px
   right: 10px
   +bp($stack)
-    right: unset
-  &:hover
-    background: url("../../asset/img/svg/icons/right_chevron_fire.svg") no-repeat
-.pagination
-  text-align: left
-  margin-top: 48px
-  +bp($stack)
-    margin-top: -62px
-    text-align: right
-  .row-count
-    color: neutral(45)
+    float: right
+    top: 315px
     position: relative
-    top: -55px
-    font-size: font-value(2)
-    font-family: $headingfont
-    +bp($stack)
-      top: 45px
-      left: -11px
-    +bp($tablet)
-      top: -4px
-      left: -500px
+    width: rv(4)
+    height: rv(4)
+    bottom: unset
+  &:hover
+    background: url("../../asset/img/svg/icons/right_arrow_black_active.svg") no-repeat
 
-  form
-    position: absolute
-    margin-top: rv(-4)
-    display: inline-block
+.pagination
+    text-align: center
+    margin-top: 48px
+    font-family: $headingfont
+    font-weight: $bold
     +bp($stack)
-    input[type=text]
-      display: inline-block
-      border: unset
-      border-radius: 0
-      border-bottom: 1px solid
+      margin-top: rv(-2) *-1
       text-align: center
-      height: auto
-      min-height: auto
-      padding: 0
-      width: rv(0)
-      &:active
+    
+    .row-count, .explore-right, .explore-left
+      display: none
+
+    form
+      margin-top: rv(-4)
+      display: inline-block
+      font-weight: $normal
+      +bp($stack)
+      input[type=text]
+        display: inline-block
         border: unset
-        border-bottom: 1px solid $clr1
-        box-shadow: unset
-      &:hover
-        border: unset
-        border-bottom: 1px solid $clr1
-        box-shadow: unset
-      &:focus
-        border: unset
-        border-bottom: 1px solid $clr1
-        box-shadow: unset
+        border-radius: 0
+        text-align: center
+        font-family: $headingfont
+        font-weight: $normal
+        height: auto
+        min-height: auto
+        padding: 0
+        width: rv(0)
+        top: -1px
+        position: relative
+        &:active
+          border: unset
+          border-bottom: 1px solid $clr1
+          box-shadow: unset
+        &:hover
+          border: unset
+          border-bottom: 1px solid $clr1
+          box-shadow: unset
+        &:focus
+          border: unset
+          border-bottom: 1px solid $clr1
+          box-shadow: unset
 .browse-controls
   margin-top: 120px
   text-align: left
+  .pagination
+    .explore-right, .explore-left
+      display: inline-block
+    .row-count 
+      display: block
   form
     text-align: left
+    display: none
     &.sorting
       position: relative
       top: 0px
@@ -158,8 +177,7 @@
         display: inline-block
         min-width: auto
         width: rv(4)
-        font-size: font-value(0)
-      
+        font-size: font-value(0)      
 .resource-list
   column-count: initial
   padding-left: initial
@@ -174,19 +192,48 @@
     list-style-type: none
     text-decoration: unset
     display: block
-    height: 480px
+    left: unset
+    background: $black
+    border-bottom-right-radius: $borderRadius
     
     > a
       display: block
+      border-bottom: 3px solid $white
       +proportional_thumbnail()
-      +huronia_drop_shadow()
       
     > h4
+      margin-bottom: rv(0)
+      margin-left: rv(0)
+      margin-top: rv(0)
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      max-width: 150px
+      +bp($stack)
+        max-width: 230px
       > a
         text-decoration: underline
         font-family: $basefont
+        color: $white
+        font-size: font-value(-1)
+        
     &:before
       content: ""
+      width: 100%
+      display: block
+      height: rv(-1)
+      position: unset
+      border-bottom: 3px solid $white
+    &:after
+      content: " "
+      width: rv(1)
+      height: rv(1)
+      background: url("../../asset/img/svg/icons/fullscreen_white_icon.svg") no-repeat
+      position: absolute
+      right: rv(-3)
+      top: rv(1) 
+      background-size: rv(0)
+      background-position: center
   .description
     font-size: font-value(-1)
     line-height: font-value(-1)

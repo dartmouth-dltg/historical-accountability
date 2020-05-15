@@ -10,6 +10,8 @@ class TimelineFieldset extends Fieldset
 {
     public function init()
     {
+        // TODO Checkbox normalize date or not.
+
         $this
             ->add([
                 'name' => 'o:block[__blockIndex__][o:data][heading]',
@@ -106,7 +108,8 @@ class TimelineFieldset extends Fieldset
                 'type' => Element\Textarea::class,
                 'options' => [
                     'label' => 'Viewer', // @translate
-                    'info' => 'Set the default params of the viewer as json, or let empty for the included default. Currently, only "bandInfos" and "centerDate" are managed.', // @translate
+                    'info' => 'Set the default params of the viewer as json, or let empty for the included default.', // @translate
+                    'documentation' => 'https://github.com/daniel-km/omeka-s-module-timeline#parameters-of-the-viewer',
                 ],
                 'attributes' => [
                     'rows' => 5,
@@ -129,7 +132,7 @@ class TimelineFieldset extends Fieldset
                     'value_options' => [
                         'simile' => 'Simile (use internal assets)',
                         'simile_online' => 'Simile online (cannot be used on a https site)',
-                        'knightlab' => 'Knightlab (require an account)',
+                        'knightlab' => 'Knightlab',
                     ],
                 ],
                 'attributes' => [
