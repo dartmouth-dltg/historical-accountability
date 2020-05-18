@@ -91,7 +91,7 @@
   right: 10px
   +bp($stack)
     float: right
-    top: 315px
+    top: 420px
     position: relative
     width: rv(4)
     height: rv(4)
@@ -198,8 +198,15 @@
     
     > a
       display: block
+      background: $clr2
       border-bottom: 3px solid $white
       +proportional_thumbnail()
+      &::before
+        padding-top: 100%
+      img
+        filter: grayscale(100%)
+        &:hover
+          mix-blend-mode: luminosity
       
     > h4
       margin-bottom: rv(0)

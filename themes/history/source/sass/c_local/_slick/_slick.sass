@@ -241,10 +241,23 @@
       width: 25px
       height: 25px
       position: relative
-      top: -20px
-      left: -18px
+      top: 0px
+      left: 0px
       border-radius: 100px
       border: 1px solid
+    &:first-child
+      &:after
+        //display: none
+        width: 0
+    &:after
+      content: " "
+      display: inline-block
+      width: 22px
+      height: 22px
+      position: relative
+      top: -22px
+      left: -22px
+      background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat
   button
     display:none!important
 

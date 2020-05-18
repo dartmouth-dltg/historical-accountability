@@ -29,7 +29,8 @@ main
       background: $black
       display: block
       margin-bottom: 3px
-  
+  .card-info-wrapper
+    margin-left: rv(1)
   figure
     +proportional_thumbnail()
     border-bottom-right-radius: $borderRadius
@@ -50,18 +51,29 @@ main
   h3
     font-family: $headingfont
     margin-bottom: 0
+    margin-left: 0
+    +bp($stack)
+      margin-left: rv(1)
     
   h3 + .byline
     margin-top: rv(-3)
     
   .excerpt
-    margin: rv(0) 0
-    
+    margin: rv(-2) 0
+    margin-left: 0
+    +bp($stack)
+      margin-left: rv(1)    
   > .btn
     margin: rv(1) 0
     border-radius: 10px
     border-color: neutral(40)
     font-family: $basefont
+    margin-left: 0
+    +bp($stack)
+      margin-left: rv(1) 
+    &:hover
+      border-color: $clr4
+      color: $clr4
     
 
 .card-compact

@@ -72,7 +72,9 @@ main
     > .browse-controls
       +negative-content-margin(6)
     > .search-filters
-    +negative-content-margin(6)
+      +negative-content-margin(6)
+    > .opaque
+      +negative-content-margin(6)
     > .hu-outset-margin
       +negative-content-margin(6)
     > .explore-the-archive
@@ -128,16 +130,20 @@ main
           margin-bottom: rv(-3)
         
         &:before
-          content: "\2012"
+          content: ""
           color: $black
           font-weight: bold
           display: inline-block
           width: rv(-2)
           position: absolute
-          top: rv(0) / -4
+          top: rv(0) / 2
           left: rv(1) * -1
-          font-size: rv(0)        
-        
+          font-size: rv(0)
+          background: url("../../asset/img/svg/icons/list_line.svg") no-repeat
+          height: rv(-2)
+
+                  
+          
   blockquote
     background: $bgcolor2
     color: $clr4
