@@ -18,6 +18,10 @@
       display: block
       height: 100%
       width: 100%
+      background: $clr5
+      img
+        filter: grayscale(100%)
+        mix-blend-mode: multiply
 
     &:after
       position: absolute
@@ -29,7 +33,7 @@
       opacity: 1
       
       +bp($stack)
-        background: $ltr_dark_gradient
+       // background: $ltr_dark_gradient
       
 
   .resource

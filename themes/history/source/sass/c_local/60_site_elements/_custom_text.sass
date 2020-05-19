@@ -5,41 +5,63 @@
 
 
 
-.float-highlight
-  display: block
+  
+  
+.mark-with-text
+  background: url("../../asset/img/svg/marks/around_dark_mark.svg") no-repeat
+  width: 150px
+  height: 150px
+  margin-left: rv(1)
+  margin-left: rv(1)
+
+  float: right
   +bp($stack)
-    display: flex
-  p
-    max-width: 100%
-    +bp($stack)
-      max-width: 66%
-  blockquote
-    margin-top:0!important
-    margin-bottom: 0!important
-    background: unset
-    padding: 0!important
-    transform: unset
-    +bp($desktop)
-      margin-right: rv(4) * -1
-    &:after
+    width: 250px
+    height: 250px
+    margin-right: 10%
+    margin-left: rv(-1)
+  +bp($tablet)
+    margin-right: 20%
+    margin-left: rv(-1)
+
+
+.callout-text
+  width: 30%
+  margin-right: rv(0)
+  margin-left: rv(-1)
+  float: right
+  margin-top:0!important
+  margin-bottom: 0!important
+  background: unset
+  padding: 0!important
+  transform: unset
+  +bp($desktop)
+    width: 300px
+
+  +bp($stack)
+    margin-right: 20%
+    margin-left: rv(0)
+  &:after
+    background: url("../../asset/img/svg/icons/red_dashes.svg") no-repeat
+    background-repeat: repeat-x
+    border: 0
+    border-radius: unset
+    float: unset
+    position: unset
+    padding: 0
+    width: 100%
+    display: inline-block
+    background-position: center
+
+  &:before
+      content: " "
       background: url("../../asset/img/svg/icons/red_dashes.svg") no-repeat
       background-repeat: repeat-x
-      border: 0
-      border-radius: unset
-      float: unset
-      position: unset
       padding: 0
       width: 100%
+      height: 1rem
       display: inline-block
       background-position: center
 
-    &:before
-        content: " "
-        background: url("../../asset/img/svg/icons/red_dashes.svg") no-repeat
-        background-repeat: repeat-x
-        padding: 0
-        width: 100%
-        height: 1rem
-        display: inline-block
-        background-position: center
+
       
