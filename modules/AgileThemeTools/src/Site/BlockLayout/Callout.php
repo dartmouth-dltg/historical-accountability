@@ -1,8 +1,6 @@
 <?php
 namespace AgileThemeTools\Site\BlockLayout;
 
-use AgileThemeTools\Form\Element\PosterSchemeSelect;
-use AgileThemeTools\Form\Element\PosterTextTreatmentSelect;
 use Omeka\Site\BlockLayout\AbstractBlockLayout;
 use Omeka\Api\Representation\SiteRepresentation;
 use Omeka\Api\Representation\SitePageRepresentation;
@@ -17,7 +15,7 @@ use Omeka\Stdlib\ErrorStore;
 use Omeka\Entity\SitePageBlock;
 
 
-class Poster extends AbstractBlockLayout
+class Callout extends AbstractBlockLayout
 {
     /**
      * @var HtmlPurifier
@@ -31,7 +29,7 @@ class Poster extends AbstractBlockLayout
 
     public function getLabel()
     {
-        return 'Poster'; // @translate
+        return 'Callout'; // @translate
     }
 
     public function __construct(HtmlPurifier $htmlPurifier, FormElementManager $formElementManager)
@@ -55,31 +53,32 @@ class Poster extends AbstractBlockLayout
     ) {
 
         $region = new RegionMenuSelect();
-        $scheme = new PosterSchemeSelect();
-        $textTreatment = new PosterTextTreatmentSelect();
-
+        
 
         $textarea = new Textarea("o:block[__blockIndex__][o:data][html]");
         $textarea->setAttribute('class', 'block-html full wysiwyg');
         $textarea->setAttribute('rows',20);
 
+        $callout = new Textarea("o:block[__blockIndex__][o:data][callout]");
+        $callout->setAttribute('class', 'block-html full wysiwyg');
+        $callout->setAttribute('rows',20);
+
 
         if ($block) {
-            print_r($block->dataValue('scheme'));
-            $scheme->setAttribute('value', $block->dataValue('scheme'));
-            $scheme->setAttribute('value', $block->dataValue('treatment'));
             $region->setAttribute('value', $block->dataValue('region'));
             $textarea->setAttribute('value', $block->dataValue('html'));
+            $callout->setAttribute('value', $block->dataValue('callout'));
         }
 
 
         $html = '';
+        $html .= '<h4>Main Text</h4>';
         $html .= $view->formRow($textarea);
+        $html .= '<h4>Callout Text</h4>';
+        $html .= $view->formRow($callout);
         $html .= $view->blockAttachmentsForm($block);
         $html .= '<a href="#" class="collapse" aria-label="collapse"><h4>' . $view->translate('Options'). '</h4></a>';
         $html .= '<div class="collapsible">';
-        $html .= $view->formRow($scheme);
-        $html .= $view->formRow($textTreatment);
         $html .= $view->formRow($region);
         $html .= '</div>';
         return $html;
@@ -90,6 +89,7 @@ class Poster extends AbstractBlockLayout
         $view->headScript()->appendFile($view->assetUrl('js/regional_html_handler.js', 'BlockOptions'));
     }
 
+
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
         $attachments = $block->attachments();
@@ -99,20 +99,16 @@ class Poster extends AbstractBlockLayout
 
         $data = $block->data();
         list($scope,$region) = explode(':',$data['region']);
-        list($schemeScope,$scheme) = explode(':',$data['scheme']);
-        list($treatmentScope,$textTreatment) = explode(':',$data['treatment']);
-
         $thumbnailType = $region == 'splash' ? 'splash' : 'large'; // Note “splash” is a custom image size and needs to be configured in config/local.config.php
 
-        return $view->partial('common/block-layout/poster', [
+        return $view->partial('common/block-layout/callout', [
             'block' => $block,
             'attachment' => $attachments[0],
             'html' => $data['html'],
             'thumbnailType' => $thumbnailType,
             'regionClass' => 'region-' . $region,
-            'colourScheme' => 'colour-' .  $scheme,
-            'textTreatment' => 'text-' . $textTreatment,
             'targetID' => '#' . $region
+
         ]);
     }
 }

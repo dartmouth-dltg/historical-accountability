@@ -9,7 +9,7 @@
 
     $caption = $attachment->caption();
 ?>
-<div id="block-<?php echo $this->blockId; ?>" class="poster region <?php echo $this->thumbnailType; ?> <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
+<div id="block-<?php echo $this->blockId; ?>" class="poster region <?php echo $this->thumbnailType; ?> <?php echo $this->regionClass; ?> <?php echo $this->colourScheme; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
     <div class="poster-text">
         <?php echo $this->html; ?>
     </div>
