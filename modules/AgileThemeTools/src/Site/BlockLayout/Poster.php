@@ -65,9 +65,8 @@ class Poster extends AbstractBlockLayout
 
 
         if ($block) {
-            print_r($block->dataValue('scheme'));
             $scheme->setAttribute('value', $block->dataValue('scheme'));
-            $scheme->setAttribute('value', $block->dataValue('treatment'));
+            $textTreatment->setAttribute('value', $block->dataValue('treatment'));
             $region->setAttribute('value', $block->dataValue('region'));
             $textarea->setAttribute('value', $block->dataValue('html'));
         }
@@ -93,9 +92,6 @@ class Poster extends AbstractBlockLayout
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
         $attachments = $block->attachments();
-        if (!$attachments) {
-            return '';
-        }
 
         $data = $block->data();
         list($scope,$region) = explode(':',$data['region']);
@@ -106,7 +102,7 @@ class Poster extends AbstractBlockLayout
 
         return $view->partial('common/block-layout/poster', [
             'block' => $block,
-            'attachment' => $attachments[0],
+            'attachment' => $attachments ? $attachments[0] : false,
             'html' => $data['html'],
             'thumbnailType' => $thumbnailType,
             'regionClass' => 'region-' . $region,

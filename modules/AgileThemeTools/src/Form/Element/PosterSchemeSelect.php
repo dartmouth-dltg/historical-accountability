@@ -10,15 +10,15 @@ class PosterSchemeSelect extends Select {
     {
         parent::__construct($name, $options);
         $this->setLabel('Colour Scheme');
-        $this->setValueOptions(count($options) > 0 ? $options: $this->getSchemeValueOptiopns());
+        $this->setValueOptions(count($options) > 0 ? $options: $this->getSchemeValueOptions());
     }
 
-    public function getSchemeValueOptiopns() {
+    public function getSchemeValueOptions() {
         return([
-            'scheme:scheme1' => 'Colour Scheme 1',
-            'scheme:scheme2' => 'Colour Scheme 2',
-            'scheme:scheme3' => 'Colour Scheme 3',
-            'scheme:scheme4' => 'Colour Scheme 4'
+            'scheme:scheme-1' => 'Colour Scheme 1',
+            'scheme:scheme-2' => 'Colour Scheme 2',
+            'scheme:scheme-3' => 'Colour Scheme 3',
+            'scheme:scheme-4' => 'Colour Scheme 4'
         ]);
     }
 }

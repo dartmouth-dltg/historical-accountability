@@ -76,7 +76,6 @@ class Callout extends AbstractBlockLayout
         $html .= $view->formRow($textarea);
         $html .= '<h4>Callout Text</h4>';
         $html .= $view->formRow($callout);
-        $html .= $view->blockAttachmentsForm($block);
         $html .= '<a href="#" class="collapse" aria-label="collapse"><h4>' . $view->translate('Options'). '</h4></a>';
         $html .= '<div class="collapsible">';
         $html .= $view->formRow($region);
@@ -92,10 +91,6 @@ class Callout extends AbstractBlockLayout
 
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
-        $attachments = $block->attachments();
-        if (!$attachments) {
-            return '';
-        }
 
         $data = $block->data();
         list($scope,$region) = explode(':',$data['region']);
@@ -103,8 +98,8 @@ class Callout extends AbstractBlockLayout
 
         return $view->partial('common/block-layout/callout', [
             'block' => $block,
-            'attachment' => $attachments[0],
             'html' => $data['html'],
+            'callout' => $data['callout'],
             'thumbnailType' => $thumbnailType,
             'regionClass' => 'region-' . $region,
             'targetID' => '#' . $region

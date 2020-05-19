@@ -10,13 +10,13 @@ class PosterTextTreatmentSelect extends Select {
     {
         parent::__construct($name, $options);
         $this->setLabel('Text Treatment');
-        $this->setValueOptions(count($options) > 0 ? $options: $this->getTextgValueOptions());
+        $this->setValueOptions(count($options) > 0 ? $options: $this->getTextValueOptions());
     }
 
-    public function getTextgValueOptions() {
+    public function getTextValueOptions() {
         return([
-            'treatment:treatment1' => 'Large Text',
-            'treatment:text-treatment2' => 'Mid-size Text'
+            'treatment:treatment-1' => 'Large Text',
+            'treatment:treatment-2' => 'Mid-size Text'
         ]);
     }
 }
