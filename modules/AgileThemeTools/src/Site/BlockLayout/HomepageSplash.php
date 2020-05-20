@@ -106,7 +106,8 @@ class HomepageSplash extends AbstractBlockLayout
         $data = $block->data();
         $showTitleOption = $block->dataValue('show_title_option', 'item_title');
         list($scope,$region) = explode(':',$data['region']);
-        $thumbnailType = $region == 'splash' ? 'splash' : 'large'; // Note “splash” is a custom image size and needs to be configured in config/local.config.php
+        // $thumbnailType = $region == 'splash' ? 'splash' : 'large'; // Note “splash” is a custom image size and needs to be configured in config/local.config.php
+        $thumbnailType = 'large';
 
         return $view->partial('common/block-layout/homepage-splash', [
             'block' => $block,
