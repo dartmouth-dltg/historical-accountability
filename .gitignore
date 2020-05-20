@@ -1,4 +1,4 @@
 .DS_Store
 /.idea
 /config/database.ini
-/files
+/files/*
