@@ -16,6 +16,7 @@
               'slideshow' => Service\BlockLayout\SlideshowFactory::class,
               'poster' => Service\BlockLayout\PosterFactory::class,
               'callout' => Service\BlockLayout\CalloutFactory::class,
+              'deck' => Service\BlockLayout\DeckFactory::class,
               'sectionPageListing' => Service\BlockLayout\SectionPageListingFactory::class,
               'homepageSplash' => Service\BlockLayout\HomepageSplashFactory::class,
               'sectionIntroSplash' => Service\BlockLayout\SectionIntroSplashFactory::class,
