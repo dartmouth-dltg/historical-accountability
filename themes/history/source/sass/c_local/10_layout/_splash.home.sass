@@ -1,4 +1,23 @@
 #homepage-splash
+  .introductory-text
+    &::after
+      content: " "
+      background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat
+      width: 6rem
+      height: 6rem
+      display: flex
+      position: absolute
+      bottom: 275px
+      align-self: flex-end
+      margin-left: 15px
+      +bp($stack)
+        background: url("../../asset/img/svg/marks/icon_trans_darK_mark.svg") no-repeat
+        width: 7rem
+        height: 7rem
+        bottom: 30px
+        margin-left: 70px 
+
+        
   .slick-prev-splash
     position: absolute
     width: rv(5)
