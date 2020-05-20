@@ -585,6 +585,12 @@ main > div > .search-filters { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 46.25em) { main > div > .search-filters { max-width: calc(700px + (8.42797rem * 2) - 3rem); } }
 
+main > div > .poster { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > .poster { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div > .poster { max-width: calc(700px + (14.98305rem * 2) - 3rem); } }
+
 main > div > .opaque { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 46.25em) { main > div > .opaque { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
@@ -1986,14 +1992,14 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 46.25em) { #block-42 { max-width: calc(700px + (11.23729rem * 2) - 3rem); } }
 
-/** @file _line_break.sass @category 60_site_elements @description Hides excerpts in main content */
+/** @file _line_break.sass @category 60_site_elements @description addes a divider in content */
 .break { height: 2.0rem; }
 
 .break.opaque { width: 100%; background: url("../../asset/img/svg/icons/dashes.svg"); background-size: 315px; background-repeat-y: no-repeat; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
 
 .break.white { width: 100%; background: url("../../asset/img/svg/icons/two_dashes.svg"); background-size: 2.0rem; background-repeat-y: no-repeat; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
 
-/** @file _custom_text.sass @category 60_site_elements @description Hides excerpts in main content */
+/** @file _custom_text.sass @category 60_site_elements @description For custom text elements in design */
 .mark-with-text { background: url("../../asset/img/svg/marks/around_dark_mark.svg") no-repeat; width: 150px; height: 150px; margin-left: 2.0rem; margin-left: 2.0rem; float: right; }
 
 @media only screen and (min-width: 46.25em) { .mark-with-text { width: 250px; height: 250px; margin-right: 10%; margin-left: 1.125rem; } }
@@ -2015,6 +2021,57 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 .callout-text p { font-size: 0.9rem; }
 
 @media only screen and (min-width: 46.25em) { .callout-text p { font-size: 1.2rem; } }
+
+/** @file _poster.sass @category 60_site_elements @description Styling for poster block */
+.poster { height: 34rem; }
+
+@media only screen and (min-width: 46.25em) { .poster { height: 28rem; } }
+
+.poster.colour-scheme-1 { background: #D84F37; border-top-right-radius: 1.125rem; }
+
+.poster.colour-scheme-1::after { content: " "; width: 6.32098rem; height: 6.32098rem; background: url("../../asset/img/svg/marks/icon_trans_yellow_mark.svg") no-repeat; float: right; margin-top: -8.42797rem; filter: grayscale(0); margin-right: 2.0rem; }
+
+.poster.colour-scheme-1 .poster-text { color: #F2E55B; }
+
+.poster.colour-scheme-2 { background: #63BDD5; border-top-right-radius: 1.125rem; }
+
+.poster.colour-scheme-2::after { content: " "; width: 6.32098rem; height: 6.32098rem; background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat; float: right; margin-top: -8.42797rem; filter: grayscale(0); margin-right: 2.0rem; }
+
+.poster.colour-scheme-2 .poster-text { color: #FFFFFF; }
+
+.poster.colour-scheme-3 { background: #74AF9D; border-top-right-radius: 1.125rem; }
+
+.poster.colour-scheme-3::after { content: " "; width: 6.32098rem; height: 6.32098rem; background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat; float: right; margin-top: -8.42797rem; filter: grayscale(0); margin-right: 2.0rem; }
+
+.poster.colour-scheme-3 .poster-text { color: #FFFFFF; }
+
+.poster.colour-scheme-4 { background: #74AF9D; border-top-right-radius: 1.125rem; }
+
+.poster.colour-scheme-4::after { content: " "; width: 6.32098rem; height: 6.32098rem; background: url("../../asset/img/svg/marks/icon_trans_yellow_mark.svg") no-repeat; float: right; margin-top: -8.42797rem; filter: grayscale(0); margin-right: 2.0rem; }
+
+.poster.colour-scheme-4 .poster-text { color: #F2E55B; }
+
+.poster.text-treatment-1 .poster-text p { padding: 3.55555rem; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 900; font-size: 1.6rem; padding-right: 3.55555rem; line-height: 2.13333rem; }
+
+@media only screen and (min-width: 56.25em) { .poster.text-treatment-1 .poster-text p { font-size: 2.13333rem; line-height: 2.84444rem; padding: 4.74074rem; padding-right: 6.32098rem; } }
+
+@media only screen and (min-width: 75em) { .poster.text-treatment-1 .poster-text p { font-size: 2.84444rem; line-height: 3.79259rem; padding: 6.32098rem; padding-right: 8.42797rem; } }
+
+.poster .poster-text p { padding: 3.55555rem; font-family: "SentinelBook", Monaco, Courier New, monospace; font-weight: 900; font-size: 1.2rem; padding-right: 3.55555rem; line-height: 1.6rem; }
+
+@media only screen and (min-width: 56.25em) { .poster .poster-text p { font-size: 1.6rem; line-height: 2.13333rem; padding: 4.74074rem; padding-right: 6.32098rem; } }
+
+@media only screen and (min-width: 75em) { .poster .poster-text p { font-size: 2.13333rem; line-height: 2.84444rem; padding: 6.32098rem; padding-right: 8.42797rem; } }
+
+.poster .image-background { height: 100%; }
+
+.poster .image-background figure { height: 100%; }
+
+.poster img { border-top-right-radius: 1.125rem; filter: grayscale(100%); mix-blend-mode: multiply; object-fit: cover; height: 100%; }
+
+.poster .poster-text { position: relative; z-index: 1; }
+
+.poster .poster-text p { position: absolute; }
 
 /* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
 @media only screen and (min-width: 46.25em) { body.profiles .section-intro-splash figure { background-image: url(../img/png/splash/profiles_splash_desktop.png); background-repeat: no-repeat; background-size: cover; width: 50%; background-position: center center; }
