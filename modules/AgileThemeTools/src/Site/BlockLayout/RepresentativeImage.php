@@ -45,7 +45,7 @@ class RepresentativeImage extends AbstractBlockLayout
         }
 
 
-        $html = '';
+        $html = '<p>A representative Image is used as a thumbnail when this content is linked elsewhere on the site. It does <strong>not</strong> appear on the primary page.';
         $html .= $view->blockAttachmentsForm($block);
         $html .= '<a href="#" class="collapse" aria-label="collapse"><h4>' . $view->translate('Options'). '</h4></a>';
         $html .= '<div class="collapsible">';
