@@ -641,11 +641,13 @@ main > div > ul li h5, main > div .item-list > ul li h5 { font-family: "BentonSa
 
 main > div > ul li:before, main > div .item-list > ul li:before { content: ""; color: #1D2C27; font-weight: bold; display: inline-block; width: 0.84375rem; position: absolute; top: 0.75rem; left: -2.0rem; font-size: 1.5rem; background: url("../../asset/img/svg/icons/list_line.svg") no-repeat; height: 0.84375rem; }
 
+main .media-render a img { filter: grayscale(100%); }
+
 main blockquote { background: #FCFADE; color: #D84F37; padding: 2.0rem 3.55555rem !important; font-family: "SentinelBook", Monaco, Courier New, monospace; padding-bottom: 4.74074rem !important; margin-top: 4.74074rem !important; margin-bottom: 4.74074rem !important; transform: rotate(-1deg); -ms-transform: rotate(-1deg); text-align: left; border-spacing: 0; padding: 0.35596rem; font-size: 0.9rem; }
 
-main blockquote:after { content: " "; width: 2.0rem; height: 2.0rem; background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat; position: absolute; right: 1.125rem; bottom: -1.125rem; border: 1px solid; padding: 1.125rem; background-size: 1.5rem; background-position: center; border-radius: 100%; }
+main blockquote:after { content: " "; width: 2.0rem; height: 2.0rem; background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat; position: absolute; right: 1.125rem; top: -1.125rem; border: 1px solid; padding: 1.125rem; background-size: 1.5rem; background-position: center; border-radius: 100%; }
 
-@media only screen and (min-width: 46.25em) { main blockquote:after { content: " "; width: 2.0rem; height: 2.0rem; background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat; padding: 2.0rem; background-size: 2.66667rem; position: relative; float: right; border-radius: 100%; background-position: center; border: 1px solid; } }
+@media only screen and (min-width: 46.25em) { main blockquote:after { content: " "; width: 2.0rem; height: 2.0rem; background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat; padding: 2.0rem; background-size: 2.66667rem; position: relative; float: right; border-radius: 100%; background-position: center; border: 1px solid; top: unset; } }
 
 main blockquote pre { font-family: "SentinelBook", Monaco, Courier New, monospace; background: url("../../asset/img/svg/icons/dashes.svg") no-repeat; display: inline-block; padding-top: 0.63281rem; float: left; }
 
@@ -1542,7 +1544,7 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .tl-slide .tl-slide-content-container .tl-slide-content { display: flex !important; flex-direction: row; height: 100%; }
 
-.tl-media .tl-media-content-container .tl-media-content img { max-width: 75%; border: 4px solid #FFFFFF; border-bottom-right-radius: 1.125rem; border-bottom-left-radius: 1.125rem; filter: grayscale(100%); }
+.tl-media .tl-media-content-container .tl-media-content img { max-width: 75%; border: 4px solid #FFFFFF; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; filter: grayscale(100%); }
 
 .tl-slide .tl-slide-content-container .tl-slide-content .tl-media { margin-top: 0; justify-content: center; align-items: center; display: flex !important; }
 
@@ -1552,7 +1554,9 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .tl-text-content-container h2.tl-headline { font-size: 2.66667rem; }
 
-.tl-slide-content .tl-media .tl-media-content-container { width: 80%; }
+.tl-slide-content .tl-media .tl-media-content-container { width: 200px; }
+
+@media only screen and (min-width: 46.25em) { .tl-slide-content .tl-media .tl-media-content-container { width: 300px; } }
 
 /* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
 html { font-family: "BentonSansBook", sans-serif; font-size: 100%; color: #1D2C27; }
@@ -1768,9 +1772,31 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 main > div > .excerpt { display: none; }
 
 /** @file _feature_tiers.sass @category 60_site_elements @theme LOCAL @description Styles the background for homepage feature tiers. */
-#feature-tier-1 { background-repeat: no-repeat; background-image: url("../img/jpg/backgrounds/bg-feature-exhibits-50.jpg"); background-size: cover; }
+#feature-tier-1 { background: #B9D7CE; display: grid; grid-template-columns: unset; }
 
-#feature-tier-3 { background-repeat: no-repeat; background-image: url("../img/jpg/backgrounds/bg-feature-collections-50.jpg"); background-size: cover; }
+@media only screen and (min-width: 46.25em) { #feature-tier-1 { grid-template-columns: 60% 40%; } }
+
+#feature-tier-1 .region-feature-tier-1 { border-right: 10px solid #FFFFFF; border-left: 10px solid #FFFFFF; border-bottom-right-radius: 1.125rem; border-bottom: 10px solid #FFFFFF; padding: 2.66667rem; }
+
+@media only screen and (min-width: 46.25em) { #feature-tier-1 .region-feature-tier-1 { border-left: unset; } }
+
+#feature-tier-1 .region-feature-tier-1::after { content: " "; width: 8.42797rem; height: 8.42797rem; background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat; display: block; margin-top: -4.74074rem; float: right; }
+
+@media only screen and (min-width: 46.25em) { #feature-tier-1 .region-feature-tier-1::after { background: url("../../asset/img/svg/marks/green_outline_mark.svg") no-repeat; width: 11.23729rem; height: 11.23729rem; float: unset; margin-top: 8.42797rem; } }
+
+#feature-tier-1 .region-feature-tier-1 a { color: #FFFFFF; background: #1D2C27; padding: 0.84375rem 1.5rem; text-decoration: unset; border-radius: 0.63281rem; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; display: none; }
+
+@media only screen and (min-width: 46.25em) { #feature-tier-1 .region-feature-tier-1 a { display: inline-block; } }
+
+#feature-tier-2 { background: #F2E55B; text-align: center; }
+
+#feature-tier-2 .region-feature-tier-2 { padding: 2.0rem; }
+
+@media only screen and (min-width: 46.25em) { #feature-tier-2 .region-feature-tier-2 { padding: 2.0rem 11.23729rem; } }
+
+#feature-tier-2 .region-feature-tier-2::before { content: " "; width: 3.55555rem; height: 3.55555rem; background: url("../../asset/img/svg/marks/icon_black_mark.svg") no-repeat; display: block; margin: 0 auto; margin-top: 2.0rem; }
+
+#feature-tier-2 .region-feature-tier-2 a { color: #FFFFFF; background: #1D2C27; padding: 0.84375rem 1.5rem; text-decoration: unset; border-radius: 0.63281rem; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; }
 
 /** @file _homepage_featured_collections.sass @category 60_site_elements @theme LOCAL @description Styles the homepage featured collections block. */
 #homepage-featured-collections { padding-left: 0; padding-right: 0; padding: 2.0rem 1.5rem; display: grid; grid-template-columns: 1fr; grid-row-gap: 2.66667rem; }
@@ -1970,15 +1996,21 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 56.25em) { .mark-with-text { margin-right: 20%; margin-left: 1.125rem; } }
 
-.callout-text { width: 30%; margin-right: 1.5rem; margin-left: 1.125rem; float: right; margin-top: 0 !important; margin-bottom: 0 !important; background: unset; padding: 0 !important; transform: unset; }
+.callout-text { width: 30%; margin-right: 1.5rem; margin-left: 1.125rem; float: right; color: #D84F37; font-family: "SentinelBook", Monaco, Courier New, monospace; }
+
+@media only screen and (min-width: 46.25em) { .callout-text { margin-left: 1.5rem; } }
 
 @media only screen and (min-width: 75em) { .callout-text { width: 300px; } }
 
-@media only screen and (min-width: 46.25em) { .callout-text { margin-right: 20%; margin-left: 1.5rem; } }
+@media only screen and (min-width: 56.25em) { .callout-text { margin-right: -10%; } }
 
-.callout-text:after { background: url("../../asset/img/svg/icons/red_dashes.svg") no-repeat; background-repeat: repeat-x; border: 0; border-radius: unset; float: unset; position: unset; padding: 0; width: 100%; display: inline-block; background-position: center; }
+.callout-text:after { background: url("../../asset/img/svg/icons/red_dashes.svg") no-repeat; background-repeat: repeat-x; padding: 0; width: 100%; display: inline-block; background-position: center; content: " "; height: 1rem; }
 
 .callout-text:before { content: " "; background: url("../../asset/img/svg/icons/red_dashes.svg") no-repeat; background-repeat: repeat-x; padding: 0; width: 100%; height: 1rem; display: inline-block; background-position: center; }
+
+.callout-text p { font-size: 0.9rem; }
+
+@media only screen and (min-width: 46.25em) { .callout-text p { font-size: 1.2rem; } }
 
 /* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
 @media only screen and (min-width: 46.25em) { body.profiles .section-intro-splash figure { background-image: url(../img/png/splash/profiles_splash_desktop.png); background-repeat: no-repeat; background-size: cover; width: 50%; background-position: center center; }

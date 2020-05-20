@@ -30,28 +30,26 @@
   margin-right: rv(0)
   margin-left: rv(-1)
   float: right
-  margin-top:0!important
-  margin-bottom: 0!important
-  background: unset
-  padding: 0!important
-  transform: unset
-  +bp($desktop)
-    width: 300px
+  color: $clr4
+  font-family: $codefont
 
   +bp($stack)
-    margin-right: 20%
     margin-left: rv(0)
+
+  +bp($desktop)
+    width: 300px
+  +bp($tablet)
+    margin-right: -10%
+
   &:after
     background: url("../../asset/img/svg/icons/red_dashes.svg") no-repeat
     background-repeat: repeat-x
-    border: 0
-    border-radius: unset
-    float: unset
-    position: unset
     padding: 0
     width: 100%
     display: inline-block
     background-position: center
+    content: " "
+    height: 1rem
 
   &:before
       content: " "
@@ -62,6 +60,10 @@
       height: 1rem
       display: inline-block
       background-position: center
+  p
+    font-size: font-value(-1)
+    +bp($stack)
+      font-size: font-value(-0)
 
 
       

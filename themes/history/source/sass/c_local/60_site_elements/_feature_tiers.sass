@@ -5,11 +5,67 @@
  *  @description Styles the background for homepage feature tiers. */
 
 #feature-tier-1
-  background-repeat: no-repeat
-  background-image: url('../img/jpg/backgrounds/bg-feature-exhibits-50.jpg')
-  background-size: cover
+  background: #B9D7CE
+  display: grid
+  grid-template-columns: unset
+  +bp($stack)
+    grid-template-columns: 60% 40%
+  .region-feature-tier-1
+    border-right: 10px solid $white
+    border-left: 10px solid $white
+    border-bottom-right-radius: $borderRadius
+    border-bottom: 10px solid $white
+    +bp($stack)
+      border-left: unset
+    &::after
+      content: " "
+      width: rv(6)
+      height: rv(6)
+      background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat
+      display: block
+      margin-top: rv(4) * -1
+      float: right
+      +bp($stack)
+        background: url("../../asset/img/svg/marks/green_outline_mark.svg") no-repeat
+        width: rv(7)
+        height: rv(7)
+        float: unset
+        margin-top: rv(6)
+
+    padding: rv(2)
+    a
+      color: $white
+      background: $black
+      padding: rv(-2) rv(0)
+      text-decoration: unset
+      border-radius: $buttonRadius
+      font-family: $headingfont
+      font-weight: $bold
+      display: none
+      +bp($stack)
+        display: inline-block 
+#feature-tier-2
+  background: $clr2
+  text-align: center
+  .region-feature-tier-2
+    padding: rv(1)
+    +bp($stack)
+      padding: rv(1) rv(7)
+    &::before
+      content: " "
+      width: rv(3)
+      height: rv(3)
+      background: url("../../asset/img/svg/marks/icon_black_mark.svg") no-repeat
+      display: block
+      margin: 0 auto
+      margin-top: rv(1)
   
-#feature-tier-3
-  background-repeat: no-repeat
-  background-image: url('../img/jpg/backgrounds/bg-feature-collections-50.jpg')
-  background-size: cover
+    a
+      color: $white
+      background: $black
+      padding: rv(-2) rv(0)
+      text-decoration: unset
+      border-radius: $buttonRadius
+      font-family: $headingfont
+      font-weight: $bold
+      

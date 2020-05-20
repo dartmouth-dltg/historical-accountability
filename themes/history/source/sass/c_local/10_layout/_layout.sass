@@ -143,7 +143,10 @@ main
           height: rv(-2)
 
                   
-          
+  .media-render
+    a
+      img
+        filter: grayscale(100%)        
   blockquote
     background: $bgcolor2
     color: $clr4
@@ -160,7 +163,7 @@ main
       background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat
       position: absolute
       right: rv(-1)
-      bottom: rv(-1) * -1
+      top: rv(-1) * -1
       border: 1px solid
       padding: rv(-1)
       background-size: rv(0)
@@ -178,6 +181,7 @@ main
         border-radius: 100%
         background-position: center
         border: 1px solid
+        top: unset
 
 
 
