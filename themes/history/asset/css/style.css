@@ -748,9 +748,9 @@ body > footer { border-top-right-radius: 1.125rem; color: #FFFFFF; background-co
 
 body > footer div { margin: auto; }
 
-@media only screen and (min-width: 46.25em) { body > footer div { grid-column: auto; } }
+@media only screen and (min-width: 46.25em) { body > footer div { grid-column: auto; margin-top: 0; } }
 
-body > footer .footer--text p { margin-top: 1.125rem; padding: 0; }
+body > footer .footer--text p { margin-top: 1.125rem; padding: 0; margin-top: 0; }
 
 @media only screen and (min-width: 46.25em) { body > footer .footer--text p { padding: 0; } }
 
@@ -772,7 +772,9 @@ body > footer nav { grid-column: 2 /2; width: 100%; grid-template-columns: unset
 
 @media only screen and (min-width: 46.25em) { body > footer nav { grid-column: 3/ 3; grid-template-columns: 1fr 1fr 1fr; } }
 
-body > footer nav ul { padding-left: 0; line-height: 2.13333rem; }
+body > footer nav ul { padding-left: 0; line-height: 2.13333rem; margin-top: unset; }
+
+@media only screen and (min-width: 46.25em) { body > footer nav ul { margin-top: 0; } }
 
 body > footer nav ul li { list-style-type: none; }
 
