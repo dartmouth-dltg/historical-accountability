@@ -1,4 +1,6 @@
 <?php
+    $style = '';
+
     if ($attachment !== false) {
         $item = $attachment->item();
 
@@ -6,6 +8,10 @@
 
         if ($item) {
             $media = $attachment->media() ?: $item->primaryMedia();
+
+            if($media) {
+                $styleAttr = 'style="background-image: url(' . $media->thumbnailUrl('large') . ')"';
+            }
         }
 
         $caption = $attachment->caption();
@@ -18,14 +24,7 @@
         <?php echo $this->html; ?>
     </div>
     <?php if ($attachment !== false && $media): ?>
-        <div class="image-background item resource">
-                <figure>
-                    <?php if (isset($this->block->page_title) && isset($this->block->page_url)): ?>
-                      <?php printf('<a href="%s" title="Visit %s’s Profile">%s</a>',$this->block->page_url, $this->block->page_title, $this->thumbnail($media,$thumbnailType));  ?>
-                    <?php else: ?>
-                      <?php echo $item->linkRaw($this->thumbnail($media,$thumbnailType)); ?>
-                    <?php endif; ?>
-                </figure>
+        <div class="image-background item resource" <?php echo $styleAttr; ?>>
         </div>
     <?php endif; ?>
 
