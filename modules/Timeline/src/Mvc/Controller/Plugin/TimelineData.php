@@ -90,6 +90,13 @@ class TimelineData extends AbstractPlugin
                     $event['image'] = $mediaUrl;
                 }
                 $event['description'] = $itemDescription;
+                
+                if ($media) {
+                  $item = $media->item();
+                  $alt = $item->value('dcterms:description');
+                  $event['alt'] = !empty($alt) ? htmlspecialchars(strip_tags($alt)) : $media->displayTitle();
+                }
+                
                 $events[] = $event;
             }
         }
