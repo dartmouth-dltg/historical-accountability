@@ -1402,7 +1402,7 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .slideshow .item img { height: 100%; object-fit: cover; }
 
-.slide-contents { flex-shrink: 0; padding: 2.66667rem 1.5rem 2.5rem 1.5rem; color: #FFFFFF; border-top: 2px solid #FFFFFF; }
+.slide-contents { flex-shrink: 0; padding: 2.66667rem 1.5rem 2.5rem 1.5rem; color: #FFFFFF; border-top: 6px solid #FFFFFF; }
 
 .slide-contents h3 { color: #FFFFFF; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; margin: 0 0 0.84375rem 0; font-size: 0.9rem; }
 
@@ -1436,6 +1436,10 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 #splash .slide-contents p { font-size: 1.2rem; }
 
+.slick-slide.introduction > figure { background: #74AF9D; }
+
+.slick-slide.introduction > figure img { mix-blend-mode: multiply; filter: grayscale(100%); }
+
 .fullscreen-label { text-align: left; font-size: 0.675rem; line-height: 0.9rem; position: absolute; left: -68px; }
 
 .slide-fullscreen-openBtn { position: absolute; top: 0; right: 0; color: #FFFFFF; background: none; border: 0px solid #74AF9D; width: 25px; min-width: auto; height: 25px; margin: 20px; background: url(../../asset/img/svg/icons/fullscreen_white_icon.svg) no-repeat; }
@@ -1448,7 +1452,7 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .slideshow-block { border-bottom-right-radius: 1.125rem; }
 
-.slideshow-block:before { content: ""; background: #1D2C27; height: 1.3rem; width: 100%; top: -1.5rem; display: block; z-index: 999; border-bottom: 3px solid #FFFFFF; }
+.slideshow-block:before { content: ""; background: #1D2C27; height: 1.3rem; width: 100%; top: -1.5rem; display: block; z-index: 999; border-bottom: 6px solid #FFFFFF; }
 
 .slick-prev { position: absolute; width: 4.74074rem; height: 4.74074rem; top: 40%; transform: translateY(-50%); left: 20px; z-index: 9999; cursor: pointer; background: url("../../asset/img/svg/icons/left_arrow_white_active.svg") no-repeat; }
 
@@ -2021,7 +2025,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 .break.opaque { width: 100%; background: url("../../asset/img/svg/icons/dashes.svg") no-repeat; background-size: 315px; background-repeat: repeat-x; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
 
-.break.white { width: 100%; background: url("../../asset/img/svg/icons/two_dashes.svg"); background-size: 2.0rem; background-repeat-y: no-repeat; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
+.break.white { width: 100%; background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat; background-size: 2.0rem; background-repeat: repeat-x; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
 
 /** @file _custom_text.sass @category 60_site_elements @description For custom text elements in design */
 .mark-with-text { background: url("../../asset/img/svg/marks/around_dark_mark.svg") no-repeat; width: 150px; height: 150px; margin-left: 2.0rem; margin-left: 2.0rem; float: right; }
