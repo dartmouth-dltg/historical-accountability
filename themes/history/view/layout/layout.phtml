@@ -10,8 +10,8 @@ $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka
 $this->headScript()->prependFile($this->assetUrl('js/default.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
-$this->headLink()->appendStylesheet($this->basePath('themes/huronia/node_modules/jquery-reflow-table/dist/css/reflow-table.css'));
-$this->headScript()->appendFile($this->basePath('themes/huronia/node_modules/jquery-reflow-table/dist/js/reflow-table.js'));
+$this->headLink()->appendStylesheet($this->basePath('themes/history/node_modules/jquery-reflow-table/dist/css/reflow-table.css'));
+$this->headScript()->appendFile($this->basePath('themes/history/node_modules/jquery-reflow-table/dist/js/reflow-table.js'));
 
 $this->trigger('view.layout');
 $title = $this->pageTitle($site->title());
@@ -76,9 +76,6 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
                 </ul>
         </nav>
         <section id='splash' class='full'></section>
-        <section id='feature-tier-1' class='full'></section>
-        <section id='feature-tier-2' class='full'></section>
-        <section id='feature-tier-3' class='full'></section>
         <section id='primary-content' class='full'>
             <a name='main-content'></a>
             <main>
@@ -87,7 +84,9 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
               </div>
             </main>
         </section>
-
+        <section id='feature-tier-1' class='full'></section>
+        <section id='feature-tier-2' class='full'></section>
+        <section id='feature-tier-3' class='full'></section>
         <section class='full'>
             <div>
             <div id='secondary-content' style="display:none"></div>
