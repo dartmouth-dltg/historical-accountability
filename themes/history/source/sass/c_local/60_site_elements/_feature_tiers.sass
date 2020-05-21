@@ -4,17 +4,17 @@
  *  @theme LOCAL
  *  @description Styles the background for homepage feature tiers. */
 
-#feature-tier-1
-  background: #B9D7CE
+#feature-tier-2
   display: grid
   grid-template-columns: unset
   +bp($stack)
     grid-template-columns: 60% 40%
-  .region-feature-tier-1
-    border-right: 10px solid $white
-    border-left: 10px solid $white
+  .region-feature-tier-2
+    border-right: 6px solid $white
+    border-left: 6px solid $white
     border-bottom-right-radius: $borderRadius
-    border-bottom: 10px solid $white
+    border-bottom: 6px solid $white
+    background: #B9D7CE
     +bp($stack)
       border-left: unset
     &::after
@@ -43,11 +43,53 @@
       font-weight: $bold
       display: none
       +bp($stack)
-        display: inline-block 
-#feature-tier-2
+        display: inline-block
+  #feature-1
+    margin-top: 0
+    display: grid
+    .card-compact
+      filter: unset
+      border-bottom: 3px solid $white
+      +bp($stack)
+        border-bottom: 6px solid $white
+      h3
+        position: absolute
+        margin-top: rv(4) * -1
+        border-top: unset
+        font-weight: $bold
+        padding: rv(0)
+        +bp($stack)
+          padding: 0
+        a
+          text-decoration: unset
+          background: unset
+          &:hover
+            background: unset
+            text-decoration: unset
+            color: unset
+    .representative-image
+      height: 100%
+      .item 
+        height: 100%
+        figure
+          height: 100%
+          background: $clr1
+          figcaption
+            top: unset
+            bottom: rv(-1)
+            left: rv(0)
+            color: $white
+            font-style: normal
+            +bp($stack)
+              bottom: rv(-7) * -1
+          img
+            height: 100%
+            filter: grayscale(100%)
+            mix-blend-mode: multiply
+#feature-tier-3
   background: $clr2
   text-align: center
-  .region-feature-tier-2
+  .region-feature-tier-3
     padding: rv(1)
     +bp($stack)
       padding: rv(1) rv(7)

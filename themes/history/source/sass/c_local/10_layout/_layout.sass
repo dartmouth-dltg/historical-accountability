@@ -9,18 +9,18 @@ video
   width: 100%
 
 #secondary-content
-  background: neutral(10)
-  margin-top: rv(5)
-  padding: rv(5) 0
-  h2
-    margin-top: 0
-    border-bottom: 1px solid $black
-  > div
-    margin-top: rv(4)
-    > *
-      +inset-text()
-    > .site-guide-cont
-      +negative-content-margin(6)
+  // background: neutral(10)
+  // margin-top: rv(5)
+  // padding: rv(5) 0
+  // h2
+  //   margin-top: 0
+  //   border-bottom: 1px solid $black
+  // > div
+  //   margin-top: rv(4)
+  //   > *
+  //     +inset-text()
+  //   > .site-guide-cont
+  //     +negative-content-margin(6)
     
     
 // @todo:  There are some present factors in 00_configuration_layout like $mobile_edge_padding_factor and $edge_padding_factor that should be used here.
@@ -57,7 +57,7 @@ section
           margin-left: auto
           margin-right: auto
 
-main
+main, #feature-tier-1
   > div
     margin-bottom: 0
     > *
@@ -610,3 +610,27 @@ input:checked + .slider:before
   display: none
 .profile-overlay-logo
   display: none!important
+
+.preview-block
+  a
+    display: none
+  .resource-list
+    .item
+      &::after
+        content: unset
+  .resource-list
+    grid-template-columns: 1fr
+    +bp($stack)
+      grid-template-columns: 1fr 1fr 1fr
+
+    &.preview
+      a
+        display: block
+
+
+
+section
+  main
+    > div
+      > .preview-block
+        margin-top: 0!important
