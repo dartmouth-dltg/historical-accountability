@@ -132,7 +132,6 @@ class SectionPageListing extends AbstractBlockLayout
         $html .= $view->formRow($classes);
         $html .= $view->formRow($region);
         $html .= '</div>';
-        return $html;
 
         return $html;
 

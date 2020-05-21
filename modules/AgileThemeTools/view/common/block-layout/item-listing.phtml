@@ -1,0 +1,46 @@
+<div id="block-<?php echo $this->blockId; ?>" class="item-listing region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
+    <?php if ($this->hasTitle || $this->hasIntroduction): ?>
+        <div class='title-area'>
+            <?php if ($this->hasTitle): ?>
+                <h2><?php echo $this->title; ?></h2>
+            <?php endif; ?>
+            <?php if ($this->hasIntroduction): ?>
+                <div class='block-introduction'>
+                    <?php echo $this->introduction; ?>
+                </div>
+            <?php endif; ?>
+            <?php if ($this->hasButton): ?>
+                <?php printf('<a class="btn" href="%s" alt="%s">%s</a>',$this->buttonPath,$this->buttonText,$this->buttonText); ?>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php foreach ($attachments as $attachment): ?>
+        <div class="item resource">
+            <?php
+            $item = $attachment->item();
+            if ($item):
+                ?>
+                <?php
+                $media = $attachment->media() ?: $item->primaryMedia();
+                if ($media):
+                    echo $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+                endif;
+                ?>
+                <?php $showTitleOption = $this->showTitleOption; ?>
+                <?php if ($showTitleOption == 'item_title'): ?>
+                <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+            <?php elseif ($showTitleOption == 'file_name'): ?>
+                <h3><?php echo $media->displayTitle(); ?></h3>
+            <?php endif; ?>
+            <?php endif; ?>
+
+            <?php
+            $caption = $attachment->caption();
+            if ($caption):
+                ?>
+                <div class="caption"><?php echo $caption; ?></div>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</div>
