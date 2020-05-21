@@ -81,7 +81,6 @@ class SectionManager extends AbstractActionController {
             }
         }
 
-        // asort($sections);
         return $sections;
 
     }
@@ -97,7 +96,7 @@ class SectionManager extends AbstractActionController {
                 if (array_key_exists('params',$subpage) && array_key_exists('page-slug',$subpage['params'])) {
                     $sections[$subpage['params']['page-slug']] = str_pad('',$depth, "  ",STR_PAD_LEFT) . str_pad($subpage['label'],strlen($subpage['label']) + $depth,"-",STR_PAD_LEFT);
                     $this->extractSubPages($subpage,$sections,$depth+1);
-                    $this->pageIndex[$subpage['params']['page-slug']] = $page['pages'];
+                    $this->pageIndex[$subpage['params']['page-slug']] = $subpage['pages'];
                 }
             }
         }
@@ -117,51 +116,46 @@ class SectionManager extends AbstractActionController {
             return [];
         }
 
-        foreach($this->pageIndex[$sectionSlug] as $page) {
-            if (array_key_exists('params',$page) && array_key_exists('page-slug',$page['params']) && $page['params']['page-slug'] == $sectionSlug && array_key_exists('pages',$page) && count($page['pages']) > 0) {
-                foreach($page['pages'] as $childPage) {
+        foreach($this->pageIndex[$sectionSlug] as $childPage) {
+            if (array_key_exists('params',$childPage) && array_key_exists('page-slug',$childPage['params'])) {
 
-                    if (array_key_exists('params',$childPage) && array_key_exists('page-slug',$childPage['params'])) {
+                $childPageRepresentation = $this->api->read('site_pages',[
+                    'slug' => $childPage['params']['page-slug'],
+                    'site' => $this->site->id()
+                ])->getContent();
 
-                        $childPageRepresentation = $this->api->read('site_pages',[
-                            'slug' => $childPage['params']['page-slug'],
-                            'site' => $this->site->id()
-                        ])->getContent();
+                $childPageData = $childPageRepresentation->getJsonLd();
+                $childPageData['o:url'] = $childPageRepresentation->siteUrl();
 
-                        $childPageData = $childPageRepresentation->getJsonLd();
-                        $childPageData['o:url'] = $childPageRepresentation->siteUrl();
+                // Block Objects
 
-                        // Block Objects
+                $childPageData['o:blocks'] = [];
+                $childPageData['o:blocks-by-layout'] = [];
 
-                        $childPageData['o:blocks'] = [];
-                        $childPageData['o:blocks-by-layout'] = [];
+                foreach($childPageRepresentation->blocks() as $block) {
+                    $block->page_title = $childPageData['o:title'];
+                    $block->page_url = $childPageData['o:url'];
 
-                        foreach($childPageRepresentation->blocks() as $block) {
-                            $block->page_title = $childPageData['o:title'];
-                            $block->page_url = $childPageData['o:url'];
+                    $serializedBlockInfo = $block->jsonSerialize();
+                    $serializedBlockInfo['page_title'] = $childPageData['o:title'];
+                    $serializedBlockInfo['page_url'] = $childPageData['o:url'];
 
-                            $serializedBlockInfo = $block->jsonSerialize();
-                            $serializedBlockInfo['page_title'] = $childPageData['o:title'];
-                            $serializedBlockInfo['page_url'] = $childPageData['o:url'];
-                            
-                            $serializedBlockInfo['o:blockRepresentation'] = $block;
-                            $childPageData['o:blocks'][$block->id()] = $serializedBlockInfo;
+                    $serializedBlockInfo['o:blockRepresentation'] = $block;
+                    $childPageData['o:blocks'][$block->id()] = $serializedBlockInfo;
 
-                            // Ensure that a layout is set and that the Section Listing blocks are removed to prevent recursion.
+                    // Ensure that a layout is set and that the Section Listing blocks are removed to prevent recursion.
 
-                            $blockLayout = empty($serializedBlockInfo['o:layout']) || $serializedBlockInfo['o:layout'] == 'sectionPageListing' ? null : $serializedBlockInfo['o:layout'];
+                    $blockLayout = empty($serializedBlockInfo['o:layout']) || $serializedBlockInfo['o:layout'] == 'sectionPageListing' ? null : $serializedBlockInfo['o:layout'];
 
-                            if ($blockLayout) {
-                                if (!array_key_exists($blockLayout,$childPageData['o:blocks-by-layout'])) {
-                                    $childPageData['o:blocks-by-layout'][$blockLayout][$block->id()] = $serializedBlockInfo;
-                                }
-                            }
+                    if ($blockLayout) {
+                        if (!array_key_exists($blockLayout,$childPageData['o:blocks-by-layout'])) {
+                            $childPageData['o:blocks-by-layout'][$blockLayout][$block->id()] = $serializedBlockInfo;
                         }
-
-                        $childPageData['o:pageRepresentation'] = $childPageRepresentation;
-                        $sectionPages[$childPage['params']['page-slug']] = $childPageData;
                     }
                 }
+
+                $childPageData['o:pageRepresentation'] = $childPageRepresentation;
+                $sectionPages[$childPage['params']['page-slug']] = $childPageData;
             }
         }
 
