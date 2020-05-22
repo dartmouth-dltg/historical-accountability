@@ -4,120 +4,60 @@
  *  @description Styling for poster block */
 
 
+// @todo: move main spacing to layout and refactor !important
+
+main
+  .poster
+    margin: rv(1) 0 !important
+
+    +bp($stack)
+      margin: rv(2) 0 !important
+
+    +bp($desktop)
+      margin: rv(4) 0 !important
+
 .poster
-  height: 34rem
+  min-height: 34rem
+  width: 100%
+  padding: rv(3) !important
+  position: relative
+
   +bp($stack)
-    height: 28rem
-  &.colour-scheme-1
-    &::after
-        content: " "
-        width: rv(5)
-        height: rv(5)
-        background: url("../../asset/img/svg/marks/icon_trans_yellow_mark.svg") no-repeat
-        float: right
-        margin-top: rv(6) * -1
-        filter: grayscale(0)
-        margin-right: rv(1)
-    background: $clr4
-    border-top-right-radius: $borderRadius
-    .poster-text
-      color: $clr2
-  &.colour-scheme-2
-    &::after
-        content: " "
-        width: rv(5)
-        height: rv(5)
-        background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat
-        float: right
-        margin-top: rv(6) * -1
-        filter: grayscale(0)
-        margin-right: rv(1)
-    background: $clr3
-    border-top-right-radius: $borderRadius
-    .poster-text
-      color: $white
-  &.colour-scheme-3
-    &::after
-        content: " "
-        width: rv(5)
-        height: rv(5)
-        background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat
-        float: right
-        margin-top: rv(6) * -1
-        filter: grayscale(0)
-        margin-right: rv(1)
-    background: $clr1
-    border-top-right-radius: $borderRadius
-    .poster-text
-      color: $white
-  &.colour-scheme-4
-    &::after
-        content: " "
-        width: rv(5)
-        height: rv(5)
-        background: url("../../asset/img/svg/marks/icon_trans_yellow_mark.svg") no-repeat
-        float: right
-        margin-top: rv(6) * -1
-        filter: grayscale(0)
-        margin-right: rv(1)
-    background: $clr1
-    border-top-right-radius: $borderRadius
-    .poster-text
-      color: $clr2
+    min-height: 28rem
 
+  +bp($tablet)
+    padding: rv(4) !important
+    padding-right: rv(5) !important
 
-  &.text-treatment-1
-    .poster-text
-      p
-        padding: 15%
-        font-family: $headingfont
-        font-weight: $heavy
-        font-size: font-value(1)
-        padding-right: 15%
-        line-height: font-value(2)
-        +bp($tablet)
-          font-size: font-value(2)
-          line-height: font-value(3)
-          padding: 15%
-          padding-right: 15%
-        +bp($desktop)
-          font-size: font-value(3)
-          line-height: font-value(4)
-          padding: rv(5)
-          padding-right: rv(6)
+  +bp($desktop)
+    padding: rv(5) !important
+    padding-right: rv(6) !important
 
+  &:after
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    content: " "
+    filter: grayscale(0)
+    background-repeat: no-repeat
+    background-position: bottom rv(0) right rv(0)
+    background-size: rv(2) rv(2)
 
-  &.text-treatment-2
-  .poster-text
-    p
-      padding: rv(3)
-      font-family: $codefont
-      font-weight: $heavy
-      font-size: font-value(0)
-      padding-right: rv(3)
-      line-height: font-value(1)
-      +bp($tablet)
-        font-size: font-value(1)
-        line-height: font-value(2)
-        padding: rv(4)
-        padding-right: rv(5) 
-      +bp($desktop)
-        font-size: font-value(2)
-        line-height: font-value(3)
-        padding: rv(5)
-        padding-right: rv(6)
+    +bp($stack)
+      background-size: rv(3) rv(3)
 
-
-
-
-
-
-
-
-
+    +bp($desktop)
+      background-size: rv(5) rv(5)
 
   .image-background
+    position: absolute;
+    width: 100%
     height: 100%
+    top: 0
+    left: 0
+
     figure
       height: 100%
 
@@ -127,8 +67,72 @@
     mix-blend-mode: multiply
     object-fit: cover
     height: 100%
+
   .poster-text
     position: relative
     z-index: 1
+
+  &.colour-scheme-1
+    background: $clr1
+    border-top-right-radius: $borderRadius
+
+    &:after
+      content: " "
+      background-image: url("../../asset/img/svg/marks/icon_trans_white_mark.svg")
+
+    .poster-text
+      color: $white
+
+  &.colour-scheme-2
+    &:after
+      background-image: url("../../asset/img/svg/marks/icon_trans_yellow_mark.svg")
+
+    background: $clr1
+    border-top-right-radius: $borderRadius
+    .poster-text
+      color: $clr2
+
+  &.colour-scheme-3
+    &:after
+      background-image: url("../../asset/img/svg/marks/icon_trans_white_mark.svg")
+    background: $clr3
+    border-top-right-radius: $borderRadius
+    .poster-text
+      color: $white
+
+  &.colour-scheme-4
+    &:after
+      background-image: url("../../asset/img/svg/marks/icon_trans_yellow_mark.svg")
+    background: $clr4
+    border-top-right-radius: $borderRadius
+    .poster-text
+      color: $clr2
+
+  &.text-treatment-1
+    .poster-text
+      p
+        font-family: $headingfont
+        font-weight: $heavy
+        font-size: font-value(1)
+        line-height: font-value(2)
+        +bp($tablet)
+          font-size: font-value(2)
+          line-height: font-value(3)
+        +bp($desktop)
+          font-size: font-value(4)
+          line-height: font-value(5)
+
+
+  &.text-treatment-2
+  .poster-text
     p
-      position: absolute 
+      font-family: $codefont
+      font-weight: $heavy
+      font-size: font-value(0)
+      line-height: font-value(1)
+      +bp($tablet)
+        font-size: font-value(1)
+        line-height: font-value(2)
+      +bp($desktop)
+        font-size: font-value(2)
+        line-height: font-value(3)

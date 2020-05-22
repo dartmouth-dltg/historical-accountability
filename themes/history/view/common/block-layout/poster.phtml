@@ -23,7 +23,7 @@
                     <?php if (isset($this->block->page_title) && isset($this->block->page_url)): ?>
                       <?php printf('<a href="%s" title="Visit %s’s Profile">%s</a>',$this->block->page_url, $this->block->page_title, $this->thumbnail($media,$thumbnailType));  ?>
                     <?php else: ?>
-                      <?php echo $item->linkRaw($this->thumbnail($media,$thumbnailType)); ?>
+                      <?php echo $this->thumbnail($media,$thumbnailType); ?>
                     <?php endif; ?>
                 </figure>
         </div>
