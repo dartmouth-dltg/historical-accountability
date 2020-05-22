@@ -1,0 +1,30 @@
+/** 
+ *  @file _media_page.sass 
+ *  @category 60_site_elements
+ *  @description Styles media item page  */
+
+
+.property-wrapper
+  display: grid
+  grid-template-columns: 1fr 1fr
+  +bp($stack)
+    grid-template-columns: 1fr 1fr 1fr
+  .property
+    h4
+      text-transform: uppercase
+      font-size: font-value(0)
+.media-list-wrapper
+  h3
+    font-size: font-value(0)
+    text-transform: uppercase
+.media-list
+  .resource-link
+    .resource-name
+      text-align: center
+      margin-top: .45088rem
+      padding-top: 1.425rem
+      padding-bottom: 1.06876rem
+      color: #fff
+      background: #1d2c27
+      border-bottom-right-radius: 1.425rem
+      display: block

@@ -2123,17 +2123,35 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 .poster .poster-text p { position: absolute; }
 
-main .quotation blockquote { background: #FCFADE; color: #D84F37; padding: 2.53333rem 4.50367rem !important; font-family: "SentinelBook", Monaco, Courier New, monospace; padding-bottom: 6.00488rem !important; margin-top: 6.00488rem !important; margin-bottom: 6.00488rem !important; transform: rotate(-1deg); -ms-transform: rotate(-1deg); text-align: left; border-spacing: 0; padding: 0.45088rem; font-size: 0.9rem; }
+/** @file _section_list.sass @category 60_site_elements @description Styles section list items in main content */
+.item-list { transform: rotate(-1deg); -ms-transform: rotate(-1deg); background: #E0F2F7; padding: 1px 3.37776rem 3.37776rem 3.37776rem; }
 
-main .quotation blockquote:after { content: " "; width: 2.53333rem; height: 2.53333rem; background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat; position: absolute; right: 1.425rem; top: -1.425rem; border: 1px solid; padding: 1.425rem; background-size: 1.9rem; background-position: center; border-radius: 100%; }
+.item-list > ul, .item-list .item-list > ul { transform: rotate(1deg); -ms-transform: rotate(1deg); display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 4.50367rem; grid-row-gap: 1.06876rem; grid-auto-columns: min-content; padding: 0; list-style-type: none; }
 
-@media only screen and (min-width: 46.25em) { main .quotation blockquote:after { content: " "; width: 2.53333rem; height: 2.53333rem; background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat; padding: 2.53333rem; background-size: 3.37776rem; position: relative; float: right; border-radius: 100%; background-position: center; border: 1px solid; top: unset; } }
+@media only screen and (min-width: 46.25em) { .item-list > ul, .item-list .item-list > ul { grid-template-columns: 1fr 1fr 1fr; } }
 
-main .quotation blockquote cite { font-family: "SentinelBook", Monaco, Courier New, monospace; color: #1D2C27; font-style: normal; background: url("../../asset/img/svg/icons/dashes.svg") no-repeat; display: inline-block; padding-top: 0.60118rem; margin-top: 0.60118rem; }
+.item-list > ul li, .item-list .item-list > ul li { position: relative; left: 1.9rem; }
 
-@media only screen and (min-width: 46.25em) { main .quotation blockquote { padding: 0.80157rem; font-size: 1.2rem; } }
+@media only screen and (min-width: 46.25em) { .item-list > ul li, .item-list .item-list > ul li { left: 4.50367rem; } }
 
-main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(1deg); }
+.item-list > ul li h5, .item-list .item-list > ul li h5 { font-family: "BentonSansBook", sans-serif; margin-top: 0; margin-bottom: 0.80157rem; }
+
+.item-list > ul li:before, .item-list .item-list > ul li:before { content: ""; color: #1D2C27; font-weight: bold; display: inline-block; width: 1.06876rem; position: absolute; top: 14px; left: -2.53333rem; font-size: 1.9rem; background: url("../../asset/img/svg/icons/list_line.svg") no-repeat; height: 1.06876rem; }
+
+.item-list h2 { transform: rotate(1deg); -ms-transform: rotate(1deg); font-family: "SentinelBook", Monaco, Courier New, monospace; font-size: 2.53333rem; color: #D84F37; text-transform: uppercase; }
+
+.item-list .block-introduction p { font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; transform: rotate(1deg); -ms-transform: rotate(1deg); margin-bottom: 2.53333rem; }
+
+/** @file _media_page.sass @category 60_site_elements @description Styles media item page  */
+.property-wrapper { display: grid; grid-template-columns: 1fr 1fr; }
+
+@media only screen and (min-width: 46.25em) { .property-wrapper { grid-template-columns: 1fr 1fr 1fr; } }
+
+.property-wrapper .property h4 { text-transform: uppercase; font-size: 1.2rem; }
+
+.media-list-wrapper h3 { font-size: 1.2rem; text-transform: uppercase; }
+
+.media-list .resource-link .resource-name { text-align: center; margin-top: .45088rem; padding-top: 1.425rem; padding-bottom: 1.06876rem; color: #fff; background: #1d2c27; border-bottom-right-radius: 1.425rem; display: block; }
 
 /* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
 @media only screen and (min-width: 46.25em) { body.profiles .section-intro-splash figure { background-image: url(../img/png/splash/profiles_splash_desktop.png); background-repeat: no-repeat; background-size: cover; width: 50%; background-position: center center; }

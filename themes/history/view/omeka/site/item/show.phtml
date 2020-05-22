@@ -6,10 +6,9 @@ $embedMedia = $this->siteSetting('item_media_embed', false);
 $itemMedia = $item->media();
 ?>
 
-<?php echo $this->pageTitle($item->displayTitle(), 2); ?>
-<h3><?php echo $translate('Item'); ?></h3>
-<?php $this->trigger('view.show.before'); ?>
 
+<?php $this->trigger('view.show.before'); ?>
+<div class="media-list-wrapper">
 <?php if (!$embedMedia && $itemMedia): ?>
 <div class="media-list">
     <?php foreach ($itemMedia as $media): ?>
@@ -26,6 +25,10 @@ $itemMedia = $item->media();
     ?>
     </div>
 <?php endif; ?>
+<h3><?php echo $translate('Item'); ?></h3>
+<?php echo $this->pageTitle($item->displayTitle(), 2); ?>
+<div class="property-wrapper">
+
 <?php echo $item->displayValues(); ?>
 <div class="property">
     <?php $itemSets = $item->itemSets(); ?>
@@ -36,7 +39,7 @@ $itemMedia = $item->media();
     <?php endforeach; ?>
     <?php endif; ?>
 </div>
-
+</div>
 <?php
 $page = $this->params()->fromQuery('page', 1);
 $property = $this->params()->fromQuery('property');
@@ -48,5 +51,5 @@ $subjectValues = $item->displaySubjectValues($page, 25, $property);
     <?php echo $subjectValues; ?>
 </div>
 <?php endif; ?>
-
+</div>
 <?php $this->trigger('view.show.after'); ?>
