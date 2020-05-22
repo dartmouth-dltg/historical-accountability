@@ -17,6 +17,7 @@
               'poster' => Service\BlockLayout\PosterFactory::class,
               'itemListing' => Service\BlockLayout\ItemListingFactory::class,
               'callout' => Service\BlockLayout\CalloutFactory::class,
+              'quotation' => Service\BlockLayout\QuotationFactory::class,
               'deck' => Service\BlockLayout\DeckFactory::class,
               'sectionPageListing' => Service\BlockLayout\SectionPageListingFactory::class,
               'homepageSplash' => Service\BlockLayout\HomepageSplashFactory::class,

@@ -1,0 +1,61 @@
+main
+  .quotation
+    blockquote
+      background: $bgcolor2
+      color: $clr4
+      padding: rv(1) rv(3)!important
+      font-family: $codefont
+      padding-bottom: rv(4)!important
+      margin-top: rv(4)!important
+      margin-bottom: rv(4)!important
+      +tilt
+      &:after
+        content: " "
+        width: rv(1)
+        height: rv(1)
+        background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat
+        position: absolute
+        right: rv(-1)
+        top: rv(-1) * -1
+        border: 1px solid
+        padding: rv(-1)
+        background-size: rv(0)
+        background-position: center
+        border-radius: 100%
+
+        +bp($stack)
+          content: " "
+          width: rv(1)
+          height: rv(1)
+          background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat
+          padding: rv(1)
+          background-size: rv(2)
+          position: relative
+          float: right
+          border-radius: 100%
+          background-position: center
+          border: 1px solid
+          top: unset
+
+
+      cite
+        font-family: $codefont
+        color: $black
+        font-style: normal
+        +dashed-line
+        display: inline-block
+        padding-top: rv(-4)
+        margin-top: rv(-4)
+
+      p
+      th, td
+      text-align: left
+      border-spacing: 0
+      padding: rv(-5)
+      font-size: font-value(-1)
+
+      +bp($stack)
+        padding: rv(-3)
+        font-size: font-value(0)
+      > *
+        +untilt
