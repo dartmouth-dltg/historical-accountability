@@ -106,7 +106,7 @@
       > figure
         &:before
           content: ''
-          background: $rtl_dark_gradient
+          background: $mirror_gradient
           height: 100%
           position: absolute
           width: 100%
@@ -119,6 +119,23 @@
         +bp($stack)
           height: 100%!important
           max-height: 100%!important
+  .slick-slide
+    > figure
+      &:before
+        content: ''
+        background: $mirror_gradient
+        height: 100%
+        position: absolute
+        width: 100%
+        top: 0
+        left: 0
+        
+      height: 100vh
+      max-height: 100vh
+      
+      +bp($stack)
+        height: 100%!important
+        max-height: 100%!important
           
   .slide-contents, .audio-controls
   
@@ -135,9 +152,14 @@
     &.introduction
       > figure
         background: $clr1
+        &:hover
+          background: $mirror_gradient
         img
           mix-blend-mode: multiply
           filter: grayscale(100%)
+          &:hover
+            filter: grayscale(0%)
+          
 
 // !UI CONTROLS
 .fullscreen-label

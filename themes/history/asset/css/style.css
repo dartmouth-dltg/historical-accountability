@@ -1428,9 +1428,15 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 #splash .slick-slide.introduction > figure { height: 100vh; max-height: 100vh; }
 
-#splash .slick-slide.introduction > figure:before { content: ''; background: linear-gradient(90deg, rgba(29, 44, 39, 0.92) 36%, rgba(2, 3, 4, 0.7) 100%); height: 100%; position: absolute; width: 100%; top: 0; left: 0; }
+#splash .slick-slide.introduction > figure:before { content: ''; background: linear-gradient(90deg, black 0%, rgba(159, 159, 159, 0) 49%, black 100%); height: 100%; position: absolute; width: 100%; top: 0; left: 0; }
 
 @media only screen and (min-width: 46.25em) { #splash .slick-slide.introduction > figure { height: 100% !important; max-height: 100% !important; } }
+
+#splash .slick-slide > figure { height: 100vh; max-height: 100vh; }
+
+#splash .slick-slide > figure:before { content: ''; background: linear-gradient(90deg, black 0%, rgba(159, 159, 159, 0) 49%, black 100%); height: 100%; position: absolute; width: 100%; top: 0; left: 0; }
+
+@media only screen and (min-width: 46.25em) { #splash .slick-slide > figure { height: 100% !important; max-height: 100% !important; } }
 
 @media only screen and (min-width: 46.25em) { #splash .slide-contents, #splash .audio-controls { padding-left: 6.32098rem; padding-right: 6.32098rem; } }
 
@@ -1438,7 +1444,11 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .slick-slide.introduction > figure { background: #74AF9D; }
 
+.slick-slide.introduction > figure:hover { background: linear-gradient(90deg, black 0%, rgba(159, 159, 159, 0) 49%, black 100%); }
+
 .slick-slide.introduction > figure img { mix-blend-mode: multiply; filter: grayscale(100%); }
+
+.slick-slide.introduction > figure img:hover { filter: grayscale(0%); }
 
 .fullscreen-label { text-align: left; font-size: 0.675rem; line-height: 0.9rem; position: absolute; left: -68px; }
 
