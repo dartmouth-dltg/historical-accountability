@@ -1472,7 +1472,7 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .slick-next:hover { background: url("../../asset/img/svg/icons/right_arrow_yellow.svg") no-repeat; }
 
-.slick-dots { position: absolute; text-align: right; width: 100%; column-count: unset; top: initial; bottom: -1.425rem; padding: 0; z-index: 9999; margin: 0; }
+.slick-dots { position: absolute; text-align: right; width: 100%; column-count: unset; top: initial; bottom: -0.80157rem; padding: 0; z-index: 9999; margin: 0; }
 
 .slick-dots li.slick-active:before { color: #F2E55B; }
 
