@@ -1,0 +1,7 @@
+user     = "USERNAME"
+password = "DBPASSWORD"
+dbname   = "DBNAME"
+host     = "localhost"
+port     = "3308"
+;unix_socket =
+;log_path =
