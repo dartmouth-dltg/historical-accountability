@@ -17,8 +17,27 @@
   h3
     font-size: font-value(0)
     text-transform: uppercase
+  h2
+    margin-top: 0
+    font-size: font-value(1)
 .media-list
+  text-align: center
+  width: 100%
+  margin: 0 auto
+  +bp($stack)
+    width: 70%
+  &::before
+    content: ""
+    height: 1.06876rem
+    width: 100%
+    background: $black
+    display: block
+    margin-bottom: .45088rem
   .resource-link
+    
+
+    img
+      width: 100%
     .resource-name
       text-align: center
       margin-top: .45088rem
@@ -27,4 +46,5 @@
       color: #fff
       background: #1d2c27
       border-bottom-right-radius: 1.425rem
-      display: block
+      display: inline-block
+      width: 100%

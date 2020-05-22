@@ -1444,8 +1444,6 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .slick-slide.introduction > figure { background: #74AF9D; }
 
-.slick-slide.introduction > figure:hover { background: linear-gradient(90deg, black 0%, rgba(159, 159, 159, 0) 49%, black 100%); }
-
 .slick-slide.introduction > figure img { mix-blend-mode: multiply; filter: grayscale(100%); }
 
 .slick-slide.introduction > figure img:hover { filter: grayscale(0%); }
@@ -2151,7 +2149,17 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 .media-list-wrapper h3 { font-size: 1.2rem; text-transform: uppercase; }
 
-.media-list .resource-link .resource-name { text-align: center; margin-top: .45088rem; padding-top: 1.425rem; padding-bottom: 1.06876rem; color: #fff; background: #1d2c27; border-bottom-right-radius: 1.425rem; display: block; }
+.media-list-wrapper h2 { margin-top: 0; font-size: 1.6rem; }
+
+.media-list { text-align: center; width: 100%; margin: 0 auto; }
+
+@media only screen and (min-width: 46.25em) { .media-list { width: 70%; } }
+
+.media-list::before { content: ""; height: 1.06876rem; width: 100%; background: #1D2C27; display: block; margin-bottom: .45088rem; }
+
+.media-list .resource-link img { width: 100%; }
+
+.media-list .resource-link .resource-name { text-align: center; margin-top: .45088rem; padding-top: 1.425rem; padding-bottom: 1.06876rem; color: #fff; background: #1d2c27; border-bottom-right-radius: 1.425rem; display: inline-block; width: 100%; }
 
 /* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
 @media only screen and (min-width: 46.25em) { body.profiles .section-intro-splash figure { background-image: url(../img/png/splash/profiles_splash_desktop.png); background-repeat: no-repeat; background-size: cover; width: 50%; background-position: center center; }
