@@ -866,7 +866,7 @@ section main > div > .preview-block { margin-top: 0 !important; }
 
 #homepage-splash .introductory-text::after { content: " "; background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat; width: 5rem; height: 5rem; display: flex; position: relative; align-self: flex-end; margin-left: 15px; }
 
-@media only screen and (min-width: 46.25em) { #homepage-splash .introductory-text::after { background: url("../../asset/img/svg/marks/icon_trans_darK_mark.svg") no-repeat; width: 6rem; height: 6rem; bottom: 1.9rem; left: 2.53333rem; margin-left: unset; } }
+@media only screen and (min-width: 46.25em) { #homepage-splash .introductory-text::after { background: url("../../asset/img/svg/marks/icon_trans_darK_mark.svg") no-repeat; width: 6rem; height: 6rem; bottom: 1.9rem; left: 2.53333rem; margin-left: unset; margin-top: 1.425rem; } }
 
 #homepage-splash .slick-prev-splash { position: absolute; width: 8.00648rem; height: 8.00648rem; top: 49%; transform: translateY(-50%); left: 20px; z-index: 9999; cursor: pointer; display: none; background: url("../../asset/img/svg/icons/left_arrow_white.svg") no-repeat; }
 
