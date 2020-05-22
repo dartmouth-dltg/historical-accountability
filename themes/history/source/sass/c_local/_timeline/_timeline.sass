@@ -100,6 +100,9 @@
       color: $white
       font-family: $basefont
       font-weight: $bold
+      margin-top:  0
+      +bp($stack)
+        margin-top: rv(1)
     h1
       color: $white
       font-size: $h2fontsize
@@ -131,7 +134,7 @@
   display: flex!important
 .tl-slide .tl-slide-content-container .tl-slide-content
   display: flex!important
-  flex-direction: row
+  flex-direction: column
   height: 100%
 .tl-media .tl-media-content-container .tl-media-content img
   max-width: 75%
