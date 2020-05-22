@@ -16,9 +16,25 @@
     font-family: inherit
     font-style: inherit
     font-size: inherit
-    margin-bottom: -28px
+    margin-bottom: -8px
     margin-top: rv(0)
     margin-left: 0
-    +bp($stack)
-      margin-left: rv(1)
+    
+.card 
+  .byline
+    font-family: $headingfont
+    font-style: unset
+    font-weight: $bold
+    text-decoration: underline
+    text-transform: uppercase
+    font-size: font-value(-2)
   
+    > p
+      font-family: inherit
+      font-style: inherit
+      font-size: inherit
+      margin-bottom: -28px
+      margin-top: rv(0)
+      margin-left: 0
+      +bp($stack)
+        margin-left: rv(1)
