@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Omeka S
 
 Omeka S is a web publication system for universities, galleries, libraries,
@@ -87,3 +88,7 @@ Omeka uses the following libraries, among others:
 
 Omeka development adheres to the [Zend Framework 2 Coding Standards](https://zf2-docs.readthedocs.org/en/latest/ref/coding.standard.html)
 and uses the [git-flow](http://nvie.com/posts/a-successful-git-branching-model/) branching model.
+=======
+# historical-accountabiity
+Custome Omeka-S theme for Dartmouth Library's Historical Accountability Project
+>>>>>>> dartmouth_github/master
