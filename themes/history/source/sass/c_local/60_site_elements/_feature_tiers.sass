@@ -95,6 +95,71 @@
 #feature-tier-3
   background: $clr2
   text-align: center
+  padding-bottom: rv(5)
+  .item-listing-wrapper
+    display: grid
+    grid-template-columns: 1fr
+    grid-column-gap: rv(0)
+    grid-row-gap: rv(6)
+    +bp($stack)
+      grid-template-columns: 1fr 1fr 
+    +bp($desktop)
+      grid-template-columns: 1fr 1fr 1fr
+    .caption
+      color: $white
+      background: $black
+      text-align: left
+      padding: rv(-4)
+      border-bottom-right-radius: $borderRadius
+      border-top: 3px solid $white
+    .item
+      &::before
+        content: ""
+        width: 100%
+        display: block
+        height: 1.425rem
+        position: unset
+        border-bottom: 3px solid #fff
+        top: 14px
+        background: $black
+      
+      height: 18rem
+      img
+        object-fit: cover
+        height: 100%
+        filter: grayscale(100%)
+  .item-listing
+    padding: rv(1)
+    +bp($stack)
+      padding: rv(1) rv(5)
+
+    h2
+      font-size: font-value(3)
+      font-weight: $heavy
+      +bp($stack)
+        font-size: font-value(5)
+    a.btn
+      color: $white
+      background: $black
+      padding: rv(-2) rv(0)
+      text-decoration: unset
+      border-radius: $buttonRadius
+      font-family: $headingfont
+      font-weight: $bold
+      display: inline-block
+      height: auto
+      border: 0
+      margin-bottom: rv(1) 
+      margin-top: rv(1)
+  
+  &::before
+    content: " "
+    width: rv(1)
+    height: rv(1)
+    background: url("../../asset/img/svg/marks/icon_black_mark.svg") no-repeat
+    display: inline-block
+    position: relative
+    top: rv(1)
   .region-feature-tier-3
     padding: rv(1)
     +bp($stack)

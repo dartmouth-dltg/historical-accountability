@@ -1846,7 +1846,33 @@ main > div > .excerpt { display: none; }
 
 #feature-tier-2 #feature-1 .representative-image .item figure img { height: 100%; filter: grayscale(100%); mix-blend-mode: multiply; }
 
-#feature-tier-3 { background: #F2E55B; text-align: center; }
+#feature-tier-3 { background: #F2E55B; text-align: center; padding-bottom: 8.00648rem; }
+
+#feature-tier-3 .item-listing-wrapper { display: grid; grid-template-columns: 1fr; grid-column-gap: 1.9rem; grid-row-gap: 10.67529rem; }
+
+@media only screen and (min-width: 46.25em) { #feature-tier-3 .item-listing-wrapper { grid-template-columns: 1fr 1fr; } }
+
+@media only screen and (min-width: 75em) { #feature-tier-3 .item-listing-wrapper { grid-template-columns: 1fr 1fr 1fr; } }
+
+#feature-tier-3 .item-listing-wrapper .caption { color: #FFFFFF; background: #1D2C27; text-align: left; padding: 0.60118rem; border-bottom-right-radius: 1.425rem; border-top: 3px solid #FFFFFF; }
+
+#feature-tier-3 .item-listing-wrapper .item { height: 18rem; }
+
+#feature-tier-3 .item-listing-wrapper .item::before { content: ""; width: 100%; display: block; height: 1.425rem; position: unset; border-bottom: 3px solid #fff; top: 14px; background: #1D2C27; }
+
+#feature-tier-3 .item-listing-wrapper .item img { object-fit: cover; height: 100%; filter: grayscale(100%); }
+
+#feature-tier-3 .item-listing { padding: 2.53333rem; }
+
+@media only screen and (min-width: 46.25em) { #feature-tier-3 .item-listing { padding: 2.53333rem 8.00648rem; } }
+
+#feature-tier-3 .item-listing h2 { font-size: 2.84442rem; font-weight: 900; }
+
+@media only screen and (min-width: 46.25em) { #feature-tier-3 .item-listing h2 { font-size: 5.05673rem; } }
+
+#feature-tier-3 .item-listing a.btn { color: #FFFFFF; background: #1D2C27; padding: 1.06876rem 1.9rem; text-decoration: unset; border-radius: 0.80157rem; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; display: inline-block; height: auto; border: 0; margin-bottom: 2.53333rem; margin-top: 2.53333rem; }
+
+#feature-tier-3::before { content: " "; width: 2.53333rem; height: 2.53333rem; background: url("../../asset/img/svg/marks/icon_black_mark.svg") no-repeat; display: inline-block; position: relative; top: 2.53333rem; }
 
 #feature-tier-3 .region-feature-tier-3 { padding: 2.53333rem; }
 
