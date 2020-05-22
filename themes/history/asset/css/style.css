@@ -1820,11 +1820,15 @@ main > div > .excerpt { display: none; }
 
 @media only screen and (min-width: 46.25em) { #feature-tier-2 #feature-1 .card-compact h3 { padding: 0; } }
 
-#feature-tier-2 #feature-1 .card-compact h3 a { text-decoration: unset; background: unset; }
+#feature-tier-2 #feature-1 .card-compact h3 a { text-decoration: unset; background: unset; padding: 1.5rem 0; }
+
+@media only screen and (min-width: 46.25em) { #feature-tier-2 #feature-1 .card-compact h3 a { padding: 1.5rem; } }
 
 #feature-tier-2 #feature-1 .card-compact h3 a:hover { background: unset; text-decoration: unset; color: unset; }
 
-#feature-tier-2 #feature-1 .representative-image { height: 100%; }
+#feature-tier-2 #feature-1 .representative-image { height: 100%; margin: 0; }
+
+@media only screen and (min-width: 46.25em) { #feature-tier-2 #feature-1 .representative-image { margin: unset; } }
 
 #feature-tier-2 #feature-1 .representative-image .item { height: 100%; }
 
@@ -1845,6 +1849,14 @@ main > div > .excerpt { display: none; }
 #feature-tier-3 .region-feature-tier-3::before { content: " "; width: 3.55555rem; height: 3.55555rem; background: url("../../asset/img/svg/marks/icon_black_mark.svg") no-repeat; display: block; margin: 0 auto; margin-top: 2.0rem; }
 
 #feature-tier-3 .region-feature-tier-3 a { color: #FFFFFF; background: #1D2C27; padding: 0.84375rem 1.5rem; text-decoration: unset; border-radius: 0.63281rem; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; }
+
+#feature-tier-3 #feature-2 .callout-items { display: grid; grid-template-columns: 1fr; grid-column-gap: 2rem; grid-row-gap: 2rem; padding: 1.5rem 2.0rem; }
+
+@media only screen and (min-width: 46.25em) { #feature-tier-3 #feature-2 .callout-items { grid-template-columns: 1fr 1fr 1fr; } }
+
+#feature-tier-3 #feature-2 .callout-items .callout-item { background: #1D2C27; border-bottom-right-radius: 1.125rem; }
+
+#feature-tier-3 #feature-2 .callout-items figcaption { padding: 1.5rem; color: #FFFFFF; text-align: left; }
 
 /** @file _homepage_featured_collections.sass @category 60_site_elements @theme LOCAL @description Styles the homepage featured collections block. */
 #homepage-featured-collections { padding-left: 0; padding-right: 0; padding: 2.0rem 1.5rem; display: grid; grid-template-columns: 1fr; grid-row-gap: 2.66667rem; }

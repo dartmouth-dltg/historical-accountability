@@ -63,12 +63,18 @@
         a
           text-decoration: unset
           background: unset
+          padding: rv(0) 0
+          +bp($stack)
+            padding: rv(0)
           &:hover
             background: unset
             text-decoration: unset
             color: unset
     .representative-image
       height: 100%
+      margin: 0
+      +bp($stack)
+        margin: unset
       .item 
         height: 100%
         figure
@@ -110,4 +116,19 @@
       border-radius: $buttonRadius
       font-family: $headingfont
       font-weight: $bold
-      
+  #feature-2
+    .callout-items
+      display: grid
+      grid-template-columns: 1fr
+      grid-column-gap: 2rem
+      grid-row-gap: 2rem
+      padding: rv(0) rv(1)
+      +bp($stack)
+        grid-template-columns: 1fr 1fr 1fr
+      .callout-item
+        background: $black
+        border-bottom-right-radius: $borderRadius
+      figcaption
+        padding: rv(0)
+        color: $white
+        text-align: left 
