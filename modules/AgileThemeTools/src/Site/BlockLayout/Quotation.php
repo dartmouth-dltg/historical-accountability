@@ -39,8 +39,8 @@ class Quotation extends AbstractBlockLayout
     public function onHydrate(SitePageBlock $block, ErrorStore $errorStore)
     {
         $data = $block->getData();
-        $html = isset($data['html']) ? $this->htmlPurifier->purify($data['html']) : '';
-        $data['html'] = $html;
+        $html = isset($data['quotation']) ? $this->htmlPurifier->purify($data['quotation']) : '';
+        $data['quotation'] = $html;
         $block->setData($data);
     }
 
@@ -48,19 +48,17 @@ class Quotation extends AbstractBlockLayout
                          SitePageRepresentation $page = null, SitePageBlockRepresentation $block = null
     ) {
 
-        $textarea = new Textarea("o:block[__blockIndex__][o:data][html]");
+        $textarea = new Textarea("o:block[__blockIndex__][o:data][quotation]");
         $textarea->setAttribute('class', 'block-html full wysiwyg');
         $textarea->setAttribute('rows',20);
         $textarea->setLabel('Quotation');
 
 
         $attribution = new Text("o:block[__blockIndex__][o:data][attribution]");
-        $attribution->setAttribute('class', 'block-html full wysiwyg');
-        $attribution->setAttribute('rows',2);
         $attribution->setLabel('Attribution');
 
         if ($block) {
-            $textarea->setAttribute('value', $block->dataValue('html'));
+            $textarea->setAttribute('value', $block->dataValue('quotation'));
             $attribution->setAttribute('value', $block->dataValue('attribution'));
         }
 
@@ -79,7 +77,7 @@ class Quotation extends AbstractBlockLayout
         return $view->partial(
             'common/block-layout/quotation.phtml',
             [
-                'html' => $data['html'],
+                'html' => $data['quotation'],
                 'attribution' => $data['attribution'],
                 'blockId' => $block->id(),
             ]
