@@ -5,6 +5,12 @@
  *  @description Styles the background for homepage feature tiers. */
 
 #feature-tier-2
+  h1
+    font-size: font-value(2)
+    +bp($tablet)
+      font-size: font-value(4)
+    +bp($desktop)
+      font-size: font-value(5)
   display: grid
   grid-template-columns: unset
   +bp($stack)
@@ -98,8 +104,9 @@
   
   .title-area
     padding: 0 rv(-0)
-    +bp($stack)
-      padding: 0 rv(3)
+    +bp($desktop)
+      padding: 0 rv(5)
+      
     &::before
       content: " "
       width: rv(1)
@@ -176,10 +183,14 @@
       padding: rv(1) rv(3)
 
     h2
-      font-size: font-value(3)
+      font-size: font-value(2)
       font-weight: $heavy
-      +bp($stack)
+      +bp($tablet)
+        font-size: font-value(4)
+        white-space: nowrap
+      +bp($desktop)
         font-size: font-value(5)
+        white-space: nowrap
     a.btn
       color: $white
       background: $black

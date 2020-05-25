@@ -1802,6 +1802,12 @@ main > div > .excerpt { display: none; }
 /** @file _feature_tiers.sass @category 60_site_elements @theme LOCAL @description Styles the background for homepage feature tiers. */
 #feature-tier-2 { display: grid; grid-template-columns: unset; }
 
+#feature-tier-2 h1 { font-size: 2.13332rem; }
+
+@media only screen and (min-width: 56.25em) { #feature-tier-2 h1 { font-size: 3.79255rem; } }
+
+@media only screen and (min-width: 75em) { #feature-tier-2 h1 { font-size: 5.05673rem; } }
+
 @media only screen and (min-width: 46.25em) { #feature-tier-2 { grid-template-columns: 60% 40%; } }
 
 #feature-tier-2 .region-feature-tier-2 { border-right: 6px solid #FFFFFF; border-left: 6px solid #FFFFFF; border-bottom-right-radius: 1.425rem; border-bottom: 6px solid #FFFFFF; background: #B9D7CE; padding: 3.37776rem; }
@@ -1850,7 +1856,7 @@ main > div > .excerpt { display: none; }
 
 #feature-tier-3 .title-area { padding: 0 1.9rem; }
 
-@media only screen and (min-width: 46.25em) { #feature-tier-3 .title-area { padding: 0 4.50367rem; } }
+@media only screen and (min-width: 75em) { #feature-tier-3 .title-area { padding: 0 8.00648rem; } }
 
 #feature-tier-3 .title-area::before { content: " "; width: 2.53333rem; height: 2.53333rem; background: url("../../asset/img/svg/marks/icon_black_mark.svg") no-repeat; display: inline-block; }
 
@@ -1876,9 +1882,11 @@ main > div > .excerpt { display: none; }
 
 @media only screen and (min-width: 46.25em) { #feature-tier-3 .item-listing { padding: 2.53333rem 4.50367rem; } }
 
-#feature-tier-3 .item-listing h2 { font-size: 2.84442rem; font-weight: 900; }
+#feature-tier-3 .item-listing h2 { font-size: 2.13332rem; font-weight: 900; }
 
-@media only screen and (min-width: 46.25em) { #feature-tier-3 .item-listing h2 { font-size: 5.05673rem; } }
+@media only screen and (min-width: 56.25em) { #feature-tier-3 .item-listing h2 { font-size: 3.79255rem; white-space: nowrap; } }
+
+@media only screen and (min-width: 75em) { #feature-tier-3 .item-listing h2 { font-size: 5.05673rem; white-space: nowrap; } }
 
 #feature-tier-3 .item-listing a.btn { color: #FFFFFF; background: #1D2C27; padding: 1.06876rem 1.9rem; text-decoration: unset; border-radius: 0.80157rem; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; display: inline-block; height: auto; border: 0; margin-bottom: 2.53333rem; margin-top: 2.53333rem; }
 
