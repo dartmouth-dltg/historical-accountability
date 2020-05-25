@@ -15,13 +15,9 @@ class RegionMenuSelect extends Select {
 
     public function getRegionValueOptions() {
         return([
-            'region:default' => 'Default',
+            'region:default' => 'Primary Content Tier',
             'region:splash' => 'Splash Area',
-            'region:deck' => 'Deck',
             'region:secondary-content' => 'Secondary Content Tier',
-            'region:feature-tier-1' => 'Homepage: Feature Tier One',
-            'region:feature-tier-2' => 'Homepage: Feature Tier Two',
-            'region:feature-tier-3' => 'Homepage: Feature Tier Three',
         ]);
     }
 }
