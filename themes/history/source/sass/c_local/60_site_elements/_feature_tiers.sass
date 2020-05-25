@@ -95,24 +95,44 @@
 #feature-tier-3
   background: $clr2
   text-align: center
-  padding-bottom: rv(5)
+  padding-bottom: 0
+  +bp($stack)
+    padding-bottom: rv(3)
+  .title-area
+    padding: 0 rv(-0)
+    +bp($stack)
+      padding: 0 rv(3)
+
   .item-listing-wrapper
     display: grid
     grid-template-columns: 1fr
     grid-column-gap: rv(0)
-    grid-row-gap: rv(6)
+    grid-row-gap: rv(-4)
+    padding-top: rv(0)
+    padding-bottom: rv(2)
+    background: $white
+    margin-bottom: -50px
     +bp($stack)
-      grid-template-columns: 1fr 1fr 
+      grid-template-columns: 1fr 1fr
+      grid-row-gap: rv(1)
+      background: unset
+      padding-top: rv(3)
     +bp($desktop)
       grid-template-columns: 1fr 1fr 1fr
+      background: unset
+      padding-top: rv(3)
     .caption
       color: $white
       background: $black
       text-align: left
       padding: rv(-4)
+      padding-left: rv(0)
+      padding-top: rv(-2)
       border-bottom-right-radius: $borderRadius
       border-top: 3px solid $white
     .item
+      margin-right: 0
+      margin-left: 0
       &::before
         content: ""
         width: 100%
@@ -123,15 +143,31 @@
         top: 14px
         background: $black
       
-      height: 18rem
+      
+      
+      a
+        &::after
+          content: " "
+          width: 2.53333rem
+          height: 2.53333rem
+          background: url(../../asset/img/svg/icons/fullscreen_white_icon.svg) no-repeat
+          position: absolute
+          background-size: 1.9rem
+          z-index: 999
+          margin-left: -50px
+          margin-top: 20px
       img
         object-fit: cover
         height: 100%
         filter: grayscale(100%)
+        height: 18rem
+        &:hover
+          mix-blend-mode: multiply
+        
   .item-listing
-    padding: rv(1)
+    padding: rv(1) 0
     +bp($stack)
-      padding: rv(1) rv(5)
+      padding: rv(1) rv(3)
 
     h2
       font-size: font-value(3)

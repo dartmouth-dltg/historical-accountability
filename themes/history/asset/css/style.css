@@ -1846,25 +1846,35 @@ main > div > .excerpt { display: none; }
 
 #feature-tier-2 #feature-1 .representative-image .item figure img { height: 100%; filter: grayscale(100%); mix-blend-mode: multiply; }
 
-#feature-tier-3 { background: #F2E55B; text-align: center; padding-bottom: 8.00648rem; }
+#feature-tier-3 { background: #F2E55B; text-align: center; padding-bottom: 0; }
 
-#feature-tier-3 .item-listing-wrapper { display: grid; grid-template-columns: 1fr; grid-column-gap: 1.9rem; grid-row-gap: 10.67529rem; }
+@media only screen and (min-width: 46.25em) { #feature-tier-3 { padding-bottom: 4.50367rem; } }
 
-@media only screen and (min-width: 46.25em) { #feature-tier-3 .item-listing-wrapper { grid-template-columns: 1fr 1fr; } }
+#feature-tier-3 .title-area { padding: 0 1.9rem; }
 
-@media only screen and (min-width: 75em) { #feature-tier-3 .item-listing-wrapper { grid-template-columns: 1fr 1fr 1fr; } }
+@media only screen and (min-width: 46.25em) { #feature-tier-3 .title-area { padding: 0 4.50367rem; } }
 
-#feature-tier-3 .item-listing-wrapper .caption { color: #FFFFFF; background: #1D2C27; text-align: left; padding: 0.60118rem; border-bottom-right-radius: 1.425rem; border-top: 3px solid #FFFFFF; }
+#feature-tier-3 .item-listing-wrapper { display: grid; grid-template-columns: 1fr; grid-column-gap: 1.9rem; grid-row-gap: 0.60118rem; padding-top: 1.9rem; padding-bottom: 3.37776rem; background: #FFFFFF; margin-bottom: -50px; }
 
-#feature-tier-3 .item-listing-wrapper .item { height: 18rem; }
+@media only screen and (min-width: 46.25em) { #feature-tier-3 .item-listing-wrapper { grid-template-columns: 1fr 1fr; grid-row-gap: 2.53333rem; background: unset; padding-top: 4.50367rem; } }
+
+@media only screen and (min-width: 75em) { #feature-tier-3 .item-listing-wrapper { grid-template-columns: 1fr 1fr 1fr; background: unset; padding-top: 4.50367rem; } }
+
+#feature-tier-3 .item-listing-wrapper .caption { color: #FFFFFF; background: #1D2C27; text-align: left; padding: 0.60118rem; padding-left: 1.9rem; padding-top: 1.06876rem; border-bottom-right-radius: 1.425rem; border-top: 3px solid #FFFFFF; }
+
+#feature-tier-3 .item-listing-wrapper .item { margin-right: 0; margin-left: 0; }
 
 #feature-tier-3 .item-listing-wrapper .item::before { content: ""; width: 100%; display: block; height: 1.425rem; position: unset; border-bottom: 3px solid #fff; top: 14px; background: #1D2C27; }
 
-#feature-tier-3 .item-listing-wrapper .item img { object-fit: cover; height: 100%; filter: grayscale(100%); }
+#feature-tier-3 .item-listing-wrapper .item a::after { content: " "; width: 2.53333rem; height: 2.53333rem; background: url(../../asset/img/svg/icons/fullscreen_white_icon.svg) no-repeat; position: absolute; background-size: 1.9rem; z-index: 999; margin-left: -50px; margin-top: 20px; }
 
-#feature-tier-3 .item-listing { padding: 2.53333rem; }
+#feature-tier-3 .item-listing-wrapper .item img { object-fit: cover; height: 100%; filter: grayscale(100%); height: 18rem; }
 
-@media only screen and (min-width: 46.25em) { #feature-tier-3 .item-listing { padding: 2.53333rem 8.00648rem; } }
+#feature-tier-3 .item-listing-wrapper .item img:hover { mix-blend-mode: multiply; }
+
+#feature-tier-3 .item-listing { padding: 2.53333rem 0; }
+
+@media only screen and (min-width: 46.25em) { #feature-tier-3 .item-listing { padding: 2.53333rem 4.50367rem; } }
 
 #feature-tier-3 .item-listing h2 { font-size: 2.84442rem; font-weight: 900; }
 
@@ -2105,47 +2115,27 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 @media only screen and (min-width: 46.25em) { .callout-text p { font-size: 1.2rem; } }
 
 /** @file _poster.sass @category 60_site_elements @description Styling for poster block */
-.poster { height: 34rem; }
+main .poster { margin: 2.53333rem 0 !important; }
 
-@media only screen and (min-width: 46.25em) { .poster { height: 28rem; } }
+@media only screen and (min-width: 46.25em) { main .poster { margin: 3.37776rem 0 !important; } }
 
-.poster.colour-scheme-1 { background: #D84F37; border-top-right-radius: 1.425rem; }
+@media only screen and (min-width: 75em) { main .poster { margin: 6.00488rem 0 !important; } }
 
-.poster.colour-scheme-1::after { content: " "; width: 8.00648rem; height: 8.00648rem; background: url("../../asset/img/svg/marks/icon_trans_yellow_mark.svg") no-repeat; float: right; margin-top: -10.67529rem; filter: grayscale(0); margin-right: 2.53333rem; }
+.poster { min-height: 34rem; width: 100%; padding: 4.50367rem !important; position: relative; }
 
-.poster.colour-scheme-1 .poster-text { color: #F2E55B; }
+@media only screen and (min-width: 46.25em) { .poster { min-height: 28rem; } }
 
-.poster.colour-scheme-2 { background: #63BDD5; border-top-right-radius: 1.425rem; }
+@media only screen and (min-width: 56.25em) { .poster { padding: 6.00488rem !important; padding-right: 8.00648rem !important; } }
 
-.poster.colour-scheme-2::after { content: " "; width: 8.00648rem; height: 8.00648rem; background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat; float: right; margin-top: -10.67529rem; filter: grayscale(0); margin-right: 2.53333rem; }
+@media only screen and (min-width: 75em) { .poster { padding: 8.00648rem !important; padding-right: 10.67529rem !important; } }
 
-.poster.colour-scheme-2 .poster-text { color: #FFFFFF; }
+.poster:after { position: absolute; width: 100%; height: 100%; top: 0; left: 0; content: " "; filter: grayscale(0); background-repeat: no-repeat; background-position: bottom 1.9rem right 1.9rem; background-size: 3.37776rem 3.37776rem; }
 
-.poster.colour-scheme-3 { background: #74AF9D; border-top-right-radius: 1.425rem; }
+@media only screen and (min-width: 46.25em) { .poster:after { background-size: 4.50367rem 4.50367rem; } }
 
-.poster.colour-scheme-3::after { content: " "; width: 8.00648rem; height: 8.00648rem; background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat; float: right; margin-top: -10.67529rem; filter: grayscale(0); margin-right: 2.53333rem; }
+@media only screen and (min-width: 75em) { .poster:after { background-size: 8.00648rem 8.00648rem; } }
 
-.poster.colour-scheme-3 .poster-text { color: #FFFFFF; }
-
-.poster.colour-scheme-4 { background: #74AF9D; border-top-right-radius: 1.425rem; }
-
-.poster.colour-scheme-4::after { content: " "; width: 8.00648rem; height: 8.00648rem; background: url("../../asset/img/svg/marks/icon_trans_yellow_mark.svg") no-repeat; float: right; margin-top: -10.67529rem; filter: grayscale(0); margin-right: 2.53333rem; }
-
-.poster.colour-scheme-4 .poster-text { color: #F2E55B; }
-
-.poster.text-treatment-1 .poster-text p { padding: 15%; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 900; font-size: 1.6rem; padding-right: 15%; line-height: 2.13332rem; }
-
-@media only screen and (min-width: 56.25em) { .poster.text-treatment-1 .poster-text p { font-size: 2.13332rem; line-height: 2.84442rem; padding: 15%; padding-right: 15%; } }
-
-@media only screen and (min-width: 75em) { .poster.text-treatment-1 .poster-text p { font-size: 2.84442rem; line-height: 3.79255rem; padding: 8.00648rem; padding-right: 10.67529rem; } }
-
-.poster .poster-text p { padding: 4.50367rem; font-family: "SentinelBook", Monaco, Courier New, monospace; font-weight: 900; font-size: 1.2rem; padding-right: 4.50367rem; line-height: 1.6rem; }
-
-@media only screen and (min-width: 56.25em) { .poster .poster-text p { font-size: 1.6rem; line-height: 2.13332rem; padding: 6.00488rem; padding-right: 8.00648rem; } }
-
-@media only screen and (min-width: 75em) { .poster .poster-text p { font-size: 2.13332rem; line-height: 2.84442rem; padding: 8.00648rem; padding-right: 10.67529rem; } }
-
-.poster .image-background { height: 100%; }
+.poster .image-background { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
 
 .poster .image-background figure { height: 100%; }
 
@@ -2153,7 +2143,41 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 .poster .poster-text { position: relative; z-index: 1; }
 
-.poster .poster-text p { position: absolute; }
+.poster.colour-scheme-1 { background: #74AF9D; border-top-right-radius: 1.425rem; }
+
+.poster.colour-scheme-1:after { content: " "; background-image: url("../../asset/img/svg/marks/icon_trans_white_mark.svg"); }
+
+.poster.colour-scheme-1 .poster-text { color: #FFFFFF; }
+
+.poster.colour-scheme-2 { background: #74AF9D; border-top-right-radius: 1.425rem; }
+
+.poster.colour-scheme-2:after { background-image: url("../../asset/img/svg/marks/icon_trans_yellow_mark.svg"); }
+
+.poster.colour-scheme-2 .poster-text { color: #F2E55B; }
+
+.poster.colour-scheme-3 { background: #63BDD5; border-top-right-radius: 1.425rem; }
+
+.poster.colour-scheme-3:after { background-image: url("../../asset/img/svg/marks/icon_trans_white_mark.svg"); }
+
+.poster.colour-scheme-3 .poster-text { color: #FFFFFF; }
+
+.poster.colour-scheme-4 { background: #D84F37; border-top-right-radius: 1.425rem; }
+
+.poster.colour-scheme-4:after { background-image: url("../../asset/img/svg/marks/icon_trans_yellow_mark.svg"); }
+
+.poster.colour-scheme-4 .poster-text { color: #F2E55B; }
+
+.poster.text-treatment-1 .poster-text p { font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 900; font-size: 1.6rem; line-height: 2.13332rem; }
+
+@media only screen and (min-width: 56.25em) { .poster.text-treatment-1 .poster-text p { font-size: 2.13332rem; line-height: 2.84442rem; } }
+
+@media only screen and (min-width: 75em) { .poster.text-treatment-1 .poster-text p { font-size: 3.79255rem; line-height: 5.05673rem; } }
+
+.poster .poster-text p { font-family: "SentinelBook", Monaco, Courier New, monospace; font-weight: 900; font-size: 1.2rem; line-height: 1.6rem; }
+
+@media only screen and (min-width: 56.25em) { .poster .poster-text p { font-size: 1.6rem; line-height: 2.13332rem; } }
+
+@media only screen and (min-width: 75em) { .poster .poster-text p { font-size: 2.13332rem; line-height: 2.84442rem; } }
 
 /** @file _section_list.sass @category 60_site_elements @description Styles section list items in main content */
 .item-list { transform: rotate(-1deg); -ms-transform: rotate(-1deg); background: #E0F2F7; padding: 1px 3.37776rem 3.37776rem 3.37776rem; }
@@ -2194,6 +2218,18 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 .media-list .resource-link img { width: 100%; }
 
 .media-list .resource-link .resource-name { text-align: center; margin-top: .45088rem; padding-top: 1.425rem; padding-bottom: 1.06876rem; color: #fff; background: #1d2c27; border-bottom-right-radius: 1.425rem; display: inline-block; width: 100%; }
+
+main .quotation blockquote { background: #FCFADE; color: #D84F37; padding: 2.53333rem 4.50367rem !important; font-family: "SentinelBook", Monaco, Courier New, monospace; padding-bottom: 6.00488rem !important; margin-top: 6.00488rem !important; margin-bottom: 6.00488rem !important; transform: rotate(-1deg); -ms-transform: rotate(-1deg); text-align: left; border-spacing: 0; padding: 0.45088rem; font-size: 0.9rem; }
+
+main .quotation blockquote:after { content: " "; width: 2.53333rem; height: 2.53333rem; background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat; position: absolute; right: 1.425rem; top: -1.425rem; border: 1px solid; padding: 1.425rem; background-size: 1.9rem; background-position: center; border-radius: 100%; }
+
+@media only screen and (min-width: 46.25em) { main .quotation blockquote:after { content: " "; width: 2.53333rem; height: 2.53333rem; background: url("../../asset/img/svg/icons/quotes_icon.svg") no-repeat; padding: 2.53333rem; background-size: 3.37776rem; position: relative; float: right; border-radius: 100%; background-position: center; border: 1px solid; top: unset; } }
+
+main .quotation blockquote cite { font-family: "SentinelBook", Monaco, Courier New, monospace; color: #1D2C27; font-style: normal; background: url("../../asset/img/svg/icons/dashes.svg") no-repeat; display: inline-block; padding-top: 0.60118rem; margin-top: 0.60118rem; }
+
+@media only screen and (min-width: 46.25em) { main .quotation blockquote { padding: 0.80157rem; font-size: 1.2rem; } }
+
+main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(1deg); }
 
 /* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
 @media only screen and (min-width: 46.25em) { body.profiles .section-intro-splash figure { background-image: url(../img/png/splash/profiles_splash_desktop.png); background-repeat: no-repeat; background-size: cover; width: 50%; background-position: center center; }
