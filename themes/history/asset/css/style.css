@@ -1022,15 +1022,17 @@ section main > div > .preview-block { margin-top: 0 !important; }
 
 .explore-left { width: 3.37776rem; height: 3.37776rem; background: url("../../asset/img/svg/icons/left_arrow_black.svg") no-repeat; float: unset; top: unset; position: absolute; left: 10px; }
 
-@media only screen and (min-width: 46.25em) { .explore-left { float: left; top: 315px; position: relative; width: 6.00488rem; height: 6.00488rem; bottom: unset; } }
+@media only screen and (min-width: 46.25em) { .explore-left { float: left; top: 370px; position: relative; width: 4.50367rem; height: 4.50367rem; bottom: unset; margin: 15px; } }
+
+@media only screen and (min-width: 75em) { .explore-left { top: 400px; width: 6.00488rem; height: 6.00488rem; } }
 
 .explore-left:hover { background: url("../../asset/img/svg/icons/left_arrow_black_active.svg") no-repeat; }
 
-.explore-left.inactive { display: none; }
-
 .explore-right { width: 3.37776rem; height: 3.37776rem; background: url("../../asset/img/svg/icons/right_arrow_black.svg") no-repeat; float: unset; top: unset; position: absolute; right: 10px; }
 
-@media only screen and (min-width: 46.25em) { .explore-right { float: right; position: absolute; width: 6.00488rem; height: 6.00488rem; bottom: unset; } }
+@media only screen and (min-width: 46.25em) { .explore-right { float: right; top: 370px; position: relative; width: 4.50367rem; height: 4.50367rem; bottom: unset; margin: 15px; } }
+
+@media only screen and (min-width: 75em) { .explore-right { top: 400px; width: 6.00488rem; height: 6.00488rem; } }
 
 .explore-right:hover { background: url("../../asset/img/svg/icons/right_arrow_black_active.svg") no-repeat; }
 
@@ -1053,6 +1055,8 @@ section main > div > .preview-block { margin-top: 0 !important; }
 .browse-controls { margin-top: 120px; text-align: left; }
 
 .browse-controls .pagination .explore-right, .browse-controls .pagination .explore-left { display: inline-block; }
+
+.browse-controls .pagination .explore-right.inactive, .browse-controls .pagination .explore-left.inactive { display: none; }
 
 .browse-controls .pagination .row-count { display: block; }
 

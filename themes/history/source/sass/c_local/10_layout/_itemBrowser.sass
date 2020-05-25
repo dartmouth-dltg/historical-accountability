@@ -70,17 +70,20 @@
   left: 10px
   +bp($stack)
     float: left
-    top: 315px
+    top: 370px
     position: relative
+    width: rv(3)
+    height: rv(3)
+    bottom: unset
+    margin: 15px
+  +bp($desktop)
+    top: 400px
     width: rv(4)
     height: rv(4)
-    bottom: unset
 
   &:hover
     background: url("../../asset/img/svg/icons/left_arrow_black_active.svg") no-repeat
-.explore-left
-  &.inactive
-    display: none
+
 .explore-right
   width: rv(2)
   height: rv(2)
@@ -91,11 +94,17 @@
   right: 10px
   +bp($stack)
     float: right
-    //top: 420px
-    position: absolute
+    top: 370px
+    position: relative
+    width: rv(3)
+    height: rv(3)
+    bottom: unset
+    margin: 15px
+  +bp($desktop)
+    top: 400px
     width: rv(4)
     height: rv(4)
-    bottom: unset
+
   &:hover
     background: url("../../asset/img/svg/icons/right_arrow_black_active.svg") no-repeat
 
@@ -147,6 +156,8 @@
   .pagination
     .explore-right, .explore-left
       display: inline-block
+      &.inactive
+        display: none
     .row-count 
       display: block
   form
