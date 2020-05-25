@@ -45,7 +45,9 @@ class Poster extends AbstractBlockLayout
     public function onHydrate(SitePageBlock $block, ErrorStore $errorStore)
     {
         $data = $block->getData();
-        $data['title'] = isset($data['title']) ? $this->htmlPurifier->purify($data['title']) : '';
+        $html = isset($data['html']) ? $this->htmlPurifier->purify($data['html']) : '';
+        $data['html'] = $html;
+        $block->setData($data);
     }
     
 
