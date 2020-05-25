@@ -1,20 +1,59 @@
 <?php
 namespace AgileThemeTools\Site\BlockLayout;
 
+use AgileThemeTools\Controller\SectionManager;
 use AgileThemeTools\Form\Element\RegionMenuSelect;
+use Omeka\Entity\SitePageBlock;
 use Omeka\Site\BlockLayout\AbstractBlockLayout;
 use Omeka\Api\Representation\SiteRepresentation;
 use Omeka\Api\Representation\SitePageRepresentation;
 use Omeka\Api\Representation\SitePageBlockRepresentation;
+use Omeka\Stdlib\ErrorStore;
+use Omeka\Stdlib\HtmlPurifier;
 use Zend\Form\Element\Text;
 use Zend\Form\Element\Textarea;
+use Zend\Form\FormElementManager\FormElementManagerV3Polyfill as FormElementManager;
 use Zend\View\Renderer\PhpRenderer;
 
 class ItemListing extends AbstractBlockLayout
 {
+
+    /**
+     * @var HtmlPurifier
+     */
+    protected $htmlPurifier;
+    /**
+     * @var FormElementManager
+     */
+    protected $formElementManager;
+
+    protected $blockLayoutManager;
+
+    protected $errorStore;
+
     public function getLabel()
     {
         return 'Item Listing with Introduction'; // @translate
+    }
+
+    public function __construct($blockLayoutManager, $htmlPurifier, FormElementManager $formElementManager, ErrorStore $errorStore)
+    {
+        $this->htmlPurifier = $htmlPurifier;
+        $this->formElementManager = $formElementManager;
+        $this->blockLayoutManager = $blockLayoutManager;
+        $this->errorStore = $errorStore;
+    }
+
+    public function onHydrate(SitePageBlock $block, ErrorStore $errorStore)
+    {
+        $data = $block->getData();
+        $data['introduction'] = isset($data['introduction']) ? $this->htmlPurifier->purify($data['introduction']) : '';
+        $data['title'] = isset($data['title']) ? $this->htmlPurifier->purify($data['title']) : '';
+        $data['buttonText'] = isset($data['buttonText']) ? $this->htmlPurifier->purify($data['buttonText']) : '';
+        $data['buttonPath'] = isset($data['buttonPath']) ? $this->htmlPurifier->purify($data['buttonPath']) : '';
+        $data['classes'] = isset($data['classes']) ? $this->htmlPurifier->purify($data['classes']) : '';
+        $data['itemCount'] = isset($data['itemCount']) ? $this->htmlPurifier->purify($data['itemCount']) : '';
+        $block->setData($data);
     }
 
     public function form(PhpRenderer $view, SiteRepresentation $site,

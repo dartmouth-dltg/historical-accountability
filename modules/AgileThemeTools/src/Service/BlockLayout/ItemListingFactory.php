@@ -3,6 +3,7 @@ namespace AgileThemeTools\Service\BlockLayout;
 
 use AgileThemeTools\Site\BlockLayout\ItemListing;
 use Interop\Container\ContainerInterface;
+use Omeka\Stdlib\ErrorStore;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
 class ItemListingFactory implements FactoryInterface
@@ -17,6 +18,10 @@ class ItemListingFactory implements FactoryInterface
     {
         $htmlPurifier = $serviceLocator->get('Omeka\HtmlPurifier');
         $formElementManager = $serviceLocator->get('FormElementManager');
-        return new ItemListing($htmlPurifier,$formElementManager);
+        $errorStore = new ErrorStore();
+        $blockLayoutManager = $serviceLocator->get('Omeka\BlockLayoutManager');
+
+
+        return new ItemListing($blockLayoutManager,$htmlPurifier,$formElementManager,$errorStore);
     }
 }
