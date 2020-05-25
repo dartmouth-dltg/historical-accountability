@@ -1030,7 +1030,7 @@ section main > div > .preview-block { margin-top: 0 !important; }
 
 .explore-right { width: 3.37776rem; height: 3.37776rem; background: url("../../asset/img/svg/icons/right_arrow_black.svg") no-repeat; float: unset; top: unset; position: absolute; right: 10px; }
 
-@media only screen and (min-width: 46.25em) { .explore-right { float: right; top: 420px; position: relative; width: 6.00488rem; height: 6.00488rem; bottom: unset; } }
+@media only screen and (min-width: 46.25em) { .explore-right { float: right; position: absolute; width: 6.00488rem; height: 6.00488rem; bottom: unset; } }
 
 .explore-right:hover { background: url("../../asset/img/svg/icons/right_arrow_black_active.svg") no-repeat; }
 
