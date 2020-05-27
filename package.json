@@ -47,7 +47,7 @@
  },
  "dependencies": {
   "in-view": "^0.6.1",
-  "jquery": "^3.4.1",
+  "jquery": "^3.5.0",
   "jquery-colorbox": "^1.6.4",
   "jquery-reflow-table": "^1.0.3",
   "slick-carousel": "^1.8.1"
