@@ -1,0 +1,113 @@
+/** 
+ *  @file _item_list_intro.sass 
+ *  @category 60_site_elements
+ *  @theme LOCAL
+ *  @description Styles the Item listing introduction block. */
+
+
+
+.item-listing
+  &.region
+    padding: rv(1) 0
+    background: $clr2
+    text-align: center
+    +bp($stack)
+      padding: rv(1) rv(3)
+
+    h2
+      font-size: font-value(2)
+      font-weight: $heavy
+      +bp($tablet)
+        font-size: font-value(4)
+        white-space: nowrap
+      +bp($desktop)
+        font-size: font-value(5)
+        white-space: nowrap
+    a.btn
+      color: $white
+      background: $black
+      padding: rv(-2) rv(0)
+      text-decoration: unset
+      border-radius: $buttonRadius
+      font-family: $headingfont
+      font-weight: $bold
+      display: inline-block
+      height: auto
+      border: 0
+      margin-bottom: rv(1) 
+      margin-top: rv(1)
+    
+    .title-area
+      padding: 0 rv(-0)
+      +bp($desktop)
+        padding: 0 rv(5)
+        
+      &::before
+        content: " "
+        width: rv(1)
+        height: rv(1)
+        background: url("../../asset/img/svg/marks/icon_black_mark.svg") no-repeat
+        display: inline-block
+
+    .item-listing-wrapper
+      display: grid
+      grid-template-columns: 1fr
+      grid-column-gap: rv(0)
+      grid-row-gap: rv(-4)
+      padding-top: rv(0)
+      padding-bottom: rv(2)
+      background: $white
+      margin-bottom: -50px
+      +bp($stack)
+        grid-template-columns: 1fr 1fr
+        grid-row-gap: rv(1)
+        background: unset
+        padding-top: rv(3)
+        padding-bottom: rv(5)
+      +bp($desktop)
+        grid-template-columns: 1fr 1fr 1fr
+        background: unset
+        padding-top: rv(3)
+        padding-bottom: rv(5)
+      .caption
+        color: $white
+        background: $black
+        text-align: left
+        padding: rv(-4)
+        padding-left: rv(0)
+        padding-top: rv(-2)
+        border-bottom-right-radius: $borderRadius
+        border-top: 3px solid $white
+      .item
+        margin-right: 0
+        margin-left: 0
+        &::before
+          content: ""
+          width: 100%
+          display: block
+          height: 1.425rem
+          position: unset
+          border-bottom: 3px solid #fff
+          top: 14px
+          background: $black
+        
+        
+        
+        a
+          &::after
+            content: " "
+            width: 2.53333rem
+            height: 2.53333rem
+            background: url(../../asset/img/svg/icons/fullscreen_white_icon.svg) no-repeat
+            position: absolute
+            background-size: 1.9rem
+            z-index: 999
+            margin-left: -50px
+            margin-top: 20px
+        img
+          object-fit: cover
+          height: 100%
+          filter: grayscale(100%)
+          height: 18rem
+          &:hover
+            mix-blend-mode: multiply

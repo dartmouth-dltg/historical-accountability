@@ -56,3 +56,62 @@
       font-family: $headingfont
       +untilt
       margin-bottom: rv(1)
+  
+
+
+
+
+
+
+
+
+
+
+#feature-1
+  margin-top: 0
+  display: grid
+  .card-compact
+    filter: unset
+    border-bottom: 3px solid $white
+    +bp($stack)
+      border-bottom: 6px solid $white
+    h3
+      position: absolute
+      margin-top: rv(4) * -1
+      border-top: unset
+      font-weight: $bold
+      padding: rv(0)
+      +bp($stack)
+        padding: 0
+      a
+        text-decoration: unset
+        background: unset
+        padding: rv(0) 0
+        +bp($stack)
+          padding: rv(0)
+        &:hover
+          background: unset
+          text-decoration: unset
+          color: unset
+  .representative-image
+    height: 100%
+    margin: 0
+    +bp($stack)
+      margin: unset
+    .item 
+      height: 100%
+      figure
+        height: 100%
+        background: $clr1
+        figcaption
+          top: unset
+          bottom: rv(-1)
+          left: rv(0)
+          color: $white
+          font-style: normal
+          +bp($stack)
+            bottom: rv(-7) * -1
+        img
+          height: 100%
+          filter: grayscale(100%)
+          mix-blend-mode: multiply
