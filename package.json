@@ -1,7 +1,7 @@
 {
- "name": "history-theme",
+ "name": "DHAP Theme",
  "version": "1.0.0",
- "description": "A custom Omeka theme for the Historical Accountability project.",
+ "description": "A custom Omeka theme for the Dartmouth Historical Accountability project.",
  "main": "./assets/js/default.js",
  "author": {
   "name": "Agile Humanities Agency",

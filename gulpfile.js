@@ -31,11 +31,13 @@ var paths = {
 	scripts: {
 		input: source_dir + '/js',
 		output: build_dir + '/js/',
-		cfilename: 'default' // Output file name for concatenated scripts. Set to false to use output folder name
+		cfilename: 'default', // Output file name for concatenated scripts. Set to false to use output folder name
+		vfilename: 'vendor' // Output file name for vendor scripts
 	},
 	styles: {
 		input: source_dir + '/sass/**/*.{scss,sass}',
 		output: build_dir + '/css',
+		vfilename: 'vendor', // Output file name for vendor styles
 		sassIncludePaths: [source_dir + '/sass/a_components',source_dir + '/sass/b_profiles',source_dir + '/sass/c_local',source_dir + '/sass/a_components/00_general',source_dir + '/sass/a_components/10_layout',source_dir + '/sass/a_components/20_colour',source_dir + '/sass/a_components/30_typography',source_dir + '/sass/a_components/40_ui',source_dir + '/sass/a_components/50_animation',source_dir + '/sass/a_components/60_site_elements','node_modules']
 	},
 	img: {
@@ -64,6 +66,14 @@ var paths = {
 	},
 	reload: './'
 };
+
+
+/**
+ * Copy third-party scripts and styles. 
+ */
+ 
+var vendor_scripts = ['node_modules/jquery-reflow-table/dist/js/reflow-table.js'];
+var vendor_styles = ['node_modules/jquery-reflow-table/dist/css/reflow-table.css'];
 
 
 /**
@@ -126,6 +136,16 @@ var svgmin = require('gulp-svgmin');
 
 // BrowserSync
 var browserSync = require('browser-sync');
+
+/**
+ *  Define CSS Plugins
+ */
+ 
+var cssPlugins = [
+	autoprefixer({cascade: true, remove: true}), 
+	cssnano({discardComments: { removeAll: true}})
+];
+
 
 
 /**
@@ -198,6 +218,34 @@ var buildScripts = function (done) {
 
 };
 
+var buildVendorScripts = function(done) {
+  
+	if (!settings.scripts) return done();
+	return src(vendor_scripts)
+		.pipe(flatmap(function(stream, file) {
+
+
+				// Setup a suffix variable
+				var suffix = '';
+				
+				// Setup a filename.
+				
+				var filename = paths.scripts.vfilename === false ? file.relative : paths.scripts.vfilename;
+
+
+				// Grab all files and concatenate them
+
+				src(file.path)
+				  .pipe(sourcemaps.init()) // TO DO: Sourcemaps not working as expected.
+					.pipe(concat(filename + suffix + '.js'))
+					.pipe(jsTasks())
+					sourcemaps.write('./');
+
+				return stream;
+
+		}));	 
+}
+
 // Lint scripts
 var lintScripts = function (done) {
 
@@ -229,12 +277,6 @@ var buildStyles = function (done) {
 	// Make sure this feature is activated before running
 	if (!settings.styles) return done();
 	
-	
-	var cssPlugins = [
-  	autoprefixer({cascade: true, remove: true}), 
-  	cssnano({discardComments: { removeAll: true}})
-	];
-
 	// Run tasks on all Sass files
 	return src(paths.styles.input)
 	  .pipe(sourcemaps.init())
@@ -252,6 +294,36 @@ var buildStyles = function (done) {
 		.pipe(dest(paths.styles.output));
 
 };
+
+var buildVendorStyles = function(done) {
+  
+	if (!settings.scripts) return done();
+	return src(vendor_styles)
+		.pipe(flatmap(function(stream, file) {
+
+				
+				// Setup a filename.
+				
+				var filename = paths.styles.vfilename === false ? file.relative : paths.styles.vfilename;
+
+				// Grab all files and concatenate them
+
+				src(file.path)
+          .pipe(sourcemaps.init())
+      		.pipe(header(banner.full, { package : package }))
+      		.pipe(rename({basename: filename}))
+      		.pipe(dest(paths.styles.output))
+      		.pipe(rename({basename: filename, suffix: '.min'}))
+      		.pipe(postcss(cssPlugins))
+      		.pipe(header(banner.min, { package : package }))
+      		.pipe(sourcemaps.write('./'))
+      		.pipe(dest(paths.styles.output));
+				return stream;
+		}));	 
+}
+
+
+
 
 // Copy Image files
 var buildImages = function (done) {
@@ -369,7 +441,9 @@ exports.default = series(
 	parallel(
 		lintScripts,
 		buildScripts,
+		buildVendorScripts,
 		buildStyles,
+		buildVendorStyles,
 		buildImages,
 		buildSVGs,
 		buildPNGs,
@@ -389,8 +463,9 @@ exports.sass = series(
 exports.js = series(
   lintScripts,
   buildScripts,
+  buildVendorScripts,
   buildModernizr
-)
+);
 
 exports.images = series(
 	buildImages,
