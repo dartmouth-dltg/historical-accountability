@@ -2,3 +2,4 @@
 /.idea
 /config/database.ini
 /files/*
+/node_modules
