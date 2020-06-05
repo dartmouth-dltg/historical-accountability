@@ -8,11 +8,11 @@
  /* !COLOUR GRID
     Define your design’s palette by choosing the main colours */
 
-$clr1: #74AF9D
-$clr2: #F2E55B 
-$clr3: #63BDD5 
-$clr4: #D84F37 
-$clr5: #3A584F  
+$clr1: #74AF9D // Green
+$clr2: #F2E55B // Yellow
+$clr3: #63BDD5 // Blue
+$clr4: #D84F37 // Red
+$clr5: #3A584F // Dark Green
 
 
 // Define alternative blackpoint, whitepoint and neutrals.
@@ -23,10 +23,17 @@ $white: #FFFFFF
 
 // Color map examples
 
-$clr1_map: (dark: #554222, shade: #D4A454, primary: $clr1, tint: #FFD898, fade: #FFECCC, watermark: #FFF7E9)
-$clr2_map: (dark: #632916, shade: #80351C, primary: $clr2, tint: #C59587, fade: #DEC4BB, watermark: #F3E7E3)
-$clr3_map: (dark: #465D55, shade: #586D66, primary: $clr3, tint: #909E99, fade: #ECF3F8, watermark: #F3F6F8)
-$clr4_map: (dark: #283A44, shade: #3C5766, primary: $clr4, tint: #9FC4DB, fade: #C5DCE9, watermark: #ECF3F8)
+$clr1_map: (dark: mix($black,$clr1,30%),  shade: mix($black,$clr1,20%), primary: $clr1, tint: mix($white,$clr1,10%), fade: mix($white,$clr1,50%), watermark: mix($white,$clr1,80%))
+$clr2_map: (dark: mix($black,$clr1,30%), shade: mix($black,$clr2,20%), primary: $clr2, tint: mix($white,$clr2,10%), fade: mix($white,$clr2,50%), watermark: mix($white,$clr2,80%))
+$clr3_map: (dark: mix($black,$clr1,30%), shade: mix($black,$clr3,20%), primary: $clr3, tint: mix($white,$clr3,10%), fade: mix($white,$clr3,50%), watermark: mix($white,$clr3,80%))
+$clr4_map: (dark: mix($black,$clr1,30%), shade: mix($black,$clr4,20%), primary: $clr4, tint: mix($white,$clr4,10%), fade: mix($white,$clr4,50%), watermark: mix($white,$clr4,80%))
+$clr5_map: (dark: mix($black,$clr1,30%), shade: mix($black,$clr5,20%), primary: $clr5, tint: mix($white,$clr5,10%), fade: mix($white,$clr5,50%), watermark: mix($white,$clr5,80%))
+
+
+// $clr1_map: (dark: #554222, shade: #D4A454, primary: $clr1, tint: #FFD898, fade: #FFECCC, watermark: #FFF7E9)
+// $clr2_map: (dark: #632916, shade: #80351C, primary: $clr2, tint: #C59587, fade: #DEC4BB, watermark: #F3E7E3)
+// $clr3_map: (dark: #465D55, shade: #586D66, primary: $clr3, tint: #909E99, fade: #ECF3F8, watermark: #F3F6F8)
+// $clr4_map: (dark: #283A44, shade: #3C5766, primary: $clr4, tint: #9FC4DB, fade: #C5DCE9, watermark: #ECF3F8)
 
 
 

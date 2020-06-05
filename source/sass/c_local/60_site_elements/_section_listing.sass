@@ -9,49 +9,33 @@
 #feature-1
   margin-top: 0
   display: grid
-  .card-compact
-    filter: unset
-    border-bottom: 3px solid $white
-    +bp($stack)
-      border-bottom: 6px solid $white
-    h3
-      position: absolute
-      margin-top: rv(4) * -1
-      border-top: unset
-      font-weight: $bold
-      padding: rv(0)
-      +bp($stack)
-        padding: 0
-      a
-        text-decoration: unset
-        background: unset
-        padding: rv(0) 0
-        +bp($stack)
-          padding: rv(0)
-        &:hover
-          background: unset
-          text-decoration: unset
-          color: unset
-          
-  .representative-image
-    height: 100%
-    margin: 0
-    +bp($stack)
-      margin: unset
-    .item 
-      height: 100%
-      figure
-        height: 100%
-        background: $clr1
-        figcaption
-          top: unset
-          bottom: rv(-1)
-          left: rv(0)
-          color: $white
-          font-style: normal
-          +bp($stack)
-            bottom: rv(-7) * -1
-        img
-          height: 100%
-          filter: grayscale(100%)
-          mix-blend-mode: multiply
+  grid-gap: rv(-5)
+  grid-template-columns: 1fr
+  
+  +bp($desktop)
+    grid-template-columns: 6.4fr 3.6fr // golden ratio
+    grid-gap: rv(-5)
+  
+  .title-area
+    text-align: center
+    background-color: set-colour(1,'fade')
+    padding: rv(3)
+    position: relative
+
+    
+    +bp($desktop)
+      text-align: left 
+      
+      &:after
+        content: ''
+        position: absolute
+        bottom: rv(3)
+        left: rv(3)
+        background: url("../../asset/img/svg/marks/green_outline_mark.svg") no-repeat
+        width: rv(6)
+        height: rv(6)
+  
+                    
+  .btn-submit
+    margin-top: rv(1)
+    display: inline-block

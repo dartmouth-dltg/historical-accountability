@@ -78,17 +78,13 @@ main
       border-color: $clr4
       color: $clr4
     
-
 .card-compact
-  +huronia_drop_shadow()
 
   figure
     +proportional_thumbnail()
     
   h3
-    margin: 0
-    padding: 0
-    text-align: right
+    text-align: left
     color: $white
     +font-size(0)
     background-color: transparent
@@ -102,9 +98,57 @@ main
       padding: rv(0)
       text-align: right
       color: inherit
-      text-decoration: underline
-      background-color: $black
+        
+        
+.card-compact
+  border-bottom: rv(-5) solid $white
+  +bp($stack)
+    border-bottom: rv(-4) solid $white
+    
+  &:last-child
+    border: 0
       
-      &:hover
-        background-color: set-color(1)
-        color: $black
+  h3
+    position: absolute
+    margin: rv(4) * -1 0 0 0
+    padding: 0
+    border-top: unset
+    font-weight: $bold
+    padding: rv(0)
+    
+    +bp($stack)
+      padding: 0
+    a
+      padding: rv(0) 0
+      +bp($stack)
+        padding: rv(0)
+        
+  .representative-image
+    height: 100%
+    margin: 0
+    +bp($stack)
+      margin: unset
+    .item 
+      height: 100%
+      figure
+        height: 100%
+        background: set-color(1)
+        
+        figcaption
+          top: unset
+          bottom: rv(-1)
+          left: rv(0)
+          color: $white
+          font-style: normal
+          +bp($stack)
+            bottom: rv(-7) * -1
+            
+        &:hover
+          background: set-color(1,'dark')
+          text-decoration: unset
+          color: unset
+
+        img
+          height: 100%
+          filter: grayscale(100%)
+          mix-blend-mode: multiply
