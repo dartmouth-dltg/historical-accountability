@@ -21,19 +21,22 @@
     background-color: set-colour(1,'fade')
     padding: rv(3)
     position: relative
+    
+    h3
+      margin-top: 0
 
     
     +bp($desktop)
       text-align: left 
       
-      &:after
+      &:before
         content: ''
         position: absolute
         bottom: rv(3)
         left: rv(3)
         background: url("../../asset/img/svg/marks/green_outline_mark.svg") no-repeat
-        width: rv(6)
-        height: rv(6)
+        width: rv(5)
+        height: rv(5)
   
                     
   .btn-submit

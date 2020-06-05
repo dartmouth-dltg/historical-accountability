@@ -2216,8 +2216,10 @@ main .poster { margin: 2.53333rem 0 !important; }
 
 #feature-1 .title-area { text-align: center; background-color: #bad7ce; padding: 4.50367rem; position: relative; }
 
+#feature-1 .title-area h3 { margin-top: 0; }
+
 @media only screen and (min-width: 75em) { #feature-1 .title-area { text-align: left; }
-  #feature-1 .title-area:after { content: ''; position: absolute; bottom: 4.50367rem; left: 4.50367rem; background: url("../../asset/img/svg/marks/green_outline_mark.svg") no-repeat; width: 10.67529rem; height: 10.67529rem; } }
+  #feature-1 .title-area:before { content: ''; position: absolute; bottom: 4.50367rem; left: 4.50367rem; background: url("../../asset/img/svg/marks/green_outline_mark.svg") no-repeat; width: 8.00648rem; height: 8.00648rem; } }
 
 #feature-1 .btn-submit { margin-top: 2.53333rem; display: inline-block; }
 
