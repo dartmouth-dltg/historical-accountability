@@ -3,68 +3,7 @@
  *  @category 60_site_elements
  *  @description Styles section list items in main content */
 
-
-
-.item-list
-  +tilt
-  > ul, .item-list > ul
-    +untilt
-    display: grid
-    grid-template-columns: 1fr 1fr
-    grid-column-gap: rv(3)
-    grid-row-gap: rv(-2)
-    grid-auto-columns: min-content
-    padding: 0
-    list-style-type: none
-    +bp($stack)
-      grid-template-columns: 1fr 1fr 1fr
-
-    
-    li
-      position: relative
-      left: rv(0)
-      +bp($stack)
-        left: rv(3)
-      h5
-        font-family: $basefont
-        margin-top: 0
-        margin-bottom: rv(-3)
-      
-      &:before
-        content: ""
-        color: $black
-        font-weight: bold
-        display: inline-block
-        width: rv(-2)
-        position: absolute
-        top: 14px
-        left: rv(1) * -1
-        font-size: rv(0)
-        background: url("../../asset/img/svg/icons/list_line.svg") no-repeat
-        height: rv(-2)
-  background: #E0F2F7
-  padding: 1px rv(2) rv(2) rv(2)
-  h2
-    +untilt
-    font-family: $codefont
-    font-size: rv(1)
-    color: $clr4
-    text-transform: uppercase
   
-  .block-introduction
-    p
-      font-family: $headingfont
-      +untilt
-      margin-bottom: rv(1)
-  
-
-
-
-
-
-
-
-
 
 
 #feature-1
@@ -93,6 +32,7 @@
           background: unset
           text-decoration: unset
           color: unset
+          
   .representative-image
     height: 100%
     margin: 0
