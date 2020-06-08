@@ -681,7 +681,7 @@ main table, #feature-tier-1 table { border-spacing: 0; }
 
 .history-identity { background-color: #1D2C27; display: block; font-family: BentonSans; font-weight: 900; padding: 1.425rem; font-size: 0.9rem; min-width: 235px; max-width: 300px; }
 
-@media only screen and (min-width: 46.25em) { .history-identity { background-color: #1D2C27; height: 100%; width: 100%; margin: 0; font-size: inherit; min-width: 100%; max-width: 100%; }
+@media only screen and (min-width: 46.25em) { .history-identity { background-color: #1D2C27; height: 100%; width: 93%; margin: 0; font-size: inherit; max-width: 100%; }
   .history-identity img { height: 100%; width: auto; } }
 
 @media only screen and (min-width: 46.25em) { .history-identity#logo-stack { display: flex; flex-direction: row; align-items: center; } }
