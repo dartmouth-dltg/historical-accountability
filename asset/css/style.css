@@ -720,9 +720,15 @@ body > header nav ul.navigation { display: inline-block; float: right; }
 
 body > header nav ul.navigation li { margin: 0 0.45088rem; white-space: nowrap; }
 
-body > header nav ul.navigation li.active a { color: #F2E55B; }
+body > header nav ul.navigation li ul { display: block; }
 
-body > header nav ul.navigation li:last-child { display: none !important; }
+@media only screen and (min-width: 46.25em) { body > header nav ul.navigation li ul { display: none; position: absolute; background: #e8eae9; width: 100%; left: 0; padding-top: 1.06876rem; padding-bottom: 1.06876rem; z-index: 999; } }
+
+body > header nav ul.navigation li ul li > a { color: #1D2C27 !important; }
+
+body > header nav ul.navigation li ul li > a:hover { background: url("../../asset/img/svg/icons/menu_dot_black.svg") no-repeat; background-position-x: right; background-size: 1.06876rem; background-position-y: center; }
+
+body > header nav ul.navigation li.active a { color: #F2E55B; }
 
 body > header nav ul.navigation li a { padding-right: 1.425rem; background-position-x: right; }
 

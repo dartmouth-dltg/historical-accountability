@@ -52,8 +52,8 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
         <div class="full"><?php echo $userBar; ?> </div>
         <header class="full">
             <a id='logo-stack' href="<?php echo $site->url(); ?>" class="site-title history-identity" title="Link to homepage"><img src="<?php echo $this->assetUrl('img/svg/marks/circle_white.svg'); ?>" alt=" Logo"> Dartmouth Historical Accountability Program</a>
-            <nav>
-                <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>0]); ?>
+            <nav class="desktop-nav">
+                <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>1]); ?>
             </nav>
             <a class="menu-access-button" href="#">
                 <span>
@@ -65,7 +65,7 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
         </header>
        
         <nav class="access-dropdown-mobile" style="display:none" aria-hidden='true'>
-                <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>0]); ?>
+                <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>1]); ?>
                 <ul>
                     <li class="mobile-switch-pos"><label class="dark-switch">
                             <input type="checkbox" aria-labelledby='darkmode-mobile-togglelabel'>

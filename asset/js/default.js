@@ -296,6 +296,25 @@ if (md5('hello') != '5d41402abc4b2a76b9719d911017c592') {
     return (msw << 16) | (lsw & 0xFFFF);
   }
 }*/
+$(document).ready((function(){
+    // toggle sub menu on desktop header nav
+
+    $('.navigation > li').mouseover( (function() {
+        $("nav.desktop-nav > .navigation > li > ul").hide();
+        $(this).children().show();
+    }));
+
+    $('#primary-content').mouseover((function() {
+        $("nav.desktop-nav > .navigation > li > ul").hide();
+    }));
+
+    $(window).resize((function() {
+        $(".navigation > li > ul").css("top", $("header").height() + 10);
+    }));
+    
+    $(window).trigger('resize');
+
+}));
 /**
  *  @file rollover.js
  *

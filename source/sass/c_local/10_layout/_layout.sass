@@ -378,11 +378,31 @@ body
         li
           margin: 0 rv(-5)
           white-space: nowrap
+          ul
+            display: block
+
+            +bp($stack)
+              display: none
+              position: absolute
+              background: neutral(10)
+              width: 100%
+              left: 0
+              padding-top: rv(-2)
+              padding-bottom: rv(-2)
+              z-index: 999
+            li > a
+              color: $black!important
+            li > a:hover
+              background: url("../../asset/img/svg/icons/menu_dot_black.svg") no-repeat
+              background-position-x: right
+              background-size: rv(-2)
+              background-position-y: center
+              
           &.active
             a
               color: $clr2
           &:last-child
-            display: none !important
+            // display: none !important  not sure why this was here
           a
              padding-right: rv(-1)
              background-position-x: right
