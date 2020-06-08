@@ -296,6 +296,11 @@ main, #feature-tier-1
       display: flex
       flex-direction: row
       align-items: center
+      font-size: font-value(-1)
+    +bp($tablet)
+      font-size: font-value(-1)
+    +bp($desktop)
+      font-size: font-value(0)
       
     img
       width: rv(2)
@@ -375,7 +380,6 @@ body
         display: inline-block
         float: right
         li
-          margin: 0 rv(-5)
           white-space: nowrap
           ul
             display: block
@@ -394,8 +398,12 @@ body
             li > a:hover
               background: url("../../asset/img/svg/icons/menu_dot_black.svg") no-repeat
               background-position-x: right
-              background-size: rv(-2)
+              background-size: rv(-3)
               background-position-y: center
+              +bp($tablet)
+                background-size: rv(-3)
+              +bp($desktop)
+                background-size: rv(-2)
               
           &.active
             a
@@ -403,13 +411,23 @@ body
           &:last-child
             // display: none !important  not sure why this was here
           a
-             padding-right: rv(-1)
              background-position-x: right
+             padding-right: rv(-1)
+             font-size: font-value(-1)
+             +bp($tablet)
+              font-size: font-value(-1)
+             +bp($desktop)
+              font-size: font-value(0)
           a:hover
             background: url("../../asset/img/svg/icons/menu_dot.svg") no-repeat
             background-position-x: right
-            background-size: rv(-2)
+            background-size: rv(-3)
             background-position-y: center
+            +bp($tablet)
+              background-size: rv(-3)
+            +bp($desktop)
+              background-size: rv(-2)
+
     a
       color: $white
       font-weight: $bold
@@ -662,3 +680,6 @@ section
     > div
       > .preview-block
         margin-top: 0!important
+.access-dropdown-mobile
+  ul > li > a
+    padding-right: rv(-1)
