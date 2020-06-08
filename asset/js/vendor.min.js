@@ -1,6 +1,6 @@
-/*! DHAP Theme v1.0.0 | (c) 2020 Agile Humanities Agency | MIT License | https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git */
+/*! dhap-theme v1.0.0 | (c) 2020 Agile Humanities Agency | MIT License | https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git */
 /*!
- * DHAP Theme v1.0.0
+ * dhap-theme v1.0.0
  * A custom Omeka theme for the Dartmouth Historical Accountability project.
  * (c) 2020 Agile Humanities Agency
  * MIT License

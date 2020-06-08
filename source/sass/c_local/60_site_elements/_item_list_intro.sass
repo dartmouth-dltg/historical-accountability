@@ -19,10 +19,8 @@
       font-weight: $heavy
       +bp($tablet)
         font-size: font-value(4)
-        white-space: nowrap
       +bp($desktop)
         font-size: font-value(5)
-        white-space: nowrap
     a.btn
       color: $white
       background: $black
@@ -111,3 +109,11 @@
           height: 18rem
           &:hover
             mix-blend-mode: multiply
+#secondary-content
+  .item-listing
+    &.region
+      h2
+        +bp($tablet)
+          white-space: nowrap
+        +bp($desktop)
+          white-space: nowrap

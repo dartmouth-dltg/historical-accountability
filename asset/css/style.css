@@ -1,5 +1,5 @@
 /*!
- * DHAP Theme v1.0.0
+ * dhap-theme v1.0.0
  * A custom Omeka theme for the Dartmouth Historical Accountability project.
  * (c) 2020 Agile Humanities Agency
  * MIT License
@@ -2263,9 +2263,9 @@ main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(
 
 .item-listing.region h2 { font-size: 2.13332rem; font-weight: 900; }
 
-@media only screen and (min-width: 56.25em) { .item-listing.region h2 { font-size: 3.79255rem; white-space: nowrap; } }
+@media only screen and (min-width: 56.25em) { .item-listing.region h2 { font-size: 3.79255rem; } }
 
-@media only screen and (min-width: 75em) { .item-listing.region h2 { font-size: 5.05673rem; white-space: nowrap; } }
+@media only screen and (min-width: 75em) { .item-listing.region h2 { font-size: 5.05673rem; } }
 
 .item-listing.region a.btn { color: #FFFFFF; background: #1D2C27; padding: 1.06876rem 1.9rem; text-decoration: unset; border-radius: 0.80157rem; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; font-weight: 700; display: inline-block; height: auto; border: 0; margin-bottom: 2.53333rem; margin-top: 2.53333rem; }
 
@@ -2292,6 +2292,10 @@ main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(
 .item-listing.region .item-listing-wrapper .item img { object-fit: cover; height: 100%; filter: grayscale(100%); height: 18rem; }
 
 .item-listing.region .item-listing-wrapper .item img:hover { mix-blend-mode: multiply; }
+
+@media only screen and (min-width: 56.25em) { #secondary-content .item-listing.region h2 { white-space: nowrap; } }
+
+@media only screen and (min-width: 75em) { #secondary-content .item-listing.region h2 { white-space: nowrap; } }
 
 /* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
 @media only screen and (min-width: 46.25em) { body.profiles .section-intro-splash figure { background-image: url(../img/png/splash/profiles_splash_desktop.png); background-repeat: no-repeat; background-size: cover; width: 50%; background-position: center center; }

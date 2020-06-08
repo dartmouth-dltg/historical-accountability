@@ -1,5 +1,5 @@
 {
- "name": "DHAP Theme",
+ "name": "dhap-theme",
  "version": "1.0.0",
  "description": "A custom Omeka theme for the Dartmouth Historical Accountability project.",
  "main": "./assets/js/default.js",
