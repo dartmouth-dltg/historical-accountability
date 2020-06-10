@@ -609,6 +609,12 @@ main > div > .resource-list, #feature-tier-1 > div > .resource-list { padding-le
 
 @media only screen and (min-width: 46.25em) { main > div > .resource-list, #feature-tier-1 > div > .resource-list { max-width: calc(800px + (10.67529rem * 2) - 3.8rem); } }
 
+main > div > .media-list-wrapper, #feature-tier-1 > div > .media-list-wrapper { padding-left: 0; padding-right: 0; }
+
+@media only screen and (min-width: 46.25em) { main > div > .media-list-wrapper, #feature-tier-1 > div > .media-list-wrapper { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 46.25em) { main > div > .media-list-wrapper, #feature-tier-1 > div > .media-list-wrapper { max-width: calc(800px + (10.67529rem * 2) - 3.8rem); } }
+
 main > div .slideshow-block, main > div .slideshow-with-audio, #feature-tier-1 > div .slideshow-block, #feature-tier-1 > div .slideshow-with-audio { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 46.25em) { main > div .slideshow-block, main > div .slideshow-with-audio, #feature-tier-1 > div .slideshow-block, #feature-tier-1 > div .slideshow-with-audio { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
@@ -2260,15 +2266,17 @@ main .poster { margin: 2.53333rem 0 !important; }
 
 .media-list-wrapper h2 { margin-top: 0; font-size: 1.6rem; }
 
-.media-list { text-align: center; width: 100%; margin: 0 auto; }
+@media only screen and (min-width: 46.25em) { .media-list-wrapper > header, .media-list-wrapper > .property-wrapper { margin: 1.9rem 2.53333rem; } }
 
-@media only screen and (min-width: 46.25em) { .media-list { width: 70%; } }
+@media only screen and (min-width: 75em) { .media-list-wrapper > header, .media-list-wrapper > .property-wrapper { margin: 1.9rem 3.37776rem; } }
+
+.media-list { text-align: center; width: 100%; margin: 0 auto; }
 
 .media-list::before { content: ""; height: 1.06876rem; width: 100%; background: #1D2C27; display: block; margin-bottom: .45088rem; }
 
 .media-list .resource-link img { width: 100%; }
 
-.media-list .resource-link .resource-name { text-align: center; margin-top: .45088rem; padding-top: 1.425rem; padding-bottom: 1.06876rem; color: #fff; background: #1d2c27; border-bottom-right-radius: 1.425rem; display: inline-block; width: 100%; }
+.media-list .resource-link .resource-name { text-align: center; margin-top: .45088rem; padding-top: 1.425rem; padding-bottom: 1.06876rem; color: #fff; background: #1D2C27; border-bottom-right-radius: 1.425rem; display: inline-block; width: 100%; }
 
 main .quotation blockquote { background: #FCFADE; color: #D84F37; padding: 2.53333rem 4.50367rem !important; font-family: "SentinelBook", Monaco, Courier New, monospace; padding-bottom: 6.00488rem !important; margin-top: 6.00488rem !important; margin-bottom: 6.00488rem !important; transform: rotate(-1deg); -ms-transform: rotate(-1deg); text-align: left; border-spacing: 0; padding: 0.45088rem; font-size: 0.9rem; }
 
@@ -2323,12 +2331,20 @@ main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(
 
 @media only screen and (min-width: 75em) { #secondary-content .item-listing.region h2 { white-space: nowrap; } }
 
+.universal-viewer.viewer { margin-bottom: 7.3567rem; }
+
+.universal-viewer.viewer::before { content: ""; height: 3.37776rem; width: 100%; background: #1D2C27; display: block; margin-bottom: 0.60118rem; }
+
+.uv { background-color: #1D2C27 !important; border-bottom-right-radius: 1.425rem; }
+
+.uv .headerPanel { color: #FFFFFF !important; }
+
+.uv .headerPanel .options { background-color: #283732 !important; }
+
+.uv .overlays { background: rgba(29, 44, 39, 0.5) !important; }
+
+.uv .leftPanel, .uv .rightPanel { background: #283732 !important; }
+
+.uv .rightPanel main { color: #FFFFFF !important; }
+
 /* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
-@media only screen and (min-width: 46.25em) { body.profiles .section-intro-splash figure { background-image: url(../img/png/splash/profiles_splash_desktop.png); background-repeat: no-repeat; background-size: cover; width: 50%; background-position: center center; }
-  body.profiles .section-intro-splash figure > a, body.profiles .section-intro-splash figure img { display: none; } }
-
-body.profiles .section-intro-splash figure:after { display: none; }
-
-@media only screen and (min-width: 46.25em) { body.profiles .section-intro-splash .introduction { background: #1D2C27; border-left: 2px solid #FFFFFF; } }
-
-body.profiles main ul li:before { color: #74AF9D; }
