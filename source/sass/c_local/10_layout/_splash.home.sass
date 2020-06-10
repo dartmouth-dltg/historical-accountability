@@ -1,5 +1,8 @@
-#homepage-splash
+#homepage-splash  
+  
   .introductory-text
+    +fluid-type(-1,1)
+    
     &::after
       content: " "
       background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat
@@ -17,7 +20,13 @@
         left: rv(1)
         margin-left: unset
         margin-top: rv(-1)
-
+                
+    *
+      font-size: 0.8em
+    
+    h1
+      font-size: 2.5em
+      margin: 0
         
   .slick-prev-splash
     position: absolute

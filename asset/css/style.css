@@ -894,7 +894,9 @@ section main > div > .preview-block { margin-top: 0 !important; }
 
 .access-dropdown-mobile ul > li > a { padding-right: 1.425rem; }
 
-@media only screen and (min-width: 46.25em) { #splash > * { height: 100%; min-height: 500px; } }
+@media only screen and (min-width: 46.25em) { #splash { min-height: 650px; } }
+
+@media only screen and (min-width: 46.25em) { #splash > * { height: 100%; } }
 
 #splash > div { margin-top: 0; }
 
@@ -902,9 +904,21 @@ section main > div > .preview-block { margin-top: 0 !important; }
 
 #homepage-splash { margin-left: 0; margin-right: 0; display: flex; flex-direction: column-reverse; justify-content: flex-start; width: 100%; overflow-y: hidden; position: relative; }
 
+#homepage-splash .introductory-text { font-size: 0.9rem; }
+
+@media (min-width: 46.25em) { #homepage-splash .introductory-text { font-size: calc(0.9rem + 0.69999 * (100vw - 46.25em) / 66.25); } }
+
+@media (min-width: 112.5em) { #homepage-splash .introductory-text { font-size: 1.6rem; } }
+
+#homepage-splash .introductory-text address, #homepage-splash .introductory-text article, #homepage-splash .introductory-text aside, #homepage-splash .introductory-text section, #homepage-splash .introductory-text ul { font-size: 1em; line-height: inherit; }
+
 #homepage-splash .introductory-text::after { content: " "; background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat; width: 5rem; height: 5rem; display: flex; position: relative; align-self: flex-end; margin-left: 15px; }
 
 @media only screen and (min-width: 46.25em) { #homepage-splash .introductory-text::after { background: url("../../asset/img/svg/marks/icon_trans_darK_mark.svg") no-repeat; width: 6rem; height: 6rem; bottom: 1.9rem; left: 2.53333rem; margin-left: unset; margin-top: 1.425rem; } }
+
+#homepage-splash .introductory-text * { font-size: 0.8em; }
+
+#homepage-splash .introductory-text h1 { font-size: 2.5em; margin: 0; }
 
 #homepage-splash .slick-prev-splash { position: absolute; width: 8.00648rem; height: 8.00648rem; top: 49%; transform: translateY(-50%); left: 20px; z-index: 9999; cursor: pointer; display: none; background: url("../../asset/img/svg/icons/left_arrow_white.svg") no-repeat; }
 
