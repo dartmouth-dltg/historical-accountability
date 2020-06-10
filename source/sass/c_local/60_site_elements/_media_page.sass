@@ -9,10 +9,12 @@
   grid-template-columns: 1fr 1fr
   +bp($stack)
     grid-template-columns: 1fr 1fr 1fr
+    
   .property
     h4
       text-transform: uppercase
       font-size: font-value(0)
+      
 .media-list-wrapper
   h3
     font-size: font-value(0)
@@ -20,12 +22,19 @@
   h2
     margin-top: 0
     font-size: font-value(1)
+    
+  > header, > .property-wrapper
+    +bp($stack)
+      margin: rv(0) rv(1)
+    
+    +bp($desktop)
+      margin: rv(0) rv(2)
+    
 .media-list
   text-align: center
   width: 100%
   margin: 0 auto
-  +bp($stack)
-    width: 70%
+  
   &::before
     content: ""
     height: 1.06876rem
@@ -33,18 +42,18 @@
     background: $black
     display: block
     margin-bottom: .45088rem
-  .resource-link
     
-
+  .resource-link
     img
       width: 100%
+      
     .resource-name
       text-align: center
       margin-top: .45088rem
       padding-top: 1.425rem
       padding-bottom: 1.06876rem
       color: #fff
-      background: #1d2c27
+      background: $black
       border-bottom-right-radius: 1.425rem
       display: inline-block
       width: 100%

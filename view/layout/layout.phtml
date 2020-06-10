@@ -4,9 +4,9 @@ $this->htmlElement('html')->setAttribute('lang', $this->lang());
 $this->headMeta()->setCharset('utf-8');
 $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
 $this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(' · ');
-$this->headLink()->prependStylesheet($this->assetUrl('css/style.min.css'));
 $this->headLink()->prependStylesheet($this->assetUrl('css/vendor.min.css'));
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
+$this->headLink()->appendStylesheet($this->assetUrl('css/style.min.css'));
 
 $this->headScript()->prependFile($this->assetUrl('js/default.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
@@ -80,7 +80,7 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
         <section id='primary-content' class='full'>
             <a name='main-content'></a>
             <main>
-              <div contentStack>
+              <div id='content-stack' contentstack>
                 <?php echo $this->content; ?>
               </div>
             </main>

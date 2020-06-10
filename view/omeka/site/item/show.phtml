@@ -1,18 +1,22 @@
 <?php
-$translate = $this->plugin('translate');
-$escape = $this->plugin('escapeHtml');
-$this->htmlElement('body')->appendAttribute('class', 'item resource show');
-$embedMedia = $this->siteSetting('item_media_embed', false);
-$itemMedia = $item->media();
+  $translate = $this->plugin('translate');
+  $escape = $this->plugin('escapeHtml');
+  $this->htmlElement('body')->appendAttribute('class', 'item resource show');
+  $embedMedia = $this->siteSetting('item_media_embed', false);
+  $itemMedia = $item->media();
+  
+  $this->headScript()->appendFile($this->assetUrl('js/slideshow.js', 'AgileThemeTools'));
+  $this->headLink()->appendStylesheet($this->basePath('modules/AgileThemeTools/node_modules/slick-carousel/slick/slick.css'));
+  $this->headScript()->appendFile($this->basePath('modules/AgileThemeTools/node_modules/slick-carousel/slick/slick.min.js'));
 ?>
 
 
 <?php $this->trigger('view.show.before'); ?>
 <div class="media-list-wrapper">
 <?php if (!$embedMedia && $itemMedia): ?>
-<div class="media-list">
+<div class="media-list slideshow">
     <?php foreach ($itemMedia as $media): ?>
-        <?php echo $media->linkPretty(); ?>
+        <?php echo $media->linkRaw($this->thumbnail($media, 'large')); ?>
     <?php endforeach; ?>
 </div>
 <?php endif; ?>
@@ -25,8 +29,10 @@ $itemMedia = $item->media();
     ?>
     </div>
 <?php endif; ?>
-<h3><?php echo $translate('Item'); ?></h3>
-<?php echo $this->pageTitle($item->displayTitle(), 2); ?>
+<header>
+  <h3><?php echo $translate('Item'); ?></h3>
+  <?php echo $this->pageTitle($item->displayTitle(), 2); ?>
+</header>
 <div class="property-wrapper">
 
 <?php echo $item->displayValues(); ?>
