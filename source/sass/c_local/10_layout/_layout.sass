@@ -392,9 +392,11 @@ body
               left: 0
               padding-top: rv(-2)
               padding-bottom: rv(-2)
+              margin-bottom: 0
+              margin-top: 0
               z-index: 999
             li > a
-              color: $black!important
+              color: $black
             li > a:hover
               background: url("../../asset/img/svg/icons/menu_dot_black.svg") no-repeat
               background-position-x: right
@@ -406,8 +408,12 @@ body
                 background-size: rv(-2)
               
           &.active
+
             a
               color: $clr2
+            li > a
+              color: $black  
+            
           &:last-child
             // display: none !important  not sure why this was here
           a
