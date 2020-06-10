@@ -23,12 +23,10 @@ $(document).ready(function(){
     $('#splash').mouseover(function() {
         $("nav.desktop-nav > .navigation > li > ul").hide();
     });
-
-
-
-
-
+    
+    
     $(window).resize(function() {
+        
         if ( $('#user-bar').length !== 0 ) {
             $(".navigation > li > ul").css("top", $("header").height() + 43);
         }

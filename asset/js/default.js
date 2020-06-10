@@ -51,6 +51,18 @@ $(document).ready((function(){
         }
     }));
 }));
+$(document).ready((function(){
+    //fix to prevent vacant splash area to produce blank space on window resize
+
+    $(window).resize((function() {
+        if ($('#splash').is(':empty')) {
+            $("#splash").css("display", "none");
+        }
+    }));
+  
+    $(window).trigger('resize');
+
+}));
 (function($) {
   $(document).ready((function() {
     function fixIframeAspect() {
@@ -321,12 +333,10 @@ $(document).ready((function(){
     $('#splash').mouseover((function() {
         $("nav.desktop-nav > .navigation > li > ul").hide();
     }));
-
-
-
-
-
+    
+    
     $(window).resize((function() {
+        
         if ( $('#user-bar').length !== 0 ) {
             $(".navigation > li > ul").css("top", $("header").height() + 43);
         }
