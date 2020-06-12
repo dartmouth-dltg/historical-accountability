@@ -3,6 +3,9 @@
    @theme Local
    @description  Loads SASS files for local theme. */
 
+$dot_size: rv(0)  // size of slider nav dots
+$slide_content_margin: rv(0)
+
 
 .slideshow-block, .slideshow-with-audio
   position: relative
@@ -12,7 +15,7 @@
   height: 90vh
   
   +bp($stack)
-    height: 800px
+    max-height: 800px
     max-width: initial
   
 .slideshow-with-audio
@@ -33,26 +36,74 @@
     flex-direction: column
     justify-content: stretch
     height: 100%
-    
+        
     figure
+      position: relative
       height: 100%
       flex-shrink: 1
       min-height: 40%
-      
+            
       &.figure-portrait
         padding: rv(0) 0
+        
+        // Overlay for nav arrow background
+        
+      &:before
+        opacity: 0
+        position: absolute
+        content: ''
+        background: $mirror_gradient
+        width: 100%
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        pointer-events: none
+        +transition(opacity,-3)
+              
+        +bp($stack)
+          height: 100%!important
+          max-height: 100%!important
           
+    &.introduction
+      > figure
+        background-color: $clr1
+        
+        img
+          mix-blend-mode: multiply
+          filter: grayscale(100%)
+          position: relative
+          display: block
+          background-color: transparent
+                    
+          &:hover
+            filter: grayscale(0%)
+                  
     img
       height: 100%
       object-fit: cover
       //filter: grayscale(100%)
       
       &.img-portrait
-        object-fit: contain      
+        object-fit: contain
+        
+  // makes nav arrow background visible
+        
+  &.navHover
+    .item
+      figure:before
+        opacity: 1
+
+// Safari flickers when this transition is applied. So far no solution is apparent.
+// This ugly hack will allow this feature to gracefully degrade on Safari.
+
+_::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
+  transition: none        
+        
 
 .slide-contents
   flex-shrink: 0 
-  padding: rv(2) 1.5rem 2.5rem 1.5rem
+  padding: $slide_content_margin $slide_content_margin rv(-1) + $dot_size + $slide_content_margin $slide_content_margin
   color: $white
   border-top: 6px solid $white
 
@@ -72,6 +123,9 @@
   p
     font-size: font-value(-1)
     
+  &:last-child
+    margin-bottom: 0
+    
     
 // !SPLASH VERSION
 
@@ -84,6 +138,7 @@
 
   .slideshow-block, .slideshow-with-audio
     max-width: 100%
+    max-height: 100%
 
   // !Splash Title Page
   
@@ -105,43 +160,7 @@
           color: $white!important
       p
         color: $white
-        
-  .slick-slide
-    &.introduction
-      > figure
-        &:before
-          content: ''
-          background: $mirror_gradient
-          height: 100%
-          position: absolute
-          width: 100%
-          top: 0
-          left: 0
-          
-        height: 100vh
-        max-height: 100vh
-        
-        +bp($stack)
-          height: 100%!important
-          max-height: 100%!important
-  .slick-slide
-    > figure
-      &:before
-        content: ''
-        background: $mirror_gradient
-        height: 100%
-        position: absolute
-        width: 100%
-        top: 0
-        left: 0
-        
-      height: 100vh
-      max-height: 100vh
-      
-      +bp($stack)
-        height: 100%!important
-        max-height: 100%!important
-          
+                  
   .slide-contents, .audio-controls
   
     +bp($stack)
@@ -153,15 +172,6 @@
     
     p
       font-size: +font-value(0)
-.slick-slide
-    &.introduction
-      > figure
-        background: $clr1
-        img
-          mix-blend-mode: multiply
-          filter: grayscale(100%)
-          &:hover
-            filter: grayscale(0%)
           
 
 // !UI CONTROLS
@@ -174,20 +184,22 @@
 
 .slide-fullscreen-openBtn
   position: absolute
-  top: 0
-  right: 0
+  top: rv(0)
+  right: rv(0)
   color: $white
-  background: none
-  border: 0px solid $clr1
+  border: 0
+  border-radius: 0
+  height: 25px
   width: 25px
   min-width: auto
-  height: 25px
-  margin: 20px
   background: url(../../asset/img/svg/icons/fullscreen_white_icon.svg) no-repeat
+  
   &:hover
-    border: 0px solid $clr1
-    background-color: unset
-    color: $white
+    border: 0
+    border-radius: 0
+    background: url(../../asset/img/svg/icons/fullscreen_yellow_icon.svg) no-repeat
+    background-color: transparent
+    color: $clr2
     
 .slide-fullscreen-closeBtn
   position: absolute
@@ -209,15 +221,12 @@
 
 .slideshow-block
   border-bottom-right-radius: $borderRadius
-  &:before
-    content: ""
-    background: $black
-    height: 1.3rem
-    width: 100%
-    top: rv(0) * -1
-    display: block
-    z-index: 999
-    border-bottom: 6px solid $white
+  position: relative
+  border-top: rv(0) solid $black
+  
+  .slideshow
+    border-top: 6px solid $white
+  
 // !Slick Controls
 
 .slick-prev
@@ -245,51 +254,57 @@
   background: url("../../asset/img/svg/icons/right_arrow_white_active.svg") no-repeat
   &:hover
     background: url("../../asset/img/svg/icons/right_arrow_yellow.svg") no-repeat
+    
 
 .slick-dots
   position: absolute
   text-align: right
-  width: 100%
+  height: $dot_size
   column-count: unset
   top: initial
-  bottom: rv(-3) * -1
+  bottom: $slide_content_margin
+  right: $slide_content_margin
   padding: 0
   z-index: 9999
   margin: 0
+  display: flex
+  justify-content: flex-end
     
   li.slick-active
-    &:before
+    &:after
       color: $clr2
+      
+  li:hover
+    &:after
+      color: $clr2
+      
   li
-    width: rv(0)
-    display: inline-block
+    width: $dot_size
+    display: flex
     cursor: pointer
-    margin: 0 rv(-2)
-    &:before
-      content: " "
-      color: neutral(25)
-      font-size: rv(1)
-      font-weight: $bold
-      display: inline-block
-      width: 25px
-      height: 25px
-      position: relative
-      top: 0px
-      left: 0px
-      border-radius: 100px
-      border: 1px solid
-    &:first-child
-      &:after
-        opacity: 0
+    height: 100%
+    padding-left: $dot_size
+    background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat
+    background-size: $dot_size
+    background-position: 4px center // not sure where the fudge factor comes from. may be compensating for original image.
+    
     &:after
       content: " "
-      display: inline-block
-      width: 28px
-      height: 28px
+      position: absolute
+      display: block
+      color: neutral(25)
+      width: $dot_size
+      height: $dot_size
       position: relative
-      top: -26px
-      left: -28px
-      background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat
+      border-radius: 50%
+      border: 1px solid
+      box-sizing: border-box
+      right: 0
+      
+    &:first-child
+      background: none
+        
+      // background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat
   button
     display:none!important
 

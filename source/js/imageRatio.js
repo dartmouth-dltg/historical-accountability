@@ -3,6 +3,8 @@
  *
  *  Audits page images and adds a class indicating their width to height ratio.
  *
+ *  Requires: imagesloaded and ev-emitter packages (load via NPM).
+ *
  */
 
 jQuery(document).ready(function() {
@@ -22,11 +24,7 @@ jQuery(document).ready(function() {
       } else if (h > w) {
         aspectClass = 'portrait';
       }
-      
-      console.log(img.attr('src'));
-      console.log("w: " + w);
-      console.log("h: " + h);
-      
+          
       img.addClass('img-' + aspectClass);
       
       img.closest('figure').addClass('figure-' + aspectClass);
