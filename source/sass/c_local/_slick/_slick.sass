@@ -38,12 +38,17 @@
       height: 100%
       flex-shrink: 1
       min-height: 40%
+      
+      &.figure-portrait
+        padding: rv(0) 0
           
     img
       height: 100%
       object-fit: cover
       //filter: grayscale(100%)
       
+      &.img-portrait
+        object-fit: contain      
 
 .slide-contents
   flex-shrink: 0 

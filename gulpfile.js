@@ -72,7 +72,7 @@ var paths = {
  * Copy third-party scripts and styles. 
  */
  
-var vendor_scripts = ['node_modules/jquery-reflow-table/dist/js/reflow-table.js'];
+var vendor_scripts = ['node_modules/jquery-reflow-table/dist/js/reflow-table.js','node_modules/ev-emitter/ev-emitter.js','node_modules/imagesloaded/imagesloaded.pkgd.js'];
 var vendor_styles = ['node_modules/jquery-reflow-table/dist/css/reflow-table.css'];
 
 
@@ -429,6 +429,20 @@ var watchSrc = function (done) {
 	done();
 };
 
+// Watch for changes
+var watchJs = function (done) {
+	watch(paths.input, series(exports.js, reloadBrowser));
+	done();
+};
+
+// Watch for changes
+var watchSass = function (done) {
+	watch(paths.input, series(exports.sass, reloadBrowser));
+	done();
+};
+
+
+
 
 /**
  * Export Tasks
@@ -480,4 +494,20 @@ exports.watch = series(
 	exports.default,
 	startServer,
 	watchSrc
+);
+
+// Watch and reload scripts only
+// gulp jswatch
+exports.jswatch = series(
+	exports.js,
+	startServer,
+	watchJs
+);
+
+// Watch and reload styles only
+// gulp sasswatch
+exports.sasswatch = series(
+	exports.sass,
+	startServer,
+	watchSass
 );
