@@ -16,7 +16,7 @@
     <?php endif; ?>
 <div class="item-listing-wrapper">
     <?php foreach ($attachments as $attachment): ?>
-        <div class="item resource">
+        <div class="item resource <?php echo  $this->thumbnailType; ?>">
             <?php
             $item = $attachment->item();
             if ($item):

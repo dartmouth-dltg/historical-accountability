@@ -6,500 +6,336 @@
  * https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git
  */
 
-/*!
- * imagesLoaded PACKAGED v4.1.4
- * JavaScript is all like "You images are done yet or what?"
- * MIT License
- */
-
 /**
- * EvEmitter v1.1.0
- * Lil' event emitter
- * MIT License
+ * RWD reflow table switch for mobile UI/UX by collapsing columns
+ * 
+ * @author  Nick Tsai <myintaer@gmail.com>
+ * @version 1.0.0
+ * @see     https://github.com/yidas/jquery-reflow-table
  */
+(function ($, window) {
 
-/* jshint unused: true, undef: true, strict: true */
+  'use strict';
 
-( (function( global, factory ) {
-  // universal module definition
-  /* jshint strict: false */ /* globals define, module, window */
-  if ( typeof define == 'function' && define.amd ) {
-    // AMD - RequireJS
-    define( 'ev-emitter/ev-emitter',factory );
-  } else if ( typeof module == 'object' && module.exports ) {
-    // CommonJS - Browserify, Webpack
-    module.exports = factory();
-  } else {
-    // Browser globals
-    global.EvEmitter = factory();
+  // Counter for this library
+  var count = 0;
+
+  /**
+   * Main object
+   * 
+   * @param {element} element 
+   * @param {object} options 
+   */
+  var ReflowTable = function(element, options) {
+
+    // Target element initialization
+    this.$table = $(element).first();
+
+    // Options
+    this.options = options || {}; 
+    this.namespace;
+    this.thead;
+    this.autoWidth;
+    this.widthRatio;
+    this.widthSize;
+
+    // Static properties
+    this.className = 'reflow-table';
+    this.mobileModeClassName = 'reflow-table-mobile-mode';
+    this.titleAttr = 'data-th';
+    this.widthRatioClassName;
+    this.widthWidthClassName;
+    this.eventMobileOn = 'reflow-table.mobile.on';
+    this.eventMobileOff = 'reflow-table.mobile.off';
+
+    this.init();
+
+    return this;
   }
 
-})( typeof window != 'undefined' ? window : this, (function() {
+  /**
+   * Initialization
+   */
+  ReflowTable.prototype.init = function() {
 
+    /**
+     * Generate a namespace for the element
+     */
+    var getNamespace = (function () {
 
+      var ns;
 
-function EvEmitter() {}
+      // First, try to get existent namespace if is init before
+      var options = this.$table.data(this.className) || {};
+      ns = options.namespace || null;
+      // Second, try to get element ID
+      ns = ns || this.$table.attr('id');
+      // At least, enable unique ID generator
+      if (!ns) {
 
-var proto = EvEmitter.prototype;
+        count += 1;
+        ns = this.className + '-' + count;
+      }
 
-proto.on = function( eventName, listener ) {
-  if ( !eventName || !listener ) {
-    return;
-  }
-  // set events hash
-  var events = this._events = this._events || {};
-  // set listeners array
-  var listeners = events[ eventName ] = events[ eventName ] || [];
-  // only add once
-  if ( listeners.indexOf( listener ) == -1 ) {
-    listeners.push( listener );
-  }
+      return ns;
 
-  return this;
-};
+    }).bind(this);
 
-proto.once = function( eventName, listener ) {
-  if ( !eventName || !listener ) {
-    return;
-  }
-  // add event
-  this.on( eventName, listener );
-  // set once flag
-  // set onceEvents hash
-  var onceEvents = this._onceEvents = this._onceEvents || {};
-  // set onceListeners object
-  var onceListeners = onceEvents[ eventName ] = onceEvents[ eventName ] || {};
-  // set flag
-  onceListeners[ listener ] = true;
+    /**
+     * Initialize and save options
+     */
+    var setOptions = (function() {
 
-  return this;
-};
+      var options = this.options;
+      this.namespace = this.options.namespace || getNamespace();
+      this.thead = this.options.thead || this.$table.find("thead");
+      this.autoWidth = (typeof options.autoWidth !== 'undefined') ? options.autoWidth : 736;
+      this.widthRatio = (typeof options.widthRatio !== 'undefined') ? options.widthRatio : '50';
+      this.widthSize = (typeof options.widthSize !== 'undefined') ? options.widthSize : false;
+      // Static properties
+      this.widthRatioClassName = this.className + '-w-' + this.widthRatio;
+      this.widthWidthClassName= this.className + '-' + this.widthSize;
 
-proto.off = function( eventName, listener ) {
-  var listeners = this._events && this._events[ eventName ];
-  if ( !listeners || !listeners.length ) {
-    return;
-  }
-  var index = listeners.indexOf( listener );
-  if ( index != -1 ) {
-    listeners.splice( index, 1 );
-  }
+      // Save options
+      this.$table.data(this.className, this.options);
 
-  return this;
-};
+    }).bind(this);
 
-proto.emitEvent = function( eventName, args ) {
-  var listeners = this._events && this._events[ eventName ];
-  if ( !listeners || !listeners.length ) {
-    return;
-  }
-  // copy over to avoid interference if .off() in listener
-  listeners = listeners.slice(0);
-  args = args || [];
-  // once stuff
-  var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
+    /**
+     * Restore options
+     */
+    var restoreOptions = (function() {
 
-  for ( var i=0; i < listeners.length; i++ ) {
-    var listener = listeners[i]
-    var isOnce = onceListeners && onceListeners[ listener ];
-    if ( isOnce ) {
-      // remove listener
-      // remove before trigger to prevent recursion
-      this.off( eventName, listener );
-      // unset once flag
-      delete onceListeners[ listener ];
+      this.options = this.$table.data(this.className) || {};
+      // Reset and save options
+      setOptions();
+
+      return this.options;
+
+    }).bind(this);
+
+    // Element check
+    if (!this.$table.length)
+      throw "No element selected";
+    if (!this.$table.is("table"))
+      throw "The element must be a table dom";
+
+    /**
+     * Update Mode
+     */
+    if (this.options==='update') {
+
+      restoreOptions();
+      // Life cycle for update only, there is no performance difference for deleting self object so just keeping update object.
+      return this.update();
     }
-    // trigger listener
-    listener.apply( this, args );
+
+    /**
+     * Options Setting
+     */
+    setOptions();
+
+    // Destroy the table element before initializing
+    this.destroy();
+
+    // Establish every th text for mobile mode
+    this.build();
+
+    //
+    if (typeof this.options.eventMobileOn === 'function') {
+      this.$table.on(this.eventMobileOn, this.options.eventMobileOn);
+    }
+    if (typeof this.options.eventMobileOff === 'function') {
+      this.$table.on(this.eventMobileOff, this.options.eventMobileOff);
+    }
+
+    // Add class for Table Reflow
+    this.$table.addClass(this.className);
+    // Width Ratio setting
+    if (this.widthRatio) {
+      this.$table.addClass(this.widthRatioClassName);
+    }
+    // Width Size setting
+    if (this.widthSize) {
+      this.$table.addClass(this.widthWidthClassName);
+    }
+    // AutoWidth setting
+    if (this.autoWidth) {
+
+      var that = this;
+
+      /**
+       * Listener - Window resize detection for Table Reflow
+       * 
+       * To support mode switch, this library doesn't use CSS @media to implement detection.
+       */
+      $(window).on('resize.'+that.namespace, (function() {
+
+        // Detect mode
+        if ($(window).width() <= that.autoWidth) {
+          // Mobile mode
+          that.mobileMode(true);
+        } 
+        else {
+          // Non-Mobile mode
+          that.mobileMode(false);
+        }
+      }));
+
+      // Trigger at the start
+      $(window).trigger('resize.'+this.namespace);
+    }
   }
 
-  return this;
-};
+  /**
+   * Establishing th title to prepared td DOMs for mobile mode
+   * 
+   * @return {self}
+   */
+  ReflowTable.prototype.build = function() {
 
-proto.allOff = function() {
-  delete this._events;
-  delete this._onceEvents;
-};
+    var $table = this.$table;
+    var titleAttr = this.titleAttr;
 
-return EvEmitter;
-
-})));
-
-/*!
- * imagesLoaded v4.1.4
- * JavaScript is all like "You images are done yet or what?"
- * MIT License
- */
-
-( (function( window, factory ) { 'use strict';
-  // universal module definition
-
-  /*global define: false, module: false, require: false */
-
-  if ( typeof define == 'function' && define.amd ) {
-    // AMD
-    define( [
-      'ev-emitter/ev-emitter'
-    ], (function( EvEmitter ) {
-      return factory( window, EvEmitter );
+    // every th text to td data for mobile mode
+    $(this.thead).find("th").each((function(key, thRow) {
+      
+      $table.find("tbody tr td:nth-child("+(key+1)+")")
+        .attr(titleAttr, $(thRow).text());
     }));
-  } else if ( typeof module == 'object' && module.exports ) {
-    // CommonJS
-    module.exports = factory(
-      window,
-      require('ev-emitter')
-    );
-  } else {
-    // browser global
-    window.imagesLoaded = factory(
-      window,
-      window.EvEmitter
-    );
+
+    return this;
   }
 
-}))( typeof window !== 'undefined' ? window : this,
+  /**
+   * Switch table to mobile mode or not
+   * 
+   * @param {boolean} enable Enable mobile mode or not, default is true
+   * @return {self}
+   */
+  ReflowTable.prototype.mobileMode = function(enable) {
 
-// --------------------------  factory -------------------------- //
+    enable = (typeof enable !== 'undefined') ? enable : true;
+    var isMobileMode = this.isMobileMode();
 
-(function factory( window, EvEmitter ) {
+    // Detect enabled mode
+    if (enable) {
+      // Mobile mode
+      this.$table.addClass(this.mobileModeClassName);
+      // Event trigger of first mobile on
+      if (!isMobileMode)
+        this.$table.trigger($.Event(this.eventMobileOn));
+    } 
+    else {
+      // non-Mobile mode
+      this.$table.removeClass(this.mobileModeClassName);
+      // Event trigger of first mobile off
+      if (isMobileMode)
+        this.$table.trigger($.Event(this.eventMobileOff));
+    }
 
-
-
-var $ = window.jQuery;
-var console = window.console;
-
-// -------------------------- helpers -------------------------- //
-
-// extend objects
-function extend( a, b ) {
-  for ( var prop in b ) {
-    a[ prop ] = b[ prop ];
-  }
-  return a;
-}
-
-var arraySlice = Array.prototype.slice;
-
-// turn element or nodeList into an array
-function makeArray( obj ) {
-  if ( Array.isArray( obj ) ) {
-    // use object if already an array
-    return obj;
-  }
-
-  var isArrayLike = typeof obj == 'object' && typeof obj.length == 'number';
-  if ( isArrayLike ) {
-    // convert nodeList to array
-    return arraySlice.call( obj );
+    return this;
   }
 
-  // array of single index
-  return [ obj ];
-}
+  /**
+   * Switch table between mobile mode or original mode
+   * 
+   * @return {self}
+   */
+  ReflowTable.prototype.switchMode = function() {
 
-// -------------------------- imagesLoaded -------------------------- //
-
-/**
- * @param {Array, Element, NodeList, String} elem
- * @param {Object or Function} options - if function, use as callback
- * @param {Function} onAlways - callback function
- */
-function ImagesLoaded( elem, options, onAlways ) {
-  // coerce ImagesLoaded() without new, to be new ImagesLoaded()
-  if ( !( this instanceof ImagesLoaded ) ) {
-    return new ImagesLoaded( elem, options, onAlways );
-  }
-  // use elem as selector string
-  var queryElem = elem;
-  if ( typeof elem == 'string' ) {
-    queryElem = document.querySelectorAll( elem );
-  }
-  // bail if bad element
-  if ( !queryElem ) {
-    console.error( 'Bad element for imagesLoaded ' + ( queryElem || elem ) );
-    return;
+    // Detect the reflow table is in mobile mode or not
+    if (this.isMobileMode())
+      this.mobileMode(false);
+    else 
+      this.mobileMode(true);
+    
+    return this;
   }
 
-  this.elements = makeArray( queryElem );
-  this.options = extend( {}, this.options );
-  // shift arguments if no options set
-  if ( typeof options == 'function' ) {
-    onAlways = options;
-  } else {
-    extend( this.options, options );
+  /**
+   * Check is in mobile mode 
+   * 
+   * @return {boolean}
+   */
+  ReflowTable.prototype.isMobileMode = function() {
+
+    return (this.$table.hasClass(this.mobileModeClassName)) ? true : false;
   }
 
-  if ( onAlways ) {
-    this.on( 'always', onAlways );
+  /**
+   * Update or re-build each Reflow Table row th title for dynamic table content
+   * 
+   * @return {self}
+   */
+  ReflowTable.prototype.update = function() {
+
+    // Re-build only without any options
+    this.build();
+    return this;
   }
 
-  this.getImages();
+  /**
+   * Unbind all events by same namespace
+   * 
+   * @return {self}
+   */
+  ReflowTable.prototype.unbind = function() {
 
-  if ( $ ) {
-    // add jQuery Deferred object
-    this.jqDeferred = new $.Deferred();
+    // Unbind resize listener
+    $(window).off('resize.'+this.namespace);
+
+    // Unbind all events of the table
+    this.$table.off();
+
+    return this;
   }
 
-  // HACK check async to allow time to bind listeners
-  setTimeout( this.check.bind( this ) );
-}
+  /**
+   * Destroy Table Reflow by same namespace
+   */
+  ReflowTable.prototype.destroy = function() {
 
-ImagesLoaded.prototype = Object.create( EvEmitter.prototype );
-
-ImagesLoaded.prototype.options = {};
-
-ImagesLoaded.prototype.getImages = function() {
-  this.images = [];
-
-  // filter & find items if we have an item selector
-  this.elements.forEach( this.addElementImages, this );
-};
-
-/**
- * @param {Node} element
- */
-ImagesLoaded.prototype.addElementImages = function( elem ) {
-  // filter siblings
-  if ( elem.nodeName == 'IMG' ) {
-    this.addImage( elem );
-  }
-  // get background image on element
-  if ( this.options.background === true ) {
-    this.addElementBackgroundImages( elem );
-  }
-
-  // find children
-  // no non-element nodes, #143
-  var nodeType = elem.nodeType;
-  if ( !nodeType || !elementNodeTypes[ nodeType ] ) {
-    return;
-  }
-  var childImgs = elem.querySelectorAll('img');
-  // concat childElems to filterFound array
-  for ( var i=0; i < childImgs.length; i++ ) {
-    var img = childImgs[i];
-    this.addImage( img );
-  }
-
-  // get child background images
-  if ( typeof this.options.background == 'string' ) {
-    var children = elem.querySelectorAll( this.options.background );
-    for ( i=0; i < children.length; i++ ) {
-      var child = children[i];
-      this.addElementBackgroundImages( child );
+    this.unbind();
+    // Switch mode back
+    this.mobileMode(false); 
+    // Remove class for Table Reflow
+    this.$table.removeClass(this.className);
+    // Remove Width Ratio setting
+    if (this.widthRatio) {
+      this.$table.removeClass(this.widthRatioClassName);
+    }
+    // Remove Width Size setting
+    if (this.widthSize) {
+      this.$table.removeClass(this.widthWidthClassName);
     }
   }
-};
 
-var elementNodeTypes = {
-  1: true,
-  9: true,
-  11: true
-};
+  /**
+   * Interface
+   */
+  // Class for single element
+  window.ReflowTable = ReflowTable;
+  // jQuery interface
+  $.fn.reflowTable = function (options) {
 
-ImagesLoaded.prototype.addElementBackgroundImages = function( elem ) {
-  var style = getComputedStyle( elem );
-  if ( !style ) {
-    // Firefox returns null if in a hidden iframe https://bugzil.la/548397
-    return;
-  }
-  // get url inside url("...")
-  var reURL = /url\((['"])?(.*?)\1\)/gi;
-  var matches = reURL.exec( style.backgroundImage );
-  while ( matches !== null ) {
-    var url = matches && matches[2];
-    if ( url ) {
-      this.addBackground( url, elem );
+    // Single/Multiple mode
+    if (this.length === 1) {
+
+      return new ReflowTable(this, options)
+    } 
+    else if (this.length > 1) {
+
+      var result = [];
+      // Multiple elements bundle
+      this.each((function () {
+        result.push(new ReflowTable(this, options));
+      }));
+
+      return result;
     }
-    matches = reURL.exec( style.backgroundImage );
-  }
-};
-
-/**
- * @param {Image} img
- */
-ImagesLoaded.prototype.addImage = function( img ) {
-  var loadingImage = new LoadingImage( img );
-  this.images.push( loadingImage );
-};
-
-ImagesLoaded.prototype.addBackground = function( url, elem ) {
-  var background = new Background( url, elem );
-  this.images.push( background );
-};
-
-ImagesLoaded.prototype.check = function() {
-  var _this = this;
-  this.progressedCount = 0;
-  this.hasAnyBroken = false;
-  // complete if no images
-  if ( !this.images.length ) {
-    this.complete();
-    return;
+    
+    return false;
   }
 
-  function onProgress( image, elem, message ) {
-    // HACK - Chrome triggers event before object properties have changed. #83
-    setTimeout( (function() {
-      _this.progress( image, elem, message );
-    }));
-  }
-
-  this.images.forEach( (function( loadingImage ) {
-    loadingImage.once( 'progress', onProgress );
-    loadingImage.check();
-  }));
-};
-
-ImagesLoaded.prototype.progress = function( image, elem, message ) {
-  this.progressedCount++;
-  this.hasAnyBroken = this.hasAnyBroken || !image.isLoaded;
-  // progress event
-  this.emitEvent( 'progress', [ this, image, elem ] );
-  if ( this.jqDeferred && this.jqDeferred.notify ) {
-    this.jqDeferred.notify( this, image );
-  }
-  // check if completed
-  if ( this.progressedCount == this.images.length ) {
-    this.complete();
-  }
-
-  if ( this.options.debug && console ) {
-    console.log( 'progress: ' + message, image, elem );
-  }
-};
-
-ImagesLoaded.prototype.complete = function() {
-  var eventName = this.hasAnyBroken ? 'fail' : 'done';
-  this.isComplete = true;
-  this.emitEvent( eventName, [ this ] );
-  this.emitEvent( 'always', [ this ] );
-  if ( this.jqDeferred ) {
-    var jqMethod = this.hasAnyBroken ? 'reject' : 'resolve';
-    this.jqDeferred[ jqMethod ]( this );
-  }
-};
-
-// --------------------------  -------------------------- //
-
-function LoadingImage( img ) {
-  this.img = img;
-}
-
-LoadingImage.prototype = Object.create( EvEmitter.prototype );
-
-LoadingImage.prototype.check = function() {
-  // If complete is true and browser supports natural sizes,
-  // try to check for image status manually.
-  var isComplete = this.getIsImageComplete();
-  if ( isComplete ) {
-    // report based on naturalWidth
-    this.confirm( this.img.naturalWidth !== 0, 'naturalWidth' );
-    return;
-  }
-
-  // If none of the checks above matched, simulate loading on detached element.
-  this.proxyImage = new Image();
-  this.proxyImage.addEventListener( 'load', this );
-  this.proxyImage.addEventListener( 'error', this );
-  // bind to image as well for Firefox. #191
-  this.img.addEventListener( 'load', this );
-  this.img.addEventListener( 'error', this );
-  this.proxyImage.src = this.img.src;
-};
-
-LoadingImage.prototype.getIsImageComplete = function() {
-  // check for non-zero, non-undefined naturalWidth
-  // fixes Safari+InfiniteScroll+Masonry bug infinite-scroll#671
-  return this.img.complete && this.img.naturalWidth;
-};
-
-LoadingImage.prototype.confirm = function( isLoaded, message ) {
-  this.isLoaded = isLoaded;
-  this.emitEvent( 'progress', [ this, this.img, message ] );
-};
-
-// ----- events ----- //
-
-// trigger specified handler for event type
-LoadingImage.prototype.handleEvent = function( event ) {
-  var method = 'on' + event.type;
-  if ( this[ method ] ) {
-    this[ method ]( event );
-  }
-};
-
-LoadingImage.prototype.onload = function() {
-  this.confirm( true, 'onload' );
-  this.unbindEvents();
-};
-
-LoadingImage.prototype.onerror = function() {
-  this.confirm( false, 'onerror' );
-  this.unbindEvents();
-};
-
-LoadingImage.prototype.unbindEvents = function() {
-  this.proxyImage.removeEventListener( 'load', this );
-  this.proxyImage.removeEventListener( 'error', this );
-  this.img.removeEventListener( 'load', this );
-  this.img.removeEventListener( 'error', this );
-};
-
-// -------------------------- Background -------------------------- //
-
-function Background( url, element ) {
-  this.url = url;
-  this.element = element;
-  this.img = new Image();
-}
-
-// inherit LoadingImage prototype
-Background.prototype = Object.create( LoadingImage.prototype );
-
-Background.prototype.check = function() {
-  this.img.addEventListener( 'load', this );
-  this.img.addEventListener( 'error', this );
-  this.img.src = this.url;
-  // check if image is already complete
-  var isComplete = this.getIsImageComplete();
-  if ( isComplete ) {
-    this.confirm( this.img.naturalWidth !== 0, 'naturalWidth' );
-    this.unbindEvents();
-  }
-};
-
-Background.prototype.unbindEvents = function() {
-  this.img.removeEventListener( 'load', this );
-  this.img.removeEventListener( 'error', this );
-};
-
-Background.prototype.confirm = function( isLoaded, message ) {
-  this.isLoaded = isLoaded;
-  this.emitEvent( 'progress', [ this, this.element, message ] );
-};
-
-// -------------------------- jQuery -------------------------- //
-
-ImagesLoaded.makeJQueryPlugin = function( jQuery ) {
-  jQuery = jQuery || window.jQuery;
-  if ( !jQuery ) {
-    return;
-  }
-  // set local variable
-  $ = jQuery;
-  // $().imagesLoaded()
-  $.fn.imagesLoaded = function( options, callback ) {
-    var instance = new ImagesLoaded( this, options, callback );
-    return instance.jqDeferred.promise( $(this) );
-  };
-};
-// try making plugin
-ImagesLoaded.makeJQueryPlugin();
-
-// --------------------------  -------------------------- //
-
-return ImagesLoaded;
-
-}));
-
+})(jQuery, window);
