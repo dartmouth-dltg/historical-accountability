@@ -2353,11 +2353,11 @@ main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(
 
 .item-listing.region .item-listing-wrapper .item.resource.medium:before { width: 90%; margin: 0 auto; }
 
-.item-listing.region .item-listing-wrapper .item.resource.square .caption { width: 75%; margin: 0 auto; }
+.item-listing.region .item-listing-wrapper .item.resource.square .caption { width: 20rem; margin: 0 auto; }
 
-.item-listing.region .item-listing-wrapper .item.resource.square img { width: 75%; margin: 0 auto; height: 15rem; }
+.item-listing.region .item-listing-wrapper .item.resource.square img { width: 20rem; margin: 0 auto; height: 19rem; }
 
-.item-listing.region .item-listing-wrapper .item.resource.square:before { width: 75%; margin: 0 auto; }
+.item-listing.region .item-listing-wrapper .item.resource.square:before { width: 20rem; margin: 0 auto; }
 
 .universal-viewer.viewer { margin-bottom: 7.3567rem; }
 
