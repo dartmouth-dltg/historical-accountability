@@ -5,7 +5,7 @@
  *  @description Handles compact card listing blocks. */
 
 
-$compact_card_listing_grid_gap: rv(0) * 3
+$compact_card_listing_grid_gap: rv(0) * 1
 $compact_card_listing_2_card_shift: rv(5) * -1
 $compact_card_listing_3_card_shift: rv(8) * -1
 $compact_card_listing_4_card_shift: rv(9) * -1
@@ -16,10 +16,14 @@ $compact_card_listing_4_card_shift: rv(9) * -1
   display: grid
   grid-template-columns: 1fr
   grid-row-gap: rv(2)
-  
-  +bp($stack)
-    padding: rv(2) 0
+  +bp($tablet)
     grid-template-columns: 1fr 1fr
+    grid-gap: $compact_card_listing_grid_gap $compact_card_listing_grid_gap
+    align-items: center
+    padding: rv(2) rv(1)
+  +bp($desktop)
+    padding: rv(2) 0
+    grid-template-columns: 1fr 1fr 1fr
     grid-gap: $compact_card_listing_grid_gap $compact_card_listing_grid_gap
     align-items: center
     
@@ -44,39 +48,39 @@ $compact_card_listing_4_card_shift: rv(9) * -1
     margin-right: 0  
     
     
-  &.item-count-2
+  //&.item-count-2
   
-    .title-area
-      +bp($stack)
-        padding-left: rv(0)
-        padding-right: calc(50% + (#{$compact_card_listing_grid_gap} / 2))
-        text-align: right
+    // .title-area
+    //   +bp($stack)
+    //     padding-left: rv(0)
+    //     padding-right: calc(50% + (#{$compact_card_listing_grid_gap} / 2))
+    //     text-align: right
       
       
-    +bp($stack)
-      margin-bottom: $compact_card_listing_2_card_shift
+    //+bp($stack)
+      //margin-bottom: $compact_card_listing_2_card_shift
       
-    > *:nth-child(3)
-      transform: translateY($compact_card_listing_2_card_shift)
+    //> *:nth-child(3)
+     // transform: translateY($compact_card_listing_2_card_shift)
 
-  &.item-count-3
-    margin-bottom: $compact_card_listing_3_card_shift
+  //&.item-count-3
+   // margin-bottom: $compact_card_listing_3_card_shift
     
-    > *:nth-child(2), > *:nth-child(4)
-      transform: translateY($compact_card_listing_3_card_shift)
+    //> *:nth-child(2), > *:nth-child(4)
+     // transform: translateY($compact_card_listing_3_card_shift)
       
-    > *:nth-child(2)
-      width: 90%
-      place-self: end
+    //> *:nth-child(2)
+      //width: 90%
+      //place-self: end
       
-  &.item-count-4
-    > *:nth-child(2), > *:nth-child(4)
-      transform: translateY($compact_card_listing_3_card_shift)
+  //&.item-count-4
+    //> *:nth-child(2), > *:nth-child(4)
+     // transform: translateY($compact_card_listing_3_card_shift)
       
-    > *:nth-child(2)
-      width: 90%
-      place-self: end
+    //> *:nth-child(2)
+      // width: 90%
+      // place-self: end
     
-    > *:nth-child(5)
-      width: 90%
+    //> *:nth-child(5)
+     // width: 90%
 
