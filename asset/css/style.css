@@ -734,7 +734,9 @@ body > header nav ul.navigation li ul { display: block; }
 
 @media only screen and (min-width: 46.25em) { body > header nav ul.navigation li ul { display: none; position: absolute; background: #e8eae9; width: 100%; left: 0; padding-top: 1.06876rem; padding-bottom: 1.06876rem; margin-bottom: 0; margin-top: 0; z-index: 999; } }
 
-body > header nav ul.navigation li ul li > a { color: #1D2C27; }
+body > header nav ul.navigation li ul li { white-space: normal; }
+
+body > header nav ul.navigation li ul li > a { color: #1D2C27; white-space: nowrap; }
 
 body > header nav ul.navigation li ul li > a:hover { background: url("../../asset/img/svg/icons/menu_dot_black.svg") no-repeat; background-position-x: right; background-size: 0.80157rem; background-position-y: center; }
 

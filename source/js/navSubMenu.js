@@ -2,8 +2,15 @@ $(document).ready(function(){
     // toggle sub menu on desktop header nav
 
     $('.navigation > li').mouseover( function() {
-        $("nav.desktop-nav > .navigation > li > ul").hide();
+        //check to see if it has sub nav
+        if ($(this).children("ul").length !== 0 ){
+            $("nav.desktop-nav > .navigation > li > ul").hide();
+        }
         $(this).children().show();
+    });
+    //fix to hide second subnav when nagivating 
+    $('.navigation > li').hover( function() {
+        $("nav.desktop-nav > .navigation > li > ul > li > ul").hide();
     });
 
     $('nav.desktop-nav > .navigation > li > ul > li').mouseover( function() {
