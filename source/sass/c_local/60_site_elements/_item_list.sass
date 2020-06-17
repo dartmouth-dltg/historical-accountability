@@ -2,26 +2,28 @@
   +tilt
   > ul, .item-list > ul
     +untilt
-    display: grid
-    grid-template-columns: 1fr 1fr
-    grid-column-gap: rv(3)
-    grid-row-gap: rv(-2)
-    grid-auto-columns: min-content
     padding: 0
+    margin: 0
     list-style-type: none
-    +bp($stack)
-      grid-template-columns: 1fr 1fr 1fr
 
     
     li
       position: relative
       left: rv(0)
+      
       +bp($stack)
-        left: rv(3)
+        left: rv(1)
+        
       h5
         font-family: $basefont
         margin-top: 0
         margin-bottom: rv(-3)
+        
+      a
+        text-decoration: underline
+        
+        &:hover
+          color: $clr4
       
       &:before
         content: ""
