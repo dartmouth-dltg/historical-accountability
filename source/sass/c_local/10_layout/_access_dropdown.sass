@@ -1,0 +1,52 @@
+.access-dropdown
+  color: #fff
+  text-align: left
+  padding-right: 0
+  background: black
+  float: right
+  width: auto
+  position: absolute
+  right: 0
+
+  ul
+    padding-left: 10px
+    grid-template-columns: unset
+    list-style-type: none
+    li
+      .toggle-label
+        position: relative
+        top: -3px
+        
+.access-dropdown-mobile
+  color: #fff
+  text-align: right
+  padding-right: 0
+  background: black
+  float: right
+  width: 100%
+  position: absolute
+  +bp($stack)
+    display: none
+  ul
+    padding-left: 10px
+    grid-template-columns: unset
+    list-style-type: none
+  li
+    .toggle-label
+      position: relative
+      top: -3px
+  
+.dark-switch 
+  position: relative
+  display: inline-block
+  width: 40px
+  height: 24px
+
+.dark-switch input 
+  opacity: 0
+  width: 0
+  height: 0
+
+.access-dropdown-mobile
+  ul > li > a
+    padding-right: rv(-1)

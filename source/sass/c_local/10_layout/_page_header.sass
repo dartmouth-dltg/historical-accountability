@@ -1,0 +1,188 @@
+body
+  > header
+    align-items: center
+    display: grid
+    grid-template-columns: 3fr 1fr
+    border-bottom: $borderWidth solid $white
+    overflow: hidden
+    background: $black
+    +line-height(-1)
+    
+    +bp($stack)
+      display: grid
+      grid-template-rows: initial
+      grid-template-columns: 2fr 3fr
+      grid-row-gap: initial
+      
+    .access-button
+      &.up-arrow-toggle
+        .down-arrow-black
+          transform: rotate(180deg)
+          position: relative
+          top: -4px
+      display: none
+      &:hover
+        color: $white
+      +bp($stack)
+        background: $clr1
+        padding: 0 rv(-3)
+        color: $black
+        white-space: nowrap
+        display: flex
+        align-items: center
+        text-align: center
+        height: 100%
+        border-left: rv(-10) solid $white
+    .menu-access-button
+      &.up-arrow-toggle
+        .down-arrow-black
+          transform: rotate(180deg)
+          position: relative
+          top: -4px
+      padding: 0 rv(-3)
+      color: $black
+      white-space: nowrap
+      display: flex
+      align-items: center
+      text-align: left
+      height: 100%
+      line-height: rv(-1)
+      &:hover
+        color: $white
+      +bp($stack)
+        display:none!important
+
+    img
+      width: rv(12)
+      float: left
+    nav
+      background: $black
+      height: 100%
+      display: none
+      +bp($stack)
+        display: block
+        text-align: right
+        padding: 10px 0
+        padding-right: 3%
+
+
+      ul.navigation
+        display: inline-block
+        float: right
+        li
+          white-space: nowrap
+          ul
+            display: block
+
+            +bp($stack)
+              display: none
+              position: absolute
+              background: neutral(10)
+              width: 100%
+              left: 0
+              padding-top: rv(-2)
+              padding-bottom: rv(-2)
+              margin-bottom: 0
+              margin-top: 0
+              z-index: 999
+            li 
+              white-space: normal
+            li > a
+              color: $black
+              white-space: nowrap
+            li > a:hover
+              background: url("../../asset/img/svg/icons/menu_dot_black.svg") no-repeat
+              background-position-x: right
+              background-size: rv(-3)
+              background-position-y: center
+              +bp($tablet)
+                background-size: rv(-3)
+              +bp($desktop)
+                background-size: rv(-2)
+              
+          &.active
+
+            a
+              color: $clr2
+            li > a
+              color: $black  
+            
+          &:last-child
+            // display: none !important  not sure why this was here
+          a
+             background-position-x: right
+             padding-right: rv(-1)
+             font-size: font-value(-1)
+             +bp($tablet)
+              font-size: font-value(-1)
+             +bp($desktop)
+              font-size: font-value(0)
+          a:hover
+            background: url("../../asset/img/svg/icons/menu_dot.svg") no-repeat
+            background-position-x: right
+            background-size: rv(-3)
+            background-position-y: center
+            +bp($tablet)
+              background-size: rv(-3)
+            +bp($desktop)
+              background-size: rv(-2)
+
+    a
+      color: $white
+      font-weight: $bold
+      font-family: BentonSans
+      span
+        margin: 0 auto
+    a:hover
+      color: $clr2
+      text-decoration: none
+
+    .down-arrow-black
+      vertical-align: top
+      display: inline-block
+      width: rv(1)
+      height: rv(1)
+      background: url("../../asset/img/svg/icons/hamburger_menu.svg") no-repeat
+      +bp($stack)
+        vertical-align: initial
+    ul
+      li
+        display: inline
+
+.history-identity
+  background-color: $black
+  display: flex
+  align-items: center
+  font-family: BentonSans
+  font-weight: 900
+  padding: rv(-1) 
+  font-size: font-value(-1)
+  min-width: 235px
+  max-width: 300px
+  
+  +bp($stack)
+    background-color: $black
+    height: 100%
+    width: 93%
+    margin: 0
+    font-size: inherit
+    max-width: 100%
+         
+    img
+      height: 100%
+      width: auto
+      
+  &#logo-stack
+    +bp($stack)
+      display: flex
+      flex-direction: row
+      align-items: center
+      font-size: font-value(-1)
+    +bp($tablet)
+      font-size: font-value(-1)
+    +bp($desktop)
+      font-size: font-value(0)
+      
+    img
+      width: rv(2)
+      padding-right:  rv(-1)
