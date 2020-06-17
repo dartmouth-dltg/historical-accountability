@@ -11,24 +11,12 @@
                 ?>
                         <figure>
                             <?php echo $item->linkRaw($this->thumbnail($media,$thumbnailType)); ?>
+                            <?php if ($attachment->caption()): ?>
+                              <figcaption><?php echo $attachment->caption(); ?></figcaption>
+                            <?php endif; ?>
                         </figure>
                     <?php endif; ?>
                 <?php endif; ?>
-                <!-- SLIDE TEXT BEGIN -->
-                <!-- Note: The homepage splash does not use slide captions. This code for reference only and can be deleted. -->
-                <!--
-                    <div class="slide-contents">
-                        <?php if ($showTitleOption == 'item_title'): ?>
-                            <h3><?php echo $item->link($item->displayTitle()); ?></h3>
-                        <?php elseif ($showTitleOption == 'file_name'): ?>
-                            <h3><?php echo $media->displayTitle(); ?></h3>
-                        <?php endif; ?>
-                        <?php if ($attachment->caption()): ?>
-                            <?php echo $attachment->caption(); ?>
-                        <?php endif; ?>
-                    </div>
-                -->
-                <!-- SLIDE TEXT END -->
             </div>
         <?php endforeach; ?>
     </div>
