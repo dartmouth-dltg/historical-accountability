@@ -88,6 +88,7 @@ main
     +font-size(0)
     background-color: transparent
     border-top: rv(-6) solid $white
+    position: relative
     
     > a
       display: block
@@ -95,7 +96,7 @@ main
       width: 100%
       height: 100%
       padding: rv(0)
-      text-align: right
+      text-align: left
       color: inherit
   &.representative-image  
     h3
@@ -122,10 +123,24 @@ main
     
   // &:last-child
   //    border: 0
+  &.representative-image
+    h3
+      position: absolute
+      margin: rv(4) * -1 0 0 0
+      padding: 0
+      border-top: unset
+      font-weight: $bold
+      padding: rv(0)
       
+      +bp($stack)
+        padding: 0
+      a
+        padding: rv(0) 0
+        +bp($stack)
+          padding: rv(0)      
   h3
-    position: absolute
-    margin: rv(4) * -1 0 0 0
+    position: relative
+    margin: rv(3) * -1 0 0 0
     padding: 0
     border-top: unset
     font-weight: $bold
