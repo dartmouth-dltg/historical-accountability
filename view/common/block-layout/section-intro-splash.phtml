@@ -1,40 +1,36 @@
 <div id="block-<?php echo $this->blockId; ?>" class="section-intro-splash region <?php echo $this->regionClass; ?>  <?php echo $titleSlideTextAlignment ?>" data-target-region-id="<?php echo $this->targetID; ?> ">
-    <?php if ($useTitleSlide): ?>
-        <div class="item resource introduction">
-            <div class='introductory-text'>
-                <?php if (!empty($titleSlideTitle)): ?>
-                    <h1><?php echo $titleSlideTitle; ?></h1>
-                    
-                    <div class="break white"></div>
-
-                <?php endif; ?>
-                <?php if (!empty($titleSlideIntro)): ?>
-                    <?php echo $titleSlideIntro; ?>
-                <?php endif; ?>
-                <!-- <div class="scroll-down">
-                    <a class='down-arrow' href="#main-content" alt='Scroll down to see content'>
-                        <img src="./../../../themes/huronia/asset/img/svg/icons/down_chevron_fire.svg" alt="Down arrow">
-                        <span>Scroll Down</span>
-                    </a>
-                </div> -->
-            </div>
-        </div>
-    <?php endif; ?>
-
-    <?php
-    // Section Splash only uses the first attachment as the base image. Additional attachments are ignored.
-    $item = $attachments[0]->item();
-    ?>
-    <div class="item resource">
-        <?php if ($item):
-            $media = $attachments[0]->media() ?: $item->primaryMedia();
-            if ($media):
+    <div class="items">
+        <?php foreach ($attachments as $attachment): ?>
+            <?php
+                $item = $attachment->item();
+            ?>
+            <div class="item resource">
+                <?php if ($item):
+                    $media = $attachment->media() ?: $item->primaryMedia();
+                    if ($media):
                 ?>
-                <figure>
-                    <?php echo $item->linkRaw($this->thumbnail($media,$thumbnailType)); ?>
-                </figure>
+                      <figure>
+                          
+                          <?php if ($attachment->caption()): ?>
+                            <figcaption><?php echo $attachment->caption(); ?></figcaption>
+                          <?php endif; ?>
+                          <?php echo $item->linkRaw($this->thumbnail($media,$thumbnailType)); ?>
+                      </figure>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div class="item resource introduction">
+        <div class='introductory-text'>
+            <?php if (!empty($titleSlideTitle)): ?>
+                <h1><?php echo $titleSlideTitle; ?></h1>
             <?php endif; ?>
-        <?php endif; ?>
+            <div class="break white"></div>
+            <?php if (!empty($titleSlideIntro)): ?>
+                <?php echo $titleSlideIntro; ?>
+            <?php endif; ?>
+        </div>
     </div>
 </div>
 

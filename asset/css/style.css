@@ -967,13 +967,23 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 .section-intro-splash figure { position: relative; }
 
+.section-intro-splash figure figcaption { position: absolute; color: #FFFFFF; padding-left: 1.425rem; z-index: 9; font-style: normal; max-width: 250px; padding-top: 1.425rem; }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash figure figcaption { padding-top: 1.9rem; padding-left: 1.9rem; max-width: 300px; } }
+
+.section-intro-splash figure figcaption p { line-height: 1.2rem; font-size: 0.9rem; }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash figure figcaption p { line-height: 1.6rem; font-size: 1.2rem; } }
+
 .section-intro-splash figure a { display: block; height: 100%; width: 100%; background: #3A584F; }
 
 .section-intro-splash figure a img { filter: grayscale(100%); mix-blend-mode: multiply; }
 
 .section-intro-splash figure:after { position: absolute; content: ""; height: 100%; width: 100%; top: 0; left: 0; opacity: 1; }
 
-@media only screen and (min-width: 46.25em) { .section-intro-splash .resource { height: 100%; width: 67%; flex: 1; display: flex; }
+.section-intro-splash .items { overflow: hidden; flex: auto; }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash .resource { height: 100%; width: 100%; flex: 1; display: flex; }
   .section-intro-splash .resource figure { height: 100%; width: 100%; }
   .section-intro-splash .resource figure a { display: block; height: 100%; }
   .section-intro-splash .resource img { display: block; background-position: center bottom; object-fit: cover; height: 100%; } }
@@ -986,7 +996,9 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 .section-intro-splash .introduction .introductory-text { text-align: left; position: relative; margin: 0; }
 
-.section-intro-splash .introduction .introductory-text h1 { margin-bottom: 1.9rem; }
+.section-intro-splash .introduction .introductory-text h1 { margin-bottom: 1.9rem; font-size: 2.13332rem; }
+
+@media only screen and (min-width: 75em) { .section-intro-splash .introduction .introductory-text h1 { font-size: 3.79255rem; } }
 
 .section-intro-splash .introduction .introductory-text p { display: block; text-align: left; line-height: 1.8; }
 

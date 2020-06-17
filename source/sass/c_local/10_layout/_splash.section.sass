@@ -13,7 +13,26 @@
     
   figure
     position: relative
-    
+    figcaption
+      position: absolute
+      color: $white
+      padding-left: rv(-1)
+      z-index: 9
+      font-style: normal
+      max-width: 250px
+      padding-top: rv(-1)
+      +bp($stack)
+        padding-top: rv(0)
+        padding-left: rv(0)
+        max-width: 300px
+
+      p
+        line-height: font-value(0)
+        font-size: font-value(-1)
+        +bp($stack)
+          line-height: font-value(1)
+          font-size: font-value(0)
+
     a
       display: block
       height: 100%
@@ -35,11 +54,13 @@
       +bp($stack)
        // background: $ltr_dark_gradient
       
-
+  .items
+    overflow: hidden
+    flex: auto
   .resource
     +bp($stack)
       height: 100%
-      width: 67%
+      width: 100%
       flex: 1
       display: flex
       figure
@@ -68,6 +89,9 @@
 
       h1
         margin-bottom: rv(0)
+        font-size: font-value(2)
+        +bp($desktop)
+          font-size: font-value(4)
         
       p
 
