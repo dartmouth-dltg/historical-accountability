@@ -42,11 +42,8 @@ $sortHeadings = [
 <?php else: ?>
     <div class="explore-the-archive">
         <div>
-            <h1>Item Browser</h1>
-            <p>The Item Browser is a standard Omeka display pattern. It shows a list of items in a grid alongside
-             a navigational user interface. It can appear in many contexts,
-             including the standardized “Browse Items” page and as an in-page block displaying selected items.  
-            </p>
+            <h1>Explore Historical Materials</h1>
+            <p></p>
             
         </div>
         <div id="search"><?php echo $this->partial('common/search-form'); ?></div>
@@ -78,5 +75,5 @@ foreach ($items as $item):
 <?php endforeach; ?>
 </ul>
 <?php echo ($itemSetShow) ? '</div>' : ''; ?>
-<?php $this->trigger('view.browse.after'); ?>
+<?php //$this->trigger('view.browse.after'); ?>
 <?php echo $this->pagination(); ?>

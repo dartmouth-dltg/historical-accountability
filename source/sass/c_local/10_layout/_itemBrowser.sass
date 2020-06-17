@@ -55,7 +55,7 @@
     display: block
     transform: translateY(rv(-1) * -1)
     
-.advanced-search
+.advanced-search, a[class*='advanced']  //backtick horror!
   text-transform: uppercase
   font-size: font-value(-1)
   text-decoration: underline
@@ -67,17 +67,13 @@
   float: unset
   top: unset
   position: absolute
-  left: 10px
+  left: 0px
   +bp($stack)
-    float: left
-    top: 370px
-    position: relative
     width: rv(3)
     height: rv(3)
     bottom: unset
-    margin: 15px
+    margin: rv(-1) rv(-1) rv(-1) 0
   +bp($desktop)
-    top: 400px
     width: rv(4)
     height: rv(4)
 
@@ -91,17 +87,14 @@
   float: unset
   top: unset
   position: absolute
-  right: 10px
+  right: 0px
+  
   +bp($stack)
-    float: right
-    top: 370px
-    position: relative
     width: rv(3)
     height: rv(3)
     bottom: unset
-    margin: 15px
+    margin: rv(-1) 0 rv(-1) rv(-1)
   +bp($desktop)
-    top: 400px
     width: rv(4)
     height: rv(4)
 
@@ -113,11 +106,21 @@
     margin-top: 48px
     font-family: $headingfont
     font-weight: $bold
+    position: relative
+    
+    .explore-right, .explore-left
+      display: inline-block
+      +bp($stack)
+        top: rv(3)/-2
+      
+      &.inactive
+        display: none
+    
     +bp($stack)
       margin-top: rv(-2) *-1
       text-align: center
     
-    .row-count, .explore-right, .explore-left
+    .row-count
       display: none
 
     form
@@ -150,16 +153,19 @@
           border: unset
           border-bottom: 1px solid $clr1
           box-shadow: unset
+          
 .browse-controls
   margin-top: 120px
   text-align: left
   .pagination
-    .explore-right, .explore-left
-      display: inline-block
-      &.inactive
-        display: none
     .row-count 
       display: block
+      
+  // top pagination only
+  .explore-left, .explore-right
+    +bp($stack)
+      top: rv(3)/-2 - rv(0)  // Negative half the height minus fudgy offset factor
+    
   form
     text-align: left
     display: none
@@ -188,7 +194,8 @@
         display: inline-block
         min-width: auto
         width: rv(4)
-        font-size: font-value(0)      
+        font-size: font-value(0)   
+           
 .resource-list
   column-count: initial
   padding-left: initial
@@ -265,8 +272,8 @@
 
 
 main > div > 
-  .resource-list, .explore-the-archive, .browse-controls, .search-filters
-  +negative-content-margin(7)
+  .resource-list, .explore-the-archive, .browse-controls, .search-filters, nav.pagination
+    +negative-content-margin(7)
 
 .field-meta
   #by-value-label
