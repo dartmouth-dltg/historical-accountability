@@ -6,15 +6,16 @@ body
     padding: rv(1)
     display: grid
     grid-template-columns: 1fr 1fr
+    +fluid_type(-1,0)
+      
     +bp($stack)
-      display: grid
       grid-template-rows: initial
-      grid-template-columns: 15% 1fr 1fr 15%
+      grid-template-columns: 15% 1fr 1fr 20%
       grid-row-gap: initial
       padding: rv(-1)
-      +fluid_type(-1,0)
       line-height: rv(-1)
       grid-column-gap: rv(-2)
+      
     +bp($tablet)
       grid-column-gap: rv(2)
       padding: rv(2) rv(4)
@@ -24,16 +25,12 @@ body
       +bp($stack)
         grid-column: auto
         margin-top: 0
-    .footer--text
-      p
-        margin-top: rv(-1)
-        padding: 0 
-        margin-top: 0
-        +bp($stack)
-          padding: 0 
-        +bp($tablet)
-          padding: 0 rv(1)
-          line-height: rv(2)
+        
+    p, li
+      font-size: 1em
+      padding: 0 
+      margin-top: 0
+        
     .footer--logo
       margin: 0
       grid-column: 2 / 2
@@ -43,20 +40,21 @@ body
         align-self: flex-end
       img
         width: rv(8)
+        
     .footer--recountlogo
       margin: auto
       img
         width: 80%
         +bp($stack)
           width: rv(10)
+          
     nav
       grid-column: 2 /2
       width: 100%
-      grid-template-columns: unset
-      display: grid
+      
       +bp($stack)
         grid-column: 3/ 3
-        grid-template-columns: 1fr 1fr 1fr
+        
       ul
         padding-left: 0
         line-height: font-value(2)
