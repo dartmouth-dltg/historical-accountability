@@ -82,10 +82,9 @@ main
 
   figure
     +proportional_thumbnail()
-    
   h3
     text-align: left
-    color: $white
+    color: $black
     +font-size(0)
     background-color: transparent
     border-top: rv(-6) solid $white
@@ -98,6 +97,22 @@ main
       padding: rv(0)
       text-align: right
       color: inherit
+  &.representative-image  
+    h3
+      text-align: left
+      color: $white
+      +font-size(0)
+      background-color: transparent
+      border-top: rv(-6) solid $white
+      
+      > a
+        display: block
+        box-sizing: border-box
+        width: 100%
+        height: 100%
+        padding: rv(0)
+        text-align: right
+        color: inherit
         
         
 .card-compact

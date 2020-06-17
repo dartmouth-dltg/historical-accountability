@@ -1814,9 +1814,13 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 .card-compact figure img { object-fit: cover; width: 100%; height: 100%; }
 
-.card-compact h3 { text-align: left; color: #FFFFFF; font-size: 1.2rem; background-color: transparent; border-top: 0.33816rem solid #FFFFFF; }
+.card-compact h3 { text-align: left; color: #1D2C27; font-size: 1.2rem; background-color: transparent; border-top: 0.33816rem solid #FFFFFF; }
 
 .card-compact h3 > a { display: block; box-sizing: border-box; width: 100%; height: 100%; padding: 1.9rem; text-align: right; color: inherit; }
+
+.card-compact.representative-image h3 { text-align: left; color: #FFFFFF; font-size: 1.2rem; background-color: transparent; border-top: 0.33816rem solid #FFFFFF; }
+
+.card-compact.representative-image h3 > a { display: block; box-sizing: border-box; width: 100%; height: 100%; padding: 1.9rem; text-align: right; color: inherit; }
 
 .card-compact { border-bottom: 0.45088rem solid #FFFFFF; }
 
