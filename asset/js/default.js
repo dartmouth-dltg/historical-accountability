@@ -339,38 +339,34 @@ if (md5('hello') != '5d41402abc4b2a76b9719d911017c592') {
 }*/
 $(document).ready((function(){
     // toggle sub menu on desktop header nav
-
-    $('.navigation > li').mouseover( (function() {
-        //check to see if it has sub nav
-        if ($(this).children("ul").length !== 0 ){
-            $("nav.desktop-nav > .navigation > li > ul").hide();
-        }
-        $(this).children().show();
+    $(document).on("click", ".submenu-arrow > span", (function(e) {
+        $("nav.desktop-nav > .navigation > li > ul").hide();
+        $(".submenu-arrow > span").css("border-top", "10px solid white");
+        $(this).css("border-top", "10px solid #F2E55B");
+        var parent = $(this).parent();
+        parent.children().slideDown("ul");
     }));
-    //fix to hide second subnav when nagivating 
-    $('.navigation > li').hover( (function() {
-        $("nav.desktop-nav > .navigation > li > ul > li > ul").hide();
+    $('header').click( (function() {
+        $("nav.desktop-nav > .navigation > li > ul").hide();
     }));
-
-    $('nav.desktop-nav > .navigation > li > ul > li').mouseover( (function() {
-        $("nav.desktop-nav > .navigation > li > ul > li > ul").hide();
-        $(this).children().show();
-    }));
-
-    $('nav.desktop-nav > .navigation > li > ul > li > a').mouseover( (function() {
-        $('nav.desktop-nav > .navigation > li > ul > li > a').css("color", "#1d2c27");
-        $(this).css("color", "grey");
-    }));
-
-    $('#primary-content').mouseover((function() {
+    $('#primary-content').click((function() {
         $("nav.desktop-nav > .navigation > li > ul").hide();
     }));
     
-    $('#splash').mouseover((function() {
+    $('#splash').click((function() {
         $("nav.desktop-nav > .navigation > li > ul").hide();
     }));
     
-    
+
+    // add class to menu items with subnav to dislay down arrow
+    var withMenutags = $(".navigation > li").filter((function() {
+        return $(this).children("ul").length !== 0;
+    }));
+    withMenutags.addClass("submenu-arrow");
+    withMenutags.append("<span></span>");
+   
+
+    //get subnav to display properly without admin bar
     $(window).resize((function() {
         
         if ( $('#user-bar').length !== 0 ) {
