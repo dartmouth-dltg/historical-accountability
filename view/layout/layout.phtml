@@ -52,7 +52,7 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
         <div class="full"><?php echo $userBar; ?> </div>
         <header class="full">
             <a id='logo-stack' href="<?php echo $site->url(); ?>" class="site-title history-identity" title="Link to homepage"><img src="<?php echo $this->assetUrl('img/svg/marks/circle_white.svg'); ?>" alt=" Logo"> Dartmouth Historical Accountability Program</a>
-            <nav class="desktop-nav">
+            <nav class="desktop-nav" aria-label="menu">
                 <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>2]); ?>
             </nav>
             <a class="menu-access-button" href="#">
@@ -64,7 +64,7 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
             
         </header>
        
-        <nav class="access-dropdown-mobile" style="display:none" aria-hidden='true'>
+        <nav class="access-dropdown-mobile" style="display:none" aria-hidden='true' aria-label='Menu'>
                 <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>2]); ?>
                 <ul>
                     <li class="mobile-switch-pos"><label class="dark-switch">

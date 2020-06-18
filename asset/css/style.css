@@ -820,6 +820,8 @@ body > header nav ul.navigation li.submenu-arrow > a:hover { background: none; }
 
 body > header nav ul.navigation li.submenu-arrow span:hover { border-top: 12px solid #F2E55B; }
 
+.outline-add { outline: 0; }
+
 body > footer { border-top-right-radius: 1.425rem; color: #FFFFFF; background-color: #1D2C27; padding: 2.53333rem; display: grid; grid-template-columns: 1fr 1fr; font-size: 0.9rem; }
 
 @media (min-width: 46.25em) { body > footer { font-size: calc(0.9rem + 0.3 * (100vw - 46.25em) / 66.25); } }
