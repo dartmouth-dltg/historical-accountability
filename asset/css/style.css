@@ -814,11 +814,11 @@ body > header ul li { display: inline; }
 
 .history-identity#logo-stack img { width: 3.37776rem; padding-right: 1.425rem; }
 
-body > header nav ul.navigation li.submenu-arrow span { content: ""; display: inline-block; color: #FFFFFF; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid #FFFFFF; position: relative; left: -18px; z-index: 999; cursor: pointer; }
+body > header nav ul.navigation li.submenu-arrow span { content: ""; display: inline-block; color: #FFFFFF; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 12px solid #FFFFFF; position: relative; left: -18px; z-index: 999; cursor: pointer; }
 
 body > header nav ul.navigation li.submenu-arrow > a:hover { background: none; }
 
-body > header nav ul.navigation li.submenu-arrow span:hover { border-top: 10px solid #F2E55B; }
+body > header nav ul.navigation li.submenu-arrow span:hover { border-top: 12px solid #F2E55B; }
 
 body > footer { border-top-right-radius: 1.425rem; color: #FFFFFF; background-color: #1D2C27; padding: 2.53333rem; display: grid; grid-template-columns: 1fr 1fr; font-size: 0.9rem; }
 

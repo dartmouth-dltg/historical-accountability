@@ -340,12 +340,27 @@ if (md5('hello') != '5d41402abc4b2a76b9719d911017c592') {
 $(document).ready((function(){
     // toggle sub menu on desktop header nav
     $(document).on("click", ".submenu-arrow > span", (function(e) {
+
         $("nav.desktop-nav > .navigation > li > ul").hide();
-        $(".submenu-arrow > span").css("border-top", "10px solid white");
-        $(this).css("border-top", "10px solid #F2E55B");
+        $(".submenu-arrow > span").css("border-top", "12px solid white");
+        $(this).css("border-top", "12px solid #F2E55B");
+        
         var parent = $(this).parent();
-        parent.children().slideDown("ul");
+
+         if($(this).hasClass('isOpen')) {
+            $("nav.desktop-nav > .navigation > li > ul").hide();
+            $(this).css("border-top", "12px solid white");
+            $(this).removeClass("isOpen");
+        }
+
+        else  {
+            parent.children().slideDown("ul");
+            $(this).addClass("isOpen");
+        }
+
+
     }));
+
     $('header').click( (function() {
         $("nav.desktop-nav > .navigation > li > ul").hide();
     }));
