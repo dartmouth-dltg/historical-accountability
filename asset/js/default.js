@@ -342,14 +342,14 @@ $(document).ready((function(){
     $(document).on("click", ".submenu-arrow > span", (function(e) {
 
         $("nav.desktop-nav > .navigation > li > ul").hide();
-        $(".submenu-arrow > span").css("border-top", "15px solid white");
-        $(this).css("border-top", "15px solid #F2E55B");
+        $(".submenu-arrow > span").css("border-top", "12px solid white");
+        $(this).css("border-top", "12px solid #F2E55B");
         
         var parent = $(this).parent();
 
          if($(this).hasClass('isOpen')) {
             $("nav.desktop-nav > .navigation > li > ul").hide();
-            $(this).css("border-top", "15px solid white");
+            $(this).css("border-top", "12px solid white");
             $(this).removeClass("isOpen");
         }
 
@@ -364,13 +364,13 @@ $(document).ready((function(){
     $('#primary-content').click((function() {
         $("nav.desktop-nav > .navigation > li > ul").hide();
         $(".submenu-arrow > span").removeClass("isOpen");
-        $(".submenu-arrow > span").css("border-top", "15px solid white");
+        $(".submenu-arrow > span").css("border-top", "12px solid white");
     }));
     
     $('#splash').click((function() {
         $("nav.desktop-nav > .navigation > li > ul").hide();
         $(".submenu-arrow > span").removeClass("isOpen");
-        $(".submenu-arrow > span").css("border-top", "15px solid white");
+        $(".submenu-arrow > span").css("border-top", "12px solid white");
     }));
     
 
