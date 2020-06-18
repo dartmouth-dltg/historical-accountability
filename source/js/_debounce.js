@@ -66,7 +66,7 @@
   // Since jQuery really isn't required for this plugin, use `jQuery` as the
   // namespace only if it already exists, otherwise use the `Cowboy` namespace,
   // creating it if necessary.
-  var $ = window.jQuery || window.Cowboy || ( window.Cowboy = {} ),
+  var $ = jQuery || window.jQuery || window.Cowboy || ( window.Cowboy = {} ),
     
     // Internal method reference.
     jq_throttle;
