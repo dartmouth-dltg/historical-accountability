@@ -743,7 +743,7 @@ body > header .access-button:hover { color: #FFFFFF; }
 
 body > header .menu-access-button { padding: 0 0.80157rem; color: #1D2C27; white-space: nowrap; display: flex; align-items: center; text-align: left; height: 100%; line-height: 1.425rem; }
 
-body > header .menu-access-button.up-arrow-toggle .down-arrow-black { transform: rotate(180deg); position: relative; top: -4px; }
+body > header .menu-access-button.up-arrow-toggle .down-arrow-black { transform: rotate(180deg); position: relative; background: url("../../asset/img/svg/icons/hamburger_menu_active.svg") no-repeat; top: -4px; }
 
 body > header .menu-access-button:hover { color: #FFFFFF; }
 
