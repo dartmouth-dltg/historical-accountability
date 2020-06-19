@@ -219,7 +219,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
     background: unset
     color: $white
 
-.slideshow-block
+.slideshow-block, .slideshow-with-audio
   border-bottom-right-radius: $borderRadius
   position: relative
   border-top: rv(0) solid $black
@@ -311,19 +311,23 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
 
 
 // !AUDIO PLAYER
-
+.audio-controls > .audio-player > .media-render > audio
+  display: none
 .audio-controls
   width: 100%
-  background: $black
+  background: #34423D
   color: $white
   border-top: rv(-5) solid $white
   margin: 0
   padding-left: 1.5rem
   padding-right: 1.5rem
+  padding-top: rv(-4)
+  padding-bottom: rv(-4)
   
   +bp($stack)
-    height: rv(4)
     display: flex
+    padding-top: rv(-4)
+    padding-bottom: rv(-4)
     flex-direction: row
     justify-content: flex-start
     align-content: center
@@ -336,13 +340,24 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   align-items: center
   margin: 0
   padding-right: rv(1)
-  font-size: font-value(-1)
+  font-family: $headingfont
   
   a
-    color: $clr1
-    text-decoration: underline
+    color: $white
+    font-size: font-value(-2)
+    outline: 0
+    font-family: $labelfont
+    font-weight: $bold
     &:hover
-      color: $white
+      color: $clr1
+    &::before
+      content: " "
+      background: url("../../asset/img/svg/icons/sound.svg") no-repeat
+      position: absolute
+      width: 25px
+      height: 25px
+      margin-left: -34px
+
   
 .audio-caption
   display: none
@@ -352,7 +367,10 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   
   p
     margin: 0
-    font-size: font-value(-1)
+    font-size: font-value(0)
+    line-height: 1.4rem
+    margin-bottom: 3px
+
 
           
             

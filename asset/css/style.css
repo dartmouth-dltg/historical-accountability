@@ -818,7 +818,7 @@ body > header nav ul.navigation li.submenu-arrow span { content: ""; display: in
 
 body > header nav ul.navigation li.submenu-arrow > a:hover { background: none; }
 
-body > header nav ul.navigation li.submenu-arrow span:hover { border-top: 12px solid #F2E55B; }
+body > header nav ul.navigation li.submenu-arrow span:hover { border-top: 12px solid #F2E55B !important; }
 
 .outline-add { outline: 0; }
 
@@ -1536,9 +1536,9 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .slide-fullscreen-closeBtn:hover { border: 2px solid #FFFFFF; background: unset; color: #FFFFFF; }
 
-.slideshow-block { border-bottom-right-radius: 1.425rem; position: relative; border-top: 1.9rem solid #1D2C27; }
+.slideshow-block, .slideshow-with-audio { border-bottom-right-radius: 1.425rem; position: relative; border-top: 1.9rem solid #1D2C27; }
 
-.slideshow-block .slideshow { border-top: 6px solid #FFFFFF; }
+.slideshow-block .slideshow, .slideshow-with-audio .slideshow { border-top: 6px solid #FFFFFF; }
 
 .slick-prev { position: absolute; width: 6.00488rem; height: 6.00488rem; top: 40%; transform: translateY(-50%); left: 20px; z-index: 9999; cursor: pointer; background: url("../../asset/img/svg/icons/left_arrow_white_active.svg") no-repeat; }
 
@@ -1562,21 +1562,25 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .slick-dots button { display: none !important; }
 
-.audio-controls { width: 100%; background: #1D2C27; color: #FFFFFF; border-top: 0.45088rem solid #FFFFFF; margin: 0; padding-left: 1.5rem; padding-right: 1.5rem; }
+.audio-controls > .audio-player > .media-render > audio { display: none; }
 
-@media only screen and (min-width: 46.25em) { .audio-controls { height: 6.00488rem; display: flex; flex-direction: row; justify-content: flex-start; align-content: center; } }
+.audio-controls { width: 100%; background: #34423D; color: #FFFFFF; border-top: 0.45088rem solid #FFFFFF; margin: 0; padding-left: 1.5rem; padding-right: 1.5rem; padding-top: 0.60118rem; padding-bottom: 0.60118rem; }
 
-.audio-player, .audio-player > *, .audio-caption { display: flex; height: 100%; flex-direction: row; justify-content: flex-start; align-items: center; margin: 0; padding-right: 2.53333rem; font-size: 0.9rem; }
+@media only screen and (min-width: 46.25em) { .audio-controls { display: flex; padding-top: 0.60118rem; padding-bottom: 0.60118rem; flex-direction: row; justify-content: flex-start; align-content: center; } }
 
-.audio-player a, .audio-player > * a, .audio-caption a { color: #74AF9D; text-decoration: underline; }
+.audio-player, .audio-player > *, .audio-caption { display: flex; height: 100%; flex-direction: row; justify-content: flex-start; align-items: center; margin: 0; padding-right: 2.53333rem; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; }
 
-.audio-player a:hover, .audio-player > * a:hover, .audio-caption a:hover { color: #FFFFFF; }
+.audio-player a, .audio-player > * a, .audio-caption a { color: #FFFFFF; font-size: 0.675rem; outline: 0; font-family: "Lato", sans-serif; font-weight: 700; }
+
+.audio-player a:hover, .audio-player > * a:hover, .audio-caption a:hover { color: #74AF9D; }
+
+.audio-player a::before, .audio-player > * a::before, .audio-caption a::before { content: " "; background: url("../../asset/img/svg/icons/sound.svg") no-repeat; position: absolute; width: 25px; height: 25px; margin-left: -34px; }
 
 .audio-caption { display: none; }
 
 @media only screen and (min-width: 46.25em) { .audio-caption { display: flex; } }
 
-.audio-caption p { margin: 0; font-size: 0.9rem; }
+.audio-caption p { margin: 0; font-size: 1.2rem; line-height: 1.4rem; margin-bottom: 3px; }
 
 /* @file _index.sass @theme Local @description  Loads SASS files for local theme. */
 /* @file _timeline.sass @theme Local @description  Loads SASS files for local theme. */
