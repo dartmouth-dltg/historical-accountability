@@ -19,9 +19,11 @@
         
 .access-dropdown-mobile
   color: #fff
+  z-index: 99999
   text-align: right
+  font-family: $headingfont
   padding-right: 0
-  background: black
+  background: $black
   float: right
   width: 100%
   position: absolute
@@ -34,7 +36,7 @@
   li
     .toggle-label
       position: relative
-      top: -3px
+      top: -42px
   
 .dark-switch 
   position: relative
@@ -48,5 +50,21 @@
   height: 0
 
 .access-dropdown-mobile
-  ul > li > a
+  > ul > li > ul > li
+    line-height: font-value(1)
+  > ul > li > ul > li > a 
     padding-right: rv(-1)
+    font-size: font-value(-1)
+    line-height: font-value(0)
+  > ul > li > ul
+    margin-top: rv(-4) * -1
+    margin-bottom: rv(-1)
+  > ul > li > a
+    padding-right: rv(-1)
+    font-weight: $heavy
+  ul > li > ul > li > ul
+    display: none
+.switch-cont
+  margin-left: 2.425rem!important
+  margin-right: 2.425rem!important
+  border-top: 2px solid $white

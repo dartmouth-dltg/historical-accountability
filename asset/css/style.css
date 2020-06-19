@@ -1284,13 +1284,13 @@ body.dark #homepage-splash .down-arrow span { color: #FFFFFF; }
 
 .access-dropdown-mobile li { width: 100%; }
 
-.access-dropdown-mobile li.mobile-switch-pos { display: inline-block; width: 200px; }
+.access-dropdown-mobile li.mobile-switch-pos { display: inline-block; width: 200px; position: relative; top: 25px; }
 
-.access-dropdown-mobile li .dark-switch { right: 103px; }
+.access-dropdown-mobile li .dark-switch { right: 102px; }
 
 .access-dropdown-mobile li a { color: #FFFFFF; }
 
-.access-dropdown-mobile li .toggle-label { position: absolute; top: -3px; left: 42px; width: 100px; }
+.access-dropdown-mobile li .toggle-label { position: absolute; top: -42px; white-space: nowrap; left: 57px; width: 100px; }
 
 .dark-switch { position: relative; display: inline-block; width: 40px; height: 24px; }
 
@@ -1316,19 +1316,29 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .access-dropdown ul li .toggle-label { position: relative; top: -3px; }
 
-.access-dropdown-mobile { color: #fff; text-align: right; padding-right: 0; background: black; float: right; width: 100%; position: absolute; }
+.access-dropdown-mobile { color: #fff; z-index: 99999; text-align: right; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; padding-right: 0; background: #1D2C27; float: right; width: 100%; position: absolute; }
 
 @media only screen and (min-width: 46.25em) { .access-dropdown-mobile { display: none; } }
 
 .access-dropdown-mobile ul { padding-left: 10px; grid-template-columns: unset; list-style-type: none; }
 
-.access-dropdown-mobile li .toggle-label { position: relative; top: -3px; }
+.access-dropdown-mobile li .toggle-label { position: relative; top: -42px; }
 
 .dark-switch { position: relative; display: inline-block; width: 40px; height: 24px; }
 
 .dark-switch input { opacity: 0; width: 0; height: 0; }
 
-.access-dropdown-mobile ul > li > a { padding-right: 1.425rem; }
+.access-dropdown-mobile > ul > li > ul > li { line-height: 1.6rem; }
+
+.access-dropdown-mobile > ul > li > ul > li > a { padding-right: 1.425rem; font-size: 0.9rem; line-height: 1.2rem; }
+
+.access-dropdown-mobile > ul > li > ul { margin-top: -0.60118rem; margin-bottom: 1.425rem; }
+
+.access-dropdown-mobile > ul > li > a { padding-right: 1.425rem; font-weight: 900; }
+
+.access-dropdown-mobile ul > li > ul > li > ul { display: none; }
+
+.switch-cont { margin-left: 2.425rem !important; margin-right: 2.425rem !important; border-top: 2px solid #FFFFFF; }
 
 /* @file _index.sass @theme Local @description  Loads SASS files for local theme. */
 /* @file _storymap.sass @theme Local @description  Loads SASS files for local theme. */
