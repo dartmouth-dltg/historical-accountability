@@ -370,15 +370,38 @@ $(document).ready((function(){
             
             //on press enter open submenu
             $(".submenu-arrow > span").pressEnter((function(){
-                
                 $("nav.desktop-nav > .navigation > li > ul").hide();
                 $(".submenu-arrow > span").css("border-top", "12px solid white");
                 $(this).css("border-top", "12px solid #F2E55B");
-                
                 var parent = $(this).parent();
-                // parent.children("ul > li").attr('tabIndex', 0);
-                // parent.children("ul").focus();
-
+                parent.children("ul").children("li").last().on('keydown', parent.children("ul").children("li").last(), (function(e) { 
+                    var keyCode = e.keyCode || e.which; 
+                  
+                    if (keyCode == 9) { 
+                        if(!e.shiftKey) {
+                            if($(".submenu-arrow > span").hasClass('isOpen')) {
+                                $("nav.desktop-nav > .navigation > li > ul").hide();
+                                $(".submenu-arrow > span").removeClass("isOpen");
+                                $(".submenu-arrow > span").css("border-top", "12px solid white");
+                            }                         
+                        }
+                    }
+                }));
+       
+                parent.children("ul").children("li").first().on('keydown', parent.children("ul").children("li").first(), (function(e) { 
+                    var keyCode = e.keyCode || e.which; 
+                  
+                    if (keyCode == 9) { 
+                        if(e.shiftKey) {
+                            if($(".submenu-arrow > span").hasClass('isOpen')) {
+                                $("nav.desktop-nav > .navigation > li > ul").hide();
+                                $(".submenu-arrow > span").removeClass("isOpen");
+                                $(".submenu-arrow > span").css("border-top", "12px solid white");
+                            }                         
+                        }                 
+                    }            
+                }));
+     
                 if($(this).hasClass('isOpen')) {
                     $("nav.desktop-nav > .navigation > li > ul").hide();
                     $(this).css("border-top", "12px solid white");
@@ -399,9 +422,14 @@ $(document).ready((function(){
 
     $(document).keydown((function(e) {
         var code = e.keyCode || e.which;
-    
         if (code === 9) {  
             $(".submenu-arrow > span").removeClass("outline-add");
+        }
+        if (code === 27) {  
+            $("nav.desktop-nav > .navigation > li > ul").hide();
+            $(".submenu-arrow > span").removeClass("isOpen");
+            $(".access-dropdown-mobile").css("display", "none");
+
         }
     }));
    
@@ -411,9 +439,7 @@ $(document).ready((function(){
         $("nav.desktop-nav > .navigation > li > ul").hide();
         $(".submenu-arrow > span").css("border-top", "12px solid white");
         $(this).css("border-top", "12px solid #F2E55B");
-        
         var parent = $(this).parent();
-
          if($(this).hasClass('isOpen')) {
             $("nav.desktop-nav > .navigation > li > ul").hide();
             $(this).css("border-top", "12px solid white");
@@ -446,14 +472,24 @@ $(document).ready((function(){
     }));
     withMenutags.addClass("submenu-arrow");
     withMenutags.children("a").after("<span></span>");
-    withMenutags.children("span").attr('tabIndex', 0);
-    withMenutags.children("ul").attr('tabIndex', 0);
     withMenutags.children("ul").attr('aria-label', 'sub nav');
     withMenutags.children("span").addClass('outline-add');
 
+   
+
     //get subnav to display properly without admin bar
     $(window).resize((function() {
-        
+        //take out tab index on mobile, add on desktop
+        if($(window).width() >= 739) {
+            withMenutags.children("span").attr('tabIndex', 0);
+            withMenutags.children("ul").attr('tabIndex', 0);
+
+        }
+        else   {
+            withMenutags.children("span").removeAttr("tabIndex");
+            withMenutags.children("ul").removeAttr("tabIndex");
+        }
+         
         if ( $('#user-bar').length !== 0 ) {
             $(".navigation > li > ul").css("top", $("header").height() + 43);
         }
