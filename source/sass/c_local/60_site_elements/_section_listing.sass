@@ -5,7 +5,13 @@
 
   
 
-
+#secondary-content
+  #feature-1
+    margin-left: 0
+    margin-right: 0
+    +bp($stack)
+      margin-left: auto
+      margin-right: auto
 #feature-1
   margin-top: 0
   display: grid
@@ -19,8 +25,10 @@
   .title-area
     text-align: center
     background-color: set-colour(1,'fade')
-    padding: rv(3)
+    padding: rv(0)
     position: relative
+    +bp($stack)
+      padding: rv(3)
     
     h3
       margin-top: 0

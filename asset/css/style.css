@@ -2291,11 +2291,17 @@ main .poster { margin: 2.53333rem 0 !important; }
 @media only screen and (min-width: 75em) { .poster .poster-text p { font-size: 2.13332rem; line-height: 2.84442rem; } }
 
 /** @file _section_list.sass @category 60_site_elements @description Styles section list items in main content */
+#secondary-content #feature-1 { margin-left: 0; margin-right: 0; }
+
+@media only screen and (min-width: 46.25em) { #secondary-content #feature-1 { margin-left: auto; margin-right: auto; } }
+
 #feature-1 { margin-top: 0; display: grid; grid-gap: 0.45088rem; grid-template-columns: 1fr; }
 
 @media only screen and (min-width: 75em) { #feature-1 { grid-template-columns: 6.4fr 3.6fr; grid-gap: 0.45088rem; } }
 
-#feature-1 .title-area { text-align: center; background-color: #bad7ce; padding: 4.50367rem; position: relative; }
+#feature-1 .title-area { text-align: center; background-color: #bad7ce; padding: 1.9rem; position: relative; }
+
+@media only screen and (min-width: 46.25em) { #feature-1 .title-area { padding: 4.50367rem; } }
 
 #feature-1 .title-area h3 { margin-top: 0; }
 
