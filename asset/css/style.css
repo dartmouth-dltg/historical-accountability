@@ -2207,6 +2207,8 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 56.25em) { .mark-with-text { margin-right: 20%; margin-left: 1.425rem; } }
 
+.region-secondary-content .callout-text { margin-right: 0; }
+
 .callout-text { width: 30%; margin-right: 1.9rem; margin-left: 1.425rem; float: right; color: #D84F37; font-family: "SentinelBook", Monaco, Courier New, monospace; }
 
 @media only screen and (min-width: 46.25em) { .callout-text { margin-left: 1.9rem; } }
