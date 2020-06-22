@@ -24,7 +24,12 @@ $itemCount = count($this->pages);
                 <?php if ($page['hasEmbeddedBlocks'] && array_key_exists('representativeImage',$page['embeddedBlocks'])): ?>
                     <?php echo $page['embeddedBlocks']['representativeImage'][0]; ?>
                 <?php endif; ?>
-                <h3><a href='<?php echo $page['o:url']; ?>'><?php echo $page['o:title']; ?></a></h3>
+                <?php if ($page['hasEmbeddedBlocks'] && array_key_exists('representativeImage',$page['embeddedBlocks'])): ?>
+                    <h3><?php echo $page['o:title']; ?></h3>
+                <?php else: ?>
+                    <h3><a href='<?php echo $page['o:url']; ?>'><?php echo $page['o:title']; ?></a></h3>
+                <?php endif; ?>
+
             </div>
         <?php endforeach; ?>
     <?php endif; ?>

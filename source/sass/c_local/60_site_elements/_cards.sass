@@ -130,10 +130,10 @@ main
       padding: 0
       border-top: unset
       font-weight: $bold
-      padding: rv(0)
+      padding: 0 rv(0)
       
       +bp($stack)
-        padding: 0
+        padding: rv(0)
       a
         padding: rv(0) 0
         +bp($stack)
@@ -163,7 +163,9 @@ main
       figure
         height: 100%
         background: set-color(1)
-        
+        a
+          &:focus
+            margin: 5px 
         figcaption
           top: unset
           bottom: rv(-1)

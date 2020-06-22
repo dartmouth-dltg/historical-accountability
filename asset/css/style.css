@@ -1863,9 +1863,9 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 46.25em) { .card-compact { border-bottom: 0.60118rem solid #FFFFFF; } }
 
-.card-compact.representative-image h3 { position: absolute; margin: -6.00488rem 0 0 0; padding: 0; border-top: unset; font-weight: 700; padding: 1.9rem; }
+.card-compact.representative-image h3 { position: absolute; margin: -6.00488rem 0 0 0; padding: 0; border-top: unset; font-weight: 700; padding: 0 1.9rem; }
 
-@media only screen and (min-width: 46.25em) { .card-compact.representative-image h3 { padding: 0; } }
+@media only screen and (min-width: 46.25em) { .card-compact.representative-image h3 { padding: 1.9rem; } }
 
 .card-compact.representative-image h3 a { padding: 1.9rem 0; }
 
@@ -1886,6 +1886,8 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 .card-compact .representative-image .item { height: 100%; }
 
 .card-compact .representative-image .item figure { height: 100%; background: #74AF9D; }
+
+.card-compact .representative-image .item figure a:focus { margin: 5px; }
 
 .card-compact .representative-image .item figure figcaption { top: unset; bottom: 1.425rem; left: 1.9rem; color: #FFFFFF; font-style: normal; }
 
