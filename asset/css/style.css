@@ -635,7 +635,7 @@ main > div > .file h3, #feature-tier-1 > div > .file h3 { display: none; }
 
 main > div > ul, #feature-tier-1 > div > ul { display: grid; grid-template-columns: 1fr; grid-column-gap: 4.50367rem; grid-row-gap: 1.06876rem; grid-auto-columns: min-content; padding: 0; list-style-type: none; }
 
-main > div > ul li, #feature-tier-1 > div > ul li { position: relative; left: 1.9rem; }
+main > div > ul li, #feature-tier-1 > div > ul li { position: relative; left: 1.9rem; width: 91%; }
 
 @media only screen and (min-width: 46.25em) { main > div > ul li, #feature-tier-1 > div > ul li { left: 4.50367rem; } }
 
@@ -2183,7 +2183,9 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 /** @file _line_break.sass @category 60_site_elements @description addes a divider in content */
 .break { height: 2.53333rem; }
 
-.break.opaque { width: 100%; background: url("../../asset/img/svg/icons/dashes.svg") no-repeat; background-size: 315px; background-repeat: repeat-x; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
+.break.opaque { width: 100%; background: url("../../asset/img/svg/icons/dashes.svg") no-repeat; background-size: 315px; background-repeat: repeat-x; margin-bottom: 0 !important; margin-left: 0 !important; margin-right: 0 !important; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
+
+@media only screen and (min-width: 46.25em) { .break.opaque { margin-left: auto !important; margin-right: auto !important; } }
 
 .break.white { width: 100%; background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat; background-size: 2.53333rem; background-repeat: repeat-x; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
 
