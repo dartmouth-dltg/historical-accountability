@@ -50,6 +50,9 @@ body
       line-height: rv(-1)
       &:hover
         color: $white
+      &:focus
+        margin: 3px
+        height: 89%
       +bp($stack)
         display:none!important
 
@@ -161,6 +164,13 @@ body
   font-size: font-value(-1)
   min-width: 235px
   max-width: 300px
+  &:focus
+    margin: 3px
+  +bp($stack)
+
+    &:focus
+      color: $clr2
+      margin: 0
   
   +bp($stack)
     background-color: $black

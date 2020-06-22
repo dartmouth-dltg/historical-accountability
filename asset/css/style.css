@@ -747,6 +747,8 @@ body > header .menu-access-button.up-arrow-toggle .down-arrow-black { transform:
 
 body > header .menu-access-button:hover { color: #FFFFFF; }
 
+body > header .menu-access-button:focus { margin: 3px; height: 89%; }
+
 @media only screen and (min-width: 46.25em) { body > header .menu-access-button { display: none !important; } }
 
 body > header img { width: 59.97985rem; float: left; }
@@ -802,6 +804,10 @@ body > header .down-arrow-black { vertical-align: top; display: inline-block; wi
 body > header ul li { display: inline; }
 
 .history-identity { background-color: #1D2C27; display: flex; align-items: center; font-family: BentonSans; font-weight: 900; padding: 1.425rem; font-size: 0.9rem; min-width: 235px; max-width: 300px; }
+
+.history-identity:focus { margin: 3px; }
+
+@media only screen and (min-width: 46.25em) { .history-identity:focus { color: #F2E55B; margin: 0; } }
 
 @media only screen and (min-width: 46.25em) { .history-identity { background-color: #1D2C27; height: 100%; width: 93%; margin: 0; font-size: inherit; max-width: 100%; }
   .history-identity img { height: 100%; width: auto; } }

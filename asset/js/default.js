@@ -509,8 +509,6 @@ $(document).ready((function(){
         //take out tab index on mobile, add on desktop
         if($(window).width() >= 739) {
             withMenutags.children("span").attr('tabIndex', 0);
-            withMenutags.children("ul").attr('tabIndex', 0);
-
         }
         else   {
             withMenutags.children("span").removeAttr("tabIndex");
