@@ -1,5 +1,9 @@
 #homepage-splash  
-  
+  .slick-prev, .slick-next
+    top: 55%
+    +bp($stack)
+      top: 45%
+
   .introductory-text
     +fluid-type(-1,1)
     
@@ -67,10 +71,36 @@
   .slick-slide
     +bp($stack)
       height: 100%
+    
       
   figure
     height: rv(8)!important
     max-height: initial!important
+    &:after
+      position: absolute
+      content: ""
+      height: 100%
+      width: 100%
+      top: 0
+      left: 0
+      background: $home_rtl_dark_gradient
+    figcaption
+      color: $white
+      margin-left: 1rem
+      top: 2rem
+      position: absolute
+      z-index: 99
+      font-style: normal
+      font-family: $headingfont
+      font-weight: $bold
+      max-width: 300px
+
+      +bp($stack)
+        margin-left: 4rem
+        top: 3rem
+      p
+        line-height: 1.4rem
+
     
     a
       display: block
@@ -79,6 +109,7 @@
     img
       object-fit: cover
       height: 100%
+     
     
     +bp($stack)
       height: 100%!important
@@ -99,14 +130,7 @@
     grid-template-columns: 1fr 70%
     display: grid
       
-    &:after
-      position: absolute
-      content: ""
-      height: 100%
-      width: 100%
-      top: 0
-      left: 0
-      background: $home_rtl_dark_gradient
+    
       
   .items
     position: relative
@@ -135,7 +159,8 @@
   .resource.introduction
     +bp($stack)
       width: 100%
-      margin-left: -3px
+      //margin-left: -3px
+      background: #314b43cc
       height: 100%
     z-index: 10
 
