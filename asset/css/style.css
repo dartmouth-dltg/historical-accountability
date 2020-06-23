@@ -2307,14 +2307,20 @@ main .poster { margin: 2.53333rem 0 !important; }
 
 @media only screen and (min-width: 75em) { #feature-1 { grid-template-columns: 6.4fr 3.6fr; grid-gap: 0.45088rem; } }
 
-#feature-1 .title-area { text-align: center; background-color: #bad7ce; padding: 1.9rem; position: relative; }
+#feature-1 .title-area { text-align: center; background-color: #bad7ce; padding: 1.9rem; position: relative; border-right: 8px solid #FFFFFF; border-left: 8px solid #FFFFFF; border-bottom-right-radius: 1.425rem; }
 
-@media only screen and (min-width: 46.25em) { #feature-1 .title-area { padding: 4.50367rem; } }
+@media only screen and (min-width: 46.25em) { #feature-1 .title-area { padding: 4.50367rem; border-right: 0; border-left: 0; border-bottom: 8px solid #FFFFFF; } }
 
 #feature-1 .title-area h3 { margin-top: 0; }
 
 @media only screen and (min-width: 75em) { #feature-1 .title-area { text-align: left; }
   #feature-1 .title-area:before { content: ''; position: absolute; bottom: 4.50367rem; left: 4.50367rem; background: url("../../asset/img/svg/marks/green_outline_mark.svg") no-repeat; width: 8.00648rem; height: 8.00648rem; } }
+
+#feature-1 .card-compact { border-bottom: 0; }
+
+#feature-1 .card-compact h3 > a { padding: 0; color: #FFFFFF; }
+
+@media only screen and (min-width: 46.25em) { #feature-1 .card-compact h3 > a { padding: 1.9rem; height: 5rem; position: relative; top: -35px; } }
 
 #feature-1 .btn-submit { margin-top: 2.53333rem; display: inline-block; }
 
