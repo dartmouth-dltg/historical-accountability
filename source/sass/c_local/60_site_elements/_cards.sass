@@ -115,7 +115,21 @@ main
         text-align: right
         color: inherit
         
-        
+.compact-card-listing
+  .card-compact
+    &.representative-image
+      h3
+        padding: 0 0 0 1.9rem
+        max-width: 250px
+        overflow: hidden
+        height: 40px
+        margin: 3rem * -1 0 0 0
+        +bp($stack)
+          padding: 1.4rem 0.1rem 1.4rem 1.9rem
+          margin: rv(4) * -1 0 0 0
+          height: 60px
+          max-width: 340px
+
 .card-compact
   border-bottom: rv(-5) solid $white
   +bp($stack)

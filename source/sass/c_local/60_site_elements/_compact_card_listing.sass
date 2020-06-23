@@ -12,20 +12,22 @@ $compact_card_listing_4_card_shift: rv(9) * -1
 
 .compact-card-listing
   +wide()
-  padding: rv(1) 1.5rem
+  padding: 0
   display: grid
   grid-template-columns: 1fr
-  grid-row-gap: rv(2)
+  grid-row-gap: rv(-4)
   +bp($tablet)
     grid-template-columns: 1fr 1fr
     grid-gap: $compact_card_listing_grid_gap $compact_card_listing_grid_gap
     align-items: center
     padding: rv(2) rv(1)
+    grid-row-gap: rv(2)
   +bp($desktop)
     padding: rv(2) 0
     grid-template-columns: 1fr 1fr 1fr
     grid-gap: $compact_card_listing_grid_gap $compact_card_listing_grid_gap
     align-items: center
+    grid-row-gap: rv(2)
     
     .title-area
       grid-column-end: span 2
