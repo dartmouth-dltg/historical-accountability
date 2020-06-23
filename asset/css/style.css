@@ -896,7 +896,7 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 #homepage-splash .introductory-text::after { content: " "; background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat; width: 5rem; height: 5rem; display: flex; position: relative; align-self: flex-end; margin-left: 15px; }
 
-@media only screen and (min-width: 46.25em) { #homepage-splash .introductory-text::after { background: url("../../asset/img/svg/marks/icon_trans_darK_mark.svg") no-repeat; width: 6rem; height: 6rem; bottom: 1.9rem; left: 2.53333rem; margin-left: unset; margin-top: 1.425rem; } }
+@media only screen and (min-width: 46.25em) { #homepage-splash .introductory-text::after { background: url("../../asset/img/svg/marks/icon_trans_darK_mark.svg") no-repeat; width: 6rem; height: 6rem; bottom: 1.9rem; margin-left: 22px; position: absolute; margin-left: unset; margin-top: 1.425rem; } }
 
 #homepage-splash .introductory-text * { font-size: 0.8em; }
 
