@@ -41,6 +41,10 @@
       img
         filter: grayscale(100%)
         mix-blend-mode: multiply
+        object-fit: cover
+        height: 340px
+        +bp($stack)
+          height: unset
 
     &:after
       position: absolute
@@ -57,6 +61,9 @@
   .items
     overflow: hidden
     flex: auto
+    width: 100%
+    +bp($stack)
+      width: 67%
   .resource
     +bp($stack)
       height: 100%
@@ -113,8 +120,11 @@
 
       a
         color: $clr1
-              
-
+  .slick-next, .slick-prev
+    top: 47%            
+  .slick-next
+    +bp($stack)
+      right: 19px
           
   &.left
     &:after

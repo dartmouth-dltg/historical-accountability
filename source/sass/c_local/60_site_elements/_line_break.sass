@@ -28,3 +28,15 @@
     background-repeat: repeat-x
     +tilt
     -webkit-backface-visibility: hidden
+  &.white-black
+    width: 100%
+    background: url("../../asset/img/svg/icons/dashes.svg") no-repeat
+    background-size: 315px
+    background-repeat: repeat-x
+    +tilt
+    -webkit-backface-visibility: hidden
+    +bp($stack)
+      background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat
+      background-size: rv(1)
+      background-repeat: repeat-x
+

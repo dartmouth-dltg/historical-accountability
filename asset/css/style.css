@@ -998,11 +998,15 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 .section-intro-splash figure a { display: block; height: 100%; width: 100%; background: #3A584F; }
 
-.section-intro-splash figure a img { filter: grayscale(100%); mix-blend-mode: multiply; }
+.section-intro-splash figure a img { filter: grayscale(100%); mix-blend-mode: multiply; object-fit: cover; height: 340px; }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash figure a img { height: unset; } }
 
 .section-intro-splash figure:after { position: absolute; content: ""; height: 100%; width: 100%; top: 0; left: 0; opacity: 1; }
 
-.section-intro-splash .items { overflow: hidden; flex: auto; }
+.section-intro-splash .items { overflow: hidden; flex: auto; width: 100%; }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash .items { width: 67%; } }
 
 @media only screen and (min-width: 46.25em) { .section-intro-splash .resource { height: 100%; width: 100%; flex: 1; display: flex; }
   .section-intro-splash .resource figure { height: 100%; width: 100%; }
@@ -1030,6 +1034,10 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 @media only screen and (min-width: 46.25em) { .section-intro-splash .introduction .introductory-text h1, .section-intro-splash .introduction .introductory-text p, .section-intro-splash .introduction .introductory-text a { color: #FFFFFF; } }
 
 .section-intro-splash .introduction .introductory-text a { color: #74AF9D; }
+
+.section-intro-splash .slick-next, .section-intro-splash .slick-prev { top: 47%; }
+
+@media only screen and (min-width: 46.25em) { .section-intro-splash .slick-next { right: 19px; } }
 
 .section-intro-splash.left:after { background: linear-gradient(90deg, rgba(29, 44, 39, 0.92) 36%, rgba(49, 75, 67, 0.7) 100%); }
 
@@ -2207,6 +2215,10 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 @media only screen and (min-width: 46.25em) { .break.opaque { margin-left: auto !important; margin-right: auto !important; } }
 
 .break.white { width: 100%; background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat; background-size: 2.53333rem; background-repeat: repeat-x; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
+
+.break.white-black { width: 100%; background: url("../../asset/img/svg/icons/dashes.svg") no-repeat; background-size: 315px; background-repeat: repeat-x; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
+
+@media only screen and (min-width: 46.25em) { .break.white-black { background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat; background-size: 2.53333rem; background-repeat: repeat-x; } }
 
 /** @file _custom_text.sass @category 60_site_elements @description For custom text elements in design */
 .mark-with-text { background: url("../../asset/img/svg/marks/around_dark_mark.svg") no-repeat; width: 150px; height: 150px; margin-left: 2.53333rem; margin-left: 2.53333rem; float: right; }
