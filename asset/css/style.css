@@ -525,6 +525,8 @@ svg .cls-1, svg .cls-2, svg .cls-3 { fill: inherit; }
 /* @file _layout.sass @theme Local @description  Loads SASS files for local theme. */
 video { max-height: 100vh; width: 100%; }
 
+.kWidgetIframeContainer { margin-bottom: -12px; }
+
 section main > div > * { margin-left: 1.9rem; margin-right: 1.9rem; }
 
 @media only screen and (min-width: 46.25em) { section main > div > * { margin-left: auto; margin-right: auto; } }
@@ -629,9 +631,11 @@ main > div > .file, #feature-tier-1 > div > .file { padding-left: 0; padding-rig
 
 main > div > .file .media-render:before, #feature-tier-1 > div > .file .media-render:before { content: ""; height: 1.06876rem; width: 100%; background: #1D2C27; display: block; margin-bottom: 0.45088rem; }
 
-main > div > .file .caption, #feature-tier-1 > div > .file .caption { text-align: center; margin-top: 0.45088rem; padding-top: 1.425rem; padding-bottom: 1.06876rem; color: #FFFFFF; background: #1D2C27; border-bottom-right-radius: 1.425rem; }
+main > div > .file .caption, #feature-tier-1 > div > .file .caption { text-align: left; padding-left: 2rem; padding-right: 2rem; padding-top: 1.425rem; padding-bottom: 1.06876rem; color: #FFFFFF; background: #1D2C27; border-bottom-right-radius: 1.425rem; }
 
-main > div > .file h3, #feature-tier-1 > div > .file h3 { display: none; }
+main > div > .file h3, #feature-tier-1 > div > .file h3 { background: #1D2C27; padding: 2rem 2rem 0 2rem; margin: 0; margin-top: 0.60118rem; }
+
+main > div > .file h3 a, #feature-tier-1 > div > .file h3 a { color: #FFFFFF; }
 
 main > div > ul, #feature-tier-1 > div > ul { display: grid; grid-template-columns: 1fr; grid-column-gap: 4.50367rem; grid-row-gap: 1.06876rem; grid-auto-columns: min-content; padding: 0; list-style-type: none; }
 

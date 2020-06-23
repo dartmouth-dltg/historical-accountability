@@ -21,8 +21,9 @@ video
   //     +inset-text()
   //   > .site-guide-cont
   //     +negative-content-margin(6)
-    
-    
+//kaltura video player    
+.kWidgetIframeContainer
+  margin-bottom: -12px    
 // @todo:  There are some present factors in 00_configuration_layout like $mobile_edge_padding_factor and $edge_padding_factor that should be used here.
 section
   main
@@ -106,15 +107,23 @@ main, #feature-tier-1
           margin-bottom: rv(-5)
       
       .caption
-        text-align: center
-        margin-top: rv(-5)
+        text-align: left
+        padding-left: 2rem
+        padding-right: 2rem
+        //margin-top: rv(-5)
         padding-top: rv(-1)
         padding-bottom: rv(-2)
         color: $white
         background: $black
         border-bottom-right-radius: $borderRadius
       h3 
-        display: none
+        background: $black
+        padding: 2rem 2rem 0 2rem
+        margin: 0
+        margin-top: rv(-4)
+        a
+          color: $white
+        //display: none
         
     > ul
       display: grid
