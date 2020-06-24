@@ -30,8 +30,11 @@
 .tl-slide-content-container
   .tl-text
     .tl-text-content-container
+      .tl-text-content
+        text-align: left
       .tl-headline
         border-bottom: 0
+        text-align: left
         a
           color: $white
 .tl-slider-item-container
@@ -75,6 +78,7 @@
   .tl-text-content-container
     h3.tl-headline-date
       font-weight: $bold
+      text-align: left
       color: $white
       font-family: $headingfont
       margin-bottom: rv(0)
@@ -139,11 +143,11 @@
   flex-direction: row-reverse
   height: 100%
 .tl-media .tl-media-content-container .tl-media-content img
-  max-width: 75%
   border: 4px solid $white
   border-bottom-right-radius: 10px
   border-bottom-left-radius: 10px
   filter: grayscale(100%)
+  object-fit: cover
 .tl-slide .tl-slide-content-container .tl-slide-content .tl-media
   margin-top: 0
   justify-content: center
@@ -153,12 +157,13 @@
   display: flex!important
 .tl-text-content-container 
   align-self: center
+  text-align: left
   width: 100%
   padding: rv(2)
 .tl-text-content-container
   h2.tl-headline
     //margin-bottom: rv(-1)
-    font-size: rv(2)
+    font-size: font-value(2)
     //margin-top: rv(0)
 .tl-slide-content
   .tl-media
