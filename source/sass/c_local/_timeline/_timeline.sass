@@ -155,11 +155,18 @@
   display: flex!important
 .tl-slide .tl-slide-content-container .tl-slide-content .tl-text
   display: flex!important
+  margin-top: 0
+  +bp($stack)
+    margin-top: 20px
 .tl-text-content-container 
   align-self: center
   text-align: left
   width: 100%
   padding: rv(2)
+  padding-top: 0
+  +bp($stack)
+    padding: rv(2)
+    padding-top: rv(2)
 .tl-text-content-container
   h2.tl-headline
     //margin-bottom: rv(-1)
@@ -171,3 +178,7 @@
       width: 200px
       +bp($stack)
         width: 300px
+.timeline-cont-wrapper
+  height: 700px
+  +bp($stack)
+    height: 600px

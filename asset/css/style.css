@@ -1695,15 +1695,23 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .tl-slide .tl-slide-content-container .tl-slide-content .tl-media { margin-top: 0; justify-content: center; align-items: center; display: flex !important; }
 
-.tl-slide .tl-slide-content-container .tl-slide-content .tl-text { display: flex !important; }
+.tl-slide .tl-slide-content-container .tl-slide-content .tl-text { display: flex !important; margin-top: 0; }
 
-.tl-text-content-container { align-self: center; text-align: left; width: 100%; padding: 3.37776rem; }
+@media only screen and (min-width: 46.25em) { .tl-slide .tl-slide-content-container .tl-slide-content .tl-text { margin-top: 20px; } }
+
+.tl-text-content-container { align-self: center; text-align: left; width: 100%; padding: 3.37776rem; padding-top: 0; }
+
+@media only screen and (min-width: 46.25em) { .tl-text-content-container { padding: 3.37776rem; padding-top: 3.37776rem; } }
 
 .tl-text-content-container h2.tl-headline { font-size: 2.13332rem; }
 
 .tl-slide-content .tl-media .tl-media-content-container { width: 200px; }
 
 @media only screen and (min-width: 46.25em) { .tl-slide-content .tl-media .tl-media-content-container { width: 300px; } }
+
+.timeline-cont-wrapper { height: 700px; }
+
+@media only screen and (min-width: 46.25em) { .timeline-cont-wrapper { height: 600px; } }
 
 /* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
 html { font-family: "BentonSansBook", sans-serif; font-size: 100%; color: #1D2C27; }
