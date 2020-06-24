@@ -1675,7 +1675,9 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .tl-slide .tl-slide-scrollable-container { display: flex !important; }
 
-.tl-slide .tl-slide-content-container .tl-slide-content { display: flex !important; flex-direction: column; height: 100%; }
+.tl-slide.tl-slide-titleslide .tl-slide-content-container .tl-slide-content { flex-direction: column; }
+
+.tl-slide .tl-slide-content-container .tl-slide-content { display: flex !important; flex-direction: row-reverse; height: 100%; }
 
 .tl-media .tl-media-content-container .tl-media-content img { max-width: 75%; border: 4px solid #FFFFFF; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; filter: grayscale(100%); }
 

@@ -110,17 +110,17 @@ $escape = $this->plugin('escapeHtml');
 
 <script>
     //checks every 100ms for img element to load then finds the large size and places it as background splash for timeline
-    checkInit();
+    checkInit2();
 
-    function checkInit() {
-        check = setInterval(checkTrigger, 100);
+    function checkInit2() {
+        check2 = setInterval(checkTrigger2, 100);
     }
 
-    function checkClear() {
-        clearInterval(check);
+    function checkClear2() {
+        clearInterval(check2);
     }
 
-    function checkTrigger() {
+    function checkTrigger2() {
         var firstImg =   $('.tl-slide:nth-child(2)').find("img");
         if ( firstImg.length > 0) {
             var imgSrc = firstImg[0].src
@@ -132,7 +132,7 @@ $escape = $this->plugin('escapeHtml');
             var parsedTitle = regexp.exec(title);
             $(".tl-slide-titleslide .tl-slide-content").append("<span>TIMELINE</span>");
             $(".tl-slide-titleslide .tl-slide-content").append("<h1>" + parsedTitle[1] + "</h1>");
-            checkClear();
+            checkClear2();
         }
 
         if (typeof $('.tl-timemarker-media').first().attr('alt') == 'undefined') {
