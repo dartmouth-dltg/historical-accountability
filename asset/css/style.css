@@ -1017,9 +1017,9 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
   .section-intro-splash .resource figure a { display: block; height: 100%; }
   .section-intro-splash .resource img { display: block; background-position: center bottom; object-fit: cover; height: 100%; } }
 
-.section-intro-splash .introduction { width: 100%; height: 100%; justify-content: center; z-index: 1; padding: 1.5rem; }
+.section-intro-splash .introduction { width: 100%; height: 100%; justify-content: center; z-index: 1; background-color: #1D2C27; padding: 1.5rem; border-left: 0.45088rem solid #FFFFFF; border-right: 0.45088rem solid #FFFFFF; border-bottom: 0.45088rem solid #FFFFFF; }
 
-@media only screen and (min-width: 46.25em) { .section-intro-splash .introduction { position: absolute; top: 0; height: 100%; width: 33%; display: flex; flex-direction: column; flex: 1; justify-content: flex-start; background-color: #1D2C27; border-left: 0.45088rem solid #FFFFFF; border-right: 0.45088rem solid #FFFFFF; } }
+@media only screen and (min-width: 46.25em) { .section-intro-splash .introduction { position: absolute; top: 0; height: 100%; width: 33%; display: flex; flex-direction: column; flex: 1; justify-content: flex-start; background-color: #1D2C27; border-left: 0.45088rem solid #FFFFFF; border-right: 0.45088rem solid #FFFFFF; border-bottom: 0; } }
 
 @media only screen and (min-width: 46.25em) { .section-intro-splash .introduction { padding: 3.37776rem; right: 0; } }
 
@@ -1035,6 +1035,8 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 @media only screen and (min-width: 75em) { .section-intro-splash .introduction .introductory-text p { font-size: 1.2rem; line-height: 1.8; } }
 
+.section-intro-splash .introduction .introductory-text h1, .section-intro-splash .introduction .introductory-text p, .section-intro-splash .introduction .introductory-text a { color: #FFFFFF; }
+
 @media only screen and (min-width: 46.25em) { .section-intro-splash .introduction .introductory-text h1, .section-intro-splash .introduction .introductory-text p, .section-intro-splash .introduction .introductory-text a { color: #FFFFFF; } }
 
 .section-intro-splash .introduction .introductory-text a { color: #74AF9D; }
@@ -1045,15 +1047,23 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 .section-intro-splash.left:after { background: linear-gradient(90deg, rgba(29, 44, 39, 0.92) 36%, rgba(49, 75, 67, 0.7) 100%); }
 
-.section-intro-splash.left .introduction { width: 100%; height: 100%; justify-content: center; z-index: 1; padding: 1.5rem; }
+.section-intro-splash.left .introduction { width: 100%; height: 100%; justify-content: center; z-index: 1; background-color: #1D2C27; padding: 1.5rem; border-left: 0.45088rem solid #FFFFFF; border-right: 0.45088rem solid #FFFFFF; border-bottom: 0.45088rem solid #FFFFFF; }
 
-@media only screen and (min-width: 46.25em) { .section-intro-splash.left .introduction { position: absolute; top: 0; height: 100%; width: 33%; display: flex; flex-direction: column; flex: 1; justify-content: flex-start; background-color: #1D2C27; border-left: 0.45088rem solid #FFFFFF; border-right: 0.45088rem solid #FFFFFF; } }
+@media only screen and (min-width: 46.25em) { .section-intro-splash.left .introduction { position: absolute; top: 0; height: 100%; width: 33%; display: flex; flex-direction: column; flex: 1; justify-content: flex-start; background-color: #1D2C27; border-left: 0.45088rem solid #FFFFFF; border-right: 0.45088rem solid #FFFFFF; border-bottom: 0; } }
 
 @media only screen and (min-width: 46.25em) { .section-intro-splash.left .introduction { padding: 3.37776rem; left: 0; } }
 
 @media only screen and (min-width: 75em) { .section-intro-splash.left .introduction { padding: 8.00648rem 8.00648rem 8.00648rem 8.00648rem; } }
 
+@media only screen and (min-width: 46.25em) { .section-intro-splash.left .introduction { padding: 3.33rem; } }
+
 .section-intro-splash.left .introduction .introductory-text, .section-intro-splash.left .introduction p { text-align: left; }
+
+.section-intro-splash.right .introduction { border-bottom-left-radius: 1.425rem; }
+
+.section-intro-splash.left .items { align-self: flex-end; }
+
+.section-intro-splash.left .introduction { border-bottom-right-radius: 1.425rem; }
 
 .about .tl-timeline { max-width: 800px !important; }
 

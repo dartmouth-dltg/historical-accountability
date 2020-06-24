@@ -115,6 +115,7 @@
           line-height: 1.8
           
       h1, p, a
+        color: $white
         +bp($stack)
           color: $white
 
@@ -131,7 +132,19 @@
       background: $rtl_dark_gradient
       
     .introduction
-      +splash_area_title_left()    
+      +splash_area_title_left()
+      +bp($stack)
+        padding: 3.33rem    
       
       .introductory-text, p
         text-align: left
+.section-intro-splash
+  &.right
+    .introduction
+      border-bottom-left-radius: $borderRadius
+.section-intro-splash
+  &.left
+    .items
+      align-self: flex-end
+    .introduction
+      border-bottom-right-radius: $borderRadius

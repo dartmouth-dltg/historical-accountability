@@ -4,8 +4,11 @@
   height: 100%
   justify-content: center
   z-index: 1
+  background-color: $black
   padding: 1.5rem // @todo: should be $mobile_edge_padding_factor
-
+  border-left: $borderWidth solid $white
+  border-right: $borderWidth solid $white
+  border-bottom: $borderWidth solid $white
   +bp($stack)
     position: absolute
     top: 0
@@ -18,6 +21,7 @@
     background-color: $black
     border-left: $borderWidth solid $white
     border-right: $borderWidth solid $white
+    border-bottom: 0
   
     
 =splash_area_title_right($desktop_width: 33%)
