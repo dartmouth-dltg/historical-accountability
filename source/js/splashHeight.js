@@ -6,7 +6,7 @@
   
   });
   
-  $(window).resize($.debounce( 250, calculateSplashHeight ));
+  $(window).resize(window.jQuery.debounce( 250, calculateSplashHeight ));
   
   function calculateSplashHeight() {
     var splash = $('#splash');
