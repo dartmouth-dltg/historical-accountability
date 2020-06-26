@@ -239,7 +239,8 @@
   //    The `this` context and all arguments are passed through, as-is, to
   //    `callback` when the debounced-function is executed.
   // 
-  // Returns:
+  // Returns:  
+  
   // 
   //  (Function) A new, debounced, function.
   
