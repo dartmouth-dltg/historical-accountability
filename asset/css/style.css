@@ -1691,7 +1691,9 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .tl-slide .tl-slide-content-container .tl-slide-content { display: flex !important; flex-direction: row-reverse; height: 100%; }
 
-.tl-media .tl-media-content-container .tl-media-content img { border: 4px solid #FFFFFF; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; filter: grayscale(100%); object-fit: cover; }
+.tl-media .tl-media-content-container .tl-media-content img { border: 4px solid #FFFFFF; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; filter: grayscale(100%); object-fit: cover; height: 195px; }
+
+@media only screen and (min-width: 46.25em) { .tl-media .tl-media-content-container .tl-media-content img { height: auto; } }
 
 .tl-slide .tl-slide-content-container .tl-slide-content .tl-media { margin-top: 0; justify-content: center; align-items: center; display: flex !important; }
 
