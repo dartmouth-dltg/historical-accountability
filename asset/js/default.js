@@ -6,6 +6,163 @@
  * https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git
  */
 
+// _default.js must be loaded first
+// All other JS files are concatenated afterwards by Gulp
+
+var heartbeat = 300;
+
+// Sets constants for all theme js files.
+
+var themepath = "/path/to/theme";
+var assetpath = themepath + "/assets";
+var imagepath = assetpath + "/img";
+
+(function($) {  
+  
+  $(document).ready((function() {
+  
+        
+  }));  
+})(jQuery);
+
+/**
+ * Global Breakpoints
+ * Sets global values for breakpoints based on CSS root variables provided by the layout_css_variables SASS component. Must come early in the load order.
+ */
+
+var breakpoint_xsml, breakpoint_sml, breakpoint_med, breakpoint_lrg, breakpoint_xlrg, breakpoint_xxlrg, breakpoint_stack, breakpoint_tablet, breakpoint_desktop, breakpoint_ultrawide;
+
+(function($) {    
+  $(document).ready((function() {
+    var style = getComputedStyle(document.body);
+    breakpoint_xsml = style.getPropertyValue('--breakpoint-xsml')
+    breakpoint_sml = style.getPropertyValue('--breakpoint-sml')
+    breakpoint_med = style.getPropertyValue('--breakpoint-med')
+    breakpoint_lrg = style.getPropertyValue('--breakpoint-lrg')
+    breakpoint_xlrg = style.getPropertyValue('--breakpoint-xlrg')
+    breakpoint_xxlrg = style.getPropertyValue('--breakpoint-xxlrg')
+    breakpoint_stack = style.getPropertyValue('--breakpoint-stack')
+    breakpoint_tablet = style.getPropertyValue('--breakpoint-tablet')
+    breakpoint_desktop = style.getPropertyValue('--breakpoint-desktop')
+    breakpoint_ultrawide = style.getPropertyValue('--breakpoint-ultrawide')
+  }));  
+})(jQuery);
+
+/**
+ * globalPalette.js
+ * Sets global values for colours based on CSS root variables provided by 20_colour SASS component. Must come early in the load order.
+ */
+
+(function($) {    
+  $(document).ready((function() {
+    var style = getComputedStyle(document.body);
+        
+    window.colours = {};
+    window.colours.colour = {};
+    window.colours.map = {};
+    window.colours.neutrals = {};
+    
+    var colourGridKeys = ['shade','primary','tint','fade','watermark'];
+
+    for(var i=1; i<10; i++) {
+      var neutralKey = i * 10;
+      window.colours.colour[i] = style.getPropertyValue('--colour--' + i);
+            
+      window.colours.neutrals[neutralKey] = style.getPropertyValue('--colour--neutral--' + neutralKey);
+      
+      window.colours.map[i] = {};
+      
+      colourGridKeys.forEach((function(key){
+        window.colours.map[i][key] = style.getPropertyValue('--colour--' + i + '--' + key);
+      }));
+    }
+        
+    window.colours.black = style.getPropertyValue('--colour--black');
+    window.colours.white = style.getPropertyValue('--colour--white');    
+    window.colours.impact = style.getPropertyValue('--colour--impact');    
+    window.colours.cta = style.getPropertyValue('--colour--cta'); 
+    
+    // console.log(window.colours);   
+    
+  }));  
+})(jQuery);
+
+/**
+ *  @file processAttributes.js
+ *  @description Remove all attributes from an element.
+ *  With thanks to https://stackoverflow.com/questions/1870441/remove-all-attributes
+ */
+
+
+jQuery.fn.removeAttributes = function() {
+  return this.each((function() {
+    var attributes = $.map(this.attributes, (function(item) {
+      return item.name;
+    }));
+    var e = $(this);
+    $.each(attributes, (function(i, item) {
+      e.removeAttr(item);
+    }));
+  }));
+}
+
+jQuery.fn.stashAttributes = function(prefix) {
+  
+  prefix = prefix != null ? prefix : 'stash';
+  
+  return this.each((function() {
+    var attributes = $.map(this.attributes, (function(item) {
+      return item.name;
+    }));
+    var e = $(this);
+    $.each(attributes, (function(i, item) {
+      var stash = e.attr(item);
+      e.removeAttr(item);
+      e.attr('data-' + prefix + '-' + item,stash);
+    }));
+  }));
+}
+/**
+ * Visibility Classes
+ * Uses the in-view.js library ( https://www.npmjs.com/package/in-view ) add visibility
+ * classes to DOM objects.
+ */
+
+jQuery(document).ready((function() {
+    
+  const style = getComputedStyle(document.body);
+  const propcount = style.getPropertyValue('--visibility-propcount'); // Lets JS know how many properties to expect.
+  const reverse = false; // Removes visibility class when element is offscreen. @todo: set this as SASS-driven configuration, e.g. --visibility-reverse.
+  
+  if (typeof propcount != 'undefined' && parseInt(propcount) > 0) {
+    var visibilityStack = [];
+    
+    const visibilityOffset = style.getPropertyValue('--visibility-offset');
+    const visibilityThreshold = style.getPropertyValue('--visibility-threshold');
+    
+    inView.threshold(visibilityThreshold);
+    inView.offset(visibilityOffset);
+    
+    for(var i=1;i<=parseInt(propcount);i++) {
+      visibilityStack.push(style.getPropertyValue("--visibility-element-" + i));
+    }
+                  
+    $(visibilityStack).each((function(i,selector){    
+      if($(selector).length > 0) {
+        inView(selector)
+          .on('enter', elem => {
+            $(elem).addClass('visible');
+          })
+          .on('exit',elem => {
+            if (reverse === true) {
+              $(elem).removeClass('visible');
+            }
+          });
+      }
+    }));
+    
+  }
+}));
 $(document).ready((function(){
     // toggle mobile/accessibility menu
     $(".access-button").click((function(){
@@ -938,163 +1095,5 @@ jQuery(document).ready((function() {
     var wrapper = $('.media-list').parent();
     $('.media-list').remove();
     $('.universal-viewer').prependTo(wrapper);
-  }
-}));
-
-// _default.js must be loaded first
-// All other JS files are concatenated afterwards by Gulp
-
-var heartbeat = 300;
-
-// Sets constants for all theme js files.
-
-var themepath = "/path/to/theme";
-var assetpath = themepath + "/assets";
-var imagepath = assetpath + "/img";
-
-(function($) {  
-  
-  $(document).ready((function() {
-  
-        
-  }));  
-})(jQuery);
-
-/**
- * Global Breakpoints
- * Sets global values for breakpoints based on CSS root variables provided by the layout_css_variables SASS component. Must come early in the load order.
- */
-
-var breakpoint_xsml, breakpoint_sml, breakpoint_med, breakpoint_lrg, breakpoint_xlrg, breakpoint_xxlrg, breakpoint_stack, breakpoint_tablet, breakpoint_desktop, breakpoint_ultrawide;
-
-(function($) {    
-  $(document).ready((function() {
-    var style = getComputedStyle(document.body);
-    breakpoint_xsml = style.getPropertyValue('--breakpoint-xsml')
-    breakpoint_sml = style.getPropertyValue('--breakpoint-sml')
-    breakpoint_med = style.getPropertyValue('--breakpoint-med')
-    breakpoint_lrg = style.getPropertyValue('--breakpoint-lrg')
-    breakpoint_xlrg = style.getPropertyValue('--breakpoint-xlrg')
-    breakpoint_xxlrg = style.getPropertyValue('--breakpoint-xxlrg')
-    breakpoint_stack = style.getPropertyValue('--breakpoint-stack')
-    breakpoint_tablet = style.getPropertyValue('--breakpoint-tablet')
-    breakpoint_desktop = style.getPropertyValue('--breakpoint-desktop')
-    breakpoint_ultrawide = style.getPropertyValue('--breakpoint-ultrawide')
-  }));  
-})(jQuery);
-
-/**
- * globalPalette.js
- * Sets global values for colours based on CSS root variables provided by 20_colour SASS component. Must come early in the load order.
- */
-
-(function($) {    
-  $(document).ready((function() {
-    var style = getComputedStyle(document.body);
-        
-    window.colours = {};
-    window.colours.colour = {};
-    window.colours.map = {};
-    window.colours.neutrals = {};
-    
-    var colourGridKeys = ['shade','primary','tint','fade','watermark'];
-
-    for(var i=1; i<10; i++) {
-      var neutralKey = i * 10;
-      window.colours.colour[i] = style.getPropertyValue('--colour--' + i);
-            
-      window.colours.neutrals[neutralKey] = style.getPropertyValue('--colour--neutral--' + neutralKey);
-      
-      window.colours.map[i] = {};
-      
-      colourGridKeys.forEach((function(key){
-        window.colours.map[i][key] = style.getPropertyValue('--colour--' + i + '--' + key);
-      }));
-    }
-        
-    window.colours.black = style.getPropertyValue('--colour--black');
-    window.colours.white = style.getPropertyValue('--colour--white');    
-    window.colours.impact = style.getPropertyValue('--colour--impact');    
-    window.colours.cta = style.getPropertyValue('--colour--cta'); 
-    
-    // console.log(window.colours);   
-    
-  }));  
-})(jQuery);
-
-/**
- *  @file processAttributes.js
- *  @description Remove all attributes from an element.
- *  With thanks to https://stackoverflow.com/questions/1870441/remove-all-attributes
- */
-
-
-jQuery.fn.removeAttributes = function() {
-  return this.each((function() {
-    var attributes = $.map(this.attributes, (function(item) {
-      return item.name;
-    }));
-    var e = $(this);
-    $.each(attributes, (function(i, item) {
-      e.removeAttr(item);
-    }));
-  }));
-}
-
-jQuery.fn.stashAttributes = function(prefix) {
-  
-  prefix = prefix != null ? prefix : 'stash';
-  
-  return this.each((function() {
-    var attributes = $.map(this.attributes, (function(item) {
-      return item.name;
-    }));
-    var e = $(this);
-    $.each(attributes, (function(i, item) {
-      var stash = e.attr(item);
-      e.removeAttr(item);
-      e.attr('data-' + prefix + '-' + item,stash);
-    }));
-  }));
-}
-/**
- * Visibility Classes
- * Uses the in-view.js library ( https://www.npmjs.com/package/in-view ) add visibility
- * classes to DOM objects.
- */
-
-jQuery(document).ready((function() {
-    
-  const style = getComputedStyle(document.body);
-  const propcount = style.getPropertyValue('--visibility-propcount'); // Lets JS know how many properties to expect.
-  const reverse = false; // Removes visibility class when element is offscreen. @todo: set this as SASS-driven configuration, e.g. --visibility-reverse.
-  
-  if (typeof propcount != 'undefined' && parseInt(propcount) > 0) {
-    var visibilityStack = [];
-    
-    const visibilityOffset = style.getPropertyValue('--visibility-offset');
-    const visibilityThreshold = style.getPropertyValue('--visibility-threshold');
-    
-    inView.threshold(visibilityThreshold);
-    inView.offset(visibilityOffset);
-    
-    for(var i=1;i<=parseInt(propcount);i++) {
-      visibilityStack.push(style.getPropertyValue("--visibility-element-" + i));
-    }
-                  
-    $(visibilityStack).each((function(i,selector){    
-      if($(selector).length > 0) {
-        inView(selector)
-          .on('enter', elem => {
-            $(elem).addClass('visible');
-          })
-          .on('exit',elem => {
-            if (reverse === true) {
-              $(elem).removeClass('visible');
-            }
-          });
-      }
-    }));
-    
   }
 }));
