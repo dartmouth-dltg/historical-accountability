@@ -92,63 +92,6 @@ body
         span
           color: $white
 
-
-.access-dropdown
-  color: #fff
-  text-align: left
-  padding-right: 0
-  background: black
-  float: right
-  width: auto
-  position: absolute
-  right: 0
-  z-index: 999
-
-  ul
-    padding-left: 10px
-    grid-template-columns: unset
-    list-style-type: none
-    li
-      width: 127px
-      .toggle-label
-        position: absolute
-        top: -3px
-        left: 49px
-        width: 100px
-.access-dropdown-mobile
-  color: #fff
-  text-align: right
-  padding-right: 0
-  background: black
-  float: right
-  width: 100%
-  position: absolute
-  z-index: 999
-  +bp($stack)
-    display: none
-  ul
-    padding-left: 10px
-    grid-template-columns: unset
-    list-style-type: none
-    display: block
-    text-align: right
-  li
-    width: 100%
-    &.mobile-switch-pos
-      display: inline-block
-      width: 200px
-      position: relative
-      top: 25px
-    .dark-switch 
-      right: 102px
-    a
-      color: $white
-    .toggle-label
-      position: absolute
-      top: -42px
-      white-space: nowrap
-      left: 57px
-      width: 100px
   
 .dark-switch 
   position: relative

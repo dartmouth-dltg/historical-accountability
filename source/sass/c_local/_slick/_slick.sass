@@ -147,7 +147,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
     .slide-contents
       // background: unset
       // position: absolute
-      z-index: 9999
+      z-index: 100
       // +splash_area_title_left(70%)
       border-top: 5px solid
       background: $black
@@ -236,8 +236,9 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   top: 40%
   transform: translateY(-50%)
   left: 20px
-  z-index: 9999
+  z-index: 100
   cursor: pointer
+  margin: 0
   background: url("../../asset/img/svg/icons/left_arrow_white_active.svg") no-repeat
   &:hover
     background: url("../../asset/img/svg/icons/left_arrow_yellow.svg") no-repeat
@@ -249,8 +250,9 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   top: 40%
   transform: translateY(-50%)
   right: 15px
-  z-index: 9999
+  z-index: 100
   cursor: pointer
+  margin: 0
   background: url("../../asset/img/svg/icons/right_arrow_white_active.svg") no-repeat
   &:hover
     background: url("../../asset/img/svg/icons/right_arrow_yellow.svg") no-repeat
@@ -265,7 +267,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   bottom: $slide_content_margin
   right: $slide_content_margin
   padding: 0
-  z-index: 9999
+  z-index: 100
   margin: 0
   display: flex
   justify-content: flex-end
