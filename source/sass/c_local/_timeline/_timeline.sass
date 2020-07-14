@@ -2,6 +2,10 @@
    @file _timeline.sass 
    @theme Local
    @description  Loads SASS files for local theme. */
+   
+.tl-timeline
+  min-height: 60vh
+   
 .tl-timeline   
   .tl-storyslider
     .tl-slider-container-mask
@@ -22,7 +26,6 @@
               display: block
               &:before
                 content: ""
-                background: rgb(0,0,0);
                 background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
                 height: 100%
                 display: block
@@ -52,38 +55,47 @@
   p
     font-family: $basefont
     color: $white!important
+    
 .tl-slidenav-next 
   .tl-slidenav-icon
     display: none
     &:before
-      content: url(../../asset/img/svg/icons/right_chevron_fire.svg)!important
+      content: url(get_svg_url('icons/right_arrow_white')) !important
+      
 .tl-slidenav-previous 
   .tl-slidenav-icon
     display: none
     &:before
-      content: url(../../asset/img/svg/icons/left_chevron_fire.svg)!important
+      content: rl(get_svg_url('icons/left_arrow_white')) !important
+      
 .tl-slidenav-icon
   width: 25px
+  
 .tl-slidenav-title
     opacity: 1!important
     font-size: font-value(-1)!important
     line-height: font-value(-1)!important
+
 .tl-slidenav-description
   display: none
+
 .tl-slidenav-title
   text-shadow: unset!important
   color: $clr1!important
   display: none!important
+  
 .tl-text
   .tl-text-content-container
+  
     h3.tl-headline-date
       font-weight: $bold
       text-align: left
       color: $white
       font-family: $headingfont
-      margin-bottom: rv(0)
-      font-size: font-value(-2)
+      margin-bottom: 0
+      font-size: font-value(-1)
       text-decoration: underline
+
 .tl-timenav-item-container
   .tl-timemarker
     .tl-timemarker-content-container
@@ -107,7 +119,7 @@
       margin-top:  0
       +bp($stack)
         margin-top: rv(1)
-    h1
+    h1, h2
       color: $white
       font-size: $h2fontsize
       line-height: $h2fontsize
@@ -119,38 +131,51 @@
       .tl-timemarker-media-container 
         .tl-timemarker-media
           opacity: 1!important
+          
 .tl-timemarker-text
   .tl-headline
-    color: $white!important
-    font-size: font-value(-1)!important
+    color: $black!important
+    font-size: font-value(-2)!important
+    
 .tl-timemarker 
   .tl-timemarker-content-container
     width: 200px!important
+
 .tl-timeaxis-tick
   &:before
     border-color: $black!important
+
 .tl-timeaxis-tick-text
   color: $black!important
+
 .tl-slide 
   &.tl-slide-titleslide
     background: $black
+
 .tl-slide .tl-slide-scrollable-container
   display: flex!important
+
 .tl-slide.tl-slide-titleslide  .tl-slide-content-container .tl-slide-content
   flex-direction: column
+  
 .tl-slide .tl-slide-content-container .tl-slide-content
   display: flex!important
-  flex-direction: row-reverse
-  height: 100%
+  flex-direction: column
+  width: 100%
+  
+  +bp($stack)
+    flex-direction: row-reverse
+    height: 100%
+    
+// TIMELINE IMAGE
+  
 .tl-media .tl-media-content-container .tl-media-content img
-  border: 4px solid $white
-  border-bottom-right-radius: 10px
-  border-bottom-left-radius: 10px
   filter: grayscale(100%)
   object-fit: cover
-  height: 195px
+  
   +bp($stack)
     height: auto
+    
 .tl-slide .tl-slide-content-container .tl-slide-content .tl-media
   margin-top: 0
   justify-content: center
@@ -178,13 +203,22 @@
     //margin-bottom: rv(-1)
     font-size: font-value(2)
     //margin-top: rv(0)
+    
 .tl-slide-content
   .tl-media
     .tl-media-content-container
-      width: 200px
-      +bp($stack)
-        width: 300px
+      +proportional_height(100%,.5625) // 16:9
+      border: 4px solid $white
+      border-bottom-right-radius: $borderRadius
+      
+      &.portrait
+        +proportional_height(70%,1.2)
+        
+        +bp($stack)
+          +proportional_height(60%,1.2)
+        
 .timeline-cont-wrapper
-  height: 700px
+  height: 100%
+  
   +bp($stack)
-    height: 600px
+    height: $splash_area_desktop_min_height

@@ -6,10 +6,11 @@
  */
 
 $escape = $this->plugin('escapeHtml');
+$slide_title = !empty($data['heading']) ? $escape($data['heading']) : '';
 ?>
 
 <?php if (!empty($data['heading'])): ?>
-    <h2><?= $escape($data['heading']) ?></h2>
+    <!--<h2><?= $escape($data['heading']) ?></h2>-->
 <?php endif; ?>
 
 <div id="timeline-<?= $block->id() ?>" style="width: 100%;" class="timeline-cont-wrapper"></div>
@@ -78,7 +79,7 @@ $escape = $this->plugin('escapeHtml');
             var slides = {
                 "title": {
                     "text": {
-                        "headline": '',
+                        "headline": "<?= $slide_title ?>",
                         "text": ''
                     }
                 },
@@ -89,7 +90,7 @@ $escape = $this->plugin('escapeHtml');
             var timelineOptions = <?= $data['viewer'] ?>;
 
             // initialize the timeline instance
-            window.timeline = new TL.Timeline(timelineDivID, slides, timelineOptions);
+                              window.timeline = new TL.Timeline(timelineDivID, slides, timelineOptions);
 
             function parseDate(entryDateString) {
                 var entryDate = entryDateString;
@@ -110,16 +111,41 @@ $escape = $this->plugin('escapeHtml');
 
 <script>
     //checks every 100ms for img element to load then finds the large size and places it as background splash for timeline
-    checkInit2();
-
-    function checkInit2() {
-        check2 = setInterval(checkTrigger2, 100);
-    }
-
+    
+    var unprocessed=false;
+    
+    var check1 = setInterval(checkTrigger1, 300);
+    var check2 = setInterval(checkTrigger2, 100);
+    
+    $('body').append('<div id="tl-clones" style="display:none" />');
+    
     function checkClear2() {
         clearInterval(check2);
     }
-
+    
+    // Loops over the Timeline looking for unprocessed images.
+    // When it finds one, it loads it, clones it to asses the natural image sizes, and adds image ratio classes as necessary.
+    
+    function checkTrigger1() {
+      
+      $('.tl-media-content').find('img').each(function() {
+        if (!$(this).hasClass('processed')) {
+          var img = $(this);
+          var imgSrc = $(this).attr('src').replace('square','large'); 
+          $(this).attr('src',imgSrc);
+          var cloneImg = new Image();
+          cloneImg.src = imgSrc;          
+          cloneImg.onload = function() {
+            var aspectClass = getImageAspectClass(cloneImg.naturalHeight,cloneImg.naturalWidth);
+            img.closest('.tl-media-content-container').addClass(aspectClass);
+            img.addClass(aspectClass).addClass('processed');
+          };
+        }
+      });
+    }
+    
+    // Swap out the first image slide.
+    
     function checkTrigger2() {
         var firstImg =   $('.tl-slide:nth-child(2)').find("img");
         if ( firstImg.length > 0) {
@@ -130,8 +156,13 @@ $escape = $this->plugin('escapeHtml');
             var title = document.getElementsByTagName("title")[0].innerHTML; //get of page to insert on title slide
             var regexp = /\·(.*?)\·/; //used to parse title, finds anything between these dots "·"
             var parsedTitle = regexp.exec(title);
-            $(".tl-slide-titleslide .tl-slide-content").append("<span>TIMELINE</span>");
-            $(".tl-slide-titleslide .tl-slide-content").append("<h1>" + parsedTitle[1] + "</h1>");
+            //$(".tl-slide-titleslide .tl-slide-content").append("<span>TIMELINE</span>");
+            //$(".tl-slide-titleslide .tl-slide-content").append("<h1>" + parsedTitle[1] + "</h1>");
+            
+            $('.tl-slide').find('img').each(function() {
+              $(this).addClass(getImageAspectClass($(this)[0].naturalHeight,$(this)[0].naturalWidth))
+            });  
+                  
             checkClear2();
         }
 

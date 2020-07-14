@@ -20,14 +20,7 @@ jQuery(document).ready(function() {
               
         var h = o.img.naturalHeight;
         var w = o.img.naturalWidth
-        
-        var aspectClass = 'square';
-        
-        if (w > h) {
-          aspectClass = 'landscape';
-        } else if (h > w) {
-          aspectClass = 'portrait';
-        }
+        var aspectClass = getImageAspectClass(h,w);
             
         img.addClass('img-' + aspectClass);
         
@@ -41,4 +34,16 @@ jQuery(document).ready(function() {
   }
 
 });
+
+function getImageAspectClass(h,w) {
+  var aspectClass = 'square';
+  
+  if (w > h) {
+    aspectClass = 'landscape';
+  } else if (h > w) {
+    aspectClass = 'portrait';
+  }
+  
+  return aspectClass;
+}
 
