@@ -96,7 +96,7 @@ main, #feature-tier-1
       +negative-content-margin(7)
       
     > .file
-      +negative-content-margin(4)
+      
       .media-render
         &:before
           content: ""
@@ -105,7 +105,31 @@ main, #feature-tier-1
           background: $black
           display: block
           margin-bottom: rv(-5)
-      
+          
+      &.center
+        +negative-content-margin(4)
+        
+      &.left
+        +bp($desktop)
+          margin-left: 15vw
+          float: left
+          width: 25vw
+          padding: 0 rv(0) rv(0) 0
+          
+          &.large
+            width: 35vw
+          
+      &.right
+        +bp($desktop)
+          margin-right: 15vw
+          float: right
+          width: 25vw
+          padding: 0 0 rv(0) rv(0)
+          
+          &.large
+            width: 35vw
+        
+        
       .caption
         text-align: left
         padding-left: 2rem
