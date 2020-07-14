@@ -22,10 +22,14 @@ body
     +bp($stack)
       display: grid
       grid-template-rows: initial
-      grid-template-columns: 2fr 3fr
+      grid-template-columns: 25% 1fr
       grid-row-gap: initial
       position: unset // Position and z-index interfere with desktop subnav JS
       z-index: unset
+      
+    +bp($ultrawide)
+      grid-template-columns: 1fr 2fr
+
       
     .access-button
       &.up-arrow-toggle
