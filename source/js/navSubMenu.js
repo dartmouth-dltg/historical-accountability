@@ -26,6 +26,7 @@ $(document).ready(function(){
         if (keyCode == 9) { 
             if(e.shiftKey) {
                 $(".access-dropdown-mobile").css("display", "none");
+                $('#nav-underlay').fadeOut(window.animation.heartbeat);
          
             }                 
         }            
@@ -37,6 +38,8 @@ $(document).ready(function(){
         if (keyCode == 9) { 
             if(!e.shiftKey) {
                 $(".access-dropdown-mobile").css("display", "none");
+                $('#nav-underlay').fadeOut(window.animation.heartbeat);
+
          
             }                 
         }            
