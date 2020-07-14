@@ -1695,7 +1695,9 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 @media only screen and (min-width: 46.25em) { .tl-media .tl-media-content-container .tl-media-content img { height: auto; } }
 
-.tl-slide .tl-slide-content-container .tl-slide-content .tl-media { margin-top: 0; justify-content: center; align-items: center; display: flex !important; }
+.tl-slide .tl-slide-content-container .tl-slide-content .tl-media { margin-top: 0; justify-content: center; align-items: center; display: flex !important; padding-bottom: 10px; }
+
+@media only screen and (min-width: 46.25em) { .tl-slide .tl-slide-content-container .tl-slide-content .tl-media { padding-bottom: 0; } }
 
 .tl-slide .tl-slide-content-container .tl-slide-content .tl-text { display: flex !important; margin-top: 0; }
 
@@ -2471,5 +2473,17 @@ main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(
 .uv .leftPanel, .uv .rightPanel { background: #283732 !important; }
 
 .uv .rightPanel main { color: #FFFFFF !important; }
+
+.uv .centerPanel .content .attribution { display: none !important; }
+
+.uv .centerPanel .content .viewer .paging.btn { min-width: auto; }
+
+.uv .btn { height: unset; justify-content: unset; width: unset; min-width: unset; }
+
+.uv .headerPanel .centerOptions .autocompleteText { border: 0; min-height: unset; text-align: center; }
+
+.uv a.go.btn-primary { border-color: #1D2C27; background-color: #1D2C27; }
+
+.uv .headerPanel .centerOptions .search .searchText { text-align: center; min-height: unset; }
 
 /* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */
