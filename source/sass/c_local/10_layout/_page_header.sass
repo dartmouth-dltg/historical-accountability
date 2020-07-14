@@ -1,4 +1,12 @@
 body
+  #user-bar
+    position: relative
+    z-index: 999 // Place above mobile nav underly
+    
+    +bp($stack)
+      position: unset // Position and z-index interfere with desktop subnav JS
+      z-index: unset
+
   > header
     align-items: center
     display: grid
@@ -7,12 +15,21 @@ body
     overflow: hidden
     background: $black
     +line-height(-1)
+    position: relative
+    z-index: 999
+  
     
     +bp($stack)
       display: grid
       grid-template-rows: initial
-      grid-template-columns: 2fr 3fr
+      grid-template-columns: 25% 1fr
       grid-row-gap: initial
+      position: unset // Position and z-index interfere with desktop subnav JS
+      z-index: unset
+      
+    +bp($ultrawide)
+      grid-template-columns: 1fr 2fr
+
       
     .access-button
       &.up-arrow-toggle
@@ -33,20 +50,16 @@ body
         text-align: center
         height: 100%
         border-left: rv(-10) solid $white
+        
     .menu-access-button
-      &.up-arrow-toggle
-        .down-arrow-black
-          transform: rotate(180deg)
-          position: relative
-          background: url("../../asset/img/svg/icons/hamburger_menu_active.svg") no-repeat
-          top: -4px
       padding: 0 rv(-3)
       color: $black
       white-space: nowrap
       display: flex
+      justify-content: flex-end
       align-items: center
-      text-align: left
       height: 100%
+      padding-right: rv($mobile_edge_padding_factor)
       line-height: rv(-1)
       &:hover
         color: $white
@@ -54,6 +67,11 @@ body
         margin: 3px
         height: 89%
         outline: 1px dotted $white
+        
+      &.up-arrow-toggle
+        .down-arrow-black
+          background: url("../../asset/img/svg/icons/hamburger_menu_active.svg") no-repeat
+        
       +bp($stack)
         display:none!important
 
@@ -101,6 +119,7 @@ body
               background-position-x: right
               background-size: rv(-3)
               background-position-y: center
+              
               +bp($tablet)
                 background-size: rv(-3)
               +bp($desktop)
@@ -128,6 +147,10 @@ body
             background-position-x: right
             background-size: rv(-3)
             background-position-y: center
+            
+            // hide for now
+            background: none
+            
             +bp($tablet)
               background-size: rv(-3)
             +bp($desktop)
@@ -138,7 +161,7 @@ body
       font-weight: $bold
       font-family: BentonSans
       span
-        margin: 0 auto
+        margin: 0
     a:hover
       color: $clr2
       text-decoration: none

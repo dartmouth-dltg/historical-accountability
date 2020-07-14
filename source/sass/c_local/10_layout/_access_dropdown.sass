@@ -1,43 +1,3 @@
-.access-dropdown
-  color: #fff
-  text-align: left
-  padding-right: 0
-  background: black
-  float: right
-  width: auto
-  position: absolute
-  right: 0
-
-  ul
-    padding-left: 10px
-    grid-template-columns: unset
-    list-style-type: none
-    li
-      .toggle-label
-        position: relative
-        top: -3px
-        
-.access-dropdown-mobile
-  color: #fff
-  z-index: 99999
-  text-align: right
-  font-family: $headingfont
-  padding-right: 0
-  background: $black
-  float: right
-  width: 100%
-  position: absolute
-  +bp($stack)
-    display: none
-  ul
-    padding-left: 10px
-    grid-template-columns: unset
-    list-style-type: none
-  li
-    .toggle-label
-      position: relative
-      top: -42px
-  
 .dark-switch 
   position: relative
   display: inline-block
@@ -49,22 +9,108 @@
   width: 0
   height: 0
 
-.access-dropdown-mobile
-  > ul > li > ul > li
-    line-height: font-value(1)
-  > ul > li > ul > li > a 
-    padding-right: rv(-1)
-    font-size: font-value(-1)
-    line-height: font-value(0)
-  > ul > li > ul
-    margin-top: rv(-4) * -1
-    margin-bottom: rv(-1)
-  > ul > li > a
-    padding-right: rv(-1)
-    font-weight: $heavy
-  ul > li > ul > li > ul
-    display: none
+
 .switch-cont
-  margin-left: 2.425rem!important
-  margin-right: 2.425rem!important
+  margin-left: rv($mobile_edge_padding_factor) !important
+  margin-right: rv($mobile_edge_padding_factor) !important
   border-top: 2px solid $white
+        
+          
+.access-dropdown
+  color: #fff
+  text-align: left
+  padding-right: 0
+  background: black
+  float: right
+  width: auto
+  position: absolute
+  right: 0
+  z-index: 999
+
+
+  ul
+    padding-left: 10px
+    grid-template-columns: unset
+    list-style-type: none
+    
+    li
+      .toggle-label
+        position: relative
+        top: -3px
+        left: 49px
+        width: 100px
+        
+  
+        
+.access-dropdown-mobile
+  color: #fff
+  z-index: 999
+  text-align: right
+  font-family: $headingfont
+  line-height: 1.1
+  padding-right: 0
+  background: $black
+  float: right
+  width: 100%
+  position: absolute
+  border-bottom: $borderWidth solid $white
+  
+  +bp($stack)
+    display: none
+  ul
+    padding-left: 10px
+    grid-template-columns: unset
+    list-style-type: none
+    display: block
+    text-align: right
+    
+  li
+    width: 100%
+    &.mobile-switch-pos
+      display: inline-block
+      width: 200px
+      position: relative
+      top: 25px
+      
+    .dark-switch 
+      right: 102px
+      
+    a
+      color: $white
+      
+    .active a,  a:hover
+      color: set-color(2)
+      
+        
+    .toggle-label
+      position: relative
+      top: -42px
+      white-space: nowrap
+      left: 57px
+      width: 100px
+  
+  // Handle child menu items
+
+      
+  > ul.navigation
+            
+    > li
+      font-weight: $heavy
+      line-height: 1.1
+      margin-bottom: rv(-1)
+      
+      // Second level nav items
+      
+      > ul 
+        margin : 0
+        > li
+          font-weight: $normal  
+          font-size: font-value(-1)  
+          
+        // Hide third-level menus
+
+        ul  
+          display: none
+      
+        
+      

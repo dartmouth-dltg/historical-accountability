@@ -1,14 +1,14 @@
 
-=splash_area_title_common($desktop_width: 50%)
+=splash_area_title_common($desktop_width: 33%,$splash_area_mobile_padding: rv($mobile_edge_padding_factor) * 2)
+  position: relative
   width: 100%
-  height: 100%
   justify-content: center
   z-index: 1
-  background-color: $black
-  padding: 1.5rem // @todo: should be $mobile_edge_padding_factor
+  padding: $splash_area_mobile_padding
   border-left: $borderWidth solid $white
   border-right: $borderWidth solid $white
   border-bottom: $borderWidth solid $white
+  
   +bp($stack)
     position: absolute
     top: 0
@@ -18,30 +18,72 @@
     flex-direction: column
     flex: 1
     justify-content: flex-start
-    background-color: $black
     border-left: $borderWidth solid $white
     border-right: $borderWidth solid $white
     border-bottom: 0
   
     
-=splash_area_title_right($desktop_width: 33%)
-  +splash_area_title_common($desktop_width)
+=splash_area_title_right($desktop_width: 33%, $splash_area_mobile_padding: rv($mobile_edge_padding_factor) * 2)
+  +splash_area_title_common($desktop_width,$splash_area_mobile_padding)
   
   +bp($stack)
-    padding: rv(2)
     right: 0
   
   +bp($desktop)
-    //padding: $title_area_outside_padding $title_area_outside_padding $title_area_bottom_padding $title_area_inside_padding
+    padding: $title_area_outside_padding $title_area_outside_padding $title_area_bottom_padding $title_area_inside_padding
     
     
-=splash_area_title_left($desktop_width: 33%)
-  +splash_area_title_common($desktop_width)
+=splash_area_title_left($desktop_width: 33%,$splash_area_mobile_padding: rv($mobile_edge_padding_factor) * 2)
+  +splash_area_title_common($desktop_width,$splash_area_mobile_padding)
   
   +bp($stack)
-    padding: rv(2)
     left: 0
     
   +bp($desktop)
     padding: $title_area_outside_padding $title_area_inside_padding $title_area_bottom_padding $title_area_outside_padding
 
+
+=splash_area_carousel_common()
+  overflow: hidden
+  flex: auto
+  width: 100%
+  
+  +bp($stack)
+    width: 67%
+    position: absolute
+    top: 0
+    bottom: 0
+    
+  .resource
+    +bp($stack)
+      height: 100%
+      width: 100%
+      flex: 1
+      display: flex
+      figure
+        height: 100%
+        width: 100%
+        
+        a
+          display: block
+          height: 100%
+        
+      img
+        display: block
+        background-position: center bottom
+        object-fit: cover
+        height: 100%
+
+=splash_area_carousel_right()
+  +splash_area_carousel_common()
+  
+  +bp($stack)
+    right: 0
+    
+=splash_area_carousel_left()
+  +splash_area_carousel_common()
+  
+  +bp($stack)
+    left: 0
+
+  

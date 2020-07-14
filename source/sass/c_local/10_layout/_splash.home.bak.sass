@@ -1,0 +1,223 @@
+#homepage-splash
+  margin-left: 0
+  margin-right: 0
+  display: flex
+  flex-direction: column-reverse
+  justify-content: flex-start
+  width: 100%
+  overflow-y: hidden
+  position: relative
+    
+        
+  .introduction
+    +splash_area_title_left()   
+    background-color: set-color(2)
+    
+    border-right: $borderWidth solid $white
+    border-bottom-right-radius: $borderRadius
+    border-bottom: $borderWidth solid #fff
+    border-left: $borderWidth solid #fff
+
+            
+  .items
+    overflow: hidden
+    flex: auto
+    width: 100%
+    
+    +bp($stack)
+      width: 67%
+      
+  .slick-prev, .slick-next
+    top: 55%
+    
+    +bp($stack)
+      top: 45%
+
+  .introductory-text
+    +fluid-type(-1,1)
+    height: 100%
+    margin-right: 0
+    margin-left: 0
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    z-index: 2
+    flex: 1
+    font-weight: $bold
+          
+    +bp($stack)
+      padding-top: rv(0)
+      padding-bottom: rv(0)
+      font-weight: $normal
+      border-bottom: 0
+      border-left: 0
+    
+    &::after
+      content: " "
+      background: url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat
+      width: 5rem
+      height: 5rem
+      display: flex
+      position: relative
+      align-self: flex-end
+      margin-left: 15px
+      +bp($stack)
+        background: url("../../asset/img/svg/marks/icon_trans_darK_mark.svg") no-repeat
+        width: 6rem
+        height: 6rem
+        bottom: rv(0)
+        margin-left: 22px
+        position: absolute
+        margin-left: unset
+        margin-top: rv(-1)
+                
+    *
+      font-size: 0.8em
+    
+    h1
+      font-size: 2.5em
+      margin: 0
+        
+  .slick-prev-splash
+    position: absolute
+    width: rv(5)
+    height: rv(5)
+    top: 49%
+    transform: translateY(-50%)
+    left: 20px
+    z-index: 9999
+    cursor: pointer
+    display: none
+    background: url("../../asset/img/svg/icons/left_arrow_white.svg") no-repeat
+    &:hover
+      background: url("../../asset/img/svg/icons/left_arrow_white_active.svg") no-repeat
+    +bp($stack)
+      display: block
+
+  .slick-next-splash
+    position: absolute
+    width: rv(5)
+    height: rv(5)
+    top: 49%
+    transform: translateY(-50%)
+    right: 15px
+    z-index: 9999
+    cursor: pointer
+    display: none
+    background: url("../../asset/img/svg/icons/right_arrow_white.svg") no-repeat
+    &:hover
+      background: url("../../asset/img/svg/icons/right_arrow_white_active.svg") no-repeat
+    +bp($stack)
+      display: block
+
+  .slick-dots
+    width: 67%
+    +bp($stack)
+      width: 60%    
+  .slick-slide
+    +bp($stack)
+      height: 100%
+    
+      
+  figure
+    height: rv(8)!important
+    max-height: initial!important
+    &:after
+      position: absolute
+      content: ""
+      height: 100%
+      width: 100%
+      top: 0
+      left: 0
+      background: $home_rtl_dark_gradient
+      
+    figcaption
+      color: $white
+      margin-left: 1rem
+      top: 2rem
+      position: absolute
+      z-index: 99
+      font-style: normal
+      font-family: $headingfont
+      font-weight: $bold
+      max-width: 300px
+
+      +bp($stack)
+        margin-left: 4rem
+        top: 3rem
+      p
+        line-height: 1.4rem
+
+    
+    a
+      display: block
+      height: 100%
+    
+    img
+      object-fit: cover
+      height: 100%
+     
+    
+    +bp($stack)
+      height: 100%!important
+      max-height: initial!important
+              
+                
+  .scroll-down
+    display: none
+    
+    +bp($stack)
+      display: block
+        
+  .down-arrow
+    color: $black
+    
+    span
+      color: $black
+    
+    &:hover
+      color: set-colour(1)
+      
+      span
+        color: set-colour(1)
+        
+  .warning-lug
+    width: 100%
+    height: fit-content
+    background-color: $black
+    opacity: 0.8
+    color: $white
+    border-top: 2px solid $white
+    padding: 1.5rem //@todo replace with mobile edge factor
+    +font-size(-1)
+    display: flex
+    flex-direction: column
+    justify-content: center
+    z-index: 1
+    
+    +bp($stack)
+      position: absolute
+      width: rv(8)
+      bottom: rv(1)
+      left: rv(1)
+      padding: rv(-1)
+      border: 1px solid $white
+      
+    p
+      font-size: 1em
+
+    h4
+      font-family: $basefont
+      font-size: 1.5em
+      color: $white
+      text-transform: uppercase
+      text-decoration: underline
+      margin-top: 0px
+      margin-bottom: rv(-2)
+      display: flex
+      flex-direction: row
+      align-items: center
+
+      img
+        padding-right: 4px

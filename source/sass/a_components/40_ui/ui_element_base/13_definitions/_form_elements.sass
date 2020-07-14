@@ -109,10 +109,13 @@ $btnBorderAllowance: $ui_border_width
   background-clip: border-box
   cursor: pointer
   min-width: $btn_min_width
-  width: $btn_width
+  width: $btn_min_width
   max-width: $btn_max_width
   +transition()
   white-space: nowrap
+  
+  +bp('sml')
+    width: $btn_width
 
   &:hover, &:focus, &:active
     text-decoration: none

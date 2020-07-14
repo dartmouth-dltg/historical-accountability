@@ -139,6 +139,10 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   .slideshow-block, .slideshow-with-audio
     max-width: 100%
     max-height: 100%
+    border-top: 0
+    
+    .slideshow
+      border-top: 0
 
   // !Splash Title Page
   
@@ -147,7 +151,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
     .slide-contents
       // background: unset
       // position: absolute
-      z-index: 9999
+      z-index: 100
       // +splash_area_title_left(70%)
       border-top: 5px solid
       background: $black
@@ -167,12 +171,9 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
       padding-left: $title_area_outside_padding
       padding-right: $title_area_outside_padding
       
-  .slide-contents
-    // padding-top: rv(2)
-    
-    p
-      font-size: +font-value(0)
-          
+  h3
+    font-size: +font-value(1)
+                
 
 // !UI CONTROLS
 .fullscreen-label
@@ -236,8 +237,9 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   top: 40%
   transform: translateY(-50%)
   left: 20px
-  z-index: 9999
+  z-index: 100
   cursor: pointer
+  margin: 0
   background: url("../../asset/img/svg/icons/left_arrow_white_active.svg") no-repeat
   &:hover
     background: url("../../asset/img/svg/icons/left_arrow_yellow.svg") no-repeat
@@ -249,8 +251,9 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   top: 40%
   transform: translateY(-50%)
   right: 15px
-  z-index: 9999
+  z-index: 100
   cursor: pointer
+  margin: 0
   background: url("../../asset/img/svg/icons/right_arrow_white_active.svg") no-repeat
   &:hover
     background: url("../../asset/img/svg/icons/right_arrow_yellow.svg") no-repeat
@@ -265,7 +268,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   bottom: $slide_content_margin
   right: $slide_content_margin
   padding: 0
-  z-index: 9999
+  z-index: 100
   margin: 0
   display: flex
   justify-content: flex-end
@@ -297,7 +300,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
       height: $dot_size
       position: relative
       border-radius: 50%
-      border: 1px solid
+      border: 3px solid
       box-sizing: border-box
       right: 0
       

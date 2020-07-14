@@ -1,3 +1,61 @@
+.introductory-text
+  +fluid-type(-1,1)
+  height: 100%
+  margin-right: 0
+  margin-left: 0
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: flex-start
+  z-index: 2
+  flex: 1
+  font-weight: $bold
+        
+  +bp($stack)
+    font-weight: $normal
+    border-bottom: 0
+    border-left: 0
+                  
+  *
+    font-size: 0.9em
+    
+    +bp($tablet)
+      font-size: 0.95em
+      
+    +bp($desktop)
+      font-size: 0.85em
+  
+  h1
+    font-size: 2.4em
+    margin: 0
+    padding: 0 0 rv(0) 0
+    
+
+#homepage-splash, .section-intro-splash
+    
+  figcaption
+    top: 0
+    position: absolute
+    color: $white
+    padding: rv(-1)
+    z-index: 9
+    font-style: normal
+    font-weight: $bold
+    
+    +bp($stack)
+      padding-top: rv(0)
+      padding-left: rv(0)
+      max-width: 70%
+
+    p
+      font-size: font-value(-1)
+      line-height: font-value(0)
+      
+      +bp($stack)
+        font-size: font-value(0)
+        line-height: font-value(1)
+
+
 .section-intro-splash
   margin-left: 0
   margin-right: 0
@@ -10,17 +68,32 @@
   
   +bp($stack)
     background: $black
+          
+  .items
+    +splash_area_carousel_left()
+
+  .introduction
+    +splash_area_title_right()    
+    background-color: $black
     
+  .introductory-text
+    *
+      color: $white
+        
+                
   figure
     position: relative
+    
     figcaption
       position: absolute
       color: $white
       padding-left: rv(-1)
       z-index: 9
       font-style: normal
-      max-width: 250px
+      max-width: 70%
       padding-top: rv(-1)
+      font-weight: $bold
+      
       +bp($stack)
         padding-top: rv(0)
         padding-left: rv(0)
@@ -37,7 +110,7 @@
       display: block
       height: 100%
       width: 100%
-      background: $clr5
+      background: set-color(5,'tint')
       img
         filter: grayscale(100%)
         mix-blend-mode: multiply
@@ -56,71 +129,8 @@
       opacity: 1
       
       +bp($stack)
-       // background: $ltr_dark_gradient
-      
-  .items
-    overflow: hidden
-    flex: auto
-    width: 100%
-    +bp($stack)
-      width: 67%
-  .resource
-    +bp($stack)
-      height: 100%
-      width: 100%
-      flex: 1
-      display: flex
-      figure
-        height: 100%
-        width: 100%
+       // background: $ltr_dark_gradient        
         
-        a
-          display: block
-          height: 100%
-        
-      img
-        display: block
-        background-position: center bottom
-        object-fit: cover
-        height: 100%
-
-
-  .introduction
-    +splash_area_title_right()    
-        
-        
-    .introductory-text
-      text-align: left
-      position: relative
-      margin: 0
-
-      h1
-        margin-bottom: rv(0)
-        font-size: font-value(2)
-        +bp($desktop)
-          font-size: font-value(4)
-        
-      p
-
-        display: block
-        text-align: left
-        line-height: 1.8
-        
-        +bp($stack)
-          font-size: +font-value(-1)
-          line-height: 1.5
-        
-        +bp($desktop)
-          font-size: +font-value(0)
-          line-height: 1.8
-          
-      h1, p, a
-        color: $white
-        +bp($stack)
-          color: $white
-
-      a
-        color: $clr1
   .slick-next, .slick-prev
     top: 47%            
   .slick-next
@@ -130,14 +140,8 @@
   &.left
     &:after
       background: $rtl_dark_gradient
-      
-    .introduction
-      +splash_area_title_left()
-      +bp($stack)
-        padding: 3.33rem    
-      
-      .introductory-text, p
-        text-align: left
+              
+        
 .section-intro-splash
   &.right
     .introduction

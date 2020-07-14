@@ -1,4 +1,10 @@
 $(document).ready(function(){
+  
+    $(".access-button").click(function(){
+        $(".access-dropdown").toggle(window.animation.heartbeat);
+        $(this).toggleClass('up-arrow-toggle'); //change direction of arrow
+    });
+
 
     //check for submenu links, bind enter event, stop check
 

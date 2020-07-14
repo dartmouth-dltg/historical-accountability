@@ -6,31 +6,21 @@
  * https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git
  */
 
-$(document).ready((function(){
-    // toggle mobile/accessibility menu
-    $(".access-button").click((function(){
-        $(".access-dropdown").toggle();
-        $(this).toggleClass('up-arrow-toggle'); //change direction of arrow
-    }));
-    $(".menu-access-button").click((function(){
-        $(".access-dropdown-mobile").toggle();
-        $(this).toggleClass('up-arrow-toggle');
-    }));
+/**
+ * darkMode.js
+ * 
+ */
+ 
+ $(document).ready((function(){
 
     function darkOn(){
         $("body").addClass('dark');
         $('.dark-switch > input[type="checkbox"]').prop("checked", true); //sync mobile and desktop btns
-        $("#huronia-splash-logo").attr("src","./../../../themes/history/asset/img/svg/marks/recount_badge_white.svg");
-        $(".down-arrow img").attr("src","./../../../themes/history/asset/img/svg/icons/down_chevron_white.svg");
-        $(".flame img").attr("src","./../../../themes/history/asset/img/svg/paths/curve_left_flame_dark.svg");
     }
 
     function darkOff(){
         $('.dark-switch > input[type="checkbox"]').prop("checked", false); //sync mobile and desktop btns
         $("body").removeClass('dark');
-        $("#huronia-splash-logo").attr("src","./../../../themes/history/asset/img/svg/icons/splash.home.logo.svg");
-        $(".down-arrow img").attr("src","./../../../themes/history/asset/img/svg/icons/down_chevron_fire.svg");
-        $(".flame img").attr("src","./../../../themes/history/asset/img/svg/paths/curve_left_flame.svg");
     }
     
     if(localStorage.getItem("darkmode1") === "on"){
@@ -594,7 +584,44 @@ if (md5('hello') != '5d41402abc4b2a76b9719d911017c592') {
     return (msw << 16) | (lsw & 0xFFFF);
   }
 }*/
+/**
+ * mobileMenu.js
+ * 
+ */
+ 
+ $(document).ready((function(){
+   
+    var underlay = $('<div>').attr('id','nav-underlay').css({
+      position: 'absolute',
+      display: 'none',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      opacity: 0.8,
+      'z-index': 998,
+      'background-color': window.colours.black
+    });
+    
+    $("body").append(underlay);
+
+    $(".menu-access-button").click((function(){        
+        $(".access-dropdown-mobile").slideToggle(window.animation.heartbeat);
+        $('#nav-underlay').fadeToggle(window.animation.heartbeat);
+        $(this).toggleClass('up-arrow-toggle');
+    }));
+}));
+
+$(window).on('resize',(function(){
+  $('#nav-underlay').hide();
+}));
 $(document).ready((function(){
+  
+    $(".access-button").click((function(){
+        $(".access-dropdown").toggle(window.animation.heartbeat);
+        $(this).toggleClass('up-arrow-toggle'); //change direction of arrow
+    }));
+
 
     //check for submenu links, bind enter event, stop check
 
@@ -960,6 +987,16 @@ var imagepath = assetpath + "/img";
   }));  
 })(jQuery);
 
+(function($) {    
+  $(document).ready((function() {
+    var style = getComputedStyle(document.body);
+    
+    window.animation = {};    
+    window.animation.heartbeat = style.getPropertyValue('--animation-heartbeat');
+    window.animation.slideTransition = style.getPropertyValue('--animation-slidetransition');
+    
+  }));  
+})(jQuery);
 /**
  * Global Breakpoints
  * Sets global values for breakpoints based on CSS root variables provided by the layout_css_variables SASS component. Must come early in the load order.
