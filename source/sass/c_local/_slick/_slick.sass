@@ -139,6 +139,10 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   .slideshow-block, .slideshow-with-audio
     max-width: 100%
     max-height: 100%
+    border-top: 0
+    
+    .slideshow
+      border-top: 0
 
   // !Splash Title Page
   
@@ -167,12 +171,9 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
       padding-left: $title_area_outside_padding
       padding-right: $title_area_outside_padding
       
-  .slide-contents
-    // padding-top: rv(2)
-    
-    p
-      font-size: +font-value(0)
-          
+  h3
+    font-size: +font-value(1)
+                
 
 // !UI CONTROLS
 .fullscreen-label
