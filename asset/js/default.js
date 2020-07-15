@@ -6,6 +6,165 @@
  * https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git
  */
 
+// _default.js must be loaded first
+// All other JS files are concatenated afterwards by Gulp
+
+var heartbeat = 300;
+
+// Sets constants for all theme js files.
+
+var themepath = "/path/to/theme";
+var assetpath = themepath + "/assets";
+var imagepath = assetpath + "/img";
+
+(function($) {  
+  
+  $(document).ready((function() {
+  
+        
+  }));  
+})(jQuery);
+
+(function($) {    
+  $(document).ready((function() {
+    var style = getComputedStyle(document.body);
+    
+    window.animation = {};    
+    window.animation.heartbeat = style.getPropertyValue('--animation-heartbeat');
+    window.animation.slideTransition = style.getPropertyValue('--animation-slidetransition');
+    
+  }));  
+})(jQuery);
+/**
+ * Global Breakpoints
+ * Sets global values for breakpoints based on CSS root variables provided by the layout_css_variables SASS component. Must come early in the load order.
+ */
+
+var breakpoint_xsml, breakpoint_sml, breakpoint_med, breakpoint_lrg, breakpoint_xlrg, breakpoint_xxlrg, breakpoint_stack, breakpoint_tablet, breakpoint_desktop, breakpoint_ultrawide;
+
+(function($) {    
+  $(document).ready((function() {
+    var style = getComputedStyle(document.body);
+    breakpoint_xsml = style.getPropertyValue('--breakpoint-xsml')
+    breakpoint_sml = style.getPropertyValue('--breakpoint-sml')
+    breakpoint_med = style.getPropertyValue('--breakpoint-med')
+    breakpoint_lrg = style.getPropertyValue('--breakpoint-lrg')
+    breakpoint_xlrg = style.getPropertyValue('--breakpoint-xlrg')
+    breakpoint_xxlrg = style.getPropertyValue('--breakpoint-xxlrg')
+    breakpoint_stack = style.getPropertyValue('--breakpoint-stack')
+    breakpoint_tablet = style.getPropertyValue('--breakpoint-tablet')
+    breakpoint_desktop = style.getPropertyValue('--breakpoint-desktop')
+    breakpoint_ultrawide = style.getPropertyValue('--breakpoint-ultrawide')
+  }));  
+})(jQuery);
+
+/**
+ * mobileMenu.js
+ * 
+ */
+ 
+ $(document).ready((function(){
+   
+    var underlay = $('<div>').attr('id','nav-underlay').css({
+      position: 'absolute',
+      display: 'none',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      opacity: 0.8,
+      'z-index': 998,
+      'background-color': window.colours.black
+    });
+    
+    $("body").append(underlay);
+
+    $(".menu-access-button").click((function(){        
+        $(".access-dropdown-mobile").slideToggle(window.animation.heartbeat);
+        $('#nav-underlay').fadeToggle(window.animation.heartbeat);
+        $(this).toggleClass('up-arrow-toggle');
+    }));
+}));
+
+$(window).on('resize',(function(){
+  $('#nav-underlay').hide();
+}));
+/**
+ *  @file processAttributes.js
+ *  @description Remove all attributes from an element.
+ *  With thanks to https://stackoverflow.com/questions/1870441/remove-all-attributes
+ */
+
+
+jQuery.fn.removeAttributes = function() {
+  return this.each((function() {
+    var attributes = $.map(this.attributes, (function(item) {
+      return item.name;
+    }));
+    var e = $(this);
+    $.each(attributes, (function(i, item) {
+      e.removeAttr(item);
+    }));
+  }));
+}
+
+jQuery.fn.stashAttributes = function(prefix) {
+  
+  prefix = prefix != null ? prefix : 'stash';
+  
+  return this.each((function() {
+    var attributes = $.map(this.attributes, (function(item) {
+      return item.name;
+    }));
+    var e = $(this);
+    $.each(attributes, (function(i, item) {
+      var stash = e.attr(item);
+      e.removeAttr(item);
+      e.attr('data-' + prefix + '-' + item,stash);
+    }));
+  }));
+}
+/**
+ * Visibility Classes
+ * Uses the in-view.js library ( https://www.npmjs.com/package/in-view ) add visibility
+ * classes to DOM objects.
+ */
+
+jQuery(document).ready((function() {
+    
+  const style = getComputedStyle(document.body);
+  const propcount = style.getPropertyValue('--visibility-propcount'); // Lets JS know how many properties to expect.
+  const reverse = false; // Removes visibility class when element is offscreen. @todo: set this as SASS-driven configuration, e.g. --visibility-reverse.
+  
+  if (typeof propcount != 'undefined' && parseInt(propcount) > 0) {
+    var visibilityStack = [];
+    
+    const visibilityOffset = style.getPropertyValue('--visibility-offset');
+    const visibilityThreshold = style.getPropertyValue('--visibility-threshold');
+    
+    inView.threshold(visibilityThreshold);
+    inView.offset(visibilityOffset);
+    
+    for(var i=1;i<=parseInt(propcount);i++) {
+      visibilityStack.push(style.getPropertyValue("--visibility-element-" + i));
+    }
+                  
+    $(visibilityStack).each((function(i,selector){    
+      if($(selector).length > 0) {
+        inView(selector)
+          .on('enter', elem => {
+            $(elem).addClass('visible');
+          })
+          .on('exit',elem => {
+            if (reverse === true) {
+              $(elem).removeClass('visible');
+            }
+          });
+      }
+    }));
+    
+  }
+}));
 /**
  * darkMode.js
  * 
@@ -323,38 +482,42 @@
 })(jQuery);
 
 /**
- *  @file gallery.js
- *  @description Drives gutenberg slider.
+ * globalPalette.js
+ * Sets global values for colours based on CSS root variables provided by 20_colour SASS component. Must come early in the load order.
  */
- 
-(function($) {  
+
+(function($) {    
   $(document).ready((function() {
+    var style = getComputedStyle(document.body);
+        
+    window.colours = {};
+    window.colours.colour = {};
+    window.colours.map = {};
+    window.colours.neutrals = {};
     
-    var i=0
-    $('.gallery').each((function() {
-      var gallery = $(this);
-      gallery.find('.lightbox').attr('rel',"gallery" + i);
-      i++;
+    var colourGridKeys = ['shade','primary','tint','fade','watermark'];
+
+    for(var i=1; i<10; i++) {
+      var neutralKey = i * 10;
+      window.colours.colour[i] = style.getPropertyValue('--colour--' + i);
+            
+      window.colours.neutrals[neutralKey] = style.getPropertyValue('--colour--neutral--' + neutralKey);
       
-    }));
+      window.colours.map[i] = {};
+      
+      colourGridKeys.forEach((function(key){
+        window.colours.map[i][key] = style.getPropertyValue('--colour--' + i + '--' + key);
+      }));
+    }
+        
+    window.colours.black = style.getPropertyValue('--colour--black');
+    window.colours.white = style.getPropertyValue('--colour--white');    
+    window.colours.impact = style.getPropertyValue('--colour--impact');    
+    window.colours.cta = style.getPropertyValue('--colour--cta'); 
     
-    $('.lightbox').each((function(){
-      $(this).colorbox({
-        className: 'full', // Important: Required by grid system.
-        slideShow: function() { return $(this).parents('.gallery').length > 1 ? true : false; },
-        slideshowAuto: false,
-        width: '100%',
-        height: '100%',
-        close: 'Close',
-        title: function() {
-          var title = $(this).attr('title').length != 0 ? $(this).attr('title') : null;
-          var caption = $(this).attr('data-caption').length != 0 ? $(this).attr('data-caption') : null;
-          return (title ? '<h3>' + title + '</h3>' : '') + (caption ? "<div class='lightbox--caption'>" + caption + "</div>" : '');
-        }
-      });
-    }));
+    // console.log(window.colours);   
     
-  }));
+  }));  
 })(jQuery);
 
 /**
@@ -379,14 +542,7 @@ jQuery(document).ready((function() {
               
         var h = o.img.naturalHeight;
         var w = o.img.naturalWidth
-        
-        var aspectClass = 'square';
-        
-        if (w > h) {
-          aspectClass = 'landscape';
-        } else if (h > w) {
-          aspectClass = 'portrait';
-        }
+        var aspectClass = getImageAspectClass(h,w);
             
         img.addClass('img-' + aspectClass);
         
@@ -400,6 +556,18 @@ jQuery(document).ready((function() {
   }
 
 }));
+
+function getImageAspectClass(h,w) {
+  var aspectClass = 'square';
+  
+  if (w > h) {
+    aspectClass = 'landscape';
+  } else if (h > w) {
+    aspectClass = 'portrait';
+  }
+  
+  return aspectClass;
+}
 
 
 function md5cycle(x, k) {
@@ -584,37 +752,6 @@ if (md5('hello') != '5d41402abc4b2a76b9719d911017c592') {
     return (msw << 16) | (lsw & 0xFFFF);
   }
 }*/
-/**
- * mobileMenu.js
- * 
- */
- 
- $(document).ready((function(){
-   
-    var underlay = $('<div>').attr('id','nav-underlay').css({
-      position: 'absolute',
-      display: 'none',
-      top: 0,
-      left: 0,
-      bottom: 0,
-      right: 0,
-      opacity: 0.8,
-      'z-index': 998,
-      'background-color': window.colours.black
-    });
-    
-    $("body").append(underlay);
-
-    $(".menu-access-button").click((function(){        
-        $(".access-dropdown-mobile").slideToggle(window.animation.heartbeat);
-        $('#nav-underlay').fadeToggle(window.animation.heartbeat);
-        $(this).toggleClass('up-arrow-toggle');
-    }));
-}));
-
-$(window).on('resize',(function(){
-  $('#nav-underlay').hide();
-}));
 $(document).ready((function(){
   
     $(".access-button").click((function(){
@@ -643,6 +780,7 @@ $(document).ready((function(){
         if (keyCode == 9) { 
             if(e.shiftKey) {
                 $(".access-dropdown-mobile").css("display", "none");
+                $('#nav-underlay').fadeOut(window.animation.heartbeat);
          
             }                 
         }            
@@ -654,6 +792,8 @@ $(document).ready((function(){
         if (keyCode == 9) { 
             if(!e.shiftKey) {
                 $(".access-dropdown-mobile").css("display", "none");
+                $('#nav-underlay').fadeOut(window.animation.heartbeat);
+
          
             }                 
         }            
@@ -812,6 +952,27 @@ $(document).ready((function(){
     $(window).trigger('resize');
 
 }));
+// If the following elements are first in the content stack it will add regional classes to them.
+// This allows a mechanism to allow regional assignments to third-party code.
+/*(function($) {
+    $(document).document(function() {
+      var first_splash_elements = ['.tl-timeline'];
+      $('main > div').children().each(function(){
+        for(var i=0; i<first_splash_elements.length; i++) {
+          var testClass = first_splash_elements[i];
+          
+          if (typeof $(this).attr('id') != 'undefined') {
+            console.log($(this).attr('id'));
+          }
+          
+          if ($(this).hasClass(testClass)) {
+            $(this).addClass('.region').attr('data-target-region-id');
+          }
+          
+        }
+      });
+    });
+})(jQuery);*/
 /**
  *  @file rollover.js
  *
@@ -965,173 +1126,5 @@ jQuery(document).ready((function() {
     var wrapper = $('.media-list').parent();
     $('.media-list').remove();
     $('.universal-viewer').prependTo(wrapper);
-  }
-}));
-
-// _default.js must be loaded first
-// All other JS files are concatenated afterwards by Gulp
-
-var heartbeat = 300;
-
-// Sets constants for all theme js files.
-
-var themepath = "/path/to/theme";
-var assetpath = themepath + "/assets";
-var imagepath = assetpath + "/img";
-
-(function($) {  
-  
-  $(document).ready((function() {
-  
-        
-  }));  
-})(jQuery);
-
-(function($) {    
-  $(document).ready((function() {
-    var style = getComputedStyle(document.body);
-    
-    window.animation = {};    
-    window.animation.heartbeat = style.getPropertyValue('--animation-heartbeat');
-    window.animation.slideTransition = style.getPropertyValue('--animation-slidetransition');
-    
-  }));  
-})(jQuery);
-/**
- * Global Breakpoints
- * Sets global values for breakpoints based on CSS root variables provided by the layout_css_variables SASS component. Must come early in the load order.
- */
-
-var breakpoint_xsml, breakpoint_sml, breakpoint_med, breakpoint_lrg, breakpoint_xlrg, breakpoint_xxlrg, breakpoint_stack, breakpoint_tablet, breakpoint_desktop, breakpoint_ultrawide;
-
-(function($) {    
-  $(document).ready((function() {
-    var style = getComputedStyle(document.body);
-    breakpoint_xsml = style.getPropertyValue('--breakpoint-xsml')
-    breakpoint_sml = style.getPropertyValue('--breakpoint-sml')
-    breakpoint_med = style.getPropertyValue('--breakpoint-med')
-    breakpoint_lrg = style.getPropertyValue('--breakpoint-lrg')
-    breakpoint_xlrg = style.getPropertyValue('--breakpoint-xlrg')
-    breakpoint_xxlrg = style.getPropertyValue('--breakpoint-xxlrg')
-    breakpoint_stack = style.getPropertyValue('--breakpoint-stack')
-    breakpoint_tablet = style.getPropertyValue('--breakpoint-tablet')
-    breakpoint_desktop = style.getPropertyValue('--breakpoint-desktop')
-    breakpoint_ultrawide = style.getPropertyValue('--breakpoint-ultrawide')
-  }));  
-})(jQuery);
-
-/**
- * globalPalette.js
- * Sets global values for colours based on CSS root variables provided by 20_colour SASS component. Must come early in the load order.
- */
-
-(function($) {    
-  $(document).ready((function() {
-    var style = getComputedStyle(document.body);
-        
-    window.colours = {};
-    window.colours.colour = {};
-    window.colours.map = {};
-    window.colours.neutrals = {};
-    
-    var colourGridKeys = ['shade','primary','tint','fade','watermark'];
-
-    for(var i=1; i<10; i++) {
-      var neutralKey = i * 10;
-      window.colours.colour[i] = style.getPropertyValue('--colour--' + i);
-            
-      window.colours.neutrals[neutralKey] = style.getPropertyValue('--colour--neutral--' + neutralKey);
-      
-      window.colours.map[i] = {};
-      
-      colourGridKeys.forEach((function(key){
-        window.colours.map[i][key] = style.getPropertyValue('--colour--' + i + '--' + key);
-      }));
-    }
-        
-    window.colours.black = style.getPropertyValue('--colour--black');
-    window.colours.white = style.getPropertyValue('--colour--white');    
-    window.colours.impact = style.getPropertyValue('--colour--impact');    
-    window.colours.cta = style.getPropertyValue('--colour--cta'); 
-    
-    // console.log(window.colours);   
-    
-  }));  
-})(jQuery);
-
-/**
- *  @file processAttributes.js
- *  @description Remove all attributes from an element.
- *  With thanks to https://stackoverflow.com/questions/1870441/remove-all-attributes
- */
-
-
-jQuery.fn.removeAttributes = function() {
-  return this.each((function() {
-    var attributes = $.map(this.attributes, (function(item) {
-      return item.name;
-    }));
-    var e = $(this);
-    $.each(attributes, (function(i, item) {
-      e.removeAttr(item);
-    }));
-  }));
-}
-
-jQuery.fn.stashAttributes = function(prefix) {
-  
-  prefix = prefix != null ? prefix : 'stash';
-  
-  return this.each((function() {
-    var attributes = $.map(this.attributes, (function(item) {
-      return item.name;
-    }));
-    var e = $(this);
-    $.each(attributes, (function(i, item) {
-      var stash = e.attr(item);
-      e.removeAttr(item);
-      e.attr('data-' + prefix + '-' + item,stash);
-    }));
-  }));
-}
-/**
- * Visibility Classes
- * Uses the in-view.js library ( https://www.npmjs.com/package/in-view ) add visibility
- * classes to DOM objects.
- */
-
-jQuery(document).ready((function() {
-    
-  const style = getComputedStyle(document.body);
-  const propcount = style.getPropertyValue('--visibility-propcount'); // Lets JS know how many properties to expect.
-  const reverse = false; // Removes visibility class when element is offscreen. @todo: set this as SASS-driven configuration, e.g. --visibility-reverse.
-  
-  if (typeof propcount != 'undefined' && parseInt(propcount) > 0) {
-    var visibilityStack = [];
-    
-    const visibilityOffset = style.getPropertyValue('--visibility-offset');
-    const visibilityThreshold = style.getPropertyValue('--visibility-threshold');
-    
-    inView.threshold(visibilityThreshold);
-    inView.offset(visibilityOffset);
-    
-    for(var i=1;i<=parseInt(propcount);i++) {
-      visibilityStack.push(style.getPropertyValue("--visibility-element-" + i));
-    }
-                  
-    $(visibilityStack).each((function(i,selector){    
-      if($(selector).length > 0) {
-        inView(selector)
-          .on('enter', elem => {
-            $(elem).addClass('visible');
-          })
-          .on('exit',elem => {
-            if (reverse === true) {
-              $(elem).removeClass('visible');
-            }
-          });
-      }
-    }));
-    
   }
 }));

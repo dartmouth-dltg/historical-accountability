@@ -3,8 +3,92 @@
    @theme Local
    @description  Loads SASS files for local theme. */
    
+// Timeline Structure         
+   
+   
 .tl-timeline
   min-height: 60vh
+  
+// General container
+  
+.tl-slide .tl-slide-scrollable-container
+  display: flex!important
+  
+// Media container
+
+.tl-text-content-container 
+  align-self: center
+  text-align: left
+  width: 100%
+  padding: rv(2)
+  padding-top: 0
+  +bp($stack)
+    padding: rv(2)
+    padding-top: rv(2)
+    
+.tl-text-content-container
+  h2.tl-headline
+    //margin-bottom: rv(-1)
+    font-size: font-value(2)
+    //margin-top: rv(0)
+
+  
+.tl-slide-content
+  .tl-media
+    .tl-media-content-container
+      +proportional_height(100%,.5625) // 16:9
+      border: 4px solid $white
+      border-bottom-right-radius: $borderRadius
+      max-height: 100%
+      flex-shrink: 1        
+      
+      &.portrait
+        +proportional_height(70%,1.2)
+        
+        +bp($desktop)
+          +proportional_height(60%,1.2)
+
+// Text container
+
+.tl-slide .tl-slide-content-container .tl-slide-content .tl-text
+  display: flex!important
+  margin-top: 0
+  +bp($stack)
+    margin-top: 20px
+
+        
+.timeline-cont-wrapper
+  height: 100%
+  
+  +bp($stack)
+    height: $splash_area_desktop_min_height   
+        
+
+// Slide content    
+
+.tl-slider-item-container
+  .tl-slide
+    .tl-slide-content-container
+      .tl-slide-content
+        display: flex !important
+        flex-direction: column-reverse
+        justify-content: center
+        align-items: center
+        width: 100% !important
+        height: 100%
+        padding: rv(1) !important
+        
+        +bp($desktop)
+          flex-direction: row-reverse
+          height: 100% 
+ 
+// Title slide        
+
+.tl-slide.tl-slide-titleslide
+  .tl-slide-content-container .tl-slide-content
+    flex-direction: column
+ 
+  
    
 .tl-timeline   
   .tl-storyslider
@@ -40,12 +124,8 @@
         text-align: left
         a
           color: $white
-.tl-slider-item-container
-  .tl-slide
-    .tl-slide-scrollable-container
-      .tl-slide-content-container
-        .tl-slide-content
-          width: 100%!important
+                    
+          
 .tl-slide-titleslide
   .tl-slide-content
     z-index: 3
@@ -95,6 +175,8 @@
       margin-bottom: 0
       font-size: font-value(-1)
       text-decoration: underline
+          
+
 
 .tl-timenav-item-container
   .tl-timemarker
@@ -151,30 +233,13 @@
 .tl-slide 
   &.tl-slide-titleslide
     background: $black
-
-.tl-slide .tl-slide-scrollable-container
-  display: flex!important
-
-.tl-slide.tl-slide-titleslide  .tl-slide-content-container .tl-slide-content
-  flex-direction: column
-  
-.tl-slide .tl-slide-content-container .tl-slide-content
-  display: flex!important
-  flex-direction: column
-  width: 100%
-  
-  +bp($stack)
-    flex-direction: row-reverse
-    height: 100%
     
 // TIMELINE IMAGE
   
 .tl-media .tl-media-content-container .tl-media-content img
+  height: 100%
   filter: grayscale(100%)
   object-fit: cover
-  
-  +bp($stack)
-    height: auto
     
 .tl-slide .tl-slide-content-container .tl-slide-content .tl-media
   margin-top: 0
@@ -184,41 +249,3 @@
   padding-bottom: 10px
   +bp($stack)
     padding-bottom: 0 
-.tl-slide .tl-slide-content-container .tl-slide-content .tl-text
-  display: flex!important
-  margin-top: 0
-  +bp($stack)
-    margin-top: 20px
-.tl-text-content-container 
-  align-self: center
-  text-align: left
-  width: 100%
-  padding: rv(2)
-  padding-top: 0
-  +bp($stack)
-    padding: rv(2)
-    padding-top: rv(2)
-.tl-text-content-container
-  h2.tl-headline
-    //margin-bottom: rv(-1)
-    font-size: font-value(2)
-    //margin-top: rv(0)
-    
-.tl-slide-content
-  .tl-media
-    .tl-media-content-container
-      +proportional_height(100%,.5625) // 16:9
-      border: 4px solid $white
-      border-bottom-right-radius: $borderRadius
-      
-      &.portrait
-        +proportional_height(70%,1.2)
-        
-        +bp($stack)
-          +proportional_height(60%,1.2)
-        
-.timeline-cont-wrapper
-  height: 100%
-  
-  +bp($stack)
-    height: $splash_area_desktop_min_height

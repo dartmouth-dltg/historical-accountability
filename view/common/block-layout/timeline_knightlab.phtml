@@ -117,16 +117,29 @@ $slide_title = !empty($data['heading']) ? $escape($data['heading']) : '';
     var check1 = setInterval(checkTrigger1, 300);
     var check2 = setInterval(checkTrigger2, 100);
     
-    $('body').append('<div id="tl-clones" style="display:none" />');
+    
+    
+        
+        $('.tl-slide-content').each(function(){
+          var firstChild = $(this).find('*:first-child');
+          console.log(firstChild.attr('class'));
+        });
+
     
     function checkClear2() {
         clearInterval(check2);
     }
-    
-    // Loops over the Timeline looking for unprocessed images.
-    // When it finds one, it loads it, clones it to asses the natural image sizes, and adds image ratio classes as necessary.
+        
+    // Asynchronous processing. Each process must set and test for a condition once
+    // processing is complete, as this process will continue to loop for the lifetime
+    // of the browser page.
+
     
     function checkTrigger1() {
+      
+      // Loops over the Timeline looking for unprocessed images.
+      // When it finds one, it loads it, clones it to asses the natural image sizes, and adds image ratio classes as necessary.
+
       
       $('.tl-media-content').find('img').each(function() {
         if (!$(this).hasClass('processed')) {
@@ -141,10 +154,37 @@ $slide_title = !empty($data['heading']) ? $escape($data['heading']) : '';
             img.addClass(aspectClass).addClass('processed');
           };
         }
+      });   
+      
+      // Add alt-text to thumbnails for compliance.
+            
+      if (typeof $('.tl-timemarker-media').first().attr('alt') == 'undefined') {
+          $('.tl-timemarker-media').each(function() {
+              var description = $(this).closest('.tl-timemarker-content').find('.tl-headline').text();
+              $(this).attr('alt', description + " thumbnail");
+              $(this).attr('aria-hidden','true');
+          });
+      }
+      
+      // Add a class to indicate that the media and text on a slide are in reverse order, an oddity that TimelineJS
+      // introduces when an item contains description text. (??)
+      
+      $('.tl-slide-content').each(function(){
+        if(!$(this).hasClass('order-processed')) {
+          var firstChild = $(this).find('*:first-child');
+          
+          if (typeof firstChild != undefined && firstChild.hasClass('tl-text')) {
+            $(this).addClass('order-reversed');
+            console.log(firstChild.attr('class'));
+          }
+          $(this).addClass('order-processed');
+        }
       });
+         
     }
     
     // Swap out the first image slide.
+    
     
     function checkTrigger2() {
         var firstImg =   $('.tl-slide:nth-child(2)').find("img");
@@ -165,16 +205,6 @@ $slide_title = !empty($data['heading']) ? $escape($data['heading']) : '';
                   
             checkClear2();
         }
-
-        if (typeof $('.tl-timemarker-media').first().attr('alt') == 'undefined') {
-            $('.tl-timemarker-media').each(function() {
-                var description = $(this).closest('.tl-timemarker-content').find('.tl-headline').text();
-                $(this).attr('alt', description + " thumbnail");
-                $(this).attr('aria-hidden','true');
-            });
-        }
     }
-
-
 
 </script>
