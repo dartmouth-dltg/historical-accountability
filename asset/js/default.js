@@ -6,25 +6,6 @@
  * https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git
  */
 
-// _default.js must be loaded first
-// All other JS files are concatenated afterwards by Gulp
-
-var heartbeat = 300;
-
-// Sets constants for all theme js files.
-
-var themepath = "/path/to/theme";
-var assetpath = themepath + "/assets";
-var imagepath = assetpath + "/img";
-
-(function($) {  
-  
-  $(document).ready((function() {
-  
-        
-  }));  
-})(jQuery);
-
 (function($) {    
   $(document).ready((function() {
     var style = getComputedStyle(document.body);
@@ -59,36 +40,44 @@ var breakpoint_xsml, breakpoint_sml, breakpoint_med, breakpoint_lrg, breakpoint_
 })(jQuery);
 
 /**
- * mobileMenu.js
- * 
+ * globalPalette.js
+ * Sets global values for colours based on CSS root variables provided by 20_colour SASS component. Must come early in the load order.
  */
- 
- $(document).ready((function(){
-   
-    var underlay = $('<div>').attr('id','nav-underlay').css({
-      position: 'absolute',
-      display: 'none',
-      top: 0,
-      left: 0,
-      bottom: 0,
-      right: 0,
-      opacity: 0.8,
-      'z-index': 998,
-      'background-color': window.colours.black
-    });
+
+(function($) {    
+  $(document).ready((function() {
+    var style = getComputedStyle(document.body);
+        
+    window.colours = {};
+    window.colours.colour = {};
+    window.colours.map = {};
+    window.colours.neutrals = {};
     
-    $("body").append(underlay);
+    var colourGridKeys = ['shade','primary','tint','fade','watermark'];
 
-    $(".menu-access-button").click((function(){        
-        $(".access-dropdown-mobile").slideToggle(window.animation.heartbeat);
-        $('#nav-underlay').fadeToggle(window.animation.heartbeat);
-        $(this).toggleClass('up-arrow-toggle');
-    }));
-}));
+    for(var i=1; i<10; i++) {
+      var neutralKey = i * 10;
+      window.colours.colour[i] = style.getPropertyValue('--colour--' + i);
+            
+      window.colours.neutrals[neutralKey] = style.getPropertyValue('--colour--neutral--' + neutralKey);
+      
+      window.colours.map[i] = {};
+      
+      colourGridKeys.forEach((function(key){
+        window.colours.map[i][key] = style.getPropertyValue('--colour--' + i + '--' + key);
+      }));
+    }
+        
+    window.colours.black = style.getPropertyValue('--colour--black');
+    window.colours.white = style.getPropertyValue('--colour--white');    
+    window.colours.impact = style.getPropertyValue('--colour--impact');    
+    window.colours.cta = style.getPropertyValue('--colour--cta'); 
+    
+    // console.log(window.colours);   
+    
+  }));  
+})(jQuery);
 
-$(window).on('resize',(function(){
-  $('#nav-underlay').hide();
-}));
 /**
  *  @file processAttributes.js
  *  @description Remove all attributes from an element.
@@ -453,6 +442,25 @@ jQuery(document).ready((function() {
   };
   
 })(this);
+// _default.js must be loaded first
+// All other JS files are concatenated afterwards by Gulp
+
+var heartbeat = 300;
+
+// Sets constants for all theme js files.
+
+var themepath = "/path/to/theme";
+var assetpath = themepath + "/assets";
+var imagepath = assetpath + "/img";
+
+(function($) {  
+  
+  $(document).ready((function() {
+  
+        
+  }));  
+})(jQuery);
+
 (function($) {
   $(document).ready((function() {
     function fixIframeAspect() {
@@ -479,45 +487,6 @@ jQuery(document).ready((function() {
           };
       } 
     }));
-})(jQuery);
-
-/**
- * globalPalette.js
- * Sets global values for colours based on CSS root variables provided by 20_colour SASS component. Must come early in the load order.
- */
-
-(function($) {    
-  $(document).ready((function() {
-    var style = getComputedStyle(document.body);
-        
-    window.colours = {};
-    window.colours.colour = {};
-    window.colours.map = {};
-    window.colours.neutrals = {};
-    
-    var colourGridKeys = ['shade','primary','tint','fade','watermark'];
-
-    for(var i=1; i<10; i++) {
-      var neutralKey = i * 10;
-      window.colours.colour[i] = style.getPropertyValue('--colour--' + i);
-            
-      window.colours.neutrals[neutralKey] = style.getPropertyValue('--colour--neutral--' + neutralKey);
-      
-      window.colours.map[i] = {};
-      
-      colourGridKeys.forEach((function(key){
-        window.colours.map[i][key] = style.getPropertyValue('--colour--' + i + '--' + key);
-      }));
-    }
-        
-    window.colours.black = style.getPropertyValue('--colour--black');
-    window.colours.white = style.getPropertyValue('--colour--white');    
-    window.colours.impact = style.getPropertyValue('--colour--impact');    
-    window.colours.cta = style.getPropertyValue('--colour--cta'); 
-    
-    // console.log(window.colours);   
-    
-  }));  
 })(jQuery);
 
 /**
@@ -752,6 +721,37 @@ if (md5('hello') != '5d41402abc4b2a76b9719d911017c592') {
     return (msw << 16) | (lsw & 0xFFFF);
   }
 }*/
+/**
+ * mobileMenu.js
+ * 
+ */
+ 
+ $(document).ready((function(){
+   
+    var underlay = $('<div>').attr('id','nav-underlay').css({
+      position: 'absolute',
+      display: 'none',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      opacity: 0.8,
+      'z-index': 998,
+      'background-color': window.colours.black
+    });
+    
+    $("body").append(underlay);
+
+    $(".menu-access-button").click((function(){        
+        $(".access-dropdown-mobile").slideToggle(window.animation.heartbeat);
+        $('#nav-underlay').fadeToggle(window.animation.heartbeat);
+        $(this).toggleClass('up-arrow-toggle');
+    }));
+}));
+
+$(window).on('resize',(function(){
+  $('#nav-underlay').hide();
+}));
 $(document).ready((function(){
   
     $(".access-button").click((function(){
