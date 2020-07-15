@@ -90,7 +90,7 @@ $slide_title = !empty($data['heading']) ? $escape($data['heading']) : '';
             var timelineOptions = <?= $data['viewer'] ?>;
 
             // initialize the timeline instance
-                              window.timeline = new TL.Timeline(timelineDivID, slides, timelineOptions);
+            window.timeline = new TL.Timeline(timelineDivID, slides, timelineOptions);
 
             function parseDate(entryDateString) {
                 var entryDate = entryDateString;
@@ -175,7 +175,6 @@ $slide_title = !empty($data['heading']) ? $escape($data['heading']) : '';
           
           if (typeof firstChild != undefined && firstChild.hasClass('tl-text')) {
             $(this).addClass('order-reversed');
-            console.log(firstChild.attr('class'));
           }
           $(this).addClass('order-processed');
         }
