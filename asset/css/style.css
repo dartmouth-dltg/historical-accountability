@@ -1650,6 +1650,10 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .tl-text .tl-text-content-container h3.tl-headline-date { font-weight: 700; text-align: left; color: #FFFFFF; font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; margin-bottom: 0; font-size: 0.9rem; text-decoration: underline; }
 
+.tl-timeline:hover .tl-slidenav-next .tl-slidenav-icon:before { content: url("../img/svg/icons/right_arrow_white_active.svg") !important; }
+
+.tl-timeline:hover .tl-slidenav-previous .tl-slidenav-icon:before { content: url("../img/svg/icons/left_arrow_white_active.svg") !important; }
+
 .tl-slidenav-next .tl-slidenav-icon:before { content: url("../img/svg/icons/right_arrow_white.svg") !important; }
 
 .tl-slidenav-previous .tl-slidenav-icon:before { content: url("../img/svg/icons/left_arrow_white.svg") !important; }

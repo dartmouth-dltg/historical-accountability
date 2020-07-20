@@ -242,7 +242,16 @@
           
 
 // Navigation
-    
+.tl-timeline:hover 
+  .tl-slidenav-next 
+    .tl-slidenav-icon
+      &:before
+        content: url(get_svg_url('icons/right_arrow_white_active')) !important
+.tl-timeline:hover 
+  .tl-slidenav-previous 
+    .tl-slidenav-icon
+      &:before
+        content: url(get_svg_url('icons/left_arrow_white_active')) !important
 .tl-slidenav-next 
   .tl-slidenav-icon
     &:before
