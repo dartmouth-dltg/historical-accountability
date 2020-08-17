@@ -603,9 +603,13 @@ main > div > .explore-the-archive, #feature-tier-1 > div > .explore-the-archive 
 
 @media only screen and (min-width: 56.25em) { main > div > .explore-the-archive, #feature-tier-1 > div > .explore-the-archive { max-width: calc(800px + (10.67529rem * 2) - 5.06665rem); } }
 
-main > div > .explore-the-archive > div, #feature-tier-1 > div > .explore-the-archive > div { padding-left: 0; padding-right: 0; }
+main > div > .explore-the-archive > div, #feature-tier-1 > div > .explore-the-archive > div { padding-left: 0; padding-right: 0; padding: 0 8px !important; }
 
 @media only screen and (min-width: 56.25em) { main > div > .explore-the-archive > div, #feature-tier-1 > div > .explore-the-archive > div { padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto; max-width: 800px; } }
+
+main > div > .explore-the-archive > h1, #feature-tier-1 > div > .explore-the-archive > h1 { padding: 0 8px; }
+
+main > div > .explore-the-archive > a, #feature-tier-1 > div > .explore-the-archive > a { padding: 0 8px; }
 
 main > div > .resource-list, #feature-tier-1 > div > .resource-list { padding-left: 0; padding-right: 0; }
 
@@ -1044,7 +1048,7 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 @media only screen and (min-width: 56.25em) { #search form { flex-direction: row; justify-content: stretch; } }
 
-#search button[type=submit] { background-color: #74AF9D; border-color: #74AF9D; }
+#search button[type=submit] { margin-right: 16px; background-color: #74AF9D; border-color: #74AF9D; }
 
 #search input[name='search'] { flex-grow: 1; margin-bottom: 1.9rem; }
 
@@ -1152,6 +1156,8 @@ main > div > .resource-list, main > div > .explore-the-archive, main > div > .br
 
 @media only screen and (min-width: 56.25em) { main > div > .resource-list, main > div > .explore-the-archive, main > div > .browse-controls, main > div > .search-filters, main > div > nav.pagination { max-width: calc(800px + (14.23368rem * 2) - 5.06665rem); } }
 
+main > div > .resource-list { padding-left: 1em; }
+
 .field-meta #by-value-label { font-size: 2.13332rem; }
 
 .field-meta #by-resource-class-label { font-size: 2.13332rem; }
@@ -1193,6 +1199,8 @@ main > div > .resource-list, main > div > .explore-the-archive, main > div > .br
 @media only screen and (min-width: 56.25em) { .filter { float: left; } }
 
 .search-filters { display: contents; }
+
+.search-filters .filter { margin: 0 auto 1em auto; float: none; text-align: center; }
 
 body.dark { background: #1D2C27; color: #FFFFFF; }
 

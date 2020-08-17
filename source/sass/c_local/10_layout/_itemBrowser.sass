@@ -41,6 +41,7 @@
       flex-direction: row
       justify-content: stretch
   button[type=submit]
+      margin-right: 16px
       background-color: $clr1
       border-color: $clr1  
   input[name='search']
@@ -274,7 +275,8 @@
 main > div > 
   .resource-list, .explore-the-archive, .browse-controls, .search-filters, nav.pagination
     +negative-content-margin(7)
-
+  .resource-list
+    padding-left: 1em
 .field-meta
   #by-value-label
     font-size: font-value(2)
@@ -329,4 +331,7 @@ main > div >
 
 .search-filters
   display: contents
-
+  .filter
+    margin: 0 auto 1em auto
+    float: none
+    text-align: center

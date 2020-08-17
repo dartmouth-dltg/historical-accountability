@@ -1088,7 +1088,9 @@ function rollover_bind(e) {
     var splash = $('#splash');
         
     if (splash.length == 0 || $(window).width() < breakpoint_stack) {
-      splash.attr('style',''); // Unset previous setting on resize
+      if (!splash.is(':empty')) {
+        splash.attr('style',''); // Unset previous setting on resize
+      }
       return;
     }
        
