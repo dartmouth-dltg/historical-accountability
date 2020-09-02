@@ -5,11 +5,11 @@
  *
  */
 
-jQuery(document).ready(function() {
+// jQuery(document).ready(function() {
   
-  if ($('.universal-viewer').length > 0 && $('.media-list').length > 0) {
-    var wrapper = $('.media-list').parent();
-    $('.media-list').remove();
-    $('.universal-viewer').prependTo(wrapper);
-  }
-});
+//   if ($('.universal-viewer').length > 0 && $('.media-list').length > 0) {
+//     var wrapper = $('.media-list').parent();
+//     $('.media-list').remove();
+//     $('.universal-viewer').prependTo(wrapper);
+//   }
+// });
