@@ -23,11 +23,12 @@
 <div class="media-list-wrapper">
 <?php if (!$embedMedia && $itemMedia && $specialCase === false): ?>
   <?php $this->trigger('view.show.after'); ?>
+  
 <?php endif; ?>
 <?php if (!$embedMedia && $itemMedia && $specialCase === true): ?>
-<div class="media-list slideshow">
+<div class="media-list slideshow media-list-special">
     <?php foreach ($itemMedia as $media): ?>
-        <?php echo $media->linkRaw($this->thumbnail($media, 'large')); ?>
+        <?php echo $media->render();?>
     <?php endforeach; ?>
 </div>
 <?php endif; ?>
