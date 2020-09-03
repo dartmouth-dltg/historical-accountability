@@ -3,25 +3,37 @@
   $escape = $this->plugin('escapeHtml');
   $this->htmlElement('body')->appendAttribute('class', 'item resource show');
   $embedMedia = $this->siteSetting('item_media_embed', false);
+  $specialCase = false;
   $itemMedia = $item->media();
-  
+  // $dataType = $itemMedia->mediaType();
   $this->headScript()->appendFile($this->assetUrl('js/slideshow.js', 'AgileThemeTools'));
   $this->headLink()->appendStylesheet($this->basePath('modules/AgileThemeTools/node_modules/slick-carousel/slick/slick.css'));
   $this->headScript()->appendFile($this->basePath('modules/AgileThemeTools/node_modules/slick-carousel/slick/slick.min.js'));
 ?>
 
 
+<?php foreach ($itemMedia as $media): 
+  $mediaType = $media->mediaType(); ?>
+  <?php if (empty($mediaType) && $itemMedia && !$embedMedia): ?>
+    <?php $specialCase = true; ?>
+  <?php endif; ?>
+<?php endforeach; ?>
+
 <?php $this->trigger('view.show.before'); ?>
 <div class="media-list-wrapper">
-<?php if (!$embedMedia && $itemMedia): ?>
-<div class="media-list slideshow">
+<?php if (!$embedMedia && $itemMedia && $specialCase === false): ?>
+  <?php $this->trigger('view.show.after'); ?>
+  
+<?php endif; ?>
+<?php if (!$embedMedia && $itemMedia && $specialCase === true): ?>
+<div class="media-list slideshow media-list-special">
     <?php foreach ($itemMedia as $media): ?>
-        <?php echo $media->linkRaw($this->thumbnail($media, 'large')); ?>
+        <?php echo $media->render();?>
     <?php endforeach; ?>
 </div>
 <?php endif; ?>
 
-<?php if ($embedMedia && $itemMedia): ?>
+<?php if ($embedMedia && $itemMedia && $specialCase === true): ?>
     <div class="media-embeds">
     <?php foreach ($itemMedia as $media):
         echo $media->render();
@@ -58,4 +70,6 @@ $subjectValues = $item->displaySubjectValues($page, 25, $property);
 </div>
 <?php endif; ?>
 </div>
-<?php $this->trigger('view.show.after'); ?>
+
+
+
