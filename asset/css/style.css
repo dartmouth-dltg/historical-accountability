@@ -1858,7 +1858,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 56.25em) { .card .excerpt { margin-left: 2.53333rem; } }
 
-.card > .btn { margin: 2.53333rem 0; color: #ad3722; border-radius: 10px; border-color: #a5aba9; font-family: "BentonSansBook", sans-serif; margin-left: 0; }
+.card > .btn { margin: 2.53333rem 0; border-radius: 10px; border-color: #a5aba9; font-family: "BentonSansBook", sans-serif; margin-left: 0; }
 
 @media only screen and (min-width: 56.25em) { .card > .btn { margin-left: 2.53333rem; } }
 
@@ -2093,7 +2093,7 @@ main > div > .excerpt { display: none; }
 
 .item-list > ul li h5, .item-list .item-list > ul li h5 { font-family: "BentonSansBook", sans-serif; margin-top: 0; margin-bottom: 0.80157rem; }
 
-.item-list > ul li a, .item-list .item-list > ul li a { text-decoration: underline; }
+.item-list > ul li a, .item-list .item-list > ul li a { color: #1D2C27; text-decoration: underline; }
 
 .item-list > ul li a:hover, .item-list .item-list > ul li a:hover { color: #D84F37; }
 
