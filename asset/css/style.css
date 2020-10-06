@@ -235,7 +235,7 @@ div, main, aside, nav, article, section, header, footer { box-sizing: border-box
 
 :root { --colour--5: #3A584F; }
 
-:root { --colour--6: #000000; }
+:root { --colour--6: #ad3722; }
 
 :root { --colour--7: #000000; }
 
@@ -430,7 +430,7 @@ h5, .h5 { font-size: 1.2rem; margin-top: 1.9rem; font-weight: 400; font-style: i
 
 h6, .h6 { font-size: 1.2rem; margin-top: 1.9rem; margin-bottom: 0; font-weight: 400; color: #4a5652; }
 
-a { color: #1D2C27; cursor: pointer; text-decoration: none; transition: all 0.11865s ease-in 0s; }
+a { color: #ad3722; cursor: pointer; text-decoration: none; transition: all 0.11865s ease-in 0s; }
 
 a:hover, a:active { text-decoration: underline; }
 
@@ -440,14 +440,14 @@ ol, ul { margin-top: 1.425rem; margin-bottom: 1.425rem; }
 li ul, li ol { margin-top: 1.9rem; margin-bottom: 1.9rem; }
 
 /* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
-p > a, p li > a, blockquote > a { color: #1D2C27; text-decoration: underline; }
+p > a, p li > a, blockquote > a { color: #ad3722; text-decoration: underline; }
 
-p > a:hover, p > a:active, p li > a:hover, p li > a:active, blockquote > a:hover, blockquote > a:active { color: #1d2c27; }
+p > a:hover, p > a:active, p li > a:hover, p li > a:active, blockquote > a:hover, blockquote > a:active { color: #2b2d27; }
 
 /* @file _index.sass @component ui_element_base @description  Loads all sass files or subdirectory indices in its directory. */
 /** @file _index.sass @description  Loads all sass files or subdirectory indices in its directory. */
 /* @file _form_elements @component ui_element_base Defines a common set of rules for form elements. Overrides browser default form element styling. Values are set in the configuration file. */
-select:hover, input:hover[type='text'], input:hover[type='search'], input:hover[type='url'], input:hover[type='date'], input:hover[type='email'], input:hover[type='password'], .btn:hover, button:hover, input:hover[type='button'], .btn-submit:hover, input:hover[type='submit'], input:hover[type='reset'], .btn-inverted:hover, .btn-outline:hover, .btn-ghost:hover, textarea:hover, select:focus, input:focus[type='text'], input:focus[type='search'], input:focus[type='url'], input:focus[type='date'], input:focus[type='email'], input:focus[type='password'], .btn:focus, button:focus, input:focus[type='button'], .btn-submit:focus, input:focus[type='submit'], input:focus[type='reset'], .btn-inverted:focus, .btn-outline:focus, .btn-ghost:focus, textarea:focus, select:active, input:active[type='text'], input:active[type='search'], input:active[type='url'], input:active[type='date'], input:active[type='email'], input:active[type='password'], .btn:active, button:active, input:active[type='button'], .btn-submit:active, input:active[type='submit'], input:active[type='reset'], .btn-inverted:active, .btn-outline:active, .btn-ghost:active, textarea:active { text-decoration: none; border-color: #1D2C27; box-shadow: inset 0 0 0 2px #1D2C27; transition: all 0.5s ease-in 0s; }
+select:hover, input:hover[type='text'], input:hover[type='search'], input:hover[type='url'], input:hover[type='date'], input:hover[type='email'], input:hover[type='password'], .btn:hover, button:hover, input:hover[type='button'], .btn-submit:hover, input:hover[type='submit'], input:hover[type='reset'], .btn-inverted:hover, .btn-outline:hover, .btn-ghost:hover, textarea:hover, select:focus, input:focus[type='text'], input:focus[type='search'], input:focus[type='url'], input:focus[type='date'], input:focus[type='email'], input:focus[type='password'], .btn:focus, button:focus, input:focus[type='button'], .btn-submit:focus, input:focus[type='submit'], input:focus[type='reset'], .btn-inverted:focus, .btn-outline:focus, .btn-ghost:focus, textarea:focus, select:active, input:active[type='text'], input:active[type='search'], input:active[type='url'], input:active[type='date'], input:active[type='email'], input:active[type='password'], .btn:active, button:active, input:active[type='button'], .btn-submit:active, input:active[type='submit'], input:active[type='reset'], .btn-inverted:active, .btn-outline:active, .btn-ghost:active, textarea:active { text-decoration: none; border-color: #ad3722; box-shadow: inset 0 0 0 2px #ad3722; transition: all 0.5s ease-in 0s; }
 
 select, input[type='text'], input[type='search'], input[type='url'], input[type='date'], input[type='email'], input[type='password'], .btn, button, input[type='button'], .btn-submit, input[type='submit'], button[type='submit'], input[type='reset'], .btn-inverted, .btn-outline, .btn-ghost { display: flex; flex-direction: row; justify-content: flex-start; align-items: center; vertical-align: baseline; box-sizing: border-box; zoom: 1; font-family: "BentonSansBook", sans-serif; padding: 0.60118rem; font-size: 1.2rem; line-height: 1.9rem; font-weight: 400; vertical-align: middle; border-style: solid; border-width: 2px; border-color: #a5aba9; border-radius: 12px; background-clip: border-box; box-shadow: none; outline: none; transition: all 0.5s ease-in 0s; max-width: 100%; }
 
@@ -464,7 +464,7 @@ textarea { box-sizing: border-box; max-width: 100%; padding: 0.60118rem; box-sha
 
 .btn, button, input[type='button'] { color: #5a887a; background-color: transparent; border: 2px solid #5a887a; }
 
-.btn:hover, button:hover, input:hover[type='button'], .btn:focus, button:focus, input:focus[type='button'], .btn:active, button:active, input:active[type='button'] { background-color: #FFFFFF; color: #1D2C27; border: 2px solid #1D2C27; }
+.btn:hover, button:hover, input:hover[type='button'], .btn:focus, button:focus, input:focus[type='button'], .btn:active, button:active, input:active[type='button'] { background-color: #FFFFFF; color: #ad3722; border: 2px solid #ad3722; }
 
 .btn-submit, input[type='submit'], button[type='submit'] { color: #FFFFFF; background-color: #1D2C27; border: 2px solid #1D2C27; }
 
@@ -472,19 +472,19 @@ textarea { box-sizing: border-box; max-width: 100%; padding: 0.60118rem; box-sha
 
 input[type='reset'] { color: #616b68; background-color: #FFFFFF; border: 2px solid #616b68; }
 
-input:hover[type='reset'], input:focus[type='reset'], input:active[type='reset'] { background-color: #616b68; color: #1D2C27; }
+input:hover[type='reset'], input:focus[type='reset'], input:active[type='reset'] { background-color: #616b68; color: #ad3722; }
 
 .btn-inverted { color: transparent; background-color: #5a887a; border: 2px solid transparent; }
 
-.btn-inverted:hover, .btn-inverted:focus, .btn-inverted:active { background-color: #1D2C27; color: #5a887a; }
+.btn-inverted:hover, .btn-inverted:focus, .btn-inverted:active { background-color: #ad3722; color: #5a887a; }
 
 .btn-outline { color: #77807d; background-color: transparent; border: 2px solid #77807d; }
 
-.btn-outline:hover, .btn-outline:focus, .btn-outline:active { color: #1D2C27; background-color: transparent; border: 2px solid #1D2C27; }
+.btn-outline:hover, .btn-outline:focus, .btn-outline:active { color: #ad3722; background-color: transparent; border: 2px solid #ad3722; }
 
 .btn-ghost { color: #FFFFFF; background-color: transparent; border: 2px solid #FFFFFF; }
 
-.btn-ghost:hover, .btn-ghost:focus, .btn-ghost:active { border: 2px solid #FFFFFF; background-color: #131d19; color: #FFFFFF; }
+.btn-ghost:hover, .btn-ghost:focus, .btn-ghost:active { border: 2px solid #FFFFFF; background-color: #98301e; color: #FFFFFF; }
 
 /* @file _index.sass @component standardized_buttons @category 40_ui @group a_components @description  Loads all sass files or subdirectory indices in its directory. */
 /* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
@@ -997,6 +997,8 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 @media only screen and (min-width: 75em) { .section-intro-splash .introduction { padding: 3.37776rem 3.37776rem 3.37776rem 3.37776rem; } }
 
 .section-intro-splash .introductory-text * { color: #FFFFFF; }
+
+.section-intro-splash .introductory-text button:hover { color: #ad3722; }
 
 .section-intro-splash figure { position: relative; }
 
@@ -1775,13 +1777,13 @@ h5, .h5 { font-size: 1.2rem; margin-top: 1.9rem; margin-bottom: 1.06876rem; font
 
 h6, .h6 { font-size: 1.2rem; margin-top: 1.9rem; margin-bottom: 0; font-weight: 400; color: #4a5652; }
 
-a { color: #1D2C27; cursor: pointer; text-decoration: none; transition: all 0.11865s ease-in 0s; }
+a { color: #ad3722; cursor: pointer; text-decoration: none; transition: all 0.11865s ease-in 0s; }
 
 a:hover, a:active { text-decoration: underline; }
 
-p > a { color: #1D2C27; }
+p > a, p li > a, blockquote > a { color: #ad3722; text-decoration: none; }
 
-p > a:hover { color: #74AF9D; }
+p > a:hover, p li > a:hover, blockquote > a:hover { color: #ad3722; text-decoration: underline; }
 
 /* @file index.sass @description  Loads all sass files or subdirectory indices in its directory. */
 ol, ul { margin-top: 1.425rem; margin-bottom: 1.425rem; box-sizing: border-box; }
@@ -1856,7 +1858,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 56.25em) { .card .excerpt { margin-left: 2.53333rem; } }
 
-.card > .btn { margin: 2.53333rem 0; border-radius: 10px; border-color: #a5aba9; font-family: "BentonSansBook", sans-serif; margin-left: 0; }
+.card > .btn { margin: 2.53333rem 0; color: #ad3722; border-radius: 10px; border-color: #a5aba9; font-family: "BentonSansBook", sans-serif; margin-left: 0; }
 
 @media only screen and (min-width: 56.25em) { .card > .btn { margin-left: 2.53333rem; } }
 
@@ -2358,6 +2360,8 @@ main .poster { margin: 2.53333rem 0 !important; }
 
 .property-wrapper .property h4 { text-transform: uppercase; font-size: 1.2rem; }
 
+.property-wrapper .property .values { padding-right: 1.5rem; }
+
 .media-list-wrapper h3 { font-size: 1.2rem; text-transform: uppercase; }
 
 .media-list-wrapper h2 { margin-top: 0; font-size: 1.6rem; }
@@ -2373,6 +2377,8 @@ main .poster { margin: 2.53333rem 0 !important; }
 .media-list .resource-link img { width: 100%; }
 
 .media-list .resource-link .resource-name { text-align: center; margin-top: .45088rem; padding-top: 1.425rem; padding-bottom: 1.06876rem; color: #fff; background: #1D2C27; border-bottom-right-radius: 1.425rem; display: inline-block; width: 100%; }
+
+.media-list-special h1, .media-list-special h2, .media-list-special h3, .media-list-special h4, .media-list-special h5, .media-list-special h6, .media-list-special p { color: #FFFFFF; }
 
 main .quotation blockquote { background: #FCFADE; color: #D84F37; padding: 2.53333rem 4.50367rem !important; font-family: "SentinelBook", Monaco, Courier New, monospace; padding-bottom: 6.00488rem !important; margin-top: 6.00488rem !important; margin-bottom: 6.00488rem !important; transform: rotate(-1deg); -ms-transform: rotate(-1deg); text-align: left; border-spacing: 0; padding: 0.45088rem; font-size: 0.9rem; }
 
@@ -2441,7 +2447,7 @@ main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(
 
 .universal-viewer.viewer { margin-bottom: 7.3567rem; }
 
-.universal-viewer.viewer::before { content: ""; height: 3.37776rem; width: 100%; background: #1D2C27; display: block; margin-bottom: 0.60118rem; }
+.universal-viewer.viewer::before { content: ""; width: 100%; background: #1D2C27; display: block; margin-bottom: 0.60118rem; }
 
 .uv { background-color: #1D2C27 !important; border-bottom-right-radius: 1.425rem; }
 
