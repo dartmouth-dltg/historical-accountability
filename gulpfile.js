@@ -124,7 +124,7 @@ var sass = require('gulp-sass');
 var sourcemaps = require("gulp-sourcemaps");
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
-var cssnano = require('cssnano');
+var postcssclean = require('postcss-clean');
 
 // PNG
 
@@ -143,7 +143,7 @@ var browserSync = require('browser-sync');
  
 var cssPlugins = [
 	autoprefixer({cascade: true, remove: true}), 
-	cssnano({discardComments: { removeAll: true}})
+	postcssclean({discardComments: { removeAll: true}})
 ];
 
 

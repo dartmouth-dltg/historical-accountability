@@ -1,5 +1,5 @@
 /*!
- * modernizr v3.8.0
+ * modernizr v3.11.3
  * Build https://modernizr.com/download?-setclasses-dontmin
  *
  * Copyright (c)
@@ -23,7 +23,7 @@
  * of control over the experience.
 */
 
-;(function(window, document, undefined){
+;(function(scriptGlobalObject, window, document, undefined){
 
   var tests = [];
   
@@ -35,8 +35,7 @@
    * @access public
    */
   var ModernizrProto = {
-    // The current version, dummy
-    _version: '3.8.0',
+    _version: '3.11.3',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -245,9 +244,9 @@
   }
 
   // Leak Modernizr namespace
-  window.Modernizr = Modernizr;
+  scriptGlobalObject.Modernizr = Modernizr;
 
 
 ;
 
-})(window, document);
+})(window, window, document);
