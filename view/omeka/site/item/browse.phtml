@@ -65,9 +65,6 @@ foreach ($items as $item):
     <li class="item resource">
         <?php echo $item->linkRaw($this->thumbnail($item, 'medium')); ?>
         <h4><?php echo $item->link($heading); ?></h4>
-        <?php if ($body): ?>
-        <div class="description"><?php echo $body; ?></div>
-        <?php endif; ?>
     </li>
 <?php endforeach; ?>
 </ul>
