@@ -731,8 +731,6 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .profile-overlay-logo { display: none !important; }
 
-.preview-block a { display: none; }
-
 .preview-block .resource-list .item::after { content: unset; }
 
 .preview-block .resource-list { grid-template-columns: 1fr; }
