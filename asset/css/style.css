@@ -773,7 +773,7 @@ body > header .menu-access-button.up-arrow-toggle .down-arrow-black { background
 
 body > header img { width: 59.97985rem; float: left; }
 
-body > header nav { background: #1D2C27; height: 100%; display: none; }
+body > header nav { background: transparent; height: 100%; display: none; }
 
 @media only screen and (min-width: 56.25em) { body > header nav { display: block; text-align: right; padding: 10px 0; padding-right: 3%; } }
 
