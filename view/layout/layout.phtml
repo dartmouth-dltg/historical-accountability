@@ -50,7 +50,7 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
     <?php echo $pageClass ? $this->htmlElement('body')->appendAttribute('class', $pageClass) : $this->htmlElement('body'); ?>
         <div class="full"><?php echo $userBar; ?> </div>
         <header class="full">
-            <a id='logo-stack' href="<?php echo $site->url(); ?>" class="site-title history-identity" title="Link to homepage"><img src="<?php echo $this->assetUrl('img/svg/marks/circle_white.svg'); ?>" alt=" Logo"> Dartmouth Historical Accountability Program</a>
+            <a id='logo-stack' href="<?php echo $site->url(); ?>" class="site-title history-identity" title="Link to homepage"><img src="<?php echo $this->assetUrl('img/svg/marks/circle_white.svg'); ?>" alt=" Logo"> Historical Accountability Student Research Program</a>
             <nav class="desktop-nav" aria-label="menu">
                 <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>2]); ?>
             </nav>
