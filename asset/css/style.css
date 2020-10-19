@@ -749,7 +749,9 @@ body #user-bar { position: relative; z-index: 999; }
 
 body > header { align-items: center; display: grid; grid-template-columns: 3fr 1fr; border-bottom: 0.45088rem solid #FFFFFF; overflow: hidden; background: #1D2C27; line-height: 1.425; position: relative; z-index: 999; }
 
-@media only screen and (min-width: 56.25em) { body > header { display: grid; grid-template-rows: initial; grid-template-columns: 25% 1fr; grid-row-gap: initial; position: unset; z-index: unset; } }
+@media only screen and (min-width: 46.25em) { body > header { display: grid; grid-template-rows: initial; grid-template-columns: 70% 1fr; grid-row-gap: initial; position: unset; z-index: unset; } }
+
+@media only screen and (min-width: 56.25em) { body > header { grid-template-columns: 33% 1fr; } }
 
 @media only screen and (min-width: 112.5em) { body > header { grid-template-columns: 1fr 2fr; } }
 
@@ -799,9 +801,9 @@ body > header nav ul.navigation li.active a { color: #F2E55B; }
 
 body > header nav ul.navigation li.active li > a { color: #1D2C27; }
 
-body > header nav ul.navigation li a { background-position-x: right; padding-right: 1.425rem; font-size: 0.9rem; }
+body > header nav ul.navigation li a { background-position-x: right; padding-right: 1.425rem; font-size: 1.2rem; }
 
-@media only screen and (min-width: 56.25em) { body > header nav ul.navigation li a { font-size: 0.9rem; } }
+@media only screen and (min-width: 56.25em) { body > header nav ul.navigation li a { font-size: 1.2rem; } }
 
 @media only screen and (min-width: 75em) { body > header nav ul.navigation li a { font-size: 1.2rem; } }
 
@@ -811,7 +813,7 @@ body > header nav ul.navigation li a:hover { background: url("../../asset/img/sv
 
 @media only screen and (min-width: 75em) { body > header nav ul.navigation li a:hover { background-size: 1.06876rem; } }
 
-body > header a { color: #FFFFFF; font-weight: 700; font-family: BentonSans; }
+body > header a { color: #FFFFFF; font-weight: 500; font-family: BentonSans; }
 
 body > header a span { margin: 0; }
 
@@ -823,20 +825,24 @@ body > header .down-arrow-black { vertical-align: top; display: inline-block; wi
 
 body > header ul li { display: inline; }
 
-.history-identity { background-color: #1D2C27; display: flex; align-items: center; font-family: BentonSans; font-weight: 900; padding: 1.425rem; font-size: 0.9rem; min-width: 235px; max-width: 300px; }
+.history-identity { background-color: #1D2C27; display: flex; align-items: center; font-family: BentonSans; font-weight: 500; padding: 1.425rem; font-size: 1.2rem; min-width: 235px; max-width: 300px; }
 
 .history-identity:focus { margin: 3px; }
+
+@media only screen and (min-width: 21em) { .history-identity { max-width: 100%; } }
+
+@media only screen and (min-width: 46.25em) { .history-identity { max-width: 100%; } }
 
 @media only screen and (min-width: 56.25em) { .history-identity:focus { color: #F2E55B; margin: 0; } }
 
 @media only screen and (min-width: 56.25em) { .history-identity { background-color: #1D2C27; height: 100%; width: 90%; margin: 0; font-size: inherit; max-width: 100%; }
   .history-identity img { height: 100%; width: auto; } }
 
-@media only screen and (min-width: 56.25em) { .history-identity#logo-stack { display: flex; flex-direction: row; align-items: center; font-size: 0.9rem; } }
+@media only screen and (min-width: 56.25em) { .history-identity#logo-stack { display: flex; flex-direction: row; align-items: center; font-size: 1.2rem; } }
 
-@media only screen and (min-width: 56.25em) { .history-identity#logo-stack { font-size: 0.9rem; } }
+@media only screen and (min-width: 56.25em) { .history-identity#logo-stack { font-size: 1.2rem; } }
 
-@media only screen and (min-width: 75em) { .history-identity#logo-stack { font-size: 1.2rem; } }
+@media only screen and (min-width: 75em) { .history-identity#logo-stack { font-size: 1.36rem; } }
 
 .history-identity#logo-stack img { width: 3.37776rem; padding-right: 1.06876rem; }
 
