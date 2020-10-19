@@ -1160,7 +1160,9 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 @media only screen and (min-width: 56.25em) { .resource-list .item > h4 { max-width: 230px; } }
 
-.resource-list .item > h4 > a { text-decoration: underline; font-family: "BentonSansBook", sans-serif; color: #FFFFFF; font-size: 0.9rem; }
+.resource-list .item > h4 > a { font-family: "BentonSansBook", sans-serif; color: #FFFFFF; font-size: 0.9rem; }
+
+.resource-list .item > h4 > a:hover { text-decoration: underline; }
 
 .resource-list .item:before { content: ""; width: 100%; display: block; height: 1.425rem; position: unset; border-bottom: 3px solid #FFFFFF; }
 
