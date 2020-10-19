@@ -6,8 +6,10 @@ a
   
   &:hover, &:active
     +link-underline()
-p
+p, p li, blockquote
   > a
-    color: $black
+    color: $link_colour
+    text-decoration: none
     &:hover
-      color: $clr1
+      color: $link_colour
+      text-decoration: underline

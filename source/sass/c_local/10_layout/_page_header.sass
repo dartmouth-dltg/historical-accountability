@@ -17,15 +17,17 @@ body
     +line-height(-1)
     position: relative
     z-index: 999
-  
     
-    +bp($stack)
+    +bp($small)
       display: grid
       grid-template-rows: initial
-      grid-template-columns: 25% 1fr
+      grid-template-columns: 70% 1fr
       grid-row-gap: initial
       position: unset // Position and z-index interfere with desktop subnav JS
       z-index: unset
+    
+    +bp($stack)
+      grid-template-columns: 33% 1fr
       
     +bp($ultrawide)
       grid-template-columns: 1fr 2fr
@@ -79,7 +81,7 @@ body
       width: rv(12)
       float: left
     nav
-      background: $black
+      background: transparent
       height: 100%
       display: none
       +bp($stack)
@@ -137,9 +139,9 @@ body
           a
              background-position-x: right
              padding-right: rv(-1)
-             font-size: font-value(-1)
+             font-size: font-value(0)
              +bp($tablet)
-              font-size: font-value(-1)
+              font-size: font-value(0)
              +bp($desktop)
               font-size: font-value(0)
           a:hover
@@ -158,7 +160,7 @@ body
 
     a
       color: $white
-      font-weight: $bold
+      font-weight: $semibold
       font-family: BentonSans
       span
         margin: 0
@@ -183,13 +185,20 @@ body
   display: flex
   align-items: center
   font-family: BentonSans
-  font-weight: 900
+  font-weight: $semibold
   padding: rv(-1) 
-  font-size: font-value(-1)
+  font-size: font-value(0)
   min-width: 235px
   max-width: 300px
   &:focus
     margin: 3px
+    
+  +bp($xs)
+    max-width: 100%
+    
+  +bp($small)
+    max-width: 100%
+    
   +bp($stack)
 
     &:focus
@@ -199,7 +208,7 @@ body
   +bp($stack)
     background-color: $black
     height: 100%
-    width: 93%
+    width: 90%
     margin: 0
     font-size: inherit
     max-width: 100%
@@ -209,19 +218,31 @@ body
       width: auto
       
   &#logo-stack
+    +bp($xs)
+      font-size: font-value(-1)
+    +bp($small)
+      font-size: font-value(0)
     +bp($stack)
       display: flex
       flex-direction: row
       align-items: center
-      font-size: font-value(-1)
-    +bp($tablet)
-      font-size: font-value(-1)
-    +bp($desktop)
       font-size: font-value(0)
+    +bp($tablet)
+      font-size: font-value(0)
+    +bp($desktop)
+      font-size: font-value(1) * 0.85
       
     img
       width: rv(2)
-      padding-right:  rv(-1)
+      padding-right:  rv(-2)
+      +bp($small)
+        width: rv(2)
+      +bp($stack)
+        width: rv(2)
+      +bp($desktop)
+        width: rv(2)
+      +bp($ultrawide)
+        width: rv(2)
 body > header nav ul.navigation li.submenu-arrow
   span
     content: ""

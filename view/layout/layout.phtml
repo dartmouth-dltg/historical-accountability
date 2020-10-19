@@ -50,7 +50,7 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
     <?php echo $pageClass ? $this->htmlElement('body')->appendAttribute('class', $pageClass) : $this->htmlElement('body'); ?>
         <div class="full"><?php echo $userBar; ?> </div>
         <header class="full">
-            <a id='logo-stack' href="<?php echo $site->url(); ?>" class="site-title history-identity" title="Link to homepage"><img src="<?php echo $this->assetUrl('img/svg/marks/circle_white.svg'); ?>" alt=" Logo"> Dartmouth Historical Accountability Program</a>
+            <a id='logo-stack' href="<?php echo $site->url(); ?>" class="site-title history-identity" title="Link to homepage"><img src="<?php echo $this->assetUrl('img/svg/marks/circle_white.svg'); ?>" alt=" Logo"> <?php echo $site->title(); ?></a>
             <nav class="desktop-nav" aria-label="menu">
                 <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>2]); ?>
             </nav>
@@ -64,16 +64,7 @@ if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams()
         </header>
        
         <nav class="access-dropdown-mobile" style="display:none" aria-hidden='true' aria-label='Menu'>
-                <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>2]); ?>
-                <ul class="switch-cont">
-                    <li class="mobile-switch-pos"><label class="dark-switch">
-                            <input type="checkbox" aria-labelledby='darkmode-mobile-togglelabel'>
-                            <span class="slider round"></span>
-                            <span id='darkmode-mobile-togglelabel' class="toggle-label">Dark Mode</span>
-                        </label>
-                        
-                    </li>
-                </ul>
+            <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>2]); ?>
         </nav>
         <section id='splash' class='full'></section>
         <section id='primary-content' class='full'>
