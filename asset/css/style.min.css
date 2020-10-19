@@ -1010,7 +1010,7 @@ body > footer nav ul li a{ color:#FFFFFF; text-decoration:underline; }
 
 .resource-list .item > a img:hover{ mix-blend-mode:multiply; }
 
-.resource-list .item > h4{ margin-bottom:1.9rem; margin-left:1.9rem; margin-top:1.9rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:150px; }
+.resource-list .item > h4{ margin-bottom:1.9rem; margin-left:1.9rem; margin-top:1.9rem; max-width:150px; }
 
 @media only screen and (min-width: 56.25em){ .resource-list .item > h4{ max-width:230px; } }
 
