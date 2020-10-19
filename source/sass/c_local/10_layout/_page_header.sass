@@ -218,6 +218,10 @@ body
       width: auto
       
   &#logo-stack
+    +bp($xs)
+      font-size: font-value(-1)
+    +bp($small)
+      font-size: font-value(0)
     +bp($stack)
       display: flex
       flex-direction: row
@@ -231,6 +235,14 @@ body
     img
       width: rv(2)
       padding-right:  rv(-2)
+      +bp($small)
+        width: rv(2)
+      +bp($stack)
+        width: rv(2)
+      +bp($desktop)
+        width: rv(2)
+      +bp($ultrawide)
+        width: rv(2)
 body > header nav ul.navigation li.submenu-arrow
   span
     content: ""
