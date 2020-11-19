@@ -2122,7 +2122,15 @@ main > div > .excerpt { display: none; }
 .item-list .block-introduction p { font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; transform: rotate(1deg); -ms-transform: rotate(1deg); margin-bottom: 2.53333rem; }
 
 /** @file _linked_resources.sass @category 60_site_elements @description custom styling for linked resources */
-.linked-resources-entries { column-count: 3; margin-top: 1rem; }
+@media only screen and (min-width: 56.25em) { #item-linked { margin: 0 1rem; } }
+
+@media only screen and (min-width: 75em) { #item-linked { margin: 0; } }
+
+.linked-resources-entries { margin-top: 1rem; }
+
+@media only screen and (min-width: 21em) { .linked-resources-entries { column-count: 1; } }
+
+@media only screen and (min-width: 46.25em) { .linked-resources-entries { column-count: 3; } }
 
 /** @file excerpts.sass @category 60_site_elements @description Hide representative images in main content. Only displays when embedded in cards and other listings */
 main > div > .representative-image { display: none; }
