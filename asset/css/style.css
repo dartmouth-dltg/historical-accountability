@@ -2128,9 +2128,11 @@ main > div > .excerpt { display: none; }
 
 .linked-resources-entries { margin-top: 1rem; }
 
-@media only screen and (min-width: 21em) { .linked-resources-entries { column-count: 1; } }
+.linked-resource-entry { margin-bottom: 1rem; }
 
-@media only screen and (min-width: 46.25em) { .linked-resources-entries { column-count: 3; } }
+@media only screen and (min-width: 21em) { .linked-resource-entry { float: none; width: 100%; margin-right: 0; } }
+
+@media only screen and (min-width: 46.25em) { .linked-resource-entry { float: left; width: 30%; margin-right: 3%; } }
 
 /** @file excerpts.sass @category 60_site_elements @description Hide representative images in main content. Only displays when embedded in cards and other listings */
 main > div > .representative-image { display: none; }

@@ -1946,9 +1946,11 @@ main > div > .excerpt{ display:none; }
 
 .linked-resources-entries{ margin-top:1rem; }
 
-@media only screen and (min-width: 21em){ .linked-resources-entries{ column-count:1; } }
+.linked-resource-entry{ margin-bottom:1rem; }
 
-@media only screen and (min-width: 46.25em){ .linked-resources-entries{ column-count:3; } }
+@media only screen and (min-width: 21em){ .linked-resource-entry{ float:none; width:100%; margin-right:0; } }
+
+@media only screen and (min-width: 46.25em){ .linked-resource-entry{ float:left; width:30%; margin-right:3%; } }
 main > div > .representative-image{ display:none; }
 main > div > .preview-block{ padding-left:0; padding-right:0; }
 
