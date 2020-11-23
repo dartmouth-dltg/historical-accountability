@@ -943,7 +943,7 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 #homepage-splash figure { position: relative; }
 
-#homepage-splash figure a { display: block; height: 100%; width: 100%; background: #617972; }
+#homepage-splash figure a { display: block; height: 100%; width: 100%; color: #FFFFFF; }
 
 #homepage-splash figure a img { filter: grayscale(100%); mix-blend-mode: multiply; object-fit: cover; height: 340px; }
 
@@ -2120,6 +2120,17 @@ main > div > .excerpt { display: none; }
 .item-list h2 { transform: rotate(1deg); -ms-transform: rotate(1deg); font-family: "SentinelBook", Monaco, Courier New, monospace; font-size: 2.53333rem; color: #D84F37; text-transform: uppercase; }
 
 .item-list .block-introduction p { font-family: "BentonSans", Helvetica, Tahoma, Arial, sans-serif; transform: rotate(1deg); -ms-transform: rotate(1deg); margin-bottom: 2.53333rem; }
+
+/** @file _linked_resources.sass @category 60_site_elements @description custom styling for linked resources */
+@media only screen and (min-width: 56.25em) { #item-linked { margin: 0 1rem; } }
+
+@media only screen and (min-width: 75em) { #item-linked { margin: 0; } }
+
+.linked-resources-entries { margin-top: 1rem; }
+
+@media only screen and (min-width: 21em) { .linked-resources-entries { column-count: 1; } }
+
+@media only screen and (min-width: 46.25em) { .linked-resources-entries { column-count: 3; } }
 
 /** @file excerpts.sass @category 60_site_elements @description Hide representative images in main content. Only displays when embedded in cards and other listings */
 main > div > .representative-image { display: none; }
