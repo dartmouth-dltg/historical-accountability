@@ -2183,21 +2183,21 @@ main .poster{ margin:2.53333rem 0 !important; }
 @media only screen and (min-width: 56.25em){ #feature-1 .card-compact h3 > a{ padding:1.9rem; height:5rem; position:relative; top:-35px; } }
 
 #feature-1 .btn-submit{ margin-top:2.53333rem; display:inline-block; }
-.property-wrapper{ display:grid; grid-template-columns:1fr 1fr; }
-
-@media only screen and (min-width: 56.25em){ .property-wrapper{ grid-template-columns:1fr 1fr 1fr; } }
+.property-wrapper{ display:grid; grid-template-columns:1fr; }
 
 .property-wrapper .property h4{ text-transform:uppercase; font-size:1.2rem; }
 
 .property-wrapper .property .values{ padding-right:1.5rem; }
 
+.property-wrapper .value.resource, .property-wrapper .value.uri{ float:none; width:100%; margin-right:0; }
+
+@media only screen and (min-width: 46.25em){ .property-wrapper .value.resource, .property-wrapper .value.uri{ float:left; width:30%; margin-right:3%; } }
+
 .media-list-wrapper h3{ font-size:1.2rem; text-transform:uppercase; }
 
 .media-list-wrapper h2{ margin-top:0; font-size:1.6rem; }
 
-@media only screen and (min-width: 56.25em){ .media-list-wrapper > header, .media-list-wrapper > .property-wrapper{ margin:1.9rem 2.53333rem; } }
-
-@media only screen and (min-width: 75em){ .media-list-wrapper > header, .media-list-wrapper > .property-wrapper{ margin:1.9rem 3.37776rem; } }
+.media-list-wrapper > header, .media-list-wrapper > .property-wrapper{ margin:0; }
 
 .media-list{ text-align:center; width:100%; margin:0 auto; }
 
