@@ -130,6 +130,14 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
 // !SPLASH VERSION
 
 #splash
+
+  .slick-track
+    background-color: $black
+
+    +bp($small)
+      border-radius: 0
+    +bp($stack)
+      border-radius: 0 0 0 16px
   
   .slideshow-block
     border-bottom-right-radius: 0
@@ -173,6 +181,16 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
       
   h3
     font-size: +font-value(1)
+    
+  .slick-dots
+    display: block
+    position: relative
+    right:  unset
+    bottom: 2.9rem
+    text-align: center
+    
+    li
+      display: inline-block
                 
 
 // !UI CONTROLS
