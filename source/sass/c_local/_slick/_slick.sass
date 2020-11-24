@@ -248,34 +248,35 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   
 // !Slick Controls
 
-.slick-prev
+.slick-prev, .slick-next
   position: absolute
   width: rv(4)
   height: rv(4)
   top: 40%
   transform: translateY(-50%)
-  left: 20px
   z-index: 100
   cursor: pointer
   margin: 0
-  background: url("../../asset/img/svg/icons/left_arrow_white_active.svg") no-repeat
-  &:hover
-    background: url("../../asset/img/svg/icons/left_arrow_yellow.svg") no-repeat
-
-.slick-next
-  position: absolute
-  width: rv(4)
-  height: rv(4)
-  top: 40%
-  transform: translateY(-50%)
-  right: 15px
-  z-index: 100
-  cursor: pointer
-  margin: 0
-  background: url("../../asset/img/svg/icons/right_arrow_white_active.svg") no-repeat
-  &:hover
-    background: url("../../asset/img/svg/icons/right_arrow_yellow.svg") no-repeat
+  &::before
+    position: absolute
+    top: 0
+    left: 0
+    font-family: 'Font Awesome 5 Free'
+    font-size: 2.5rem
+    line-height: 2.5rem
+    color: $white
+  &:hover::before
+    color: $clr2
     
+.slick-prev
+  left: 20px
+  &::before
+    content: '\f0a8'
+  
+.slick-next
+  right: 15px
+  &::before
+    content: '\f0a9'
 
 .slick-dots
   position: absolute

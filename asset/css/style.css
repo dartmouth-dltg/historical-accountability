@@ -957,7 +957,7 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 #homepage-splash figure figcaption { position: relative; top: unset; padding-top: 0.6rem; padding-bottom: 0; max-width: 95%; }
 
-#homepage-splash .slick-next, #homepage-splash .slick-prev { top: unset; bottom: -1.5rem; height: 3rem; width: 3rem; }
+#homepage-splash .slick-next, #homepage-splash .slick-prev { top: unset; bottom: -0.5rem; height: 2.5rem; width: 2.5rem; font-size: 2.5rem; }
 
 @media only screen and (min-width: 46.25em) { #homepage-splash .slick-prev { left: 1.5rem; } }
 
@@ -1576,13 +1576,19 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .slideshow-block .slideshow, .slideshow-with-audio .slideshow { border-top: 6px solid #FFFFFF; }
 
-.slick-prev { position: absolute; width: 6.00488rem; height: 6.00488rem; top: 40%; transform: translateY(-50%); left: 20px; z-index: 100; cursor: pointer; margin: 0; background: url("../../asset/img/svg/icons/left_arrow_white_active.svg") no-repeat; }
+.slick-prev, .slick-next { position: absolute; width: 6.00488rem; height: 6.00488rem; top: 40%; transform: translateY(-50%); z-index: 100; cursor: pointer; margin: 0; }
 
-.slick-prev:hover { background: url("../../asset/img/svg/icons/left_arrow_yellow.svg") no-repeat; }
+.slick-prev::before, .slick-next::before { position: absolute; top: 0; left: 0; font-family: 'Font Awesome 5 Free'; font-size: 2.5rem; line-height: 2.5rem; color: #FFFFFF; }
 
-.slick-next { position: absolute; width: 6.00488rem; height: 6.00488rem; top: 40%; transform: translateY(-50%); right: 15px; z-index: 100; cursor: pointer; margin: 0; background: url("../../asset/img/svg/icons/right_arrow_white_active.svg") no-repeat; }
+.slick-prev:hover::before, .slick-next:hover::before { color: #F2E55B; }
 
-.slick-next:hover { background: url("../../asset/img/svg/icons/right_arrow_yellow.svg") no-repeat; }
+.slick-prev { left: 20px; }
+
+.slick-prev::before { content: '\f0a8'; }
+
+.slick-next { right: 15px; }
+
+.slick-next::before { content: '\f0a9'; }
 
 .slick-dots { position: absolute; text-align: right; height: 1.9rem; column-count: unset; top: initial; bottom: 1.9rem; right: 1.9rem; padding: 0; z-index: 100; margin: 0; display: flex; justify-content: flex-end; }
 
