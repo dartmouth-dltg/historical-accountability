@@ -12,7 +12,7 @@
     +splash_area_carousel_right()
     .resource
       +bp($xxs)
-        padding-bottom: 1rem
+        padding-bottom: 2.5rem
       +bp($stack)
         padding-bottom: 7.5rem
     
@@ -78,21 +78,25 @@
         
   .slick-next, .slick-prev
     top: unset
-    bottom: -0.5rem
     height: 2.5rem
     width: 2.5rem
     font-size: 2.5rem
   .slick-prev
-    +bp($small)
+    +bp($xxs)
       left: 1.5rem
+      bottom: -0.5rem
     +bp($stack)
       left: 2rem
+      bottom: -0.5rem
+
   .slick-next
-    +bp($small)
+    +bp($xxs)
       right: 1.5rem
+      bottom: -0.5rem
     +bp($stack)
       right: 2rem
-      
+      bottom: -0.5rem
+
   .slick-dots
     z-index: 1
           
