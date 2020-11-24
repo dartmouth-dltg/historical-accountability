@@ -2417,8 +2417,6 @@ main .poster { margin: 2.53333rem 0 !important; }
 
 .property-wrapper .value.resource, .property-wrapper .value.uri { float: none; width: 100%; margin-right: 0; }
 
-@media only screen and (min-width: 46.25em) { .property-wrapper .value.resource, .property-wrapper .value.uri { float: left; width: 30%; margin-right: 3%; } }
-
 .media-list-wrapper h3 { font-size: 1.2rem; text-transform: uppercase; }
 
 .media-list-wrapper h2 { margin-top: 0; font-size: 1.6rem; }
