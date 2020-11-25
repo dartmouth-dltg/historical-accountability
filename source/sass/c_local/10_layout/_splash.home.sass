@@ -10,6 +10,12 @@
             
   .items
     +splash_area_carousel_right()
+    .resource
+      +bp($xxs)
+        padding-bottom: 2.5rem
+      +bp($stack)
+        padding-bottom: 7.5rem
+    
 
   .introduction
     +splash_area_title_left()    
@@ -59,13 +65,40 @@
       opacity: 1
       
       +bp($stack)
-       // background: $ltr_dark_gradient        
+       // background: $ltr_dark_gradient
+    
+    figcaption
+      position: relative
+      top: unset
+      padding-top: 0.6rem
+      padding-bottom: 0
+      max-width: 95%
+      +bp($xs)
+
         
   .slick-next, .slick-prev
-    top: 47%            
-  .slick-next
+    top: unset
+    height: 2.5rem
+    width: 2.5rem
+    font-size: 2.5rem
+  .slick-prev
+    +bp($xxs)
+      left: 1.5rem
+      bottom: -0.5rem
     +bp($stack)
-      right: 19px
+      left: 2rem
+      bottom: -0.5rem
+
+  .slick-next
+    +bp($xxs)
+      right: 1.5rem
+      bottom: -0.5rem
+    +bp($stack)
+      right: 2rem
+      bottom: -0.5rem
+
+  .slick-dots
+    z-index: 1
           
   &.left
     &:after
