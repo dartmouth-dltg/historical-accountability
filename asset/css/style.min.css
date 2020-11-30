@@ -23,6 +23,10 @@
 
 @font-face{ font-family:"BentonSansBook"; font-style:italic; font-weight:400; src:local("BentonSansBook Italic"), local("BentonSansBook-Italic"); src:url("../fonts/bentonbook-400/bentonbook-italic-400.eot"), url("../fonts/bentonbook-400/bentonbook-italic-400.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonbook-400/bentonbook-italic-400.otf") format("opentype"), url("../fonts/bentonbook-400/bentonbook-italic-400.woff") format("woff"), url("../fonts/bentonbook-400/bentonbook-italic-400.woff") format("woff"), url("../fonts/bentonbook-400/bentonbook-italic-400.ttf") format("truetype"), url("../fonts/bentonbook-400/bentonbook-italic-400.svg#Calluna Sans") format("svg"); }
 
+@font-face{ font-family:"BentonSansBook"; font-style:normal; font-weight:700; src:local("BentonSansBook Bold Regular"), local("BentonSansBook-Bold-Regular"); src:url("../fonts/bentonbook-700/bentonbook-normal-700.eot"), url("../fonts/bentonbook-700/bentonbook-normal-700.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonbook-700/bentonbook-normal-700.otf") format("opentype"), url("../fonts/bentonbook-700/bentonbook-normal-700.woff") format("woff"), url("../fonts/bentonbook-700/bentonbook-normal-700.woff") format("woff"), url("../fonts/bentonbook-700/bentonbook-normal-700.ttf") format("truetype"), url("../fonts/bentonbook-700/bentonbook-normal-700.svg#Calluna Sans") format("svg"); }
+
+@font-face{ font-family:"BentonSansBook"; font-style:italic; font-weight:700; src:local("BentonSansBook Bold Italic"), local("BentonSansBook-Bold-Italic"); src:url("../fonts/bentonbook-700/bentonbook-italic-700.eot"), url("../fonts/bentonbook-700/bentonbook-italic-700.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonbook-700/bentonbook-italic-700.otf") format("opentype"), url("../fonts/bentonbook-700/bentonbook-italic-700.woff") format("woff"), url("../fonts/bentonbook-700/bentonbook-italic-700.woff") format("woff"), url("../fonts/bentonbook-700/bentonbook-italic-700.ttf") format("truetype"), url("../fonts/bentonbook-700/bentonbook-italic-700.svg#Calluna Sans") format("svg"); }
+
 @font-face{ font-family:"BentonSans"; font-style:normal; font-weight:300; src:local("BentonSans Light Regular"), local("BentonSans-Light-Regular"); src:url("../fonts/bentonsans-300/bentonsans-normal-300.eot"), url("../fonts/bentonsans-300/bentonsans-normal-300.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-300/bentonsans-normal-300.otf") format("opentype"), url("../fonts/bentonsans-300/bentonsans-normal-300.woff") format("woff"), url("../fonts/bentonsans-300/bentonsans-normal-300.woff") format("woff"), url("../fonts/bentonsans-300/bentonsans-normal-300.ttf") format("truetype"), url("../fonts/bentonsans-300/bentonsans-normal-300.svg#Calluna Sans") format("svg"); }
 
 @font-face{ font-family:"BentonSans"; font-style:italic; font-weight:300; src:local("BentonSans Light Italic"), local("BentonSans-Light-Italic"); src:url("../fonts/bentonsans-300/bentonsans-italic-300.eot"), url("../fonts/bentonsans-300/bentonsans-italic-300.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-300/bentonsans-italic-300.otf") format("opentype"), url("../fonts/bentonsans-300/bentonsans-italic-300.woff") format("woff"), url("../fonts/bentonsans-300/bentonsans-italic-300.woff") format("woff"), url("../fonts/bentonsans-300/bentonsans-italic-300.ttf") format("truetype"), url("../fonts/bentonsans-300/bentonsans-italic-300.svg#Calluna Sans") format("svg"); }
@@ -720,7 +724,7 @@ body > header nav ul.navigation li.submenu-arrow span:hover{ border-top:12px sol
 
 .outline-add{ outline:0; }
 
-body > footer{ border-top-right-radius:1.425rem; color:#FFFFFF; background-color:#1D2C27; padding:2.53333rem; display:grid; grid-template-columns:1fr 1fr; font-size:0.9rem; }
+body > footer{ border-top-right-radius:1.425rem; color:#FFFFFF; background-color:#1D2C27; margin-top:0.5rem; padding:2.53333rem; display:grid; grid-template-columns:1fr 1fr; font-size:0.9rem; }
 
 @media (min-width: 46.25em){ body > footer{ font-size:calc(0.9rem + 0.3 * (100vw - 46.25em) / 66.25); } }
 
@@ -764,6 +768,8 @@ body > footer nav ul li:first-child{ margin-bottom:0.80157rem; list-style-type:n
 
 body > footer nav ul li a{ color:#FFFFFF; text-decoration:underline; }
 
+#splash{ margin-bottom:0.5rem; }
+
 @media only screen and (min-width: 56.25em){ #splash{ min-height:700px; height:700px; } }
 
 @media only screen and (min-width: 56.25em){ #splash > *{ height:100%; } }
@@ -797,7 +803,7 @@ body > footer nav ul li a{ color:#FFFFFF; text-decoration:underline; }
 
 @media only screen and (min-width: 75em){ #homepage-splash .introduction{ padding:3.37776rem 3.37776rem 3.37776rem 3.37776rem; } }
 
-#homepage-splash .introduction::after{ content:" "; position:absolute; background:url("../../asset/img/svg/marks/icon_trans_white_mark.svg") no-repeat; background-size:100%; height:6.00488rem; width:6.00488rem; bottom:1.9rem; right:1.9rem; }
+#homepage-splash .introduction::after{ content:" "; position:absolute; background:url("../../asset/img/svg/marks/icon_trans_dark_mark.svg") no-repeat; background-size:100%; height:6.00488rem; width:6.00488rem; bottom:1.9rem; right:1.9rem; }
 
 #homepage-splash figure{ position:relative; }
 
@@ -1217,6 +1223,14 @@ input:checked + .slider:before{ transform:translateX(16px); }
 .access-dropdown-mobile > ul.navigation > li > ul > li{ font-weight:400; font-size:0.9rem; }
 
 .access-dropdown-mobile > ul.navigation > li > ul ul{ display:none; }
+
+#back-to-top-btn{ display:none; width:1.5rem; height:1.5rem; position:fixed; bottom:1rem; right:1rem; z-index:101; border:none; outline:none; background-color:#ad3722; color:#FFFFFF; cursor:pointer; padding:1rem; border-radius:0.6rem; font-size:1rem; }
+
+#back-to-top-btn .icon{ width:1.5rem; padding:0; }
+
+#back-to-top-btn:hover{ background-color:#616b68; }
+
+#back-to-top-btn:hover .icon{ color:#F2E55B; }
 .storymap{ height:calc(100vh - 0px) !important; max-width:100% !important; margin-bottom:0 !important; }
 
 @media only screen and (min-width: 56.25em){ .storymap{ height:calc(100vh - 110px) !important; max-width:100% !important; } }
