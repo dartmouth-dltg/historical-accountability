@@ -9,8 +9,6 @@
     });
     
     $(window).on('load scroll', function() {
-      console.log('foo');
-      console.log($('body').scrollTop());
       if ($(window).scrollTop() > 400) {
         topButton.show();
       }
