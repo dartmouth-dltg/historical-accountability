@@ -1,0 +1,25 @@
+#back-to-top-btn
+  display: none; /* Hidden by default */
+  width: 1.5rem
+  height: 1.5rem
+  position: fixed; /* Fixed/sticky position */
+  bottom: 1rem; /* Place the button at the bottom of the page */
+  right: 1rem; /* Place the button 30px from the right */
+  z-index: 101; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: $clr6; /* Set a background color */
+  color: $white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 1rem; /* Some padding */
+  border-radius: 0.6rem; /* Rounded corners */
+  font-size: 1rem; /* Increase font size */
+  
+  .icon
+    width: 1.5rem
+    padding: 0
+
+  &:hover
+    background-color: $dark-neutral; /* Add a dark-grey background on hover */
+    .icon
+        color: $clr2

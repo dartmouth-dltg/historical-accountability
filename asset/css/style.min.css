@@ -1223,6 +1223,14 @@ input:checked + .slider:before{ transform:translateX(16px); }
 .access-dropdown-mobile > ul.navigation > li > ul > li{ font-weight:400; font-size:0.9rem; }
 
 .access-dropdown-mobile > ul.navigation > li > ul ul{ display:none; }
+
+#back-to-top-btn{ display:none; width:1.5rem; height:1.5rem; position:fixed; bottom:1rem; right:1rem; z-index:101; border:none; outline:none; background-color:#ad3722; color:#FFFFFF; cursor:pointer; padding:1rem; border-radius:0.6rem; font-size:1rem; }
+
+#back-to-top-btn .icon{ width:1.5rem; padding:0; }
+
+#back-to-top-btn:hover{ background-color:#616b68; }
+
+#back-to-top-btn:hover .icon{ color:#F2E55B; }
 .storymap{ height:calc(100vh - 0px) !important; max-width:100% !important; margin-bottom:0 !important; }
 
 @media only screen and (min-width: 56.25em){ .storymap{ height:calc(100vh - 110px) !important; max-width:100% !important; } }
