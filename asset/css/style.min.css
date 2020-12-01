@@ -2251,6 +2251,8 @@ main .poster{ margin:2.53333rem 0 !important; }
 
 .media-list .resource-link .resource-name{ text-align:center; margin-top:.45088rem; padding-top:1.425rem; padding-bottom:1.06876rem; color:#fff; background:#1D2C27; border-bottom-right-radius:1.425rem; display:inline-block; width:100%; }
 
+.media-list-special{ position:relative; }
+
 .media-list-special h1, .media-list-special h2, .media-list-special h3, .media-list-special h4, .media-list-special h5, .media-list-special h6, .media-list-special p{ color:#FFFFFF; }
 
 main .quotation blockquote{ background:#FCFADE; color:#D84F37; padding:2.53333rem 4.50367rem !important; font-family:"SentinelBook", Monaco, Courier New, monospace; padding-bottom:6.00488rem !important; margin-top:6.00488rem !important; margin-bottom:6.00488rem !important; transform:rotate(-1deg); -ms-transform:rotate(-1deg); text-align:left; border-spacing:0; padding:0.45088rem; font-size:0.9rem; }
