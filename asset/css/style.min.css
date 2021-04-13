@@ -2235,7 +2235,7 @@ main .poster{ margin:2.53333rem 0 !important; }
 
 .property-wrapper .property .values{ padding-right:1.5rem; }
 
-.property-wrapper .property .value.resource .resource-link.a-square{ display:block; float:left; max-width:30%; margin-right:3%; }
+.property-wrapper .property .value.resource .resource-link{ display:block; float:left; max-width:30%; margin-right:3%; }
 
 .property-wrapper .property .metadata-browse-link{ display:block; clear:both; }
 
