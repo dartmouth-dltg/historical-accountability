@@ -53,6 +53,7 @@
     <?php if (count($itemSets) > 0): ?>
     <h4><?php echo $translate('Item sets'); ?></h4>
     <?php foreach ($itemSets as $itemSet): ?>
+    <div class="foo"><?php echo $this->siteSetting('browse_heading_property_term'); ?></div>
     <div class="value"><a href="<?php echo $escape($itemSet->url()); ?>"><?php echo $itemSet->displayTitle(); ?></a></div>
     <?php endforeach; ?>
     <?php endif; ?>

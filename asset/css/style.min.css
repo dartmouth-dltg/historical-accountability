@@ -1,4 +1,4 @@
-/*! dhap-theme v1.0.0 | (c) 2020 Agile Humanities Agency | MIT License | https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git */
+/*! dhap-theme v1.0.0 | (c) 2021 Agile Humanities Agency | MIT License | https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git */
 @charset "UTF-8";
 @keyframes build{ from{ opacity:0; }
   to{ opacity:1; } }
@@ -507,7 +507,7 @@ main > div > .file h3, #feature-tier-1 > div > .file h3{ background:#1D2C27; pad
 
 main > div > .file h3 a, #feature-tier-1 > div > .file h3 a{ color:#FFFFFF; }
 
-main > div > ul, #feature-tier-1 > div > ul{ display:grid; grid-template-columns:1fr; grid-column-gap:4.50367rem; grid-row-gap:1.06876rem; grid-auto-columns:-webkit-min-content; grid-auto-columns:min-content; padding:0; list-style-type:none; }
+main > div > ul, #feature-tier-1 > div > ul{ display:grid; grid-template-columns:1fr; grid-column-gap:4.50367rem; grid-row-gap:1.06876rem; grid-auto-columns:min-content; padding:0; list-style-type:none; }
 
 main > div > ul li, #feature-tier-1 > div > ul li{ position:relative; left:1.9rem; width:91%; }
 
@@ -1990,7 +1990,7 @@ main > div > .excerpt{ display:none; }
 
 @media only screen and (min-width: 75em){ #item-linked{ margin:0; } }
 
-.linked-resources-entries{ margin-top:1rem; }
+.linked-resources-entries{ display:flex; flex-wrap:wrap; margin-top:1rem; }
 
 .linked-resource-entry{ margin-bottom:1rem; }
 
@@ -2234,6 +2234,10 @@ main .poster{ margin:2.53333rem 0 !important; }
 .property-wrapper .property h4{ text-transform:uppercase; font-size:1.2rem; }
 
 .property-wrapper .property .values{ padding-right:1.5rem; }
+
+.property-wrapper .property .value.resource .resource-link{ display:block; float:left; max-width:30%; margin-right:3%; }
+
+.property-wrapper .property .metadata-browse-link{ display:block; clear:both; }
 
 .property-wrapper .value.resource, .property-wrapper .value.uri{ float:none; width:100%; margin-right:0; }
 
