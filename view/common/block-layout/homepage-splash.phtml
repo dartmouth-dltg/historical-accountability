@@ -6,11 +6,14 @@
             ?>
             <div class="item resource">
                 <?php if ($item):
+                    $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
                     if ($media):
+                        $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => 'foo']));
+
                 ?>
                         <figure>
-                            <?php echo $item->linkRaw($this->thumbnail($media,$thumbnailType)); ?>
+                            <?php echo $image; ?>
                             <?php if ($attachment->caption()): ?>
                               <figcaption><?php echo $attachment->caption(); ?></figcaption>
                             <?php endif; ?>
@@ -27,12 +30,9 @@
             <?php if (!empty($titleSlideTitle)): ?>
                 <h1><?php echo $titleSlideTitle; ?></h1>
             <?php endif; ?>
-            <div class="break opaque"></div>
             <?php if (!empty($titleSlideIntro)): ?>
                 <?php echo $titleSlideIntro; ?>
             <?php endif; ?>
         </div>
     </div>
 </div>
-
-

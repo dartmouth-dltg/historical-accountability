@@ -5,7 +5,9 @@
         $media = null;
 
         if ($item) {
+            $title = $this->plugin('escapeHtml')($item->displayTitle());
             $media = $attachment->media() ?: $item->primaryMedia();
+            $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $this->thumbnail($media, $this->thumbnailType, ['alt' => $title]) : $this->thumbnail($media, $this->thumbnailType);
         }
 
         $caption = $attachment->caption();
@@ -23,7 +25,7 @@
                     <?php if (isset($this->block->page_title) && isset($this->block->page_url)): ?>
                       <?php printf('<a href="%s" title="Visit %s’s Profile">%s</a>',$this->block->page_url, $this->block->page_title, $this->thumbnail($media,$thumbnailType));  ?>
                     <?php else: ?>
-                      <?php echo $this->thumbnail($media,$thumbnailType); ?>
+                      <?php echo $image; ?>
                     <?php endif; ?>
                 </figure>
         </div>

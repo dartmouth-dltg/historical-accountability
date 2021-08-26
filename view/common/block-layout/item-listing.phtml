@@ -22,9 +22,11 @@
             if ($item):
                 ?>
                 <?php
+                $title = $this->plugin('escapeHtml')($item->displayTitle());
                 $media = $attachment->media() ?: $item->primaryMedia();
                 if ($media):
-                    echo $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+                    $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+                    echo $image;
                 endif;
                 ?>
                 <?php $showTitleOption = $this->showTitleOption; ?>

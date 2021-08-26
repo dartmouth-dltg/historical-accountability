@@ -6,15 +6,17 @@
             ?>
             <div class="item resource">
                 <?php if ($item):
+                    $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
                     if ($media):
+                        $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
                 ?>
                       <figure>
                           
                           <?php if ($attachment->caption()): ?>
                             <figcaption><?php echo $attachment->caption(); ?></figcaption>
                           <?php endif; ?>
-                          <?php echo $item->linkRaw($this->thumbnail($media,$thumbnailType)); ?>
+                          <?php echo $image; ?>
                       </figure>
                     <?php endif; ?>
                 <?php endif; ?>
