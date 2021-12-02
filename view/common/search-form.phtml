@@ -1,9 +1,20 @@
 <?php
 $translate = $this->plugin('translate');
+$searchType = $this->siteSetting('search_type', 'sitewide');
+switch ($searchType) {
+    case 'cross-site':
+        $searchAction = $this->url('site/cross-site-search', ['action' => 'results'], true);
+        break;
+    case 'sitewide':
+    default:
+        $searchAction = $this->url('site/resource', ['controller' => 'item', 'action' => 'browse'], true);
+}
 $searchValue = $this->escapeHtml($this->params()->fromQuery('search', ''));
 ?>
 
-<form action="<?php echo $this->escapeHtml($this->url('site/resource', ['controller' => 'item','action' => 'browse'], true)); ?>" id="search-form">
-    <input type="text" title='Search Field' name="search" value="<?php echo $searchValue; ?>" placeholder="<?php echo $translate('Enter a search term or browse below'); ?>">
+<form action="<?php echo $this->escapeHtml($searchAction); ?>" id="search-form">
+    <input type="text" name="search" value="<?php echo $searchValue; ?>"
+        placeholder="<?php echo $translate('Enter a search term or browse below'); ?>"
+        aria-label="<?php echo $translate('Search'); ?>">
     <button type="submit"><?php echo $translate('Search'); ?></button>
 </form>
