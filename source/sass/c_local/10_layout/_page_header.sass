@@ -2,7 +2,7 @@ body
   #user-bar
     position: relative
     z-index: 999 // Place above mobile nav underly
-    
+
     +bp($stack)
       position: unset // Position and z-index interfere with desktop subnav JS
       z-index: unset
@@ -17,7 +17,7 @@ body
     +line-height(-1)
     position: relative
     z-index: 999
-    
+
     +bp($small)
       display: grid
       grid-template-rows: initial
@@ -25,14 +25,14 @@ body
       grid-row-gap: initial
       position: unset // Position and z-index interfere with desktop subnav JS
       z-index: unset
-    
+
     +bp($stack)
       grid-template-columns: 33% 1fr
-      
+
     +bp($ultrawide)
       grid-template-columns: 1fr 2fr
 
-      
+
     .access-button
       &.up-arrow-toggle
         .down-arrow-black
@@ -52,7 +52,7 @@ body
         text-align: center
         height: 100%
         border-left: rv(-10) solid $white
-        
+
     .menu-access-button
       padding: 0 rv(-3)
       color: $black
@@ -69,11 +69,11 @@ body
         margin: 3px
         height: 89%
         outline: 1px dotted $white
-        
+
       &.up-arrow-toggle
         .down-arrow-black
           background: url("../../asset/img/svg/icons/hamburger_menu_active.svg") no-repeat
-        
+
       +bp($stack)
         display:none!important
 
@@ -111,7 +111,7 @@ body
               margin-top: 0
               z-index: 999
               padding-right: 1.8%
-            li 
+            li
               white-space: normal
             li > a
               color: $black
@@ -121,19 +121,19 @@ body
               background-position-x: right
               background-size: rv(-3)
               background-position-y: center
-              
+
               +bp($tablet)
                 background-size: rv(-3)
               +bp($desktop)
                 background-size: rv(-2)
-              
+
           &.active
 
             a
               color: $clr2
             li > a
-              color: $black  
-            
+              color: $black
+
           &:last-child
             // display: none !important  not sure why this was here
           a
@@ -149,10 +149,10 @@ body
             background-position-x: right
             background-size: rv(-3)
             background-position-y: center
-            
+
             // hide for now
             background: none
-            
+
             +bp($tablet)
               background-size: rv(-3)
             +bp($desktop)
@@ -186,25 +186,29 @@ body
   align-items: center
   font-family: BentonSans
   font-weight: $semibold
-  padding: rv(-1) 
+  padding: rv(-1)
   font-size: font-value(0)
   min-width: 235px
   max-width: 300px
   &:focus
     margin: 3px
-    
+
+  +bp($xxs)
+    min-width: 75%
+
   +bp($xs)
+    min-width: 75%
     max-width: 100%
-    
+
   +bp($small)
     max-width: 100%
-    
+
   +bp($stack)
 
     &:focus
       color: $clr2
       margin: 0
-  
+
   +bp($stack)
     background-color: $black
     height: 100%
@@ -212,11 +216,11 @@ body
     margin: 0
     font-size: inherit
     max-width: 100%
-         
+
     img
       height: 100%
       width: auto
-      
+
   &#logo-stack
     +bp($xs)
       font-size: font-value(-1)
@@ -231,7 +235,7 @@ body
       font-size: font-value(0)
     +bp($desktop)
       font-size: font-value(1) * 0.85
-      
+
     img
       width: rv(2)
       padding-right:  rv(-2)
