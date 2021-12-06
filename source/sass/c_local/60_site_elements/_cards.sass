@@ -1,5 +1,5 @@
-/* 
-   @file _cards.sass 
+/*
+   @file _cards.sass
    @category 60_site_elements
    @theme LOCAL
    @component main
@@ -14,11 +14,11 @@ main
   padding: rv(3)
 
   +bp($stack)
-    +separated_row(2,3) 
-    justify-content: flex-start     
-        
+    +separated_row(2,3)
+    justify-content: flex-start
 
-  
+
+
 .card
   position: relative
   .representative-image
@@ -29,17 +29,17 @@ main
       background: $black
       display: block
       margin-bottom: 3px
-      
+
   .card-info-wrapper
     margin-left: rv(1)
-    
+
   figure
     +proportional_thumbnail()
     border-bottom-right-radius: $borderRadius
     a
       img
         filter: grayscale(100%)
-    
+
     figcaption
       top: unset
       background: $black
@@ -52,22 +52,22 @@ main
         font-weight: $bold
         font-style: normal
         font-size: font-value(-2)
-      
+
   h3
     font-family: $headingfont
     margin-bottom: 0
     margin-left: 0
     +bp($stack)
       margin-left: rv(1)
-    
+
   h3 + .byline
     margin-top: rv(-3)
-    
+
   .excerpt
     margin: rv(-2) 0
     margin-left: 0
     +bp($stack)
-      margin-left: rv(1)    
+      margin-left: rv(1)
   > .btn
     margin: rv(1) 0
     border-radius: 10px
@@ -75,11 +75,11 @@ main
     font-family: $basefont
     margin-left: 0
     +bp($stack)
-      margin-left: rv(1) 
+      margin-left: rv(1)
     &:hover
       border-color: $clr4
       color: $clr4
-    
+
 .card-compact
 
   figure
@@ -91,7 +91,7 @@ main
     background-color: transparent
     border-top: rv(-6) solid $white
     position: relative
-    
+
     > a
       display: block
       box-sizing: border-box
@@ -100,15 +100,15 @@ main
       padding: rv(0)
       text-align: left
       color: inherit
-      
-  &.representative-image  
+
+  &.representative-image
     h3
       text-align: left
       color: $white
       +font-size(0)
       background-color: transparent
       border-top: rv(-6) solid $white
-      
+
       > a
         display: block
         box-sizing: border-box
@@ -117,7 +117,7 @@ main
         padding: rv(0)
         text-align: right
         color: inherit
-        
+
 .compact-card-listing
   .card-compact
     &.representative-image
@@ -137,7 +137,7 @@ main
   border-bottom: rv(-5) solid $white
   +bp($stack)
     border-bottom: rv(-4) solid $white
-    
+
   // &:last-child
   //    border: 0
   &.representative-image
@@ -148,44 +148,44 @@ main
       border-top: unset
       font-weight: $bold
       padding: 0 rv(0)
-      
+
       +bp($stack)
         padding: rv(0)
       a
         padding: rv(0) 0
         +bp($stack)
-          padding: rv(0)      
+          padding: rv(0)
   h3
     position: relative
-    margin: rv(3) * -1 0 0 0
+    margin: rv(3) * -1.2 0 0 0
     padding: 0
     border-top: unset
     font-weight: $bold
     padding: rv(0)
-    
+
     +bp($stack)
       padding: 0
     a
       padding: rv(0) 0
       +bp($stack)
         padding: rv(0)
-        
+
   .representative-image
     height: 100%
     margin: 0
     +bp($stack)
       margin: unset
-    .item 
+    .item
       height: 100%
-      
+
       figure
         height: 100%
         background-color: set-colour(1)
         +standard-transition()
-        
+
         a
           &:focus
-            margin: 5px 
+            margin: 5px
         figcaption
           top: unset
           bottom: rv(-1)
@@ -194,7 +194,7 @@ main
           font-style: normal
           +bp($stack)
             bottom: rv(-7) * -1
-            
+
         &:hover
           background: set-color(1,'dark')
           text-decoration: unset

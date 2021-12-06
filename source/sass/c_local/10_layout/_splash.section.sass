@@ -10,29 +10,29 @@
   z-index: 2
   flex: 1
   font-weight: $bold
-        
+
   +bp($stack)
     font-weight: $normal
     border-bottom: 0
     border-left: 0
-                  
+
   *
     font-size: 0.9em
-    
+
     +bp($tablet)
       font-size: 0.95em
-      
+
     +bp($desktop)
       font-size: 0.85em
-  
+
   h1
     font-size: 2.4em
     margin: 0
     padding: 0 0 rv(0) 0
-    
+
 
 #homepage-splash, .section-intro-splash
-    
+
   figcaption
     top: 0
     position: absolute
@@ -41,7 +41,7 @@
     z-index: 9
     font-style: normal
     font-weight: $bold
-    
+
     +bp($stack)
       padding-top: rv(0)
       padding-left: rv(0)
@@ -50,7 +50,7 @@
     p
       font-size: font-value(-1)
       line-height: font-value(0)
-      
+
       +bp($stack)
         font-size: font-value(0)
         line-height: font-value(1)
@@ -65,26 +65,28 @@
   display: flex
   flex-direction: column-reverse
   overflow: hidden
-  
+
   +bp($stack)
     background: $black
-          
+
   .items
     +splash_area_carousel_left()
 
   .introduction
-    +splash_area_title_right()    
+    +splash_area_title_right()
     background-color: $black
-    
+
   .introductory-text
     *
       color: $white
-    button:hover
-      color: $link_colour        
-                
+    button
+      width: 100%
+      &:hover
+        color: $link_colour
+
   figure
     position: relative
-    
+
     figcaption
       position: absolute
       color: $white
@@ -94,7 +96,7 @@
       max-width: 70%
       padding-top: rv(-1)
       font-weight: $bold
-      
+
       +bp($stack)
         padding-top: rv(0)
         padding-left: rv(0)
@@ -128,21 +130,21 @@
       top: 0
       left: 0
       opacity: 1
-      
+
       +bp($stack)
-       // background: $ltr_dark_gradient        
-        
+       // background: $ltr_dark_gradient
+
   .slick-next, .slick-prev
-    top: 47%            
+    top: 47%
   .slick-next
     +bp($stack)
       right: 19px
-          
+
   &.left
     &:after
       background: $rtl_dark_gradient
-              
-        
+
+
 .section-intro-splash
   &.right
     .introduction

@@ -691,6 +691,8 @@ main table, #feature-tier-1 table { border-spacing: 0; }
 
 @media only screen and (min-width: 56.25em) { main table, #feature-tier-1 table { width: 100%; } }
 
+@media only screen and (min-width: 900px) and (max-width: 1100px) { main > div .media-list-wrapper { margin-left: 1.5rem !important; margin-right: 1.5rem !important; } }
+
 .site-page-pagination { display: none; }
 
 .site-guide-cont { padding-left: 0; padding-right: 0; display: grid; align-items: center; grid-column-gap: 1.425rem; grid-template-rows: none; grid-row-gap: 0; grid-template-columns: none; }
@@ -833,7 +835,9 @@ body > header ul li { display: inline; }
 
 .history-identity:focus { margin: 3px; }
 
-@media only screen and (min-width: 21em) { .history-identity { max-width: 100%; } }
+@media only screen and (min-width: 16em) { .history-identity { min-width: 75%; } }
+
+@media only screen and (min-width: 21em) { .history-identity { min-width: 75%; max-width: 100%; } }
 
 @media only screen and (min-width: 46.25em) { .history-identity { max-width: 100%; } }
 
@@ -1034,6 +1038,8 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 .section-intro-splash .introductory-text * { color: #FFFFFF; }
 
+.section-intro-splash .introductory-text button { width: 100%; }
+
 .section-intro-splash .introductory-text button:hover { color: #ad3722; }
 
 .section-intro-splash figure { position: relative; }
@@ -1156,7 +1162,9 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 .browse-controls form.sorting button { border: unset; display: inline-block; min-width: auto; width: 6.00488rem; font-size: 1.2rem; }
 
-.resource-list { column-count: initial; padding-left: initial; display: grid; grid-template-columns:  1fr 1fr; grid-column-gap: 1.9rem; grid-row-gap: 1.9rem; width: intial; }
+.resource-list { column-count: initial; padding-left: initial; display: grid; grid-template-columns:  1fr; grid-column-gap: 1.9rem; grid-row-gap: 1.9rem; width: intial; }
+
+@media only screen and (min-width: 46.25em) { .resource-list { display: grid; grid-template-columns:  1fr 1fr; grid-column-gap: 1.9rem; grid-row-gap: 1.9rem; } }
 
 @media only screen and (min-width: 56.25em) { .resource-list { display: grid; grid-template-columns:  1fr 1fr 1fr; grid-column-gap: 2.53333rem; grid-row-gap: 2.53333rem; } }
 
@@ -1829,15 +1837,25 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a { color: #1D2C27; text-decoration
 
 h1, h2, h3 { width: auto; }
 
-h1, .h1 { font-size: 3.79255rem; margin-top: 2.53333rem; margin-bottom: 1.9rem; font-weight: 700; }
+h1, .h1 { font-size: 2.84442rem; margin-top: 2.53333rem; margin-bottom: 1.9rem; font-weight: 700; }
 
-h2, .h2 { font-size: 2.84442rem; margin-top: 2.53333rem; margin-bottom: 1.425rem; }
+@media only screen and (min-width: 56.25em) { h1, .h1 { font-size: 3.79255rem; } }
 
-h3, .h3 { font-size: 2.13332rem; margin-top: 2.53333rem; margin-bottom: 1.06876rem; font-weight: 900; text-transform: unset; }
+h2, .h2 { font-size: 2.13332rem; margin-top: 2.53333rem; margin-bottom: 1.425rem; }
 
-h4, .h4 { font-size: 1.6rem; margin-top: 2.53333rem; margin-bottom: 1.06876rem; }
+@media only screen and (min-width: 56.25em) { h2, .h2 { font-size: 2.84442rem; } }
+
+h3, .h3 { font-size: 1.6rem; margin-top: 2.53333rem; margin-bottom: 1.06876rem; font-weight: 900; text-transform: unset; }
+
+@media only screen and (min-width: 56.25em) { h3, .h3 { font-size: 2.13332rem; } }
+
+h4, .h4 { font-size: 1.2rem; margin-top: 2.53333rem; margin-bottom: 1.06876rem; }
+
+@media only screen and (min-width: 56.25em) { h4, .h4 { font-size: 1.6rem; } }
 
 h5, .h5 { font-size: 1.2rem; margin-top: 1.9rem; margin-bottom: 1.06876rem; font-family: "BentonSansBook", sans-serif; font-style: unset; }
+
+@media only screen and (min-width: 56.25em) { h5, .h5 { font-size: 1.2rem; } }
 
 h6, .h6 { font-size: 1.2rem; margin-top: 1.9rem; margin-bottom: 0; font-weight: 400; color: #4a5652; }
 
@@ -1960,7 +1978,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 56.25em) { .card-compact.representative-image h3 a { padding: 1.9rem; } }
 
-.card-compact h3 { position: relative; margin: -4.50367rem 0 0 0; padding: 0; border-top: unset; font-weight: 700; padding: 1.9rem; }
+.card-compact h3 { position: relative; margin: -5.4044rem 0 0 0; padding: 0; border-top: unset; font-weight: 700; padding: 1.9rem; }
 
 @media only screen and (min-width: 56.25em) { .card-compact h3 { padding: 0; } }
 
@@ -2474,7 +2492,7 @@ main .quotation blockquote cite { font-family: "SentinelBook", Monaco, Courier N
 main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(1deg); }
 
 /** @file _item_list_intro.sass @category 60_site_elements @theme LOCAL @description Styles the Item listing introduction block. */
-.item-listing.region { padding: 2.53333rem 0; background: #F2E55B; text-align: center; }
+.item-listing.region { margin: auto; padding: 2.53333rem 0; background: #F2E55B; text-align: center; }
 
 @media only screen and (min-width: 56.25em) { .item-listing.region { padding: 2.53333rem 4.50367rem; } }
 
@@ -2494,6 +2512,8 @@ main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(
 
 .item-listing.region .item-listing-wrapper { display: grid; grid-template-columns: 1fr; grid-column-gap: 1.9rem; grid-row-gap: 0.60118rem; padding-top: 1.9rem; padding-bottom: 3.37776rem; background: #FFFFFF; margin-bottom: -50px; }
 
+@media only screen and (min-width: 16em) { .item-listing.region .item-listing-wrapper { background: unset; } }
+
 @media only screen and (min-width: 56.25em) { .item-listing.region .item-listing-wrapper { grid-template-columns: 1fr 1fr; grid-row-gap: 2.53333rem; background: unset; padding-top: 4.50367rem; padding-bottom: 8.00648rem; } }
 
 @media only screen and (min-width: 75em) { .item-listing.region .item-listing-wrapper { grid-template-columns: 1fr 1fr 1fr; background: unset; padding-top: 4.50367rem; padding-bottom: 8.00648rem; } }
@@ -2503,6 +2523,10 @@ main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(
 .item-listing.region .item-listing-wrapper .item { margin-right: 0; margin-left: 0; }
 
 .item-listing.region .item-listing-wrapper .item::before { content: ""; width: 100%; display: block; height: 1.425rem; position: unset; border-bottom: 3px solid #fff; top: 14px; background: #1D2C27; }
+
+@media only screen and (min-width: 16em) { .item-listing.region .item-listing-wrapper .item { margin-right: 1rem; margin-left: 1rem; } }
+
+@media only screen and (min-width: 56.25em) { .item-listing.region .item-listing-wrapper .item { margin-right: 0; margin-left: 0; } }
 
 .item-listing.region .item-listing-wrapper .item a::after { content: " "; width: 2.53333rem; height: 2.53333rem; background: url(../../asset/img/svg/icons/fullscreen_white_icon.svg) no-repeat; position: absolute; background-size: 1.9rem; z-index: 999; margin-left: -50px; margin-top: 20px; }
 

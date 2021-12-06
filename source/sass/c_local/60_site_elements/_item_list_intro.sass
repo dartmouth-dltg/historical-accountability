@@ -1,5 +1,5 @@
-/** 
- *  @file _item_list_intro.sass 
+/**
+ *  @file _item_list_intro.sass
  *  @category 60_site_elements
  *  @theme LOCAL
  *  @description Styles the Item listing introduction block. */
@@ -8,6 +8,7 @@
 
 .item-listing
   &.region
+    margin: auto
     padding: rv(1) 0
     background: $clr2
     text-align: center
@@ -32,14 +33,14 @@
       display: inline-block
       height: auto
       border: 0
-      margin-bottom: rv(1) 
+      margin-bottom: rv(1)
       margin-top: rv(1)
-    
+
     .title-area
       padding: 0 rv(-0)
       +bp($desktop)
         padding: 0 rv(5)
-        
+
       &::before
         content: " "
         width: rv(1)
@@ -56,6 +57,8 @@
       padding-bottom: rv(2)
       background: $white
       margin-bottom: -50px
+      +bp($xxs)
+        background: unset
       +bp($stack)
         grid-template-columns: 1fr 1fr
         grid-row-gap: rv(1)
@@ -88,9 +91,13 @@
           border-bottom: 3px solid #fff
           top: 14px
           background: $black
-        
-        
-        
+        +bp($xxs)
+          margin-right: 1rem
+          margin-left: 1rem
+        +bp($stack)
+          margin-right: 0
+          margin-left: 0
+
         a
           &::after
             content: " "

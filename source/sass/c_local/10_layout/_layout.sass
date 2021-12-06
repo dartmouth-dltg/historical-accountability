@@ -1,5 +1,5 @@
-/* 
-   @file _layout.sass 
+/*
+   @file _layout.sass
    @theme Local
    @description  Loads SASS files for local theme. */
 
@@ -21,16 +21,16 @@ video
   //     +inset-text()
   //   > .site-guide-cont
   //     +negative-content-margin(6)
-//kaltura video player    
+//kaltura video player
 .kWidgetIframeContainer
-  margin-bottom: -12px    
+  margin-bottom: -12px
 // @todo:  There are some present factors in 00_configuration_layout like $mobile_edge_padding_factor and $edge_padding_factor that should be used here.
 section
   main
     > div
       > *
         margin-left: rv($mobile_edge_padding_factor)
-        margin-right: rv($mobile_edge_padding_factor) 
+        margin-right: rv($mobile_edge_padding_factor)
         +bp($stack)
           margin-left: auto
           margin-right: auto
@@ -47,13 +47,13 @@ section
           margin-top: 0!important
   > div[class*="block-"]
       margin-top: rv(4)
-  
+
   > div
     > div
       > div
         margin-left: rv(0)
-        margin-right: rv(0) 
-        
+        margin-right: rv(0)
+
         +bp($stack)
           margin-left: auto
           margin-right: auto
@@ -94,15 +94,15 @@ main, #feature-tier-1
 
     > .resource-list
       +negative-content-margin(6)
-      
+
     > .media-list-wrapper
       +negative-content-margin(6)
-      
+
     .slideshow-block, .slideshow-with-audio
       +negative-content-margin(7)
-      
+
     > .file
-      
+
       .media-render
         &:before
           content: ""
@@ -111,31 +111,31 @@ main, #feature-tier-1
           background: $black
           display: block
           margin-bottom: rv(-5)
-          
+
       &.center
         +negative-content-margin(4)
-        
+
       &.left
         +bp($desktop)
           margin-left: 15vw
           float: left
           width: 25vw
           padding: 0 rv(0) rv(0) 0
-          
+
           &.large
             width: 35vw
-          
+
       &.right
         +bp($desktop)
           margin-right: 15vw
           float: right
           width: 25vw
           padding: 0 0 rv(0) rv(0)
-          
+
           &.large
             width: 35vw
-        
-        
+
+
       .caption
         text-align: left
         padding-left: 2rem
@@ -146,7 +146,7 @@ main, #feature-tier-1
         color: $white
         background: $black
         border-bottom-right-radius: $borderRadius
-      h3 
+      h3
         background: $black
         padding: 2rem 2rem 0 2rem
         margin: 0
@@ -154,7 +154,7 @@ main, #feature-tier-1
         a
           color: $white
         //display: none
-        
+
     > ul
       display: grid
       grid-template-columns: 1fr
@@ -164,7 +164,7 @@ main, #feature-tier-1
       padding: 0
       list-style-type: none
 
-      
+
       li
         position: relative
         left: rv(0)
@@ -175,7 +175,7 @@ main, #feature-tier-1
           font-family: $basefont
           margin-top: 0
           margin-bottom: rv(-3)
-        
+
         &:before
           content: ""
           color: $black
@@ -189,11 +189,11 @@ main, #feature-tier-1
           background: url("../../asset/img/svg/icons/list_line.svg") no-repeat
           height: rv(-2)
 
-                  
+
   .media-render
     a
       img
-        filter: grayscale(100%)        
+        filter: grayscale(100%)
   blockquote
     background: $bgcolor2
     color: $clr4
@@ -230,9 +230,6 @@ main, #feature-tier-1
         border: 1px solid
         top: unset
 
-
-
-
     pre
       font-family: $codefont
       +dashed-line
@@ -251,7 +248,7 @@ main, #feature-tier-1
     *
       +untilt
 
-  
+
   th, td
     text-align: left
     border-spacing: 0
@@ -273,12 +270,17 @@ main, #feature-tier-1
       background: neutral(5)
       border-top: 5px solid white
 
-  table 
+  table
     border-spacing: 0
     +bp($stack)
       width: 100%
 
-  
+// wierd hack for the media list wrapper
+@media only screen and (min-width: 900px) and (max-width: 1100px)
+  main > div .media-list-wrapper
+    margin-left: 1.5rem !important
+    margin-right: 1.5rem !important
+
 .site-page-pagination
   display: none
 
@@ -305,7 +307,7 @@ main, #feature-tier-1
     text-decoration: underline
     margin-bottom: rv(-3)
     display: inline-block
-  i 
+  i
     display: inline-block
     background: black
     border-radius: 3px
@@ -319,10 +321,10 @@ main, #feature-tier-1
   align-self: flex-start
   text-align: right
   p
-    font-weight: $semibold 
+    font-weight: $semibold
     margin-left: 0
 
-.slider 
+.slider
   position: absolute
   cursor: pointer
   top: 0
@@ -333,7 +335,7 @@ main, #feature-tier-1
   -webkit-transition: .4s
   transition: .4s
 
-.slider:before 
+.slider:before
   position: absolute
   content: ""
   height: 16px
@@ -344,21 +346,21 @@ main, #feature-tier-1
   -webkit-transition: .4s
   transition: .4s
 
-input:checked + .slider 
+input:checked + .slider
   background-color: $clr1
 
-input:focus + .slider 
+input:focus + .slider
   box-shadow: 0 0 1px $clr1
 
-input:checked + .slider:before 
+input:checked + .slider:before
   -webkit-transform: translateX(16px)
   -ms-transform: translateX(16px)
   transform: translateX(16px)
 
-.slider.round 
+.slider.round
   border-radius: 34px
 
-.slider.round:before 
+.slider.round:before
   border-radius: 50%
 .profile-overlay-btn
   display: none
@@ -386,4 +388,4 @@ section
   main
     > div
       > .preview-block
-        margin-top: 0!important 
+        margin-top: 0!important

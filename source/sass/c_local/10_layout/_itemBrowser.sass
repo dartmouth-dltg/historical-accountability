@@ -1,11 +1,11 @@
-.explore-the-archive 
+.explore-the-archive
   > p
     font-style: italic
   h3
     font-family: $headingfont
     margin-top: rv(3)
     text-align: center
-    
+
   img
     width: rv(5)
     float: left
@@ -31,36 +31,36 @@
   margin: rv(1) 0
   width: 100%
   max-width: 100%
-  
+
   form
     width: 100%
     display: flex
     flex-direction: column
-    
+
     +bp($stack)
       flex-direction: row
       justify-content: stretch
   button[type=submit]
       margin-right: 16px
       background-color: $clr1
-      border-color: $clr1  
+      border-color: $clr1
   input[name='search']
     flex-grow: 1
     margin-bottom: rv(0)
-    
+
     +bp($stack)
       margin-bottom: 0
       margin-right: rv(1)
-    
+
   & + .advanced-search
     display: block
     transform: translateY(rv(-1) * -1)
-    
+
 .advanced-search, a[class*='advanced']  //backtick horror!
   text-transform: uppercase
   font-size: font-value(-1)
   text-decoration: underline
-    
+
 .explore-left
   width: rv(2)
   height: rv(2)
@@ -89,7 +89,7 @@
   top: unset
   position: absolute
   right: 0px
-  
+
   +bp($stack)
     width: rv(3)
     height: rv(3)
@@ -108,19 +108,19 @@
     font-family: $headingfont
     font-weight: $bold
     position: relative
-    
+
     .explore-right, .explore-left
       display: inline-block
       +bp($stack)
         top: rv(3)/-2
-      
+
       &.inactive
         display: none
-    
+
     +bp($stack)
       margin-top: rv(-2) *-1
       text-align: center
-    
+
     .row-count
       display: none
 
@@ -154,19 +154,19 @@
           border: unset
           border-bottom: 1px solid $clr1
           box-shadow: unset
-          
+
 .browse-controls
   margin-top: 120px
   text-align: left
   .pagination
-    .row-count 
+    .row-count
       display: block
-      
+
   // top pagination only
   .explore-left, .explore-right
     +bp($stack)
       top: rv(3)/-2 - rv(0)  // Negative half the height minus fudgy offset factor
-    
+
   form
     text-align: left
     display: none
@@ -195,18 +195,20 @@
         display: inline-block
         min-width: auto
         width: rv(4)
-        font-size: font-value(0)   
-           
+        font-size: font-value(0)
+
 .resource-list
   column-count: initial
   padding-left: initial
-  +separated_row(2,0)
+  +separated_row(1,0)
   width: intial
-  
+
+  +bp($small)
+    +separated_row(2,0)
   +bp($stack)
     +separated_row(3,1)
-    
-    
+
+
   .item
     list-style-type: none
     text-decoration: unset
@@ -214,7 +216,7 @@
     left: unset
     background: $black
     border-bottom-right-radius: $borderRadius
-    
+
     > a
       display: block
       background: $clr2
@@ -226,7 +228,7 @@
         filter: grayscale(100%)
         &:hover
           mix-blend-mode: multiply
-      
+
     > h4
       margin-bottom: rv(0)
       margin-left: rv(0)
@@ -241,7 +243,7 @@
         line-height: normal
         &:hover
           text-decoration: underline
-        
+
     &:before
       content: ""
       width: 100%
@@ -256,7 +258,7 @@
       background: url("../../asset/img/svg/icons/fullscreen_white_icon.svg") no-repeat
       position: absolute
       right: rv(-3)
-      top: rv(1) 
+      top: rv(1)
       background-size: rv(0)
       background-position: center
   .description
@@ -271,7 +273,7 @@
     -webkit-line-clamp: 5
 
 
-main > div > 
+main > div >
   .resource-list, .explore-the-archive, .browse-controls, .search-filters, nav.pagination
     +negative-content-margin(7)
   .resource-list
