@@ -5,14 +5,19 @@
   $embedMedia = $this->siteSetting('item_media_embed', false);
   $specialCase = false;
   $itemMedia = $item->media();
-  // $dataType = $itemMedia->mediaType();
+
+  $filterLocale = (bool) $this->siteSetting('filter_locale_values');
+  $lang = $this->lang();
+
+  // custom additions start
   $this->headScript()->appendFile($this->assetUrl('js/slideshow.js', 'AgileThemeTools'));
   $this->headLink()->appendStylesheet($this->basePath('modules/AgileThemeTools/node_modules/slick-carousel/slick/slick.css'));
   $this->headScript()->appendFile($this->basePath('modules/AgileThemeTools/node_modules/slick-carousel/slick/slick.min.js'));
+  // custom additions end
 ?>
 
-
-<?php foreach ($itemMedia as $media): 
+<!-- custom additions -->
+<?php foreach ($itemMedia as $media):
   $mediaType = $media->mediaType(); ?>
   <?php if (empty($mediaType) && $itemMedia && !$embedMedia): ?>
     <?php $specialCase = true; ?>
@@ -20,56 +25,58 @@
 <?php endforeach; ?>
 
 <?php $this->trigger('view.show.before'); ?>
+
 <div class="media-list-wrapper">
-<?php if (!$embedMedia && $itemMedia && $specialCase === false): ?>
-  <?php $this->trigger('view.show.after'); ?>
-  
-<?php endif; ?>
-<?php if (!$embedMedia && $itemMedia && $specialCase === true): ?>
-<div class="media-list slideshow media-list-special">
-    <?php foreach ($itemMedia as $media): ?>
-        <?php echo $media->render();?>
-    <?php endforeach; ?>
-</div>
-<?php endif; ?>
+  <?php if (!$embedMedia && $itemMedia && $specialCase === false): ?>
+    <?php $this->trigger('view.show.after'); ?>
+  <?php endif; ?>
 
-<?php if ($embedMedia && $itemMedia && $specialCase === true): ?>
-    <div class="media-embeds">
-    <?php foreach ($itemMedia as $media):
-        echo $media->render();
-    endforeach;
-    ?>
+  <?php if (!$embedMedia && $itemMedia && $specialCase === true): ?>
+    <div class="media-list slideshow media-list-special">
+      <?php foreach ($itemMedia as $media): ?>
+          <?php echo $media->render();?>
+      <?php endforeach; ?>
     </div>
-<?php endif; ?>
-<header>
-  <h3><?php echo $this->pageTitle($item->displayTitle(), 2); ?></h3>
-</header>
-<div class="property-wrapper">
+  <?php endif; ?>
 
-<?php echo $item->displayValues(); ?>
-<div class="property">
-    <?php $itemSets = $item->itemSets(); ?>
-    <?php if (count($itemSets) > 0): ?>
-    <h4><?php echo $translate('Item sets'); ?></h4>
-    <?php foreach ($itemSets as $itemSet): ?>
-    <div class="foo"><?php echo $this->siteSetting('browse_heading_property_term'); ?></div>
-    <div class="value"><a href="<?php echo $escape($itemSet->url()); ?>"><?php echo $itemSet->displayTitle(); ?></a></div>
-    <?php endforeach; ?>
-    <?php endif; ?>
-</div>
-</div>
-<?php
-$page = $this->params()->fromQuery('page', 1);
-$property = $this->params()->fromQuery('property');
-$subjectValues = $item->displaySubjectValues($page, 25, $property);
-?>
-<?php if ($subjectValues): ?>
-<div id="item-linked">
-    <h3><?php echo $translate('Linked resources'); ?></h3>
-    <?php echo $subjectValues; ?>
-</div>
-<?php endif; ?>
-</div>
+  <?php if ($embedMedia && $itemMedia && $specialCase === true): ?>
+      <div class="media-embeds">
+      <?php foreach ($itemMedia as $media):
+        echo $media->render();
+      endforeach;
+      ?>
+      </div>
+  <?php endif; ?>
+  <!-- end  custom additions -->
 
+  <!-- much of this is changed from the core code -->
+  <header>
+    <?php echo $this->pageTitle($item->displayTitle(null, ($filterLocale ? $lang : null)), 2); ?>
+  </header>
 
+  <div class="property-wrapper">
+    <?php echo $item->displayValues(); ?>
+    <div class="property">
+      <?php $itemSets = $item->itemSets(); ?>
+      <?php if (count($itemSets) > 0): ?>
+        <h4><?php echo $translate('Item sets'); ?></h4>
+        <?php foreach ($itemSets as $itemSet): ?>
+          <div class="foo"><?php echo $this->siteSetting('browse_heading_property_term'); ?></div>
+          <div class="value"><a href="<?php echo $escape($itemSet->url()); ?>"><?php echo $itemSet->displayTitle(); ?></a></div>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+  </div>
 
+  <?php
+    $page = $this->params()->fromQuery('page', 1);
+    $property = $this->params()->fromQuery('property');
+    $subjectValues = $item->displaySubjectValues($page, 25, $property);
+  ?>
+  <?php if ($subjectValues): ?>
+    <div id="item-linked">
+        <h3><?php echo $translate('Linked resources'); ?></h3>
+        <?php echo $subjectValues; ?>
+    </div>
+  <?php endif; ?>
+</div>
