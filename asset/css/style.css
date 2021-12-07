@@ -1966,11 +1966,13 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 56.25em) { .compact-card-listing .card-compact.representative-image h3 { padding: 1.4rem 0.1rem 1.4rem 1.9rem; margin: -6.00488rem 0 0 0; height: 60px; max-width: 340px; } }
 
-.card-compact { border-bottom: 0.45088rem solid #FFFFFF; }
+.card-compact { position: relative; border-bottom: 0.45088rem solid #FFFFFF; }
 
-@media only screen and (min-width: 56.25em) { .card-compact { border-bottom: 0.60118rem solid #FFFFFF; } }
+@media only screen and (min-width: 21em) { .card-compact { margin-bottom: 1.5rem; } }
 
-.card-compact.representative-image h3 { position: absolute; margin: -6.00488rem 0 0 0; padding: 0; border-top: unset; font-weight: 700; padding: 0 1.9rem; }
+@media only screen and (min-width: 56.25em) { .card-compact { border-bottom: 0.60118rem solid #FFFFFF; margin-bottom: 0; } }
+
+.card-compact.representative-image h3 { position: absolute; bottom: 0; margin: 0; padding: 0; border-top: unset; font-weight: 700; padding: 0 1.9rem; }
 
 @media only screen and (min-width: 56.25em) { .card-compact.representative-image h3 { padding: 1.9rem; } }
 
@@ -1978,7 +1980,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 56.25em) { .card-compact.representative-image h3 a { padding: 1.9rem; } }
 
-.card-compact h3 { position: relative; margin: -5.4044rem 0 0 0; padding: 0; border-top: unset; font-weight: 700; padding: 1.9rem; }
+.card-compact h3 { position: relative; margin: -4.50367rem 0 0 0; padding: 0; border-top: unset; font-weight: 700; padding: 0.9em; }
 
 @media only screen and (min-width: 56.25em) { .card-compact h3 { padding: 0; } }
 

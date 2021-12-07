@@ -134,16 +134,21 @@ main
           max-width: 340px
 
 .card-compact
+  position: relative
   border-bottom: rv(-5) solid $white
+  +bp($xs)
+    margin-bottom: 1.5rem
   +bp($stack)
     border-bottom: rv(-4) solid $white
+    margin-bottom: 0
 
   // &:last-child
   //    border: 0
   &.representative-image
     h3
       position: absolute
-      margin: rv(4) * -1 0 0 0
+      bottom: 0
+      margin: 0
       padding: 0
       border-top: unset
       font-weight: $bold
@@ -157,11 +162,11 @@ main
           padding: rv(0)
   h3
     position: relative
-    margin: rv(3) * -1.2 0 0 0
+    margin: rv(3) * -1 0 0 0
     padding: 0
     border-top: unset
     font-weight: $bold
-    padding: rv(0)
+    padding: 0.9em
 
     +bp($stack)
       padding: 0
