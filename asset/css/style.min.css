@@ -1826,7 +1826,7 @@ main > div .listing-cards{ padding-left:0; padding-right:0; }
 
 .card-compact .representative-image .item{ height:100%; }
 
-.card-compact .representative-image .item figure{ height:100%; background-color:#CBE1DA; transition:all 0.5s ease-in 0s; }
+.card-compact .representative-image .item figure{ height:100%; background-color:#cde2dc; transition:all 0.5s ease-in 0s; }
 
 .card-compact .representative-image .item figure a:focus{ margin:5px; }
 
