@@ -1956,7 +1956,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 .card-compact h3 { text-align: left; color: #1D2C27; font-size: 1.2rem; background-color: transparent; border-top: 0.33816rem solid #FFFFFF; position: relative; }
 
-.card-compact h3 > a { display: block; box-sizing: border-box; width: 100%; height: 100%; padding: 1.9rem; text-align: left; color: inherit; }
+.card-compact h3 > a { display: block; box-sizing: border-box; width: 100%; height: 100%; padding: 1.9rem; text-align: left; color: inherit; background-color: rgba(29, 44, 39, 0.9); }
 
 .card-compact.representative-image h3 { text-align: left; color: #FFFFFF; font-size: 1.2rem; background-color: transparent; border-top: 0.33816rem solid #FFFFFF; }
 
@@ -1994,7 +1994,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 .card-compact .representative-image .item { height: 100%; }
 
-.card-compact .representative-image .item figure { height: 100%; background-color: #74AF9D; transition: all 0.5s ease-in 0s; }
+.card-compact .representative-image .item figure { height: 100%; background-color: #CBE1DA; transition: all 0.5s ease-in 0s; }
 
 .card-compact .representative-image .item figure a:focus { margin: 5px; }
 
