@@ -3,14 +3,19 @@ $translate = $this->plugin('translate');
 $escape = $this->plugin('escapeHtml');
 $this->htmlElement('body')->appendAttribute('class', 'item resource browse');
 
+$filterLocale = (bool) $this->siteSetting('filter_locale_values');
+$lang = $this->lang();
+
 $query = $this->params()->fromQuery();
 $itemSetShow = isset($itemSet);
 if ($itemSetShow):
     $this->htmlElement('body')->appendAttribute('class', 'item-set');
     $query['item_set_id'] = $itemSet->id();
 endif;
+
 $headingTerm = $this->siteSetting('browse_heading_property_term', 'dcterms:title');
 $bodyTerm = $this->siteSetting('browse_body_property_term', 'dcterms:description');
+
 $sortHeadings = [
     [
         'label' => $translate('Title'),
@@ -32,7 +37,7 @@ $sortHeadings = [
 ?>
 
 <?php if ($itemSetShow): ?>
-    <?php echo $this->pageTitle($itemSet->displayTitle(), 2); ?>
+    <?php echo $this->pageTitle($itemSet->displayTitle(null, ($filterLocale ? $lang : null)), 2); ?>
     <h3><?php echo $translate('Item set'); ?></h3>
     <div class="metadata">
         <?php echo $itemSet->displayValues(); ?>
@@ -42,7 +47,7 @@ $sortHeadings = [
 <?php else: ?>
     <div class="explore-the-archive">
         <h1>Explore Historical Materials</h1>
-            
+
         <div id="search"><?php echo $this->partial('common/search-form'); ?></div>
         <?php echo $this->hyperlink($translate('Use advanced search'), $this->url('site/resource', ['controller' => 'item', 'action' => 'search'], ['query' => $query], true), ['class' => 'advanced-`search`']); ?>
         <h3>Browse Items </h3>
