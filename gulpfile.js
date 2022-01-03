@@ -4,7 +4,7 @@
  */
 
 var settings = {
-	clean: true, 
+	clean: true,
 	scripts: true,
 	modernizr: true,
 	styles: true,
@@ -21,7 +21,7 @@ var settings = {
 /**
  * Paths to project folders
  */
- 
+
 var source_dir = './source';
 var build_dir = './asset';
 
@@ -69,9 +69,9 @@ var paths = {
 
 
 /**
- * Copy third-party scripts and styles. 
+ * Copy third-party scripts and styles.
  */
- 
+
 var vendor_scripts = ['node_modules/jquery-reflow-table/dist/js/reflow-table.js','node_modules/ev-emitter/ev-emitter.js','node_modules/imagesloaded/imagesloaded.pkgd.js'];
 var vendor_styles = ['node_modules/jquery-reflow-table/dist/css/reflow-table.css'];
 
@@ -120,7 +120,7 @@ var optimizejs = require('gulp-optimize-js');
 var modernizr = require('gulp-modernizr');
 
 // Styles
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('node-sass'));
 var sourcemaps = require("gulp-sourcemaps");
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
@@ -140,9 +140,9 @@ var browserSync = require('browser-sync');
 /**
  *  Define CSS Plugins
  */
- 
+
 var cssPlugins = [
-	autoprefixer({cascade: true, remove: true}), 
+	autoprefixer({cascade: true, remove: true}),
 	postcsscomments({ removeAll: true})
 ];
 
@@ -193,9 +193,9 @@ var buildScripts = function (done) {
 
 				// Setup a suffix variable
 				var suffix = '';
-				
+
 				// Setup a filename.
-				
+
 				var filename = paths.scripts.cfilename === false ? file.relative : paths.scripts.cfilename;
 
 
@@ -219,7 +219,7 @@ var buildScripts = function (done) {
 };
 
 var buildVendorScripts = function(done) {
-  
+
 	if (!settings.scripts) return done();
 	return src(vendor_scripts)
 		.pipe(flatmap(function(stream, file) {
@@ -227,9 +227,9 @@ var buildVendorScripts = function(done) {
 
 				// Setup a suffix variable
 				var suffix = '';
-				
+
 				// Setup a filename.
-				
+
 				var filename = paths.scripts.vfilename === false ? file.relative : paths.scripts.vfilename;
 
 
@@ -243,7 +243,7 @@ var buildVendorScripts = function(done) {
 
 				return stream;
 
-		}));	 
+		}));
 }
 
 // Lint scripts
@@ -259,9 +259,9 @@ var lintScripts = function (done) {
 };
 
 var buildModernizr = function(done) {
-    
+
   if (!settings.modernizr) return done();
-    
+
   return src(paths.scripts.input + '/*.js')
     .pipe(modernizr(require('./modernizr-config.json')))
     .pipe(dest(paths.scripts.output))
@@ -276,7 +276,7 @@ var buildStyles = function (done) {
 
 	// Make sure this feature is activated before running
 	if (!settings.styles) return done();
-	
+
 	// Run tasks on all Sass files
 	return src(paths.styles.input)
 	  .pipe(sourcemaps.init())
@@ -296,14 +296,14 @@ var buildStyles = function (done) {
 };
 
 var buildVendorStyles = function(done) {
-  
+
 	if (!settings.scripts) return done();
 	return src(vendor_styles)
 		.pipe(flatmap(function(stream, file) {
 
-				
+
 				// Setup a filename.
-				
+
 				var filename = paths.styles.vfilename === false ? file.relative : paths.styles.vfilename;
 
 				// Grab all files and concatenate them
@@ -319,7 +319,7 @@ var buildVendorStyles = function(done) {
       		.pipe(sourcemaps.write('./'))
       		.pipe(dest(paths.styles.output));
 				return stream;
-		}));	 
+		}));
 }
 
 
