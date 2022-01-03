@@ -1,9 +1,9 @@
-/** 
- *  @file _section_list.sass 
+/**
+ *  @file _section_list.sass
  *  @category 60_site_elements
  *  @description Styles section list items in main content */
 
-  
+
 
 #secondary-content
   #feature-1
@@ -12,17 +12,17 @@
     +bp($stack)
       margin-left: auto
       margin-right: auto
-      
+
 #feature-1
   margin-top: 0
   display: grid
   grid-gap: rv(-5)
   grid-template-columns: 1fr
-  
+
   +bp($desktop)
     grid-template-columns: 6.4fr 3.6fr // golden ratio
     grid-gap: rv(-5)
-  
+
   .title-area
     text-align: center
     background-color: set-colour(1,'fade')
@@ -37,10 +37,10 @@
     h3
       margin-top: 0
 
-    
+
     +bp($desktop)
-      text-align: left 
-      
+      text-align: left
+
       &:before
         content: ''
         position: absolute
@@ -49,11 +49,11 @@
         background: url("../../asset/img/svg/marks/green_outline_mark.svg") no-repeat
         width: rv(5)
         height: rv(5)
-  
+
   .card-compact
     border-bottom: 0
     h3 > a
-      padding: 0
+      padding: 1rem
       color: $white
       +bp($stack)
         padding: 1.9rem

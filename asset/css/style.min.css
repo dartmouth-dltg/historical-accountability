@@ -1,4 +1,4 @@
-/*! dhap-theme v1.0.0 | (c) 2021 Agile Humanities Agency | MIT License | https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git */
+/*! dhap-theme v1.0.0 | (c) 2022 Agile Humanities Agency | MIT License | https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git */
 @charset "UTF-8";
 @keyframes build{ from{ opacity:0; }
   to{ opacity:1; } }
@@ -1812,7 +1812,7 @@ main > div .listing-cards{ padding-left:0; padding-right:0; }
 
 @media only screen and (min-width: 56.25em){ .card-compact.representative-image h3 a{ padding:1.9rem; } }
 
-.card-compact h3{ position:relative; margin:-4.50367rem 0 0 0; padding:0; border-top:unset; font-weight:700; padding:0.9em; }
+.card-compact h3{ position:relative; margin:-4.50367rem 0 0 0; padding:0; border-top:unset; font-weight:700; }
 
 @media only screen and (min-width: 56.25em){ .card-compact h3{ padding:0; } }
 
@@ -2244,7 +2244,7 @@ main .poster{ margin:2.53333rem 0 !important; }
 
 #feature-1 .card-compact{ border-bottom:0; }
 
-#feature-1 .card-compact h3 > a{ padding:0; color:#FFFFFF; }
+#feature-1 .card-compact h3 > a{ padding:1rem; color:#FFFFFF; }
 
 @media only screen and (min-width: 56.25em){ #feature-1 .card-compact h3 > a{ padding:1.9rem; height:5rem; position:relative; top:-35px; } }
 
