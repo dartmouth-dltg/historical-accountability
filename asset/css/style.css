@@ -1968,7 +1968,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 .card-compact { position: relative; border-bottom: 0.45088rem solid #FFFFFF; }
 
-@media only screen and (min-width: 21em) { .card-compact { margin-bottom: 1.5rem; } }
+@media only screen and (min-width: 21em) { .card-compact { margin-bottom: 1.8rem; } }
 
 @media only screen and (min-width: 56.25em) { .card-compact { border-bottom: 0.60118rem solid #FFFFFF; margin-bottom: 0; } }
 
