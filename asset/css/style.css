@@ -1964,7 +1964,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 .compact-card-listing { position: relative; }
 
-.compact-card-listing .card-compact.representative-image h3 { position: absolute; bottom: 0; padding: 1rem; max-width: 100%; height: auto; margin: 1rem 0 0 0; background-color: rgba(29, 44, 39, 0.9); }
+.compact-card-listing .card-compact.representative-image h3 { position: absolute; bottom: 0; padding: 1rem; width: 100%; max-width: 100%; height: auto; margin: 1rem 0 0 0; background-color: rgba(29, 44, 39, 0.9); }
 
 .card-compact { position: relative; border-bottom: 0.45088rem solid #FFFFFF; }
 
