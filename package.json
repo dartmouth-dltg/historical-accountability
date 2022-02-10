@@ -41,7 +41,7 @@
   "jshint": "^2.12.0",
   "jshint-stylish": "^2.2.1",
   "lazypipe": "^1.0.1",
-  "node-sass": "^5.0.0",
+  "node-sass": "^7.0.0",
   "pump": "^3.0.0"
  },
  "dependencies": {
