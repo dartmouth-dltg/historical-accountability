@@ -120,28 +120,25 @@ main
         color: inherit
 
 .compact-card-listing
+  position: relative
   .card-compact
     &.representative-image
       h3
-        padding: 0 0 0 1.9rem
-        max-width: 250px
-        overflow: hidden
-        height: 40px
-        margin: 3rem * -1 0 0 0
-        +bp($stack)
-          padding: 1.4rem 0.1rem 1.4rem 1.9rem
-          margin: rv(4) * -1 0 0 0
-          height: 60px
-          max-width: 340px
+        position: absolute
+        bottom: 0
+        padding: 1rem
+        width: 100%
+        max-width: 100%
+        height: auto
+        margin: 1rem 0 0 0
+        background-color: rgba($btn_submit_bg_color, 0.9)
 
 .card-compact
   position: relative
+  margin-bottom: 0.5rem
   border-bottom: rv(-5) solid $white
-  +bp($xs)
-    margin-bottom: 1.5rem
   +bp($stack)
     border-bottom: rv(-4) solid $white
-    margin-bottom: 0
 
   // &:last-child
   //    border: 0
@@ -162,9 +159,11 @@ main
         +bp($stack)
           padding: rv(0)
   h3
-    position: relative
-    margin: rv(3) * -1 0 0 0
+    position: absolute
+    bottom: 0
+    margin: 0
     padding: 0
+    width: 100%
     border-top: unset
     font-weight: $bold
 

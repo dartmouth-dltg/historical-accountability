@@ -1962,15 +1962,13 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 .card-compact.representative-image h3 > a { display: block; box-sizing: border-box; width: 100%; height: 100%; padding: 1.9rem; text-align: right; color: inherit; }
 
-.compact-card-listing .card-compact.representative-image h3 { padding: 0 0 0 1.9rem; max-width: 250px; overflow: hidden; height: 40px; margin: -3rem 0 0 0; }
+.compact-card-listing { position: relative; }
 
-@media only screen and (min-width: 56.25em) { .compact-card-listing .card-compact.representative-image h3 { padding: 1.4rem 0.1rem 1.4rem 1.9rem; margin: -6.00488rem 0 0 0; height: 60px; max-width: 340px; } }
+.compact-card-listing .card-compact.representative-image h3 { position: absolute; bottom: 0; padding: 1rem; width: 100%; max-width: 100%; height: auto; margin: 1rem 0 0 0; background-color: rgba(29, 44, 39, 0.9); }
 
-.card-compact { position: relative; border-bottom: 0.45088rem solid #FFFFFF; }
+.card-compact { position: relative; margin-bottom: 0.5rem; border-bottom: 0.45088rem solid #FFFFFF; }
 
-@media only screen and (min-width: 21em) { .card-compact { margin-bottom: 1.5rem; } }
-
-@media only screen and (min-width: 56.25em) { .card-compact { border-bottom: 0.60118rem solid #FFFFFF; margin-bottom: 0; } }
+@media only screen and (min-width: 56.25em) { .card-compact { border-bottom: 0.60118rem solid #FFFFFF; } }
 
 .card-compact.representative-image h3 { position: absolute; bottom: 0; margin: 0; padding: 0; border-top: unset; font-weight: 700; padding: 0 1.9rem; }
 
@@ -1980,7 +1978,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 
 @media only screen and (min-width: 56.25em) { .card-compact.representative-image h3 a { padding: 1.9rem; } }
 
-.card-compact h3 { position: relative; margin: -4.50367rem 0 0 0; padding: 0; border-top: unset; font-weight: 700; }
+.card-compact h3 { position: absolute; bottom: 0; margin: 0; padding: 0; width: 100%; border-top: unset; font-weight: 700; }
 
 @media only screen and (min-width: 56.25em) { .card-compact h3 { padding: 0; } }
 
@@ -2446,7 +2444,7 @@ main .poster { margin: 2.53333rem 0 !important; }
 
 #feature-1 .card-compact h3 > a { padding: 1rem; color: #FFFFFF; }
 
-@media only screen and (min-width: 56.25em) { #feature-1 .card-compact h3 > a { padding: 1.9rem; height: 5rem; position: relative; top: -35px; } }
+@media only screen and (min-width: 56.25em) { #feature-1 .card-compact h3 > a { padding: 1.9rem; } }
 
 #feature-1 .btn-submit { margin-top: 2.53333rem; display: inline-block; }
 
