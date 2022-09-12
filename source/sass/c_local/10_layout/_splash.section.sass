@@ -35,8 +35,8 @@
 
   figcaption
     top: 0
-    position: absolute
-    color: $white
+    position: relative
+    color: $black
     padding: rv(-1)
     z-index: 9
     font-style: normal
@@ -67,11 +67,10 @@
   overflow: hidden
 
   +bp($stack)
-    background: $black
 
   .items
     +splash_area_carousel_left()
-
+    border-bottom-right-radius: $borderRadius
   .introduction
     +splash_area_title_right()
     background-color: $black
@@ -88,39 +87,38 @@
     position: relative
 
     figcaption
-      position: absolute
+      position: relative
       color: $white
-      padding-left: rv(-1)
+      padding-left: rv(-2)
       z-index: 9
       font-style: normal
-      max-width: 70%
-      padding-top: rv(-1)
+      width: 100%
+      max-width: 100%
+      padding-top: rv(-2)
       font-weight: $bold
 
       +bp($stack)
-        padding-top: rv(0)
-        padding-left: rv(0)
-        max-width: 300px
+        padding-top: rv(-2)
+        padding-left: rv(-2)
+        width: 100%
+        max-width: 100%
 
       p
         line-height: font-value(0)
-        font-size: font-value(-1)
-        +bp($stack)
-          line-height: font-value(1)
-          font-size: font-value(0)
+        font-size: 1rem
 
     a
       display: block
-      height: 100%
       width: 100%
-      background: set-color(5,'tint')
+      height: 20rem
+      margin-top: 0
+      +bp($stack)
+        height: calc(100% - 8rem)
       img
-        filter: grayscale(100%)
-        mix-blend-mode: multiply
         object-fit: cover
-        height: 340px
+        height: 100%
         +bp($stack)
-          height: unset
+          height: 100%
 
     &:after
       position: absolute
@@ -134,11 +132,57 @@
       +bp($stack)
        // background: $ltr_dark_gradient
 
-  .slick-next, .slick-prev
-    top: 47%
-  .slick-next
+  .slick-slide > div
+    height: 26rem
+    +bp($small)
+      height: 23.5rem
     +bp($stack)
-      right: 19px
+      height: 100%
+      min-height: unset
+    .resource figure a
+      height: 15.5rem
+      +bp($stack)
+        height: calc(100% - 8rem)
+        min-height: unset
+
+  .slick-next, .slick-prev
+    z-index: 1000
+    top: unset
+    bottom: 1.2rem
+    width: 20px
+    height: 20px
+    line-height: normal
+  .slick-next
+    left: 8rem
+
+  .slick-dots
+    z-index: 999
+    left: unset !important
+    text-align: right !important
+    +bp($xxs)
+      right: -4rem !important
+      transform: scale(0.5)
+    +bp($small)
+      right: 1rem !important
+      transform: scale(1)
+
+  .slick-autoplay-toggle-button
+    z-index: 1000
+    bottom: 10px
+    left: 4.14rem
+    width: auto
+    height: 40px
+    min-width: auto
+    padding: 8px 9px 5px 9px
+    opacity: 1
+    background-color: $white
+    color: $clr5
+    &:hover,
+    &:active,
+    &:focus
+      color: $white
+      background-color: $clr1
+      border: none
 
   &.left
     &:after
