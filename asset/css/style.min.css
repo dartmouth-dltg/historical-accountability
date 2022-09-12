@@ -784,7 +784,7 @@ body > footer nav ul li a{ color:#FFFFFF; text-decoration:underline; }
 
 #homepage-splash{ margin-left:0; margin-right:0; width:100%; max-width:100%; position:relative; display:flex; flex-direction:column-reverse; overflow:hidden; }
 
-#homepage-splash .items{ overflow:hidden; flex:auto; width:100%; }
+#homepage-splash .items{ overflow:hidden; flex:auto; width:100%; margin-bottom:0; }
 
 @media only screen and (min-width: 56.25em){ #homepage-splash .items{ width:67%; position:absolute; top:0; bottom:0; } }
 
@@ -819,19 +819,31 @@ body > footer nav ul li a{ color:#FFFFFF; text-decoration:underline; }
 
 #homepage-splash figure:after{ position:absolute; content:""; height:100%; width:100%; top:0; left:0; opacity:1; }
 
-#homepage-splash figure figcaption{ position:relative; top:unset; padding-top:0.6rem; padding-bottom:0; max-width:95%; }
+#homepage-splash figure figcaption{ position:relative; top:unset; padding-top:0.6rem; padding-bottom:0; max-width:100%; text-align:center; }
 
-#homepage-splash .slick-next, #homepage-splash .slick-prev{ top:unset; height:2.5rem; width:2.5rem; font-size:2.5rem; }
+#homepage-splash .slick-slide > div{ height:100%; }
+
+#homepage-splash .slick-next, #homepage-splash .slick-prev{ z-index:1000; top:unset; height:2.5rem; width:2.5rem; font-size:2.5rem; }
 
 @media only screen and (min-width: 16em){ #homepage-splash .slick-prev{ left:1.5rem; bottom:-0.5rem; } }
 
 @media only screen and (min-width: 56.25em){ #homepage-splash .slick-prev{ left:2rem; bottom:-0.5rem; } }
 
-@media only screen and (min-width: 16em){ #homepage-splash .slick-next{ right:1.5rem; bottom:-0.5rem; } }
+@media only screen and (min-width: 16em){ #homepage-splash .slick-next{ right:unset; left:8rem; bottom:-0.5rem; } }
 
-@media only screen and (min-width: 56.25em){ #homepage-splash .slick-next{ right:2rem; bottom:-0.5rem; } }
+@media only screen and (min-width: 56.25em){ #homepage-splash .slick-next{ right:unset; left:8rem; bottom:-0.5rem; } }
 
-#homepage-splash .slick-dots{ z-index:1; }
+#homepage-splash .slick-dots{ z-index:999; left:unset !important; text-align:right !important; }
+
+@media only screen and (min-width: 16em){ #homepage-splash .slick-dots{ right:-4rem !important; transform:scale(0.5); } }
+
+@media only screen and (min-width: 46.25em){ #homepage-splash .slick-dots{ right:1rem !important; transform:scale(1); } }
+
+#homepage-splash .slick-autoplay-toggle-button{ z-index:1000; bottom:11px; left:4.9rem; width:auto; height:40px; min-width:auto; padding:8px 8px 5px 9px; opacity:1; border:1px solid; color:#FFFFFF; }
+
+@media only screen and (min-width: 56.25em){ #homepage-splash .slick-autoplay-toggle-button{ left:5.1rem; } }
+
+#homepage-splash .slick-autoplay-toggle-button:hover, #homepage-splash .slick-autoplay-toggle-button:active, #homepage-splash .slick-autoplay-toggle-button:focus{ background:none; color:#F2E55B; }
 
 #homepage-splash.left:after{ background:linear-gradient(90deg, rgba(49, 75, 67, 0.7) 36%, rgba(116, 175, 157, 0.1) 100%); }
 
@@ -871,7 +883,7 @@ body > footer nav ul li a{ color:#FFFFFF; text-decoration:underline; }
 
 @media only screen and (min-width: 56.25em){ .section-intro-splash{ background:#1D2C27; } }
 
-.section-intro-splash .items{ overflow:hidden; flex:auto; width:100%; }
+.section-intro-splash .items{ overflow:hidden; flex:auto; width:100%; margin-bottom:0; }
 
 @media only screen and (min-width: 56.25em){ .section-intro-splash .items{ width:67%; position:absolute; top:0; bottom:0; } }
 

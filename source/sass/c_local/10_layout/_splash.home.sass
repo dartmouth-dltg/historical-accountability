@@ -72,11 +72,15 @@
       top: unset
       padding-top: 0.6rem
       padding-bottom: 0
-      max-width: 95%
+      max-width: 100%
+      text-align: center
       +bp($xs)
 
+  .slick-slide > div
+    height: 100%
         
   .slick-next, .slick-prev
+    z-index: 1000
     top: unset
     height: 2.5rem
     width: 2.5rem
@@ -91,14 +95,43 @@
 
   .slick-next
     +bp($xxs)
-      right: 1.5rem
+      right: unset
+      left: 8rem
       bottom: -0.5rem
     +bp($stack)
-      right: 2rem
+      right: unset
+      left: 8rem
       bottom: -0.5rem
 
   .slick-dots
-    z-index: 1
+    z-index: 999
+    left: unset !important
+    text-align: right !important
+    +bp($xxs)
+      right: -4rem !important
+      transform: scale(0.5)
+    +bp($small)
+      right: 1rem !important
+      transform: scale(1)
+
+  .slick-autoplay-toggle-button
+    z-index: 1000
+    bottom: 11px
+    left: 4.9rem
+    width: auto
+    height: 40px
+    min-width: auto
+    padding: 8px 8px 5px 9px
+    opacity: 1
+    border: 1px solid
+    color: $white
+    +bp($stack)
+      left: 5.1rem
+    &:hover,
+    &:active,
+    &:focus
+      background: none
+      color: $clr2
           
   &.left
     &:after
