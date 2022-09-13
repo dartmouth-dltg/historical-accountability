@@ -71,6 +71,11 @@
   .items
     +splash_area_carousel_left()
     border-bottom-right-radius: $borderRadius
+    .resource
+      +bp($xxs)
+        padding-bottom: 2.5rem
+      +bp($stack)
+        padding-bottom: 1.5rem
   .introduction
     +splash_area_title_right()
     background-color: $black
@@ -89,12 +94,12 @@
     figcaption
       position: relative
       color: $white
-      padding-left: rv(-2)
+      padding-left: rv(-3)
       z-index: 9
       font-style: normal
       width: 100%
       max-width: 100%
-      padding-top: rv(-2)
+      padding-top: rv(-3)
       font-weight: $bold
 
       +bp($stack)
@@ -102,10 +107,6 @@
         padding-left: rv(-2)
         width: 100%
         max-width: 100%
-
-      p
-        line-height: font-value(0)
-        font-size: 1rem
 
     a
       display: block
@@ -133,14 +134,16 @@
        // background: $ltr_dark_gradient
 
   .slick-slide > div
-    height: 26rem
-    +bp($small)
-      height: 23.5rem
+    height: 24.5rem
     +bp($stack)
       height: 100%
       min-height: unset
     .resource figure a
       height: 15.5rem
+      +bp($xs)
+        height: 16rem
+      +bp($small)
+        height: 18rem
       +bp($stack)
         height: calc(100% - 8rem)
         min-height: unset
@@ -152,6 +155,9 @@
     width: 20px
     height: 20px
     line-height: normal
+    &:after,
+    &:before
+      font-size: 1.875rem
   .slick-next
     left: 8rem
 
@@ -168,20 +174,20 @@
 
   .slick-autoplay-toggle-button
     z-index: 1000
-    bottom: 10px
-    left: 4.14rem
+    bottom: 12px
+    left: 4.15rem
     width: auto
-    height: 40px
+    height: 34px
     min-width: auto
-    padding: 8px 9px 5px 9px
+    padding: 8px 8px 3px 8px
     opacity: 1
     background-color: $white
-    color: $clr5
+    color: $black
+    border-radius: 5rem
     &:hover,
     &:active,
     &:focus
-      color: $white
-      background-color: $clr1
+      background-color: $clr2
       border: none
 
   &.left
