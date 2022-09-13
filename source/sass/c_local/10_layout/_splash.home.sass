@@ -74,59 +74,52 @@
       padding-bottom: 0
       max-width: 100%
       text-align: center
-      +bp($xs)
 
   .slick-slide > div
     height: 100%
         
-  .slick-next, .slick-prev
+  .slick-next, 
+  .slick-prev
     z-index: 1000
     top: unset
-    height: 2.5rem
-    width: 2.5rem
-    font-size: 2.5rem
-  .slick-prev
-    +bp($xxs)
-      left: 1.5rem
-      bottom: -0.5rem
-    +bp($stack)
-      left: 2rem
-      bottom: -0.5rem
-
+    bottom: 0.75rem
+    width: 20px
+    height: 20px
+    line-height: normal
+    &:after,
+    &:before
+      font-size: 1.25rem
   .slick-next
-    +bp($xxs)
-      right: unset
-      left: 8rem
-      bottom: -0.5rem
-    +bp($stack)
-      right: unset
-      left: 8rem
-      bottom: -0.5rem
+    left: 5rem
 
   .slick-dots
     z-index: 999
+    right: -4.5rem !important
+    bottom: 0.5rem !important
     left: unset !important
     text-align: right !important
-    +bp($xxs)
-      right: -4rem !important
-      transform: scale(0.5)
+    transform: scale(0.5)
+    +bp($xs)
+      right: -5rem !important
     +bp($small)
-      right: 1rem !important
-      transform: scale(1)
+      right: -8rem !important
+    +bp($desktop)
+      right: -12.5rem !important
+    +bp($ultrawide)
+      right: -17rem !important
 
   .slick-autoplay-toggle-button
     z-index: 1000
-    bottom: 11px
-    left: 4.9rem
+    bottom: 10px
+    left: 2.75rem
     width: auto
-    height: 40px
+    height: 24px
     min-width: auto
-    padding: 8px 9px 5px 9px
+    padding: 8px 7px 3px 8px
     opacity: 1
     background-color: $white
     color: $black
-    +bp($stack)
-      left: 5.1rem
+    border-radius: 4px
     &:hover,
     &:active,
     &:focus

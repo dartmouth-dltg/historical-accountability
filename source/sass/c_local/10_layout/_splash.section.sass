@@ -31,7 +31,8 @@
     padding: 0 0 rv(0) 0
 
 
-#homepage-splash, .section-intro-splash
+#homepage-splash, 
+.section-intro-splash
 
   figcaption
     top: 0
@@ -75,7 +76,7 @@
       +bp($xxs)
         padding-bottom: 2.5rem
       +bp($stack)
-        padding-bottom: 1.5rem
+        padding-bottom: 7.5rem
   .introduction
     +splash_area_title_right()
     background-color: $black
@@ -91,35 +92,22 @@
   figure
     position: relative
 
-    figcaption
-      position: relative
+    p
       color: $white
-      padding-left: rv(-3)
-      z-index: 9
-      font-style: normal
-      width: 100%
-      max-width: 100%
-      padding-top: rv(-3)
-      font-weight: $bold
-
-      +bp($stack)
-        padding-top: rv(-2)
-        padding-left: rv(-2)
-        width: 100%
-        max-width: 100%
-
+    
     a
       display: block
+      height: 100%
       width: 100%
-      height: 20rem
-      margin-top: 0
-      +bp($stack)
-        height: calc(100% - 8rem)
+      color: $white
+      
       img
+        filter: grayscale(100%)
+        mix-blend-mode: multiply
         object-fit: cover
-        height: 100%
+        height: 340px
         +bp($stack)
-          height: 100%
+          height: unset
 
     &:after
       position: absolute
@@ -129,61 +117,63 @@
       top: 0
       left: 0
       opacity: 1
-
+      
       +bp($stack)
        // background: $ltr_dark_gradient
+    
+    figcaption
+      position: relative
+      top: unset
+      padding-top: 0.6rem
+      padding-bottom: 0
+      max-width: 100%
+      text-align: center
 
   .slick-slide > div
-    height: 24.5rem
-    +bp($stack)
-      height: 100%
-      min-height: unset
-    .resource figure a
-      height: 15.5rem
-      +bp($xs)
-        height: 16rem
-      +bp($small)
-        height: 18rem
-      +bp($stack)
-        height: calc(100% - 8rem)
-        min-height: unset
+    height: 100%
 
-  .slick-next, .slick-prev
+  .slick-next,
+  .slick-prev
     z-index: 1000
     top: unset
-    bottom: 1.2rem
+    bottom: 0.75rem
     width: 20px
     height: 20px
     line-height: normal
     &:after,
     &:before
-      font-size: 1.875rem
+      font-size: 1.25rem
   .slick-next
-    left: 8rem
+    left: 5rem
 
   .slick-dots
     z-index: 999
+    right: -4.5rem !important
+    bottom: 0.5rem !important
     left: unset !important
     text-align: right !important
-    +bp($xxs)
-      right: -4rem !important
-      transform: scale(0.5)
+    transform: scale(0.5)
+    +bp($xs)
+      right: -5rem !important
     +bp($small)
-      right: 1rem !important
-      transform: scale(1)
+      right: -8rem !important
+    +bp($desktop)
+      right: -12.5rem !important
+    +bp($ultrawide)
+      right: -17rem !important
 
   .slick-autoplay-toggle-button
     z-index: 1000
-    bottom: 12px
-    left: 4.15rem
+    bottom: 10px
+    left: 2.75rem
     width: auto
-    height: 34px
+    height: 24px
     min-width: auto
-    padding: 8px 8px 3px 8px
+    padding: 8px 7px 3px 8px
     opacity: 1
     background-color: $white
     color: $black
-    border-radius: 5rem
+    border-radius: 4px
     &:hover,
     &:active,
     &:focus

@@ -973,25 +973,23 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 #homepage-splash .slick-slide > div { height: 100%; }
 
-#homepage-splash .slick-next, #homepage-splash .slick-prev { z-index: 1000; top: unset; height: 2.5rem; width: 2.5rem; font-size: 2.5rem; }
+#homepage-splash .slick-next, #homepage-splash .slick-prev { z-index: 1000; top: unset; bottom: 0.75rem; width: 20px; height: 20px; line-height: normal; }
 
-@media only screen and (min-width: 16em) { #homepage-splash .slick-prev { left: 1.5rem; bottom: -0.5rem; } }
+#homepage-splash .slick-next:after, #homepage-splash .slick-next:before, #homepage-splash .slick-prev:after, #homepage-splash .slick-prev:before { font-size: 1.25rem; }
 
-@media only screen and (min-width: 56.25em) { #homepage-splash .slick-prev { left: 2rem; bottom: -0.5rem; } }
+#homepage-splash .slick-next { left: 5rem; }
 
-@media only screen and (min-width: 16em) { #homepage-splash .slick-next { right: unset; left: 8rem; bottom: -0.5rem; } }
+#homepage-splash .slick-dots { z-index: 999; right: -4.5rem !important; bottom: 0.5rem !important; left: unset !important; text-align: right !important; transform: scale(0.5); }
 
-@media only screen and (min-width: 56.25em) { #homepage-splash .slick-next { right: unset; left: 8rem; bottom: -0.5rem; } }
+@media only screen and (min-width: 21em) { #homepage-splash .slick-dots { right: -5rem !important; } }
 
-#homepage-splash .slick-dots { z-index: 999; left: unset !important; text-align: right !important; }
+@media only screen and (min-width: 46.25em) { #homepage-splash .slick-dots { right: -8rem !important; } }
 
-@media only screen and (min-width: 16em) { #homepage-splash .slick-dots { right: -4rem !important; transform: scale(0.5); } }
+@media only screen and (min-width: 75em) { #homepage-splash .slick-dots { right: -12.5rem !important; } }
 
-@media only screen and (min-width: 46.25em) { #homepage-splash .slick-dots { right: 1rem !important; transform: scale(1); } }
+@media only screen and (min-width: 112.5em) { #homepage-splash .slick-dots { right: -17rem !important; } }
 
-#homepage-splash .slick-autoplay-toggle-button { z-index: 1000; bottom: 11px; left: 4.9rem; width: auto; height: 40px; min-width: auto; padding: 8px 9px 5px 9px; opacity: 1; background-color: #FFFFFF; color: #1D2C27; }
-
-@media only screen and (min-width: 56.25em) { #homepage-splash .slick-autoplay-toggle-button { left: 5.1rem; } }
+#homepage-splash .slick-autoplay-toggle-button { z-index: 1000; bottom: 10px; left: 2.75rem; width: auto; height: 24px; min-width: auto; padding: 8px 7px 3px 8px; opacity: 1; background-color: #FFFFFF; color: #1D2C27; border-radius: 4px; }
 
 #homepage-splash .slick-autoplay-toggle-button:hover, #homepage-splash .slick-autoplay-toggle-button:active, #homepage-splash .slick-autoplay-toggle-button:focus { background-color: #F2E55B; border: none; }
 
@@ -1044,7 +1042,7 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 @media only screen and (min-width: 16em) { .section-intro-splash .items .resource { padding-bottom: 2.5rem; } }
 
-@media only screen and (min-width: 56.25em) { .section-intro-splash .items .resource { padding-bottom: 1.5rem; } }
+@media only screen and (min-width: 56.25em) { .section-intro-splash .items .resource { padding-bottom: 7.5rem; } }
 
 .section-intro-splash .introduction { position: relative; width: 100%; justify-content: center; z-index: 1; padding: 2.13751rem; border-left: 0.45088rem solid #FFFFFF; border-right: 0.45088rem solid #FFFFFF; border-bottom: 0.45088rem solid #FFFFFF; background-color: #1D2C27; }
 
@@ -1062,45 +1060,37 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 .section-intro-splash figure { position: relative; }
 
-.section-intro-splash figure figcaption { position: relative; color: #FFFFFF; padding-left: 0.80157rem; z-index: 9; font-style: normal; width: 100%; max-width: 100%; padding-top: 0.80157rem; font-weight: 700; }
+.section-intro-splash figure p { color: #FFFFFF; }
 
-@media only screen and (min-width: 56.25em) { .section-intro-splash figure figcaption { padding-top: 1.06876rem; padding-left: 1.06876rem; width: 100%; max-width: 100%; } }
+.section-intro-splash figure a { display: block; height: 100%; width: 100%; color: #FFFFFF; }
 
-.section-intro-splash figure a { display: block; width: 100%; height: 20rem; margin-top: 0; }
+.section-intro-splash figure a img { filter: grayscale(100%); mix-blend-mode: multiply; object-fit: cover; height: 340px; }
 
-@media only screen and (min-width: 56.25em) { .section-intro-splash figure a { height: calc(100% - 8rem); } }
-
-.section-intro-splash figure a img { object-fit: cover; height: 100%; }
-
-@media only screen and (min-width: 56.25em) { .section-intro-splash figure a img { height: 100%; } }
+@media only screen and (min-width: 56.25em) { .section-intro-splash figure a img { height: unset; } }
 
 .section-intro-splash figure:after { position: absolute; content: ""; height: 100%; width: 100%; top: 0; left: 0; opacity: 1; }
 
-.section-intro-splash .slick-slide > div { height: 24.5rem; }
+.section-intro-splash figure figcaption { position: relative; top: unset; padding-top: 0.6rem; padding-bottom: 0; max-width: 100%; text-align: center; }
 
-@media only screen and (min-width: 56.25em) { .section-intro-splash .slick-slide > div { height: 100%; min-height: unset; } }
+.section-intro-splash .slick-slide > div { height: 100%; }
 
-.section-intro-splash .slick-slide > div .resource figure a { height: 15.5rem; }
+.section-intro-splash .slick-next, .section-intro-splash .slick-prev { z-index: 1000; top: unset; bottom: 0.75rem; width: 20px; height: 20px; line-height: normal; }
 
-@media only screen and (min-width: 21em) { .section-intro-splash .slick-slide > div .resource figure a { height: 16rem; } }
+.section-intro-splash .slick-next:after, .section-intro-splash .slick-next:before, .section-intro-splash .slick-prev:after, .section-intro-splash .slick-prev:before { font-size: 1.25rem; }
 
-@media only screen and (min-width: 46.25em) { .section-intro-splash .slick-slide > div .resource figure a { height: 18rem; } }
+.section-intro-splash .slick-next { left: 5rem; }
 
-@media only screen and (min-width: 56.25em) { .section-intro-splash .slick-slide > div .resource figure a { height: calc(100% - 8rem); min-height: unset; } }
+.section-intro-splash .slick-dots { z-index: 999; right: -4.5rem !important; bottom: 0.5rem !important; left: unset !important; text-align: right !important; transform: scale(0.5); }
 
-.section-intro-splash .slick-next, .section-intro-splash .slick-prev { z-index: 1000; top: unset; bottom: 1.2rem; width: 20px; height: 20px; line-height: normal; }
+@media only screen and (min-width: 21em) { .section-intro-splash .slick-dots { right: -5rem !important; } }
 
-.section-intro-splash .slick-next:after, .section-intro-splash .slick-next:before, .section-intro-splash .slick-prev:after, .section-intro-splash .slick-prev:before { font-size: 1.875rem; }
+@media only screen and (min-width: 46.25em) { .section-intro-splash .slick-dots { right: -8rem !important; } }
 
-.section-intro-splash .slick-next { left: 8rem; }
+@media only screen and (min-width: 75em) { .section-intro-splash .slick-dots { right: -12.5rem !important; } }
 
-.section-intro-splash .slick-dots { z-index: 999; left: unset !important; text-align: right !important; }
+@media only screen and (min-width: 112.5em) { .section-intro-splash .slick-dots { right: -17rem !important; } }
 
-@media only screen and (min-width: 16em) { .section-intro-splash .slick-dots { right: -4rem !important; transform: scale(0.5); } }
-
-@media only screen and (min-width: 46.25em) { .section-intro-splash .slick-dots { right: 1rem !important; transform: scale(1); } }
-
-.section-intro-splash .slick-autoplay-toggle-button { z-index: 1000; bottom: 12px; left: 4.15rem; width: auto; height: 34px; min-width: auto; padding: 8px 8px 3px 8px; opacity: 1; background-color: #FFFFFF; color: #1D2C27; border-radius: 5rem; }
+.section-intro-splash .slick-autoplay-toggle-button { z-index: 1000; bottom: 10px; left: 2.75rem; width: auto; height: 24px; min-width: auto; padding: 8px 7px 3px 8px; opacity: 1; background-color: #FFFFFF; color: #1D2C27; border-radius: 4px; }
 
 .section-intro-splash .slick-autoplay-toggle-button:hover, .section-intro-splash .slick-autoplay-toggle-button:active, .section-intro-splash .slick-autoplay-toggle-button:focus { background-color: #F2E55B; border: none; }
 
