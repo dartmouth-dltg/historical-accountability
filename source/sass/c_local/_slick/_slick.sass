@@ -26,7 +26,7 @@ $slide_content_margin: rv(0)
   height: 100%
   overflow: hidden
   width: 100%
-  
+  padding-bottom: 1.5rem
   
 .slideshow
   background: $black
@@ -194,30 +194,33 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
                 
 
 // !UI CONTROLS
+.fullscreen-wrapper
+  position: absolute
+  top: 0
+  right: 0
+  background-color: $black
+
 .fullscreen-label
   text-align: left
   font-size: font-value(-2)
   line-height: font-value(-1)
-  position: absolute
-  left: -68px
 
 .slide-fullscreen-openBtn
-  position: absolute
-  top: rv(0)
-  right: rv(0)
+  justify-content: left
   color: $white
   border: 0
   border-radius: 0
-  height: 25px
-  width: 25px
-  min-width: auto
-  background: url(../../asset/img/svg/icons/fullscreen_white_icon.svg) no-repeat
+  width: auto
+  min-width: 7rem
+  background: url(../../asset/img/svg/icons/fullscreen_white_icon.svg) no-repeat 90%
+  background-size: 25px
   
   &:hover
     border: 0
     border-radius: 0
-    background: url(../../asset/img/svg/icons/fullscreen_yellow_icon.svg) no-repeat
+    background: url(../../asset/img/svg/icons/fullscreen_yellow_icon.svg) no-repeat 90%
     background-color: transparent
+    background-size: 25px
     color: $clr2
     
 .slide-fullscreen-closeBtn
@@ -250,10 +253,10 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
 
 .slick-prev, .slick-next
   position: absolute
-  width: rv(4)
-  height: rv(4)
-  top: 40%
-  transform: translateY(-50%)
+  width: 1.5rem
+  height: 1.5rem
+  top: unset
+  bottom: 0
   z-index: 100
   cursor: pointer
   margin: 0
@@ -262,19 +265,19 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
     top: 0
     left: 0
     font-family: 'Font Awesome 5 Free'
-    font-size: 2.5rem
-    line-height: 2.5rem
+    font-size: 1.5rem
+    line-height: 1.5rem
     color: $white
   &:hover::before, &:hover::after
     color: $clr2
     
 .slick-prev
-  left: 20px
+  left: 1rem
   &::before
     content: '\f0a8'
   
 .slick-next
-  right: 15px
+  left: 5.075rem
   &::after
     right: 0
     left: unset
@@ -284,15 +287,19 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   position: absolute
   text-align: right
   height: $dot_size
+  width: 100%
   column-count: unset
   top: initial
-  bottom: $slide_content_margin
-  right: $slide_content_margin
+  bottom: 0.5rem
+  right: 0
   padding: 0
   z-index: 100
   margin: 0
   display: flex
   justify-content: flex-end
+  transform: scale(0.5)
+  +bp($stack)
+    transform: scale(0.75)
     
   li.slick-active
     &:after
@@ -335,7 +342,28 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   button
     display:none!important
 
+.slick-autoplay-toggle-button
+  z-index: 1000
+  bottom: 12px
+  left: 2.75rem
+  width: auto
+  height: 24px
+  min-width: auto
+  padding: 8px 7px 3px 8px
+  opacity: 1
+  background-color: $white
+  color: $black
+  border-radius: 4px
+  &:hover,
+  &:active,
+  &:focus
+    background-color: $clr2
+    border: none
+    color: $black
 
+  &.left
+    &:after
+      background: $rtl_dark_gradient
 
 // !AUDIO PLAYER
 .audio-controls > .audio-player > .media-render > audio
