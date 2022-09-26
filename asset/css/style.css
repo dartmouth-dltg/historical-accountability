@@ -1548,7 +1548,7 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 /* @file _slick.sass @theme Local @description  Loads SASS files for local theme. */
 .slideshow-block, .slideshow-with-audio { position: relative; overflow: hidden; width: 100%; max-width: calc(100vw - 2.0rem); height: calc(140vw * 9/16); }
 
-@media only screen and (min-width: 56.25em) { .slideshow-block, .slideshow-with-audio { height: calc(100vw * 9/16); max-width: initial; } }
+@media only screen and (min-width: 56.25em) { .slideshow-block, .slideshow-with-audio { height: calc(70vw * 9/16); max-width: calc(70vw - 2.0rem) !important; } }
 
 .slideshow-with-audio { display: flex; flex-direction: column; }
 
@@ -1558,7 +1558,7 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .slideshow .slick-slide > div { height: calc(140vw * 9/16); }
 
-@media only screen and (min-width: 56.25em) { .slideshow .slick-slide > div { height: calc(100vw * 9/16); } }
+@media only screen and (min-width: 56.25em) { .slideshow .slick-slide > div { height: calc(70vw * 9/16); } }
 
 .slideshow .item { display: flex !important; flex-direction: column; justify-content: stretch; height: 100%; }
 
