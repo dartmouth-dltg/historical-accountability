@@ -14,7 +14,7 @@
       +bp($xxs)
         padding-bottom: 2.5rem
       +bp($stack)
-        padding-bottom: 7.5rem
+        padding-bottom: 6.5rem
     
 
   .introduction
@@ -74,6 +74,15 @@
       padding-bottom: 0
       max-width: 100%
       text-align: center
+  
+  .slideshow,
+  .slick-list,
+  .slick-track
+    padding-bottom: 0
+
+  .slick-list .slick-track
+    +bp($small)
+      border-radius: 0 0 0 16px
 
   .slick-slide > div
     height: 100%
@@ -110,8 +119,8 @@
 
   .slick-autoplay-toggle-button
     z-index: 1000
-    bottom: 10px
-    left: 2.75rem
+    bottom: 18px
+    left: 2.625rem
     width: auto
     height: 24px
     min-width: auto
