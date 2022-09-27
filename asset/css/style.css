@@ -1580,6 +1580,16 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .slideshow .item img.img-portrait { object-fit: contain; }
 
+.slideshow .item.slide-fit-cover img { object-fit: cover; }
+
+.slideshow .item.slide-fit-contain img { object-fit: contain; }
+
+.slideshow .item.slide-position-top img { object-position: top; }
+
+.slideshow .item.slide-position-center img { object-position: center; }
+
+.slideshow .item.slide-position-bottom img { object-position: bottom; }
+
 .slideshow.navHover .item figure:before { opacity: 1; }
 
 _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { transition: none; }

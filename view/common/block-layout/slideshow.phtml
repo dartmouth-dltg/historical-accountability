@@ -1,11 +1,11 @@
 <div id="block-<?php echo $this->blockId; ?>" class="region <?php echo $this->regionClass; ?> <?php echo $hasAudioAttachment ? 'slideshow-with-audio' : 'slideshow-block'; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
-    <div class="slideshow">
+<div class="slideshow">
         <?php if ($useTitleSlide): ?>
-            <div class="item resource introduction">
+            <div class="item resource introduction slide-size-<?php echo $attachmentSizing[0]; ?> slide-fit-<?php echo $attachmentFit[0]; ?> slide-position-<?php echo $attachmentPosition[0]; ?>">
                 <figure>
                     <?php
                         if ($titleSlideMedia):
-                            echo $this->thumbnail($titleSlideMedia, $thumbnailType);
+                            echo $this->thumbnail($titleSlideMedia, $attachmentSizing[0]);
                         endif;
                     ?>
                 </figure>
@@ -35,16 +35,16 @@
             </div>
         <?php endif; ?>
 
-        <?php foreach ($attachments as $attachment): ?>
+        <?php foreach ($attachments as $key => $attachment): ?>
             <?php
                 $item = $attachment->item();
             ?>
-            <div class="item resource slide-item">
+            <div class="item resource slide-item slide-size-<?php echo $attachmentSizing[$key]; ?> slide-fit-<?php echo $attachmentFit[$key]; ?> slide-position-<?php echo $attachmentPosition[$key]; ?>">
                 <?php if ($item):
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
                     if ($media):
-                        $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $this->thumbnail($media, $this->thumbnailType, ['alt' => $title]) : $this->thumbnail($media, $this->thumbnailType);
+                        $image = preg_match('/alt=""/', $this->thumbnail($media, $attachmentSizing[$key])) == 1 ? $this->thumbnail($media, $attachmentSizing[$key], ['alt' => $title]) : $this->thumbnail($media, $attachmentSizing[$key]);
 
                 ?>
                         <figure>
