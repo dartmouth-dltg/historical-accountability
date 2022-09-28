@@ -74,6 +74,21 @@
         background-position: center bottom
         object-fit: cover
         height: 100%
+    &.slide-fit-cover
+      img
+        object-fit: cover
+    &.slide-fit-contain
+      img
+        object-fit: contain
+    &.slide-position-top
+      img
+        object-position: top   
+    &.slide-position-center
+      img
+        object-position: center
+    &.slide-position-bottom
+      img
+        object-position: bottom 
 
 =splash_area_carousel_right()
   +splash_area_carousel_common()

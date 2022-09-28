@@ -1,15 +1,15 @@
 <div id="homepage-splash" class="block-<?php echo $this->blockId; ?> region <?php echo $this->regionClass; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
     <div class="items">
-        <?php foreach ($attachments as $attachment): ?>
+        <?php foreach ($attachments as $key => $attachment): ?>
             <?php
                 $item = $attachment->item();
             ?>
-            <div class="item resource">
+            <div class="item resource <?php foreach ($attachmentOptions as $attachmentOption => $defaultVal) {echo ' slide-' . $attachmentOption . '-' . ${'attachment' . ucfirst($attachmentOption)}[$key];}?>">
                 <?php if ($item):
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
                     if ($media):
-                        $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $this->thumbnailType, ['alt' => 'foo']));
+                        $image = preg_match('/alt=""/', $this->thumbnail($media, $attachmentSize[$key])) == 1 ? $item->linkRaw($this->thumbnail($media, $attachmentSize[$key], ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $attachmentSize[$key], ['alt' => 'foo']));
 
                 ?>
                         <figure>

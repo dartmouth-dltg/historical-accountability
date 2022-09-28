@@ -1,7 +1,7 @@
 <div id="block-<?php echo $this->blockId; ?>" class="region <?php echo $this->regionClass; ?> <?php echo $hasAudioAttachment ? 'slideshow-with-audio' : 'slideshow-block'; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
 <div class="slideshow">
         <?php if ($useTitleSlide): ?>
-            <div class="item resource introduction slide-size-<?php echo $attachmentSize[0]; ?> slide-fit-<?php echo $attachmentFit[0]; ?> slide-position-<?php echo $attachmentPosition[0]; ?>">
+            <div class="item resource introduction <?php foreach ($attachmentOptions as $attachmentOption => $defaultVal) {echo ' slide-' . $attachmentOption . '-' . ${'attachment' . ucfirst($attachmentOption)}[0];}?>">
                 <figure>
                     <?php
                         if ($titleSlideMedia):
@@ -39,7 +39,7 @@
             <?php
                 $item = $attachment->item();
             ?>
-            <div class="item resource slide-item slide-size-<?php echo $attachmentSize[$key]; ?> slide-fit-<?php echo $attachmentFit[$key]; ?> slide-position-<?php echo $attachmentPosition[$key]; ?>">
+            <div class="item resource slide-item <?php foreach ($attachmentOptions as $attachmentOption => $defaultVal) {echo ' slide-' . $attachmentOption . '-' . ${'attachment' . ucfirst($attachmentOption)}[$key];}?>">
                 <?php if ($item):
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
