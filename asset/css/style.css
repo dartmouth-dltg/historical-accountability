@@ -951,11 +951,23 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 #homepage-splash .items .resource.slide-fit-contain img { object-fit: contain; }
 
-#homepage-splash .items .resource.slide-position-top img { object-position: top; }
+#homepage-splash .items .resource.slide-position-top-center img { object-position: top center; }
 
-#homepage-splash .items .resource.slide-position-center img { object-position: center; }
+#homepage-splash .items .resource.slide-position-center-center img { object-position: center center; }
 
-#homepage-splash .items .resource.slide-position-bottom img { object-position: bottom; }
+#homepage-splash .items .resource.slide-position-bottom-center img { object-position: bottom center; }
+
+#homepage-splash .items .resource.slide-position-top-left img { object-position: top left; }
+
+#homepage-splash .items .resource.slide-position-center-left img { object-position: center left; }
+
+#homepage-splash .items .resource.slide-position-bottom-left img { object-position: bottom left; }
+
+#homepage-splash .items .resource.slide-position-top-right img { object-position: top right; }
+
+#homepage-splash .items .resource.slide-position-center-right img { object-position: center right; }
+
+#homepage-splash .items .resource.slide-position-bottom-right img { object-position: bottom right; }
 
 @media only screen and (min-width: 56.25em) { #homepage-splash .items { right: 0; } }
 
@@ -1060,11 +1072,23 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 .section-intro-splash .items .resource.slide-fit-contain img { object-fit: contain; }
 
-.section-intro-splash .items .resource.slide-position-top img { object-position: top; }
+.section-intro-splash .items .resource.slide-position-top-center img { object-position: top center; }
 
-.section-intro-splash .items .resource.slide-position-center img { object-position: center; }
+.section-intro-splash .items .resource.slide-position-center-center img { object-position: center center; }
 
-.section-intro-splash .items .resource.slide-position-bottom img { object-position: bottom; }
+.section-intro-splash .items .resource.slide-position-bottom-center img { object-position: bottom center; }
+
+.section-intro-splash .items .resource.slide-position-top-left img { object-position: top left; }
+
+.section-intro-splash .items .resource.slide-position-center-left img { object-position: center left; }
+
+.section-intro-splash .items .resource.slide-position-bottom-left img { object-position: bottom left; }
+
+.section-intro-splash .items .resource.slide-position-top-right img { object-position: top right; }
+
+.section-intro-splash .items .resource.slide-position-center-right img { object-position: center right; }
+
+.section-intro-splash .items .resource.slide-position-bottom-right img { object-position: bottom right; }
 
 @media only screen and (min-width: 56.25em) { .section-intro-splash .items { left: 0; } }
 
@@ -1604,11 +1628,23 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .slideshow .item.slide-fit-contain img { object-fit: contain; }
 
-.slideshow .item.slide-position-top img { object-position: top; }
+.slideshow .item.slide-position-top-center img { object-position: top center; }
 
-.slideshow .item.slide-position-center img { object-position: center; }
+.slideshow .item.slide-position-center-center img { object-position: center center; }
 
-.slideshow .item.slide-position-bottom img { object-position: bottom; }
+.slideshow .item.slide-position-bottom-center img { object-position: bottom center; }
+
+.slideshow .item.slide-position-top-left img { object-position: top left; }
+
+.slideshow .item.slide-position-center-left img { object-position: center left; }
+
+.slideshow .item.slide-position-bottom-left img { object-position: bottom left; }
+
+.slideshow .item.slide-position-top-right img { object-position: top right; }
+
+.slideshow .item.slide-position-center-right img { object-position: center right; }
+
+.slideshow .item.slide-position-bottom-right img { object-position: bottom right; }
 
 .slideshow.navHover .item figure:before { opacity: 1; }
 

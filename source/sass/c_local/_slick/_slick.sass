@@ -98,15 +98,36 @@ $slide_content_margin: rv(0)
     &.slide-fit-contain
       img
         object-fit: contain
-    &.slide-position-top
+        
+    &.slide-position-top-center
       img
-        object-position: top   
-    &.slide-position-center
+        object-position: top center 
+    &.slide-position-center-center
       img
-        object-position: center
-    &.slide-position-bottom
+        object-position: center center
+    &.slide-position-bottom-center
       img
-        object-position: bottom 
+        object-position: bottom center
+
+    &.slide-position-top-left
+      img
+        object-position: top left 
+    &.slide-position-center-left
+      img
+        object-position: center left
+    &.slide-position-bottom-left
+      img
+        object-position: bottom left
+
+    &.slide-position-top-right
+      img
+        object-position: top right
+    &.slide-position-center-right
+      img
+        object-position: center right
+    &.slide-position-bottom-right
+      img
+        object-position: bottom right
   // makes nav arrow background visible
         
   &.navHover
