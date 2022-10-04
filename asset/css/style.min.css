@@ -841,7 +841,7 @@ body > footer nav ul li a{ color:#FFFFFF; text-decoration:underline; }
 
 #homepage-splash figure{ position:relative; }
 
-#homepage-splash figure a{ display:block; height:100%; width:100%; color:#FFFFFF; }
+#homepage-splash figure a{ display:block; overflow:hidden; height:100%; width:100%; color:#FFFFFF; }
 
 #homepage-splash figure a img{ filter:grayscale(100%); mix-blend-mode:multiply; object-fit:cover; height:340px; }
 
@@ -968,7 +968,7 @@ body > footer nav ul li a{ color:#FFFFFF; text-decoration:underline; }
 
 .section-intro-splash figure p{ color:#FFFFFF; }
 
-.section-intro-splash figure a{ display:block; height:100%; width:100%; color:#FFFFFF; }
+.section-intro-splash figure a{ display:block; overflow:hidden; height:100%; width:100%; color:#FFFFFF; }
 
 .section-intro-splash figure a img{ filter:grayscale(100%); mix-blend-mode:multiply; object-fit:cover; height:340px; }
 
@@ -1459,6 +1459,8 @@ input:checked + .slider:before{ transform:translateX(16px); }
 .slideshow .item figure:before{ opacity:0; position:absolute; content:''; background:linear-gradient(90deg, black 0%, rgba(0, 0, 0, 0.5) 15%, rgba(159, 159, 159, 0) 50%, rgba(0, 0, 0, 0.5) 85%, black 100%); width:100%; top:0; left:0; bottom:0; right:0; pointer-events:none; transition:opacity 0.21094s ease-in 0s; }
 
 @media only screen and (min-width: 56.25em){ .slideshow .item figure:before{ height:100% !important; max-height:100% !important; } }
+
+.slideshow .item figure .slideshow-image-wrapper{ overflow:hidden; height:100%; }
 
 .slideshow .item.introduction > figure{ background-color:#74AF9D; }
 

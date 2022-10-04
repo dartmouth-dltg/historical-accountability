@@ -3,11 +3,13 @@
         <?php if ($useTitleSlide): ?>
             <div class="item resource introduction <?php foreach ($attachmentOptions as $attachmentOption => $defaultVal) {echo ' slide-' . $attachmentOption . '-' . ${'attachment' . ucfirst($attachmentOption)}[0];}?>">
                 <figure>
-                    <?php
-                        if ($titleSlideMedia):
-                            echo $this->thumbnail($titleSlideMedia, $attachmentSize[0]);
-                        endif;
-                    ?>
+                    <div class="slideshow-image-wrapper">
+                        <?php
+                            if ($titleSlideMedia):
+                                echo $this->thumbnail($titleSlideMedia, $attachmentSize[0], ['style' => $attachmentScaleValues[0]]);
+                            endif;
+                        ?>
+                    </div>
                 </figure>
                 <?php if($hasAudioAttachment): ?>
                         <div class="audio-controls">
@@ -44,11 +46,13 @@
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
                     if ($media):
-                        $image = preg_match('/alt=""/', $this->thumbnail($media, $attachmentSize[$key])) == 1 ? $this->thumbnail($media, $attachmentSize[$key], ['alt' => $title]) : $this->thumbnail($media, $attachmentSize[$key]);
+                        $image = preg_match('/alt=""/', $this->thumbnail($media, $attachmentSize[$key], ['style' => $attachmentScaleValues[$key]])) == 1 ? $this->thumbnail($media, $attachmentSize[$key], ['alt' => $title, 'style' => $attachmentScaleValues[$key]]) : $this->thumbnail($media, $attachmentSize[$key], ['style' => $attachmentScaleValues[$key]]);
 
                 ?>
                         <figure>
-                            <?php echo $image; ?>
+                            <div class="slideshow-image-wrapper">
+                                <?php echo $image; ?>
+                            </div>
                         </figure>
                     <?php endif; ?>
                 <?php endif; ?>
