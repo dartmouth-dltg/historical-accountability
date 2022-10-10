@@ -1664,6 +1664,10 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .slide-contents:last-child { margin-bottom: 1.9rem; }
 
+.slideshow-fullscreen .slideshow .slick-slide > div { height: 100%; }
+
+.slideshow-fullscreen .slideshow .slide-contents:last-child { margin-bottom: 0; padding-bottom: 0; }
+
 #splash .items.single-carousel .resource { padding-bottom: 0.5rem; }
 
 @media only screen and (min-width: 56.25em) { #splash .items.single-carousel .resource { padding-bottom: 4.5rem; } }

@@ -35,7 +35,7 @@ $slide_content_margin: rv(0)
     height: calc(140vw * 9/16)
     +bp($stack)
       height: calc(70vw * 9/16)
-
+  
   .item
     display: flex !important
     flex-direction: column
@@ -173,6 +173,16 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
     
   &:last-child
     margin-bottom: $slide-content-margin
+
+// Full screen
+
+.slideshow-fullscreen
+  .slideshow
+    .slick-slide > div
+      height: 100%
+    .slide-contents:last-child
+      margin-bottom: 0
+      padding-bottom: 0
     
     
 // !SPLASH VERSION
