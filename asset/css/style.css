@@ -1708,9 +1708,9 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .slide-fullscreen-openBtn:hover { border: 0; border-radius: 0; background: url(../../asset/img/svg/icons/fullscreen_yellow_icon.svg) no-repeat 90%; background-color: transparent; background-size: 25px; color: #F2E55B; }
 
-.slide-fullscreen-closeBtn { position: absolute; top: 0; right: 0; color: #FFFFFF; border-radius: 100px; background: none; border: 2px solid #FFFFFF; width: 30px; min-width: auto; height: 30px; margin: 10px; padding: 0; }
+.slide-fullscreen-closeBtn { position: absolute; top: 0; right: 0; color: #FFFFFF; border-radius: 100px; background: #1D2C27; color: #F2E55B; border: 2px solid #F2E55B; width: 30px; min-width: auto; height: 30px; margin: 10px; padding: 0; }
 
-.slide-fullscreen-closeBtn:hover { border: 2px solid #FFFFFF; background: unset; color: #FFFFFF; }
+.slide-fullscreen-closeBtn:hover { border: 2px solid #1D2C27; background: #F2E55B; color: #1D2C27; }
 
 .slideshow-block, .slideshow-with-audio { border-bottom-right-radius: 1.425rem; position: relative; border-top: 1.9rem solid #1D2C27; }
 
