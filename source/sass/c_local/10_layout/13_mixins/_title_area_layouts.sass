@@ -47,6 +47,7 @@
   overflow: hidden
   flex: auto
   width: 100%
+  margin-bottom: 0
   
   +bp($stack)
     width: 67%
@@ -73,6 +74,42 @@
         background-position: center bottom
         object-fit: cover
         height: 100%
+    &.slide-fit-cover
+      img
+        object-fit: cover
+    &.slide-fit-contain
+      img
+        object-fit: contain
+        
+    &.slide-position-top-center
+      img
+        object-position: top center 
+    &.slide-position-center-center
+      img
+        object-position: center center
+    &.slide-position-bottom-center
+      img
+        object-position: bottom center
+
+    &.slide-position-top-left
+      img
+        object-position: top left 
+    &.slide-position-center-left
+      img
+        object-position: center left
+    &.slide-position-bottom-left
+      img
+        object-position: bottom left
+
+    &.slide-position-top-right
+      img
+        object-position: top right
+    &.slide-position-center-right
+      img
+        object-position: center right
+    &.slide-position-bottom-right
+      img
+        object-position: bottom right
 
 =splash_area_carousel_right()
   +splash_area_carousel_common()

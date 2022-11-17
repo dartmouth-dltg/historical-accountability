@@ -1,20 +1,22 @@
 <div id="block-<?php echo $this->blockId; ?>" class="region <?php echo $this->regionClass; ?> <?php echo $hasAudioAttachment ? 'slideshow-with-audio' : 'slideshow-block'; ?>" data-target-region-id="<?php echo $this->targetID; ?>">
-    <div class="slideshow">
+<div class="slideshow">
         <?php if ($useTitleSlide): ?>
-            <div class="item resource introduction">
+            <div class="item resource introduction <?php foreach ($attachmentOptions as $attachmentOption => $defaultVal) {echo ' slide-' . $attachmentOption . '-' . ${'attachment' . ucfirst($attachmentOption)}[0];}?>">
                 <figure>
-                    <?php
-                        if ($titleSlideMedia):
-                            echo $this->thumbnail($titleSlideMedia, $thumbnailType);
-                        endif;
-                    ?>
+                    <div class="slideshow-image-wrapper">
+                        <?php
+                            if ($titleSlideMedia):
+                                echo $this->thumbnail($titleSlideMedia, $attachmentSize[0], ['style' => $attachmentScaleValues[0]]);
+                            endif;
+                        ?>
+                    </div>
                 </figure>
                 <?php if($hasAudioAttachment): ?>
                         <div class="audio-controls">
                             <div class="audio-player">
                                 <?php echo $audioAttachment->media()->render(); ?>
                                 <div class="audio-message">
-                                    <a href=='#' class='audio-text-play-control' title='Play audio' data-playbtnmsg='PLAY AUDIO' data-stopbtnmsg='PAUSE AUDIO'>PLAY AUDIO</a>
+                                    <a href='#' class='audio-text-play-control' title='Play audio' data-playbtnmsg='PLAY AUDIO' data-stopbtnmsg='PAUSE AUDIO'>PLAY AUDIO</a>
                                 </div>
                             </div>
                             <?php if ($audioAttachment->caption()): ?>
@@ -35,20 +37,22 @@
             </div>
         <?php endif; ?>
 
-        <?php foreach ($attachments as $attachment): ?>
+        <?php foreach ($attachments as $key => $attachment): ?>
             <?php
                 $item = $attachment->item();
             ?>
-            <div class="item resource slide-item">
+            <div class="item resource slide-item <?php foreach ($attachmentOptions as $attachmentOption => $defaultVal) {echo ' slide-' . $attachmentOption . '-' . ${'attachment' . ucfirst($attachmentOption)}[$key];}?>">
                 <?php if ($item):
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
                     if ($media):
-                        $image = preg_match('/alt=""/', $this->thumbnail($media, $this->thumbnailType)) == 1 ? $this->thumbnail($media, $this->thumbnailType, ['alt' => $title]) : $this->thumbnail($media, $this->thumbnailType);
+                        $image = preg_match('/alt=""/', $this->thumbnail($media, $attachmentSize[$key], ['style' => $attachmentScaleValues[$key]])) == 1 ? $this->thumbnail($media, $attachmentSize[$key], ['alt' => $title, 'style' => $attachmentScaleValues[$key]]) : $this->thumbnail($media, $attachmentSize[$key], ['style' => $attachmentScaleValues[$key]]);
 
                 ?>
                         <figure>
-                            <?php echo $image; ?>
+                            <div class="slideshow-image-wrapper">
+                                <?php echo $image; ?>
+                            </div>
                         </figure>
                     <?php endif; ?>
                 <?php endif; ?>
@@ -57,7 +61,7 @@
                         <div class="audio-player">
                             <?php echo $audioAttachment->media()->render(); ?>
                             <div class="audio-message">
-                                <a href=='#' class='audio-text-play-control' title='Play audio' data-playbtnmsg='PLAY AUDIO' data-stopbtnmsg='PAUSE AUDIO'>PLAY AUDIO</a>
+                                <a href='#' class='audio-text-play-control' title='Play audio' data-playbtnmsg='PLAY AUDIO' data-stopbtnmsg='PAUSE AUDIO'>PLAY AUDIO</a>
                             </div>
                         </div>
                         <?php if ($audioAttachment->caption()): ?>

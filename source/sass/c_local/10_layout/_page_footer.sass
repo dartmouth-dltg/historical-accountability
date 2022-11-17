@@ -5,11 +5,11 @@ body
     background-color: $black
     margin-top: 0.5rem
     padding: rv(1)
-    display: grid
-    grid-template-columns: 1fr 1fr
+    display: block
     +fluid_type(-1,0)
       
-    +bp($stack)
+    +bp($small)
+      display: grid
       grid-template-rows: initial
       grid-template-columns: 15% 1fr 1fr 20%
       grid-row-gap: initial
@@ -45,10 +45,15 @@ body
     .footer--recountlogo
       margin: auto
       img
-        width: 80%
+        width: rv(4)
         +bp($stack)
-          width: rv(10)
-          
+          width: rv(10)    
+
+    .footer--text
+      margin-top: 2rem
+      +bp($small)
+        margin-top: auto
+    
     nav
       grid-column: 2 /2
       width: 100%

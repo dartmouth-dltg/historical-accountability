@@ -14,7 +14,7 @@
       +bp($xxs)
         padding-bottom: 2.5rem
       +bp($stack)
-        padding-bottom: 7.5rem
+        padding-bottom: 6.5rem
     
 
   .introduction
@@ -43,6 +43,7 @@
     
     a
       display: block
+      overflow: hidden
       height: 100%
       width: 100%
       color: $white
@@ -72,33 +73,68 @@
       top: unset
       padding-top: 0.6rem
       padding-bottom: 0
-      max-width: 95%
-      +bp($xs)
+      max-width: 100%
+      text-align: center
+  
+  .slideshow,
+  .slick-list,
+  .slick-track
+    padding-bottom: 0
 
+  .slick-list .slick-track
+    +bp($small)
+      border-radius: 0 0 0 16px
+
+  .slick-slide > div
+    height: 100%
         
-  .slick-next, .slick-prev
-    top: unset
-    height: 2.5rem
-    width: 2.5rem
-    font-size: 2.5rem
+  .slick-next, 
   .slick-prev
-    +bp($xxs)
-      left: 1.5rem
-      bottom: -0.5rem
-    +bp($stack)
-      left: 2rem
-      bottom: -0.5rem
-
+    z-index: 1000
+    top: unset
+    bottom: 0.75rem
+    width: 20px
+    height: 20px
+    line-height: normal
+    &:after,
+    &:before
+      font-size: 1.25rem
   .slick-next
-    +bp($xxs)
-      right: 1.5rem
-      bottom: -0.5rem
-    +bp($stack)
-      right: 2rem
-      bottom: -0.5rem
+    left: 5rem
 
   .slick-dots
-    z-index: 1
+    z-index: 999
+    right: -4.5rem !important
+    bottom: 0.5rem !important
+    left: unset !important
+    text-align: right !important
+    transform: scale(0.5)
+    +bp($xs)
+      right: -5rem !important
+    +bp($small)
+      right: -8rem !important
+    +bp($desktop)
+      right: -12.5rem !important
+    +bp($ultrawide)
+      right: -17rem !important
+
+  .slick-autoplay-toggle-button
+    z-index: 1000
+    bottom: 18px
+    left: 2.625rem
+    width: auto
+    height: 24px
+    min-width: auto
+    padding: 8px 7px 3px 8px
+    opacity: 1
+    background-color: $white
+    color: $black
+    border-radius: 4px
+    &:hover,
+    &:active,
+    &:focus
+      background-color: $clr2
+      border: none
           
   &.left
     &:after
