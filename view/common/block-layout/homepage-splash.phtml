@@ -9,11 +9,12 @@
                     $title = $this->plugin('escapeHtml')($item->displayTitle());
                     $media = $attachment->media() ?: $item->primaryMedia();
                     if ($media):
-                        $image = preg_match('/alt=""/', $this->thumbnail($media, $attachmentSize[$key])) == 1 ? $item->linkRaw($this->thumbnail($media, $attachmentSize[$key], ['alt' => $title])) : $item->linkRaw($this->thumbnail($media, $attachmentSize[$key], ['alt' => 'foo']));
-
+                        $image = preg_match('/alt=""/', $this->thumbnail($media, $attachmentSize[$key], ['style' => $attachmentScaleValues[$key]])) == 1 ? $this->thumbnail($media, $attachmentSize[$key], ['alt' => $title, 'style' => $attachmentScaleValues[$key]]) : $this->thumbnail($media, $attachmentSize[$key], ['style' => $attachmentScaleValues[$key]]);
                 ?>
                         <figure>
-                            <?php echo $image; ?>
+                            <div class="slideshow-image-wrapper">
+                                <?php echo $image; ?>
+                            </div>
                             <?php if ($attachment->caption()): ?>
                               <figcaption><?php echo $attachment->caption(); ?></figcaption>
                             <?php endif; ?>
