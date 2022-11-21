@@ -987,6 +987,8 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 
 #homepage-splash figure { position: relative; }
 
+#homepage-splash figure .slideshow-image-wrapper { overflow: hidden; height: 100%; }
+
 #homepage-splash figure a { display: block; overflow: hidden; height: 100%; width: 100%; color: #FFFFFF; }
 
 #homepage-splash figure a img { filter: grayscale(100%); mix-blend-mode: multiply; object-fit: cover; height: 340px; }
@@ -1111,6 +1113,8 @@ body > footer nav ul li a { color: #FFFFFF; text-decoration: underline; }
 .section-intro-splash .introductory-text button:hover { color: #ad3722; }
 
 .section-intro-splash figure { position: relative; }
+
+.section-intro-splash figure .slideshow-image-wrapper { overflow: hidden; height: 100%; }
 
 .section-intro-splash figure p { color: #FFFFFF; }
 
