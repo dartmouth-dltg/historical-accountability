@@ -359,50 +359,24 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   margin: 0
   display: flex
   justify-content: flex-end
-  transform: scale(0.5)
-  +bp($stack)
-    transform: scale(0.75)
-    
-  li.slick-active
-    &:after
-      color: $clr2
-      
-  li:hover
-    &:after
-      color: $clr2
-      
-  li
-    width: $dot_size
-    display: flex
-    cursor: pointer
-    height: 100%
-    padding-left: $dot_size / 2
-    background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat
-    background-size: $dot_size / 2
-    background-position: 2px center // not sure where the fudge factor comes from. may be compensating for original image.
 
-    &:after
-      content: " "
-      position: absolute
-      display: block
-      color: neutral(25)
-      width: $dot_size
-      height: $dot_size
-      position: relative
-      border-radius: 50%
-      border: 3px solid
-      box-sizing: border-box
-      right: 0
-      
-    &:first-child
-      background: none
-    
-    &:first-of-type
-      padding-left: 0
-        
-      // background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat
-  button
-    display:none!important
+  li 
+    button 
+      min-width: 4rem
+      .slick-dot-icon
+        opacity: 0.75
+        &:before
+          top: -2rem
+          content: "\25cb"
+          color: $white
+          font-size: 4.5rem
+          line-height: 0
+    &.slick-active
+      button .slick-dot-icon
+        &:before        
+          margin: 0
+          color: $clr2
+          font-size: 4.5rem
 
 .slick-autoplay-toggle-button
   z-index: 1000

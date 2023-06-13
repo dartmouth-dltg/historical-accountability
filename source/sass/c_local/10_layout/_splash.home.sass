@@ -12,10 +12,7 @@
     +splash_area_carousel_right()
     .resource
       +bp($xxs)
-        padding-bottom: 2.5rem
-      +bp($stack)
-        padding-bottom: 6.5rem
-    
+        padding-bottom: 3rem   
 
   .introduction
     +splash_area_title_left()    
@@ -40,10 +37,13 @@
                       
   figure
     position: relative
+    display: grid
+    grid-template-rows: 1fr fit-content(100%)
 
     .slideshow-image-wrapper
       overflow: hidden
       height: 100%
+      max-height: 56.25vw
     
     a
       display: block

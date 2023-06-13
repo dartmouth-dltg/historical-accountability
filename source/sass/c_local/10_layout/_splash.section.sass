@@ -74,9 +74,9 @@
     border-bottom-right-radius: $borderRadius
     .resource
       +bp($xxs)
-        padding-bottom: 2.5rem
-      +bp($stack)
-        padding-bottom: 7.5rem
+        height: 100%
+        padding-bottom: 3rem
+  
   .introduction
     +splash_area_title_right()
     background-color: $black
@@ -91,10 +91,14 @@
 
   figure
     position: relative
+    display: grid
+    grid-template-rows: 1fr fit-content(100%)
+    height: 100%
 
     .slideshow-image-wrapper
       overflow: hidden
       height: 100%
+      max-height: 56.25vw
 
     p
       color: $white
@@ -136,6 +140,8 @@
 
   .slick-slide > div
     height: 100%
+    width: 100%
+    aspect-ratio: 16/9
 
   .slick-next,
   .slick-prev
