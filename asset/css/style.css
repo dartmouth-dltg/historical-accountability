@@ -1606,9 +1606,7 @@ input:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transf
 
 .slideshow { background: #1D2C27; }
 
-.slideshow .slick-slide > div { height: calc(140vw * 9/16); }
-
-@media only screen and (min-width: 56.25em) { .slideshow .slick-slide > div { height: calc(70vw * 9/16); } }
+.slideshow .slick-slide > div { height: 100%; }
 
 .slideshow .item { display: flex !important; flex-direction: column; justify-content: stretch; height: 100%; }
 
@@ -1718,11 +1716,13 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .slideshow-block .slideshow, .slideshow-with-audio .slideshow { border-top: 6px solid #FFFFFF; }
 
-.slick-prev, .slick-next { position: absolute; width: 1.5rem; height: 1.5rem; top: unset; bottom: 0; z-index: 100; cursor: pointer; margin: 0; }
+.slick-prev, .slick-next { position: absolute; width: 1.5rem; height: 1.5rem; top: unset; bottom: 0; z-index: 1000; cursor: pointer; margin: 0; }
 
 .slick-prev::before, .slick-prev::after, .slick-next::before, .slick-next::after { position: absolute; top: 0; left: 0; font-family: 'Font Awesome 5 Free'; font-size: 1.5rem; line-height: 1.5rem; color: #FFFFFF; }
 
 .slick-prev:hover::before, .slick-prev:hover::after, .slick-next:hover::before, .slick-next:hover::after { color: #F2E55B; }
+
+.slick-prev:focus, .slick-next:focus { top: unset; }
 
 .slick-prev { left: 1rem; }
 
@@ -1741,6 +1741,20 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 .slick-dots li button .slick-dot-icon:before { top: -2rem; content: "\25cb"; color: #FFFFFF; font-size: 4.5rem; line-height: 0; }
 
 .slick-dots li.slick-active button .slick-dot-icon:before { margin: 0; color: #F2E55B; font-size: 4.5rem; }
+
+.slideshow-block .slick-track { padding-bottom: 0; }
+
+.slideshow-block .slide-contents { padding: 1rem 1rem 0 1rem; }
+
+.slideshow-block .slide-contents p { display: block; }
+
+.slideshow-block .slide-contents p:last-of-type { margin-bottom: 0; }
+
+.slideshow-block .slick-dots li button { min-width: 2rem; }
+
+.slideshow-block .slick-dots li button .slick-dot-icon:before { top: 0.5rem; font-size: 3rem; }
+
+.slideshow-block .slick-dots li.slick-active button .slick-dot-icon:before { font-size: 3rem; }
 
 .slick-autoplay-toggle-button { z-index: 1000; bottom: 12px; left: 2.75rem; width: auto; height: 24px; min-width: auto; padding: 8px 7px 3px 8px; opacity: 1; background-color: #FFFFFF; color: #1D2C27; border-radius: 4px; }
 

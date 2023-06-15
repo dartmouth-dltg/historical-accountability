@@ -32,9 +32,7 @@ $slide_content_margin: rv(0)
   background: $black
 
   .slick-slide > div
-    height: calc(140vw * 9/16)
-    +bp($stack)
-      height: calc(70vw * 9/16)
+    height: 100%
   
   .item
     display: flex !important
@@ -310,7 +308,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   height: 1.5rem
   top: unset
   bottom: 0
-  z-index: 100
+  z-index: 1000
   cursor: pointer
   margin: 0
   &::before, &::after
@@ -323,6 +321,8 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
     color: $white
   &:hover::before, &:hover::after
     color: $clr2
+  &:focus
+    top: unset
     
 .slick-prev
   left: 1rem
@@ -368,6 +368,28 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
           margin: 0
           color: $clr2
           font-size: 4.5rem
+
+.slideshow-block
+  .slick-track
+    padding-bottom: 0
+  .slide-contents
+    padding: 1rem 1rem 0 1rem
+    p
+      display: block
+      &:last-of-type
+        margin-bottom: 0
+  .slick-dots
+    li 
+      button
+        min-width: 2rem
+        .slick-dot-icon
+          &:before
+            top: 0.5rem
+            font-size: 3rem
+      &.slick-active
+        button .slick-dot-icon
+          &:before        
+            font-size: 3rem
 
 .slick-autoplay-toggle-button
   z-index: 1000
