@@ -37,16 +37,11 @@
   figcaption
     top: 0
     position: relative
-    color: $black
+    color: $white
     padding: rv(-1)
     z-index: 9
     font-style: normal
     font-weight: $bold
-
-    +bp($stack)
-      padding-top: rv(0)
-      padding-left: rv(0)
-      max-width: 70%
 
     p
       font-size: font-value(-1)
@@ -73,6 +68,8 @@
     +splash_area_carousel_left()
     border-bottom-right-radius: $borderRadius
     .resource
+      display: grid !important
+      grid-template-rows: 1fr fit-content(100%)
       +bp($xxs)
         height: 100%
         padding-bottom: 3rem
@@ -91,14 +88,11 @@
 
   figure
     position: relative
-    display: grid
-    grid-template-rows: 1fr fit-content(100%)
+    overflow: hidden
     height: 100%
 
     .slideshow-image-wrapper
-      overflow: hidden
       height: 100%
-      max-height: 56.25vw
 
     p
       color: $white
@@ -117,18 +111,6 @@
         height: 340px
         +bp($stack)
           height: unset
-
-    &:after
-      position: absolute
-      content: ""
-      height: 100%
-      width: 100%
-      top: 0
-      left: 0
-      opacity: 1
-      
-      +bp($stack)
-       // background: $ltr_dark_gradient
     
     figcaption
       position: relative
@@ -140,8 +122,11 @@
 
   .slick-slide > div
     height: 100%
+    min-height: 400px
     width: 100%
-    aspect-ratio: 16/9
+    aspect-ratio: 4/3
+    +bp($stack)
+      aspect-ratio: 16/9
 
   .slick-next,
   .slick-prev

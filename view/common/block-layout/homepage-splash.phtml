@@ -15,10 +15,12 @@
                             <div class="slideshow-image-wrapper">
                                 <?php echo $image; ?>
                             </div>
+                        </figure>
+                        <div class="slide-contents">
                             <?php if ($attachment->caption()): ?>
                               <figcaption><?php echo $attachment->caption(); ?></figcaption>
                             <?php endif; ?>
-                        </figure>
+                        </div>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>

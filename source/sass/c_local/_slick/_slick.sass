@@ -148,7 +148,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
 
 .slide-contents
   flex-shrink: 0 
-  padding: $slide_content_margin / 2 $slide_content_margin $dot_size + $slide_content_margin $slide_content_margin / 2
+  padding: 0
   color: $white
   line-height: font-value(0)
   border-top: 6px solid $white
@@ -170,9 +170,6 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   p
     display: inline
     font-size: font-value(-1)
-    
-  &:last-child
-    margin-bottom: $slide-content-margin
 
 // Full screen
 
@@ -233,12 +230,6 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
           color: $white!important
       p
         color: $white
-                  
-  .slide-contents, .audio-controls
-  
-    +bp($stack)
-      padding-left: $title_area_outside_padding
-      padding-right: $title_area_outside_padding
       
   h3
     font-size: +font-value(1)
