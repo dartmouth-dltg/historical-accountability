@@ -1746,7 +1746,11 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .slideshow-block .slide-contents { padding: 1rem 1rem 0 1rem; }
 
-.slideshow-block .slide-contents p { display: block; }
+.slideshow-block .slide-contents h3 { font-size: 2rem; }
+
+.slideshow-block .slide-contents h3 a { color: #FFFFFF; }
+
+.slideshow-block .slide-contents p { display: block; margin-left: 1.25rem; font-size: 1rem; }
 
 .slideshow-block .slide-contents p:last-of-type { margin-bottom: 0; }
 
