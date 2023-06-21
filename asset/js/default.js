@@ -1,7 +1,7 @@
 /*!
  * dhap-theme v1.0.0
  * A custom Omeka theme for the Dartmouth Historical Accountability project.
- * (c) 2022 Agile Humanities Agency
+ * (c) 2023 Agile Humanities Agency
  * MIT License
  * https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git
  */
@@ -1103,6 +1103,7 @@ function rollover_bind(e) {
   $(window).resize(window.jQuery.debounce( 250, calculateSplashHeight ));
   
   function calculateSplashHeight() {
+    return
     var splash = $('#splash');
         
     if (splash.length == 0 || $(window).width() < breakpoint_stack) {
@@ -1122,7 +1123,7 @@ function rollover_bind(e) {
        clearance += $('body > header').outerHeight(true);
     }
      
-    splash.css('height','calc(100vh - ' + clearance + 'px)');
+    splash.css('height','calc(500vh - ' + clearance + 'px)');
     
     if (splash.is(':empty')) {
       splash.hide();

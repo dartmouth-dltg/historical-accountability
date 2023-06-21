@@ -32,9 +32,7 @@ $slide_content_margin: rv(0)
   background: $black
 
   .slick-slide > div
-    height: calc(140vw * 9/16)
-    +bp($stack)
-      height: calc(70vw * 9/16)
+    height: 100%
   
   .item
     display: flex !important
@@ -148,7 +146,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
 
 .slide-contents
   flex-shrink: 0 
-  padding: $slide_content_margin / 2 $slide_content_margin $dot_size + $slide_content_margin $slide_content_margin / 2
+  padding: 0
   color: $white
   line-height: font-value(0)
   border-top: 6px solid $white
@@ -170,9 +168,6 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   p
     display: inline
     font-size: font-value(-1)
-    
-  &:last-child
-    margin-bottom: $slide-content-margin
 
 // Full screen
 
@@ -233,12 +228,6 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
           color: $white!important
       p
         color: $white
-                  
-  .slide-contents, .audio-controls
-  
-    +bp($stack)
-      padding-left: $title_area_outside_padding
-      padding-right: $title_area_outside_padding
       
   h3
     font-size: +font-value(1)
@@ -319,7 +308,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   height: 1.5rem
   top: unset
   bottom: 0
-  z-index: 100
+  z-index: 1000
   cursor: pointer
   margin: 0
   &::before, &::after
@@ -332,6 +321,8 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
     color: $white
   &:hover::before, &:hover::after
     color: $clr2
+  &:focus
+    top: unset
     
 .slick-prev
   left: 1rem
@@ -359,50 +350,53 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before
   margin: 0
   display: flex
   justify-content: flex-end
-  transform: scale(0.5)
-  +bp($stack)
-    transform: scale(0.75)
-    
-  li.slick-active
-    &:after
-      color: $clr2
-      
-  li:hover
-    &:after
-      color: $clr2
-      
-  li
-    width: $dot_size
-    display: flex
-    cursor: pointer
-    height: 100%
-    padding-left: $dot_size / 2
-    background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat
-    background-size: $dot_size / 2
-    background-position: 2px center // not sure where the fudge factor comes from. may be compensating for original image.
 
-    &:after
-      content: " "
-      position: absolute
+  li 
+    button 
+      min-width: 4rem
+      .slick-dot-icon
+        opacity: 0.75
+        &:before
+          top: -2rem
+          content: "\25cb"
+          color: $white
+          font-size: 4.5rem
+          line-height: 0
+    &.slick-active
+      button .slick-dot-icon
+        &:before        
+          margin: 0
+          color: $clr2
+          font-size: 4.5rem
+
+.slideshow-block
+  .slick-track
+    padding-bottom: 0
+  .slide-contents
+    padding: 1rem 1rem 0 1rem
+    h3
+      font-size: 2rem
+      line-height: normal
+      a
+        color: $white
+    p
       display: block
-      color: neutral(25)
-      width: $dot_size
-      height: $dot_size
-      position: relative
-      border-radius: 50%
-      border: 3px solid
-      box-sizing: border-box
-      right: 0
-      
-    &:first-child
-      background: none
-    
-    &:first-of-type
-      padding-left: 0
-        
-      // background: url("../../asset/img/svg/icons/two_dashes.svg") no-repeat
-  button
-    display:none!important
+      margin-left: 1.25rem
+      font-size: 1rem
+      &:last-of-type
+        margin-bottom: 0
+  .slick-dots
+    li 
+      button
+        min-width: 2rem
+        .slick-dot-icon
+          &:before
+            top: 0.5rem
+            font-size: 3rem
+      &.slick-active
+        button .slick-dot-icon
+          &:before        
+            font-size: 3rem
 
 .slick-autoplay-toggle-button
   z-index: 1000
