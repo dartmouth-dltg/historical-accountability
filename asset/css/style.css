@@ -1718,7 +1718,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .slick-prev, .slick-next { position: absolute; width: 1.5rem; height: 1.5rem; top: unset; bottom: 0; z-index: 1000; cursor: pointer; margin: 0; }
 
-.slick-prev::before, .slick-prev::after, .slick-next::before, .slick-next::after { position: absolute; top: 0; left: 0; font-family: 'Font Awesome 5 Free'; font-size: 1.5rem; line-height: 1.5rem; color: #FFFFFF; }
+.slick-prev::before, .slick-prev::after, .slick-next::before, .slick-next::after { position: absolute; top: 0; left: 0; font-family: 'Font Awesome 5 Free'; font-size: 1.5rem; line-height: 1.5rem; font-weight: bold; color: #FFFFFF; }
 
 .slick-prev:hover::before, .slick-prev:hover::after, .slick-next:hover::before, .slick-next:hover::after { color: #F2E55B; }
 
@@ -1746,7 +1746,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before { tra
 
 .slideshow-block .slide-contents { padding: 1rem 1rem 0 1rem; }
 
-.slideshow-block .slide-contents h3 { font-size: 2rem; }
+.slideshow-block .slide-contents h3 { font-size: 2rem; line-height: normal; }
 
 .slideshow-block .slide-contents h3 a { color: #FFFFFF; }
 
