@@ -1336,7 +1336,11 @@ main > div > .resource-list { padding-left: 1em; }
 
 .search-filters { display: contents; }
 
-.search-filters .filter { margin: 0 auto 1em auto; float: none; text-align: center; }
+.search-filters .filter { padding-left: 0; padding-right: 0; margin-bottom: 2rem; padding: 0 1rem !important; float: none; }
+
+@media only screen and (min-width: 56.25em) { .search-filters .filter { padding-left: 0; padding-right: 0; margin-left: auto !important; margin-right: auto !important; max-width: 1400px; } }
+
+@media only screen and (min-width: 56.25em) { .search-filters .filter { max-width: calc(800px + (14.23368rem * 2) - 5.06665rem); } }
 
 body.dark { background: #1D2C27; color: #FFFFFF; }
 
