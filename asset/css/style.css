@@ -2720,6 +2720,8 @@ main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(
 
 .uv .headerPanel .centerOptions .search .searchText { text-align: center; min-height: unset; }
 
-.random-item-description p { margin: 2rem 0; }
+.random-items { min-height: 25vh; }
+
+.random-items .random-item-description p { margin: 2rem 0; }
 
 /* @file _index.sass @theme LOCAL @description  Loads SASS files for local theme. */

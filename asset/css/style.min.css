@@ -2516,6 +2516,8 @@ main .quotation blockquote > *{ transform:rotate(1deg); -ms-transform:rotate(1de
 
 .uv .headerPanel .centerOptions .search .searchText{ text-align:center; min-height:unset; }
 
-.random-item-description p{ margin:2rem 0; }
+.random-items{ min-height:25vh; }
+
+.random-items .random-item-description p{ margin:2rem 0; }
 
 /*# sourceMappingURL=style.min.css.map */
