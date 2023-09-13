@@ -22,9 +22,8 @@ $nav = $site->publicNav();
 $container = $nav->getContainer();
 $activePage = $nav->findActive($container);
 $pageClass = null;
-
-if ($activePage && array_key_exists('page-slug',$activePage['page']->getParams())) {
-  $slug = $activePage['page']->getParams()['page-slug'];
+if ($activePage) {
+  $slug = basename($activePage['page']->getHref());
   $classes = array('collections', 'profiles', 'exhibits', 'about-huronia');
 
   $pageClass = '';

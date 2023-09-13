@@ -18,25 +18,6 @@ endif;
 
 $headingTerm = $this->siteSetting('browse_heading_property_term', 'dcterms:title');
 $bodyTerm = $this->siteSetting('browse_body_property_term', 'dcterms:description');
-
-$sortHeadings = [
-    [
-        'label' => $translate('Title'),
-        'value' => 'dcterms:title'
-    ],
-    [
-        'label' => $translate('Identifier'),
-        'value' => 'dcterms:identifier'
-    ],
-    [
-        'label' => $translate('Class'),
-        'value' => 'resource_class_label'
-    ],
-    [
-        'label' => $translate('Created'),
-        'value' => 'created'
-    ],
-];
 ?>
 
 <?php if ($itemSetShow): ?>
