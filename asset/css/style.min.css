@@ -1190,7 +1190,11 @@ main > div > .resource-list{ padding-left:1em; }
 
 .search-filters{ display:contents; }
 
-.search-filters .filter{ margin:0 auto 1em auto; float:none; text-align:center; }
+.search-filters .filter{ padding-left:0; padding-right:0; margin-bottom:2rem; padding:0 1rem !important; float:none; }
+
+@media only screen and (min-width: 56.25em){ .search-filters .filter{ padding-left:0; padding-right:0; margin-left:auto !important; margin-right:auto !important; max-width:1400px; } }
+
+@media only screen and (min-width: 56.25em){ .search-filters .filter{ max-width:calc(800px + (14.23368rem * 2) - 5.06665rem); } }
 
 body.dark{ background:#1D2C27; color:#FFFFFF; }
 
@@ -1564,7 +1568,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before{ -web
 
 .slick-prev, .slick-next{ position:absolute; width:1.5rem; height:1.5rem; top:unset; bottom:0; z-index:1000; cursor:pointer; margin:0; }
 
-.slick-prev::before, .slick-prev::after, .slick-next::before, .slick-next::after{ position:absolute; top:0; left:0; font-family:'Font Awesome 5 Free'; font-size:1.5rem; line-height:1.5rem; color:#FFFFFF; }
+.slick-prev::before, .slick-prev::after, .slick-next::before, .slick-next::after{ position:absolute; top:0; left:0; font-family:'Font Awesome 5 Free'; font-size:1.5rem; line-height:1.5rem; font-weight:bold; color:#FFFFFF; }
 
 .slick-prev:hover::before, .slick-prev:hover::after, .slick-next:hover::before, .slick-next:hover::after{ color:#F2E55B; }
 
@@ -1592,7 +1596,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before{ -web
 
 .slideshow-block .slide-contents{ padding:1rem 1rem 0 1rem; }
 
-.slideshow-block .slide-contents h3{ font-size:2rem; }
+.slideshow-block .slide-contents h3{ font-size:2rem; line-height:normal; }
 
 .slideshow-block .slide-contents h3 a{ color:#FFFFFF; }
 
@@ -2511,5 +2515,9 @@ main .quotation blockquote > *{ transform:rotate(1deg); -ms-transform:rotate(1de
 .uv a.go.btn-primary{ border-color:#1D2C27; background-color:#1D2C27; }
 
 .uv .headerPanel .centerOptions .search .searchText{ text-align:center; min-height:unset; }
+
+.random-items{ min-height:25vh; }
+
+.random-items .random-item-description p{ margin:2rem 0; }
 
 /*# sourceMappingURL=style.min.css.map */

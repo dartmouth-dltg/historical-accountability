@@ -1,6 +1,7 @@
 <?php
   $translate = $this->plugin('translate');
   $escape = $this->plugin('escapeHtml');
+  $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
   $this->htmlElement('body')->appendAttribute('class', 'item resource show');
   $embedMedia = $this->siteSetting('item_media_embed', false);
   $specialCase = false;
@@ -8,6 +9,7 @@
 
   $filterLocale = (bool) $this->siteSetting('filter_locale_values');
   $lang = $this->lang();
+  $valueLang = $filterLocale ? [$lang, ''] : null;
 
   // custom additions start
   $this->headScript()->appendFile($this->assetUrl('js/slideshow.js', 'AgileThemeTools'));
@@ -51,7 +53,7 @@
 
   <!-- much of this is changed from the core code -->
   <header>
-    <?php echo $this->pageTitle($item->displayTitle(null, ($filterLocale ? $lang : null)), 2); ?>
+    <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 2); ?>
   </header>
 
   <div class="property-wrapper">
@@ -71,7 +73,11 @@
   <?php
     $page = $this->params()->fromQuery('page', 1);
     $property = $this->params()->fromQuery('property');
-    $subjectValues = $item->displaySubjectValues($page, 25, $property);
+    $subjectValues = $item->displaySubjectValues([
+      'page' => $page, 
+      'perPage' => 25, 
+      'resourceProperty' => $property
+    ]);
   ?>
   <?php if ($subjectValues): ?>
     <div id="item-linked">
