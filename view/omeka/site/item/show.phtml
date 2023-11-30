@@ -13,8 +13,9 @@
 
   // custom additions start
   $this->headScript()->appendFile($this->assetUrl('js/slideshow.js', 'AgileThemeTools'));
-  $this->headLink()->appendStylesheet($this->basePath('modules/AgileThemeTools/node_modules/slick-carousel/slick/slick.css'));
-  $this->headScript()->appendFile($this->basePath('modules/AgileThemeTools/node_modules/slick-carousel/slick/slick.min.js'));
+  $this->headLink()->appendStylesheet($this->basePath('modules/AgileThemeTools/node_modules/@accessible360/accessible-slick/slick/accessible-slick-theme.min.css'));
+  $this->headLink()->appendStylesheet($this->basePath('modules/AgileThemeTools/node_modules/@accessible360/accessible-slick/slick/slick.min.css'));
+  $this->headScript()->appendFile($this->basePath('modules/AgileThemeTools/node_modules/@accessible360/accessible-slick/slick/slick.min.js'));
   // custom additions end
 ?>
 
