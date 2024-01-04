@@ -21,30 +21,32 @@ if ($this->status()->isSiteRequest()) {
 
 ?>
 <div id="linked-resources">
-<div class="linked-header">
-    <div id="linked-filter">
-        <h4><?php echo $translate('Filter by property'); ?></h4>
-        <select id="filter-property" name="property" data-url="<?php echo $escape($this->url(null, [], true)); ?>" data-fragment="<?php echo $escape($fragment); ?>">
-            <option value=""><?php echo $translate('All'); ?></option>
-            <?php foreach ($properties as $prop): ?>
-            <option value="<?php echo $escape($prop->id()); ?>"<?php echo $prop->id() == $property ? ' selected="selected"' : ''; ?>><?php echo $escape(sprintf('%s (%s)', $translate($prop->label()), $prop->term())); ?></option>
-            <?php endforeach; ?>
-        </select>
-    </div>
-    <?php echo ($totalCount > $perPage) ? $pagination : ''; ?>
-</div>
+    <?php if (isset($properties) && count($properties) > 0): ?>
+        <div class="linked-header">
+            <div id="linked-filter">
+                <h4><?php echo $translate('Filter by property'); ?></h4>
+                <select id="filter-property" name="property" data-url="<?php echo $escape($this->url(null, [], true)); ?>" data-fragment="<?php echo $escape($fragment); ?>">
+                    <option value=""><?php echo $translate('All'); ?></option>
+                    <?php foreach ($properties as $prop): ?>
+                    <option value="<?php echo $escape($prop->id()); ?>"<?php echo $prop->id() == $property ? ' selected="selected"' : ''; ?>><?php echo $escape(sprintf('%s (%s)', $translate($prop->label()), $prop->term())); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <?php echo ($totalCount > $perPage) ? $pagination : ''; ?>
+        </div>
+    <?php endif; ?>
 
 <div class="linked-resources-entries">
 <?php foreach ($subjectValues as $term => $values): ?>
 
   <?php foreach ($values as $value): ?>
     <?php
-    $template = $value->resource()->resourceTemplate();
-    $templateProperty = $template ? $template->resourceTemplateProperty($value->property()->id()) : null;
+    $template = $value['val']->resource()->resourceTemplate();
+    $templateProperty = $template ? $template->resourceTemplateProperty($value['val']->property()->id()) : null;
     $altLabel = $templateProperty ? $templateProperty->alternateLabel() : null;
     ?>
     <div class="linked-resource-entry">
-      <?php echo $value->resource()->linkPretty(); ?>
+      <?php echo $value['val']->resource()->linkPretty(); ?>
     </div>
   <?php endforeach; ?>
 <?php endforeach; ?>
