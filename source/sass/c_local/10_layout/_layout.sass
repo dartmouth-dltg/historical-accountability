@@ -3,7 +3,6 @@
    @theme Local
    @description  Loads SASS files for local theme. */
 
-
 video
   max-height: 100vh
   width: 100%
@@ -28,166 +27,170 @@ video
 section
   main
     > div
-      > *
-        margin-left: rv($mobile_edge_padding_factor)
-        margin-right: rv($mobile_edge_padding_factor)
-        +bp($stack)
-          margin-left: auto
-          margin-right: auto
-        &:first-child
-          margin-top: rv(3)!important
-      > .storymap
-          margin-left: auto
-          margin-right: auto
-          margin-top: 0!important
-      > .tl-timeline
-          max-width: 100%!important
-          margin-left: auto
-          margin-right: auto
-          margin-top: 0!important
-  > div[class*="block-"]
-      margin-top: rv(4)
-
-  > div
+      > div
+        > div
+          > *
+            margin-left: rv($mobile_edge_padding_factor)
+            margin-right: rv($mobile_edge_padding_factor)
+            +bp($stack)
+              margin-left: auto
+              margin-right: auto
+            &:first-child
+              margin-top: rv(3)!important
+          > .storymap
+              margin-left: auto
+              margin-right: auto
+              margin-top: 0!important
+          > .tl-timeline
+              max-width: 100%!important
+              margin-left: auto
+              margin-right: auto
+              margin-top: 0!important
+          &.property-wrapper > *
+            margin-top: 0 !important
+      > div[class*="block-"]
+          margin-top: rv(4)
     > div
       > div
-        margin-left: rv(0)
-        margin-right: rv(0)
+        > div
+          margin-left: rv(0)
+          margin-right: rv(0)
 
-        +bp($stack)
-          margin-left: auto
-          margin-right: auto
+          +bp($stack)
+            margin-left: auto
+            margin-right: auto
 
 main, #feature-tier-1
   > div
-    margin-bottom: 0
-    > *
-      +inset-text()
-    > .storymap
-      +inset-full()
-    > .slideshow
-      +negative-content-margin(4)
-    > .tl-timeline
-      max-width: 100%!important
-      +inset-full()
-    > #feature-1
-      +negative-content-margin(6)
-    > .browse-controls
-      +negative-content-margin(6)
-    > .search-filters
-      +negative-content-margin(6)
-    > .poster
-      +negative-content-margin(8)
-    > .opaque
-      +negative-content-margin(6)
-    > .hu-outset-margin
-      +negative-content-margin(6)
-    > .explore-the-archive
-      +negative-content-margin(6)
-      > div
-        +inset-text()
-        padding: 0 8px !important
-      > h1
-        padding: 0 8px
-      > a
-        padding: 0 8px
-
-    > .resource-list
-      +negative-content-margin(6)
-
     > .media-list-wrapper
       +negative-content-margin(6)
+    > div
+      > div
+        margin-bottom: 0
+        > *
+          +inset-text()
+        > .storymap
+          +inset-full()
+        > .slideshow
+          +negative-content-margin(4)
+        > .tl-timeline
+          max-width: 100%!important
+          +inset-full()
+        > #feature-1
+          +negative-content-margin(6)
+        > .browse-controls
+          +negative-content-margin(6)
+        > .search-filters
+          +negative-content-margin(6)
+        > .poster
+          +negative-content-margin(8)
+        > .opaque
+          +negative-content-margin(6)
+        > .hu-outset-margin
+          +negative-content-margin(6)
+        > .explore-the-archive
+          +negative-content-margin(6)
+          > div
+            +inset-text()
+            padding: 0 8px !important
+          > h1
+            padding: 0 8px
+          > a
+            padding: 0 8px
 
-    .slideshow-block, .slideshow-with-audio
-      +negative-content-margin(7)
+        > .resource-list
+          +negative-content-margin(6)
 
-    > .file
+        .slideshow-block, .slideshow-with-audio
+          +negative-content-margin(7)
 
-      .media-render
-        &:before
-          content: ""
-          height: rv(-2)
-          width: 100%
-          background: $black
-          display: block
-          margin-bottom: rv(-5)
+        > .file
 
-      &.center
-        +negative-content-margin(4)
+          .media-render
+            &:before
+              content: ""
+              height: rv(-2)
+              width: 100%
+              background: $black
+              display: block
+              margin-bottom: rv(-5)
 
-      &.left
-        +bp($desktop)
-          margin-left: 15vw
-          float: left
-          width: 25vw
-          padding: 0 rv(0) rv(0) 0
+          &.center
+            +negative-content-margin(4)
 
-          &.large
-            width: 35vw
+          &.left
+            +bp($desktop)
+              margin-left: 15vw
+              float: left
+              width: 25vw
+              padding: 0 rv(0) rv(0) 0
 
-      &.right
-        +bp($desktop)
-          margin-right: 15vw
-          float: right
-          width: 25vw
-          padding: 0 0 rv(0) rv(0)
+              &.large
+                width: 35vw
 
-          &.large
-            width: 35vw
+          &.right
+            +bp($desktop)
+              margin-right: 15vw
+              float: right
+              width: 25vw
+              padding: 0 0 rv(0) rv(0)
 
-
-      .caption
-        text-align: left
-        padding-left: 2rem
-        padding-right: 2rem
-        //margin-top: rv(-5)
-        padding-top: rv(-1)
-        padding-bottom: rv(-2)
-        color: $white
-        background: $black
-        border-bottom-right-radius: $borderRadius
-      h3
-        background: $black
-        padding: 2rem 2rem 0 2rem
-        margin: 0
-        margin-top: rv(-4)
-        a
-          color: $white
-        //display: none
-
-    > ul
-      display: grid
-      grid-template-columns: 1fr
-      grid-column-gap: rv(3)
-      grid-row-gap: rv(-2)
-      grid-auto-columns: min-content
-      padding: 0
-      list-style-type: none
+              &.large
+                width: 35vw
 
 
-      li
-        position: relative
-        left: rv(0)
-        width: 91%
-        +bp($stack)
-          left: rv(3)
-        h5
-          font-family: $basefont
-          margin-top: 0
-          margin-bottom: rv(-3)
+          .caption
+            text-align: left
+            padding-left: 2rem
+            padding-right: 2rem
+            //margin-top: rv(-5)
+            padding-top: rv(-1)
+            padding-bottom: rv(-2)
+            color: $white
+            background: $black
+            border-bottom-right-radius: $borderRadius
+          h3
+            background: $black
+            padding: 2rem 2rem 0 2rem
+            margin: 0
+            margin-top: rv(-4)
+            a
+              color: $white
+            //display: none
 
-        &:before
-          content: ""
-          color: $black
-          font-weight: bold
-          display: inline-block
-          width: rv(-2)
-          position: absolute
-          top: 14px
-          left: rv(1) * -1
-          font-size: rv(0)
-          background: url("../../asset/img/svg/icons/list_line.svg") no-repeat
-          height: rv(-2)
+        > ul
+          display: grid
+          grid-template-columns: 1fr
+          grid-column-gap: rv(3)
+          grid-row-gap: rv(-2)
+          grid-auto-columns: min-content
+          padding: 0
+          list-style-type: none
+
+
+          li
+            position: relative
+            left: rv(0)
+            width: 91%
+            +bp($stack)
+              left: rv(3)
+            h5
+              font-family: $basefont
+              margin-top: 0
+              margin-bottom: rv(-3)
+
+            &:before
+              content: ""
+              color: $black
+              font-weight: bold
+              display: inline-block
+              width: rv(-2)
+              position: absolute
+              top: 14px
+              left: rv(1) * -1
+              font-size: rv(0)
+              background: url("../../asset/img/svg/icons/list_line.svg") no-repeat
+              height: rv(-2)
 
 
   .media-render
@@ -386,6 +389,6 @@ input:checked + .slider:before
 
 section
   main
-    > div
+    > div > div
       > .preview-block
         margin-top: 0!important
