@@ -2698,6 +2698,8 @@ main .quotation blockquote > * { transform: rotate(1deg); -ms-transform: rotate(
 
 .universal-viewer.viewer { margin-bottom: 7.3567rem; }
 
+.universal-viewer.viewer .loaded { max-width: unset !important; margin: unset !important; }
+
 .universal-viewer.viewer::before { content: ""; width: 100%; background: #1D2C27; display: block; margin-bottom: 0.60118rem; }
 
 .uv { background-color: #1D2C27 !important; border-bottom-right-radius: 1.425rem; }
