@@ -21,8 +21,8 @@ $bodyTerm = $this->siteSetting('browse_body_property_term', 'dcterms:description
 ?>
 
 <?php if ($itemSetShow): ?>
-    <?php echo $this->pageTitle($itemSet->displayTitle(null, ($filterLocale ? $lang : null)), 2); ?>
-    <div class="metadata">
+    <?php echo $this->pageTitle($itemSet->displayTitle(null, $valueLang), 2); ?>
+        <div class="metadata">
         <?php echo $itemSet->displayValues(); ?>
     </div>
     <div class="item-set-items">
@@ -47,8 +47,8 @@ $bodyTerm = $this->siteSetting('browse_body_property_term', 'dcterms:description
 <ul class="resource-list">
 <?php
 foreach ($items as $item):
-    $heading = $item->value($headingTerm, ['default' => $translate('[Untitled]')]);
-    $body = $item->value($bodyTerm);
+    $heading = $headingTerm ? $item->value($headingTerm, ['default' => $translate('[Untitled]'), 'lang' => $valueLang]) : $item->displayTitle(null, $valueLang);
+    $body = $bodyTerm ? $item->value($bodyTerm, ['lang' => $valueLang]) : $item->displayDescription(null, $valueLang);
 ?>
     <li class="item resource">
         <?php echo $item->linkRaw($this->thumbnail($item, 'medium')); ?>

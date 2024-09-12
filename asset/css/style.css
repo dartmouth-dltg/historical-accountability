@@ -2466,7 +2466,7 @@ main > div .listing-cards { padding-left: 0; padding-right: 0; }
 /** @file _line_break.sass @category 60_site_elements @description addes a divider in content */
 .break { height: 2.53333rem; }
 
-.break.opaque { width: 100%; background: url("../../asset/img/svg/icons/dashes.svg") no-repeat; background-size: 315px; background-repeat: repeat-x; margin-top: 0 !important; margin-bottom: 0 !important; margin-left: 0 !important; margin-right: 0 !important; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
+.break.opaque { width: 100%; border: none; background: url("../../asset/img/svg/icons/dashes.svg") no-repeat; background-size: 315px; background-repeat: repeat-x; margin-top: 0 !important; margin-bottom: 0 !important; margin-left: 0 !important; margin-right: 0 !important; transform: rotate(-1deg); -ms-transform: rotate(-1deg); -webkit-backface-visibility: hidden; }
 
 @media only screen and (min-width: 56.25em) { .break.opaque { margin-left: auto !important; margin-right: auto !important; } }
 
