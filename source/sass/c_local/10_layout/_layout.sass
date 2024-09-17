@@ -104,6 +104,11 @@ main, #feature-tier-1
         .slideshow-block, .slideshow-with-audio
           +negative-content-margin(7)
 
+        &.block-layout-alignment-block-left
+          margin-left: 15vw !important
+
+        &.block-layout-alignment-block-right
+          margin-right: 15vw !important
         > .file
 
           .media-render
@@ -120,7 +125,6 @@ main, #feature-tier-1
 
           &.left
             +bp($desktop)
-              margin-left: 15vw
               float: left
               width: 25vw
               padding: 0 rv(0) rv(0) 0
@@ -130,7 +134,6 @@ main, #feature-tier-1
 
           &.right
             +bp($desktop)
-              margin-right: 15vw
               float: right
               width: 25vw
               padding: 0 0 rv(0) rv(0)

@@ -635,6 +635,10 @@ main > div > div > div .slideshow-block, main > div > div > div .slideshow-with-
 
 @media only screen and (min-width: 56.25em) { main > div > div > div .slideshow-block, main > div > div > div .slideshow-with-audio, #feature-tier-1 > div > div > div .slideshow-block, #feature-tier-1 > div > div > div .slideshow-with-audio { max-width: calc(800px + (14.23368rem * 2) - 5.06665rem); } }
 
+main > div > div > div.block-layout-alignment-block-left, #feature-tier-1 > div > div > div.block-layout-alignment-block-left { margin-left: 15vw !important; }
+
+main > div > div > div.block-layout-alignment-block-right, #feature-tier-1 > div > div > div.block-layout-alignment-block-right { margin-right: 15vw !important; }
+
 main > div > div > div > .file .media-render:before, #feature-tier-1 > div > div > div > .file .media-render:before { content: ""; height: 1.06876rem; width: 100%; background: #1D2C27; display: block; margin-bottom: 0.45088rem; }
 
 main > div > div > div > .file.center, #feature-tier-1 > div > div > div > .file.center { padding-left: 0; padding-right: 0; }
@@ -643,10 +647,10 @@ main > div > div > div > .file.center, #feature-tier-1 > div > div > div > .file
 
 @media only screen and (min-width: 56.25em) { main > div > div > div > .file.center, #feature-tier-1 > div > div > div > .file.center { max-width: calc(800px + (6.00488rem * 2) - 5.06665rem); } }
 
-@media only screen and (min-width: 75em) { main > div > div > div > .file.left, #feature-tier-1 > div > div > div > .file.left { margin-left: 15vw; float: left; width: 25vw; padding: 0 1.9rem 1.9rem 0; }
+@media only screen and (min-width: 75em) { main > div > div > div > .file.left, #feature-tier-1 > div > div > div > .file.left { float: left; width: 25vw; padding: 0 1.9rem 1.9rem 0; }
   main > div > div > div > .file.left.large, #feature-tier-1 > div > div > div > .file.left.large { width: 35vw; } }
 
-@media only screen and (min-width: 75em) { main > div > div > div > .file.right, #feature-tier-1 > div > div > div > .file.right { margin-right: 15vw; float: right; width: 25vw; padding: 0 0 1.9rem 1.9rem; }
+@media only screen and (min-width: 75em) { main > div > div > div > .file.right, #feature-tier-1 > div > div > div > .file.right { float: right; width: 25vw; padding: 0 0 1.9rem 1.9rem; }
   main > div > div > div > .file.right.large, #feature-tier-1 > div > div > div > .file.right.large { width: 35vw; } }
 
 main > div > div > div > .file .caption, #feature-tier-1 > div > div > div > .file .caption { text-align: left; padding-left: 2rem; padding-right: 2rem; padding-top: 1.425rem; padding-bottom: 1.06876rem; color: #FFFFFF; background: #1D2C27; border-bottom-right-radius: 1.425rem; }
