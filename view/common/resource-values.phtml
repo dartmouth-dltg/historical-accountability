@@ -17,7 +17,7 @@ $filterLocaleCallback = function ($value) use ($lang) {
 
 <dl>
 <?php foreach ($values as $term => $propertyData):
-  $propertyValues = $propertyValues;
+  $propertyValues = $propertyData['values'];
   if ($filterLocale) {
       $propertyValues = array_filter($propertyValues, $filterLocaleCallback);
   }
