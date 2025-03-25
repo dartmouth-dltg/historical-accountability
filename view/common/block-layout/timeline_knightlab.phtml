@@ -19,7 +19,7 @@ $slide_title = !empty($data['heading']) ? $escape($data['heading']) : '';
     jQuery(document).ready(function($) {
         var centerDate = <?= json_encode($data['center_date']) ?>;
         // get the location for the json data
-        var jsonTimelineUri = <?= json_encode($this->url('timeline-block', ['block-id' => $block->id()]), 320) ?>
+        var jsonTimelineUri = <?= json_encode($this->url('api/timeline', ['block-id' => $block->id()]), 320) ?>
 
         $.getJSON(jsonTimelineUri, function(data) {
             // console.log('data ', data);
