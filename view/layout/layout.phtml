@@ -66,25 +66,24 @@ if ($activePage) {
       <?php echo $this->navigation($this->subNav)->menu()->renderMenu($container, ['maxDepth' =>2]); ?>
     </nav>
 
-    <section id='splash' class='full'></section>
-
     <section id='primary-content' class='full'>
       <a name='main-content'></a>
       <main>
+        <section id='splash' class='full'></section>
         <div id='content-stack' contentstack>
           <?php echo $this->content; ?>
         </div>
+
+        <section id='feature-tier-1' class='full'></section>
+        <section id='feature-tier-2' class='full'></section>
+        <section id='feature-tier-3' class='full'></section>
+
+        <section class='full'>
+          <div>
+            <div id='secondary-content' style="display:none"></div>
+          </div>
+        </section>
       </main>
-    </section>
-
-    <section id='feature-tier-1' class='full'></section>
-    <section id='feature-tier-2' class='full'></section>
-    <section id='feature-tier-3' class='full'></section>
-
-    <section class='full'>
-      <div>
-        <div id='secondary-content' style="display:none"></div>
-      </div>
     </section>
 
     <footer class="full">
