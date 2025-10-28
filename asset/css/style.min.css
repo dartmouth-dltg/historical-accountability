@@ -2506,7 +2506,7 @@ main .quotation blockquote > *{ transform:rotate(1deg); -ms-transform:rotate(1de
 
 .universal-viewer.viewer .iiif-metadata-component .groups .group .items .item .label{ color:#FFFFFF !important; }
 
-.universal-viewer.viewer a, .universal-viewer.viewer a:hover, .universal-viewer.viewer .iiif-metadata-component .groups .group .items .item .value a.toggle.more, .universal-viewer.viewer .iiif-metadata-component .groups .group .items .item .value a.toggle.less{ color:#FFFFFF !important; text-decoration:underline; }
+.universal-viewer.viewer a, .universal-viewer.viewer a:hover, .universal-viewer.viewer .iiif-metadata-component .groups .group .items .item .value a.toggle.more, .universal-viewer.viewer .iiif-metadata-component .groups .group .items .item .value a.toggle.less{ color:#F2E55B !important; text-decoration:underline; }
 
 .universal-viewer.viewer .loaded{ max-width:unset !important; margin:unset !important; }
 
