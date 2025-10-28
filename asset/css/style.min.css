@@ -2500,6 +2500,8 @@ main .quotation blockquote > *{ transform:rotate(1deg); -ms-transform:rotate(1de
 
 .universal-viewer.viewer{ margin-bottom:7.3567rem; }
 
+.universal-viewer.viewer .uv-iiif-extension-host.uv-openseadragon-extension .centerPanel .content .viewer .adjustImage, .universal-viewer.viewer .uv-iiif-extension-host.uv-openseadragon-extension .centerPanel .content .viewer .zoomIn, .universal-viewer.viewer .uv-iiif-extension-host.uv-openseadragon-extension .centerPanel .content .viewer .zoomOut, .universal-viewer.viewer .uv-iiif-extension-host.uv-openseadragon-extension .centerPanel .content .viewer .rotate{ min-width:unset; }
+
 .universal-viewer.viewer .loaded{ max-width:unset !important; margin:unset !important; }
 
 .universal-viewer.viewer::before{ content:""; width:100%; background:#1D2C27; display:block; margin-bottom:0.60118rem; }
