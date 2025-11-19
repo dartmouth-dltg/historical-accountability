@@ -2520,6 +2520,14 @@ main .quotation blockquote > *{ transform:rotate(1deg); -ms-transform:rotate(1de
 
 .uv .overlays{ background:rgba(29, 44, 39, 0.5) !important; }
 
+.uv .overlay.download{ width:auto !important; }
+
+.uv .overlay.download .middle .content ol.options li button{ justify-content:flex-start; font-size:1rem; }
+
+.uv .overlay.download .middle .content ol.options li a, .uv .overlay.download .middle .content ol.options li a:hover{ color:#ad3722 !important; }
+
+.uv .overlay.download .middle .content ol.options li a:hover{ text-decoration:underline; }
+
 .uv .leftPanel, .uv .rightPanel{ background:#283732 !important; }
 
 .uv .rightPanel main{ color:#FFFFFF !important; }
