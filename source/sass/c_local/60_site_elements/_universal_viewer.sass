@@ -1,5 +1,26 @@
 .universal-viewer.viewer
 
+  .uv-iiif-extension-host.uv-openseadragon-extension .centerPanel .content .viewer
+    .adjustImage,
+    .zoomIn,
+    .zoomOut,
+    .rotate
+      min-width: unset
+
+  .leftPanel .top .title,
+  .rightPanel .top .title
+    color: $white !important
+
+  .iiif-metadata-component .groups .group .items .item .label
+    color: $white !important
+
+  a,
+  a:hover,
+  .iiif-metadata-component .groups .group .items .item .value a.toggle.more,
+  .iiif-metadata-component .groups .group .items .item .value a.toggle.less
+    color: $clr2 !important
+    text-decoration: underline
+  
   margin-bottom: rv(2) + rv(-4) +rv(2)
 
   .loaded
@@ -27,6 +48,17 @@
     
   .overlays
     background: rgba($black,0.5) !important
+
+  .overlay.download
+    width: auto !important
+    .middle .content ol.options li
+      button
+        justify-content: flex-start
+        font-size: 1rem
+      a, a:hover
+        color: $clr4 !important
+      a:hover
+        text-decoration: underline
     
   .leftPanel, .rightPanel
     background: neutral(95) !important
