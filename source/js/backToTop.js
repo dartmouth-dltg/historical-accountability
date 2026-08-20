@@ -1,7 +1,7 @@
 (function($) {
   //Get the button:
   $(document).ready(function(){
-    topButton = $("#back-to-top-btn");
+    const topButton = $("#back-to-top-btn");
     
     topButton.click(function(){
       $("html, body").animate({ scrollTop: 0 }, "slow");

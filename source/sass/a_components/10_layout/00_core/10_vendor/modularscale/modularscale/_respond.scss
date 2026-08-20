@@ -1,6 +1,9 @@
 // Generate calc() function
 // based on Mike Riethmuller's Precise control over responsive typography
 // http://madebymike.com.au/writing/precise-control-responsive-typography/
+@use "sass:math";
+@use "sass:meta";
+
 @function ms-fluid($val1: 1em, $val2: 1em, $break1: 0, $break2: 0) {
   $diff: ms-unitless($val2) - ms-unitless($val1);
 
@@ -18,8 +21,8 @@
 
   // loop through all settings with a breakpoint type value
   @each $v, $s in $map {
-    @if type-of($v) == number {
-      @if unit($v) != '' {
+    @if meta.type-of($v) == number {
+      @if math.unit($v) != '' {
 
         // Write out the first value without a media query.
         @if $first-write {

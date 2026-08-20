@@ -6,8 +6,9 @@
  *
  *  Note: The element MUST have a defined width. Set to 'none' if the default is set elsewhere.
  */
+@use "sass:math";
 
-=proportional_height($width: none,$ratio: 1/$scale)
+=proportional_height($width: none,$ratio: math.div(1, $scale))
   position: relative
   overflow: hidden
   

@@ -5,47 +5,47 @@
 
 
 .storymap
-  height: calc(100vh - 0px)!important
-  max-width: 100%!important
-  margin-bottom: 0!important
+  height: calc(100vh - 0px) !important
+  max-width: 100% !important
+  margin-bottom: 0 !important
   +bp($stack)
-    height: calc(100vh - 110px)!important
-    max-width: 100%!important
+    height: calc(100vh - 110px) !important
+    max-width: 100% !important
 
 .vco-slide .vco-slide-scrollable-container
   margin: 0 rv(-1)
   
 .vco-storymap
   .vco-text
-    width: 95%!important
+    width: 95% !important
     p
       color: $black
-      font-size: font-value(-1)!important 
+      font-size: font-value(-1) !important 
 
   .vco-slider-container
-    text-align: left!important
+    text-align: left !important
 
   .vco-media-content img
-    width: 70%!important
-    max-width: rv(11)!important
+    width: 70% !important
+    max-width: rv(11) !important
 
   .vco-credit, .vco-caption, .vco-menubar, .leaflet-control
-    display:none!important
+    display: none !important
 
   .vco-slidenav-previous .vco-slidenav-icon
-    margin-left: rv(1)!important
+    margin-left: rv(1) !important
     width: rv(3)
     height: rv(3)
     background: url("../../asset/img/svg/icons/left_chevron_fire_black.svg") no-repeat
     &:before
-      content: unset!important
+      content: unset !important
 
   .vco-slidenav-next .vco-slidenav-icon
     width: rv(3)
     height: rv(3)
     background: url("../../asset/img/svg/icons/right_chevron_black.svg") no-repeat
     &:before
-      content: unset!important
+      content: unset !important
 
   .vco-map .vco-mapmarker-active
     width: rv(3)
@@ -53,7 +53,7 @@
     background: url("../../asset/img/svg/icons/map_marker_blue.svg") no-repeat
     &:before
     &:after  
-      content: unset!important
+      content: unset !important
 
   .vco-map .vco-mapmarker
     width: rv(3)
@@ -61,15 +61,15 @@
     background: url("../../asset/img/svg/icons/map_marker_black.svg") no-repeat
     &:before
     &:after
-      content: unset!important
+      content: unset !important
 
   .fa, [class*="o-icon-"]
     &:before
       display: none
 
   h2.vco-headline-title, h2.vco-headline
-    font-size: font-value(2)!important
-    line-height: font-value(3)!important
+    font-size: font-value(2) !important
+    line-height: font-value(3) !important
     display: inline-block
     width: auto
     border: 0
@@ -77,8 +77,7 @@
     &:hover
       text-decoration: none
 
-
-​//unset styles for story map default style properties
+​// unset styles for story map default style properties
 .vco-storymap, .tl-timeline
   font-family: unset
   
@@ -152,7 +151,7 @@
       
       
   .vco-caption, .vco-credit, .vco-slidenav-next, .vco-slidenav-previous
-    top: 45%!important
+    top: 45% !important
     +font-size(-1)
     +line-height(-1)
     

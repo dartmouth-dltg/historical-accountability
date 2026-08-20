@@ -29,7 +29,7 @@ jQuery(document).ready(function() {
 
 function rollover_bind(e) {
 	var states = ['_up','_down'];		
-	for (i=0;i<states.length;i++) { // bind all listed states
+	for (var i=0; i < states.length; i++) { // bind all listed states
 		var src = jQuery(e).attr('src');
 		if (src != null) {
 			jQuery(e).on('mouseover touchstart',function() {  
@@ -49,7 +49,7 @@ function rollover_bind(e) {
 				}
 			});
 			jQuery(e).on('mouseout touchend',function() {
-				var replace ='';
+				let replace;
 				if (typeof jQuery(this).attr('data-src') != 'undefined') {
   				replace = jQuery(this).attr('data-src');
   				jQuery(this).attr('src',replace);

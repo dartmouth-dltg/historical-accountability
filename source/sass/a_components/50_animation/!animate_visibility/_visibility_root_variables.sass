@@ -3,6 +3,7 @@
  *  @category 50_animation
  *  @component animate_visibility
  *  @description Adds CSS variables to be passed to the visibilityClasses.js */
+@use "sass:list";
 
 $rootvar: ':root' // See https://github.com/sass/libsass/issues/2511
 
@@ -10,7 +11,7 @@ $rootvar: ':root' // See https://github.com/sass/libsass/issues/2511
   --visibility-offset: #{$visibility_offset}
   --visibility-threshold: #{$visibility_threshold}
   
-$count: length($visibility_stack)
+$count: list.length($visibility_stack)
 $i: 0
 
 // A bit of a cheat to pass arbitrary data values to JS.

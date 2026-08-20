@@ -5,6 +5,7 @@
 // @description: Apply to ul element to create a horizontal list. Intended for list elements but could be applied elsewhere
 // @args $$item_spacing: Item spacing.  $bullets: Include bullets. Default is off.  @mode: flex \ inline Sets the display mode. Flex is now default
 
+@use "sass:math";
 
 =horizontal-list($item_spacing:-1, $vertical-align: center, $bullets: false, $display_mode: 'flex') 
   @if $display_mode == 'flex'
@@ -19,7 +20,7 @@
   margin: 0
   padding: 0
   
-  @if is_integer($item_spacing) and unit($item_spacing) == ''
+  @if is_integer($item_spacing) and math.unit($item_spacing) == ''
     $item_spacing: rv($item_spacing)
   
   @if ($bullets == false)
@@ -52,7 +53,7 @@
   @if $vertical-align == center
     height: 100%
   
-  @if is_integer($item_spacing) and unit($item_spacing) == ''
+  @if is_integer($item_spacing) and math.unit($item_spacing) == ''
     $item_spacing: rv($item_spacing)
 
   @if ($bullets == false)

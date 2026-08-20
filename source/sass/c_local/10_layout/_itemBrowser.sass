@@ -1,3 +1,5 @@
+@use"sass:math";
+
 .explore-the-archive
   > p
     font-style: italic
@@ -112,7 +114,7 @@
     .explore-right, .explore-left
       display: inline-block
       +bp($stack)
-        top: rv(3)/-2
+        top: math.div(rv(3), -2)
 
       &.inactive
         display: none
@@ -165,7 +167,7 @@
   // top pagination only
   .explore-left, .explore-right
     +bp($stack)
-      top: rv(3)/-2 - rv(0)  // Negative half the height minus fudgy offset factor
+      top: math.div(rv(3), -2) - rv(0)  // Negative half the height minus fudgy offset factor
 
   form
     text-align: left
@@ -305,18 +307,18 @@ main > div >
 #advanced-search
   .value
     > *
-      margin-top: 10px!important
-    display: block!important
+      margin-top: 10px !important
+    display: block !important
     +bp($stack)
-      display: flex!important
+      display: flex !important
     select
-      margin-left: 0!important
+      margin-left: 0 !important
       +bp($stack)
-       margin-left: 5px!important
+       margin-left: 5px !important
     input
-      margin-left: 0!important
+      margin-left: 0 !important
       +bp($stack)
-       margin-left: 5px!important
+       margin-left: 5px !important
   .add-value
     position: relative
     top: 10px

@@ -3,6 +3,7 @@
    @category 50_animation
    @group a_components
    @description  Creates a standard transition property based on configuration values. */
+@use "sass:list";
 
 =transition($properties: all,$timing: 0, $delay: $base_delay, $easing: $standard_easing)
 
@@ -10,7 +11,7 @@
   
   @each $property in $properties
     $transition: $property rd($timing) $easing rd($delay)
-    $transitions: append($transitions,$transition,comma)
+    $transitions: list.append($transitions,$transition,comma)
       
   transition: $transitions
 

@@ -3,7 +3,7 @@
  * Turn on/off build features
  */
 
-var settings = {
+const settings = {
 	clean: true,
 	scripts: true,
 	modernizr: true,
@@ -22,10 +22,10 @@ var settings = {
  * Paths to project folders
  */
 
-var source_dir = './source';
-var build_dir = './asset';
+const source_dir = './source';
+const build_dir = './asset';
 
-var paths = {
+const paths = {
 	input: source_dir,
 	output: build_dir, // TSRA is built in the root folder.
 	scripts: {
@@ -38,29 +38,35 @@ var paths = {
 		input: source_dir + '/sass/**/*.{scss,sass}',
 		output: build_dir + '/css',
 		vfilename: 'vendor', // Output file name for vendor styles
-		sassIncludePaths: [source_dir + '/sass/a_components',source_dir + '/sass/b_profiles',source_dir + '/sass/c_local',source_dir + '/sass/a_components/00_general',source_dir + '/sass/a_components/10_layout',source_dir + '/sass/a_components/20_colour',source_dir + '/sass/a_components/30_typography',source_dir + '/sass/a_components/40_ui',source_dir + '/sass/a_components/50_animation',source_dir + '/sass/a_components/60_site_elements','node_modules']
+		sassIncludePaths: [source_dir + '/sass/a_components', source_dir + '/sass/b_profiles', source_dir + '/sass/c_local', source_dir + '/sass/a_components/00_general', source_dir + '/sass/a_components/10_layout', source_dir + '/sass/a_components/20_colour', source_dir + '/sass/a_components/30_typography', source_dir + '/sass/a_components/40_ui', source_dir + '/sass/a_components/50_animation', source_dir + '/sass/a_components/60_site_elements', 'node_modules']
 	},
 	img: {
-  	input: source_dir + '/img/**/*',
-  	output: build_dir + '/img'
+		base: source_dir + '/img',
+		input: source_dir + '/img/**/*',
+		output: build_dir + '/img'
 	},
 	svgs: {
+		base: source_dir + '/img/svg',
 		input: source_dir + '/img/svg/**/*.svg',
 		output: build_dir + '/img/svg/'
 	},
 	pngs: {
+		base: source_dir + '/img/png',
 		input: source_dir + '/img/png/**/*.png',
 		output: build_dir + '/img/png/'
 	},
 	jpgs: {
+		base: source_dir + '/img/jpg',
 		input: source_dir + '/img/jpg/**/*.jpg',
 		output: build_dir + '/img/jpg/'
 	},
 	fonts: {
+		base: source_dir + '/fonts',
 		input: source_dir + '/fonts/**/*',
 		output: build_dir + '/fonts'
 	},
 	copy: {
+		base: source_dir + '/copy-js',
 		input: source_dir + '/copy-js/**/*',
 		output: build_dir + '/js'
 	},
@@ -72,15 +78,68 @@ var paths = {
  * Copy third-party scripts and styles.
  */
 
-var vendor_scripts = ['node_modules/jquery-reflow-table/dist/js/reflow-table.js','node_modules/ev-emitter/ev-emitter.js','node_modules/imagesloaded/imagesloaded.pkgd.js'];
-var vendor_styles = ['node_modules/jquery-reflow-table/dist/css/reflow-table.css'];
+const vendor_scripts = ['node_modules/jquery-reflow-table/dist/js/reflow-table.js', 'node_modules/ev-emitter/ev-emitter.js', 'node_modules/imagesloaded/imagesloaded.pkgd.js'];
+const vendor_styles = ['node_modules/jquery-reflow-table/dist/css/reflow-table.css'];
+
+
+/**
+ * Gulp Packages
+ */
+
+// General
+import { src, dest, watch, series, parallel } from 'gulp';
+import { readFileSync, rmSync, existsSync } from 'node:fs';
+import flatmap from 'gulp-flatmap';
+import lazypipe from 'lazypipe';
+import rename from 'gulp-rename';
+import header from 'gulp-header';
+
+const pkg = JSON.parse(readFileSync('./package.json', 'utf8'));
+
+// Scripts
+import eslint from 'gulp-eslint-new';
+import concat from 'gulp-concat';
+import uglify from 'gulp-terser';
+import modernizr from 'gulp-modernizr';
+
+const modernizrConfig = JSON.parse(readFileSync('./modernizr-config.json', 'utf8'));
+
+// Styles
+import gulpSass from 'gulp-sass';
+import * as dartSass from 'sass';
+import sourcemaps from 'gulp-sourcemaps';
+import postcss from 'gulp-postcss';
+import autoprefixer from 'autoprefixer';
+import postcsscomments from 'postcss-discard-comments';
+import cssnano from 'cssnano';
+
+const sass = gulpSass(dartSass);
+
+// Images
+import imagemin, { optipng } from 'gulp-imagemin';
+
+// SVGs
+import svgmin from 'gulp-svgmin';
+
+// BrowserSync
+import browserSync from 'browser-sync';
+
+/**
+ *  Define CSS Plugins
+ */
+
+const cssPlugins = [
+	autoprefixer({ cascade: true, remove: true }),
+	postcsscomments({ removeAll: true }),
+	cssnano()
+];
 
 
 /**
  * Template for banner to add to file headers
  */
 
-var banner = {
+const banner = {
 	full:
 		'/*!\n' +
 		' * <%= package.name %> v<%= package.version %>\n' +
@@ -100,115 +159,51 @@ var banner = {
 
 
 /**
- * Gulp Packages
- */
-
-// General
-var {gulp, src, dest, watch, series, parallel} = require('gulp');
-var del = require('del');
-var flatmap = require('gulp-flatmap');
-var lazypipe = require('lazypipe');
-var rename = require('gulp-rename');
-var header = require('gulp-header');
-var package = require('./package.json');
-
-// Scripts
-var eslint = require('gulp-eslint');
-var concat = require('gulp-concat');
-var uglify = require('gulp-terser');
-var optimizejs = require('gulp-optimize-js');
-var modernizr = require('gulp-modernizr');
-
-// Styles
-var sass = require('gulp-sass')(require('node-sass'));
-var sourcemaps = require("gulp-sourcemaps");
-var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var postcsscomments = require('postcss-discard-comments');
-
-// PNG
-
-var imagemin = require('gulp-imagemin');
-imagemin.optipng({optimizationLevel: 7});
-
-// SVGs
-var svgmin = require('gulp-svgmin');
-
-// BrowserSync
-var browserSync = require('browser-sync');
-
-/**
- *  Define CSS Plugins
- */
-
-var cssPlugins = [
-	autoprefixer({cascade: true, remove: true}),
-	postcsscomments({ removeAll: true})
-];
-
-
-
-/**
  * Gulp Tasks
  */
 
-// Remove pre-existing content from output folders
-var cleanDist = function (done) {
+// Remove pre-existing content from output folder
+const cleanDist = (done) => {
 
 	// Make sure this feature is activated before running
 	if (!settings.clean) return done();
 
 	// Clean the build folder
-	del.sync([
-		paths.output
-	]);
+	rmSync(paths.output, { recursive: true, force: true });
 
 	// Signal completion
 	return done();
 };
 
 // Repeated JavaScript tasks
-var jsTasks = lazypipe()
-	.pipe(header, banner.full, {package: package})
-	.pipe(optimizejs)
+const jsTasks = lazypipe()
+	.pipe(header, banner.full, { package: pkg })
 	.pipe(dest, paths.scripts.output)
-	.pipe(rename, {suffix: '.min'})
+	.pipe(rename, { suffix: '.min' })
 	.pipe(uglify)
-	.pipe(optimizejs,{sourceMap: true})
-	.pipe(header, banner.min, {package: package})
+	.pipe(header, banner.min, { package: pkg })
 	.pipe(dest, paths.scripts.output);
 
-// Lint, cssnano, and concatenate scripts
-var buildScripts = function (done) {
+// Lint, minify, and concatenate scripts
+const buildScripts = (done) => {
 
 	// Make sure this feature is activated before running
 	if (!settings.scripts) return done();
 
 	// Run tasks on script files
 	return src(paths.scripts.input)
-		.pipe(flatmap(function(stream, file) {
+		.pipe(flatmap((stream, file) => {
 
 			// If the file is a directory
 			if (file.isDirectory()) {
 
-				// Setup a suffix variable
-				var suffix = '';
-
 				// Setup a filename.
-
-				var filename = paths.scripts.cfilename === false ? file.relative : paths.scripts.cfilename;
-
+				const filename = paths.scripts.cfilename === false ? file.relative : paths.scripts.cfilename;
 
 				// Grab all files and concatenate them
-
-				src(file.path + '/*.js')
-				  .pipe(sourcemaps.init()) // TO DO: Sourcemaps not working as expected.
-					.pipe(concat(filename + suffix + '.js'))
-					.pipe(jsTasks())
-					sourcemaps.write('./');
-
-				return stream;
-
+				return src(file.path + '/*.js')
+					.pipe(concat(filename + '.js'))
+					.pipe(jsTasks());
 			}
 
 			// Otherwise, process the file
@@ -218,188 +213,161 @@ var buildScripts = function (done) {
 
 };
 
-var buildVendorScripts = function(done) {
+const buildVendorScripts = (done) => {
 
 	if (!settings.scripts) return done();
 	return src(vendor_scripts)
-		.pipe(flatmap(function(stream, file) {
+		.pipe(flatmap((stream, file) => {
 
+			// Setup a filename.
+			const filename = paths.scripts.vfilename === false ? file.relative : paths.scripts.vfilename;
 
-				// Setup a suffix variable
-				var suffix = '';
-
-				// Setup a filename.
-
-				var filename = paths.scripts.vfilename === false ? file.relative : paths.scripts.vfilename;
-
-
-				// Grab all files and concatenate them
-
-				src(file.path)
-				  .pipe(sourcemaps.init()) // TO DO: Sourcemaps not working as expected.
-					.pipe(concat(filename + suffix + '.js'))
-					.pipe(jsTasks())
-					sourcemaps.write('./');
-
-				return stream;
+			// Grab all files and concatenate them
+			return src(file.path)
+				.pipe(concat(filename + '.js'))
+				.pipe(jsTasks());
 
 		}));
-}
+};
 
 // Lint scripts
-var lintScripts = function (done) {
+const lintScripts = (done) => {
 
 	// Make sure this feature is activated before running
 	if (!settings.scripts) return done();
 
 	// Lint scripts
-	return src(paths.scripts.input)
+	return src(paths.scripts.input + '/*.js')
 		.pipe(eslint())
 		.pipe(eslint.format());
 };
 
-var buildModernizr = function(done) {
+const buildModernizr = (done) => {
 
-  if (!settings.modernizr) return done();
+	if (!settings.modernizr) return done();
 
-  return src(paths.scripts.input + '/*.js')
-    .pipe(modernizr(require('./modernizr-config.json')))
-    .pipe(dest(paths.scripts.output))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
-    .pipe(optimizejs({sourceMap: true}))
-    .pipe(dest(paths.scripts.output));
-}
+	return src(paths.scripts.input + '/*.js')
+		.pipe(modernizr(modernizrConfig))
+		.pipe(dest(paths.scripts.output))
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(uglify())
+		.pipe(dest(paths.scripts.output));
+};
 
-// Process, lint, and cssnano Sass files
-var buildStyles = function (done) {
+// Process, lint, and minify Sass files
+const buildStyles = (done) => {
 
 	// Make sure this feature is activated before running
 	if (!settings.styles) return done();
 
 	// Run tasks on all Sass files
 	return src(paths.styles.input)
-	  .pipe(sourcemaps.init())
+		.pipe(sourcemaps.init())
 		.pipe(sass({
-			outputStyle: 'compact',
-			includePaths: paths.styles.sassIncludePaths, // Allows @import declarations deeper in the tree to target top-level directories. Useful for loading in components and profiles.
-			srcComments: false
+			verbose: true,
+			style: 'expanded',
+			loadPaths: paths.styles.sassIncludePaths // Allows @import declarations deeper in the tree to target top-level directories. Useful for loading in components and profiles.
 		}))
-		.pipe(header(banner.full, { package : package }))
+		.pipe(header(banner.full, { package: pkg }))
 		.pipe(dest(paths.styles.output))
-		.pipe(rename({suffix: '.min'}))
+		.pipe(rename({ suffix: '.min' }))
 		.pipe(postcss(cssPlugins))
-		.pipe(header(banner.min, { package : package }))
+		.pipe(header(banner.min, { package: pkg }))
 		.pipe(sourcemaps.write('./'))
 		.pipe(dest(paths.styles.output));
 
 };
 
-var buildVendorStyles = function(done) {
+const buildVendorStyles = (done) => {
 
-	if (!settings.scripts) return done();
+	if (!settings.styles) return done();
 	return src(vendor_styles)
-		.pipe(flatmap(function(stream, file) {
+		.pipe(flatmap((stream, file) => {
 
+			// Setup a filename.
+			const filename = paths.styles.vfilename === false ? file.relative : paths.styles.vfilename;
 
-				// Setup a filename.
-
-				var filename = paths.styles.vfilename === false ? file.relative : paths.styles.vfilename;
-
-				// Grab all files and concatenate them
-
-				src(file.path)
-          .pipe(sourcemaps.init())
-      		.pipe(header(banner.full, { package : package }))
-      		.pipe(rename({basename: filename}))
-      		.pipe(dest(paths.styles.output))
-      		.pipe(rename({basename: filename, suffix: '.min'}))
-      		.pipe(postcss(cssPlugins))
-      		.pipe(header(banner.min, { package : package }))
-      		.pipe(sourcemaps.write('./'))
-      		.pipe(dest(paths.styles.output));
-				return stream;
+			// Grab all files and concatenate them
+			return src(file.path)
+				.pipe(header(banner.full, { package: pkg }))
+				.pipe(rename({ basename: filename }))
+				.pipe(dest(paths.styles.output))
+				.pipe(rename({ basename: filename, suffix: '.min' }))
+				.pipe(postcss(cssPlugins))
+				.pipe(header(banner.min, { package: pkg }))
+				.pipe(dest(paths.styles.output));
 		}));
-}
-
-
+};
 
 
 // Copy Image files
-var buildImages = function (done) {
+const buildImages = (done) => {
 
-	// Make sure this feature is activated before running
-	if (!settings.img) return done();
+	// Make sure this feature is activated before running, and the source folder exists
+	if (!settings.img || !existsSync(paths.img.base)) return done();
 
-	// Optimize SVG files
-	return src(paths.img.input)
+	return src(paths.img.input, { allowEmpty: true })
 		.pipe(dest(paths.img.output));
 };
 
 
 // Optimize SVG files
-var buildSVGs = function (done) {
+const buildSVGs = (done) => {
 
-	// Make sure this feature is activated before running
-	if (!settings.svgs) return done();
+	// Make sure this feature is activated before running, and the source folder exists
+	if (!settings.svgs || !existsSync(paths.svgs.base)) return done();
 
-	// Optimize SVG files
-	return src(paths.svgs.input)
+	return src(paths.svgs.input, { allowEmpty: true })
 		.pipe(svgmin())
 		.pipe(dest(paths.svgs.output));
 
 };
 
-// Copy PNG files
-var buildPNGs = function (done) {
+// Optimize PNG files
+const buildPNGs = (done) => {
 
-	// Make sure this feature is activated before running
-	if (!settings.pngs) return done();
+	// Make sure this feature is activated before running, and the source folder exists
+	if (!settings.pngs || !existsSync(paths.pngs.base)) return done();
 
-	// Optimize SVG files
-	return src(paths.pngs.input)
-	  .pipe(imagemin())
+	return src(paths.pngs.input, { allowEmpty: true })
+		.pipe(imagemin([optipng({ optimizationLevel: 7 })]))
 		.pipe(dest(paths.pngs.output));
 };
 
 // Copy JPG files
-var buildJPGs = function (done) {
+const buildJPGs = (done) => {
 
-	// Make sure this feature is activated before running
-	if (!settings.jpgs) return done();
+	// Make sure this feature is activated before running, and the source folder exists
+	if (!settings.jpgs || !existsSync(paths.jpgs.base)) return done();
 
-	// Optimize SVG files
-	return src(paths.jpgs.input)
+	return src(paths.jpgs.input, { allowEmpty: true })
 		.pipe(dest(paths.jpgs.output));
 };
 
 // Copy Font Files
-var buildFonts = function (done) {
+const buildFonts = (done) => {
 
-	// Make sure this feature is activated before running
-	if (!settings.jpgs) return done();
+	// Make sure this feature is activated before running, and the source folder exists
+	if (!settings.fonts || !existsSync(paths.fonts.base)) return done();
 
-	// Optimize SVG files
-	return src(paths.fonts.input)
+	return src(paths.fonts.input, { allowEmpty: true })
 		.pipe(dest(paths.fonts.output));
 };
 
 
-
 // Copy theme-specific static files into output folder
-var copyFiles = function (done) {
+const copyFiles = (done) => {
 
-	// Make sure this feature is activated before running
-	if (!settings.copy) return done();
+	// Make sure this feature is activated before running, and the source folder exists
+	if (!settings.copy || !existsSync(paths.copy.base)) return done();
 
-	// Copy static files
-	return src(paths.copy.input)
+	return src(paths.copy.input, { allowEmpty: true })
 		.pipe(dest(paths.copy.output));
 
 };
 
 // Watch for changes to the source directory
-var startServer = function (done) {
+const startServer = (done) => {
 
 	// Make sure this feature is activated before running
 	if (!settings.reload) return done();
@@ -417,40 +385,19 @@ var startServer = function (done) {
 };
 
 // Reload the browser when files change
-var reloadBrowser = function (done) {
+const reloadBrowser = (done) => {
 	if (!settings.reload) return done();
 	browserSync.reload();
 	done();
 };
 
-// Watch for changes
-var watchSrc = function (done) {
-	watch(paths.input, series(exports.default, reloadBrowser));
-	done();
-};
-
-// Watch for changes
-var watchJs = function (done) {
-	watch(paths.input, series(exports.js, reloadBrowser));
-	done();
-};
-
-// Watch for changes
-var watchSass = function (done) {
-	watch(paths.input, series(exports.sass, reloadBrowser));
-	done();
-};
-
-
-
 
 /**
- * Export Tasks
+ * Composed Tasks
  */
 
-// Default task
-// gulp
-exports.default = series(
+// Default task: gulp / gulp build
+const build = series(
 	cleanDist,
 	parallel(
 		lintScripts,
@@ -465,49 +412,81 @@ exports.default = series(
 		buildFonts,
 		copyFiles
 	),
-  buildModernizr
+	buildModernizr
 );
 
-exports.build = exports.default;
+// gulp js
+const buildJs = series(
+	lintScripts,
+	buildScripts,
+	buildVendorScripts,
+	buildModernizr
+);
 
-exports.sass = series(
+// gulp sass
+const buildSass = series(
 	buildStyles
 );
 
-exports.js = series(
-  lintScripts,
-  buildScripts,
-  buildVendorScripts,
-  buildModernizr
-);
-
-exports.images = series(
+// gulp images
+const buildImagesTask = series(
 	buildImages,
 	buildSVGs,
 	buildPNGs,
 	buildJPGs
 );
 
-// Watch and reload
+// Watch for changes
+const watchSrc = (done) => {
+	watch(paths.input, series(build, reloadBrowser));
+	done();
+};
+
+// Watch for changes to scripts only
+const watchJs = (done) => {
+	watch(paths.input, series(buildJs, reloadBrowser));
+	done();
+};
+
+// Watch for changes to styles only
+const watchSass = (done) => {
+	watch(paths.input, series(buildSass, reloadBrowser));
+	done();
+};
+
 // gulp watch
-exports.watch = series(
-	exports.default,
+const watchAll = series(
+	build,
 	startServer,
 	watchSrc
 );
 
-// Watch and reload scripts only
 // gulp jswatch
-exports.jswatch = series(
-	exports.js,
+const jswatch = series(
+	buildJs,
 	startServer,
 	watchJs
 );
 
-// Watch and reload styles only
 // gulp sasswatch
-exports.sasswatch = series(
-	exports.sass,
+const sasswatch = series(
+	buildSass,
 	startServer,
 	watchSass
 );
+
+
+/**
+ * Export Tasks
+ */
+
+export {
+	build,
+	build as default,
+	buildJs as js,
+	buildSass as sass,
+	buildImagesTask as images,
+	watchAll as watch,
+	jswatch,
+	sasswatch
+};

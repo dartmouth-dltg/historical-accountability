@@ -7,9 +7,10 @@
  * With thanks to https://www.sitepoint.com/converting-typographic-units-sass/
  * 
  */
+@use "sass:math";
 
 @function convert($value, $convertUnit, $emfactor: 16)
-  $currentUnit: unit($value)
+  $currentUnit: math.unit($value)
   $emfactor: strip-unit($emfactor)
   $value: strip-unit($value)
   
@@ -21,7 +22,7 @@
   @if $currentUnit == "px"
 
     @if $convertUnit == em
-      @return $value / $emfactor + 0em
+      @return math.div($value, $emfactor) + 0em
     
     @else if $convertUnit == percent
       @return percentage($value / 16)
@@ -30,7 +31,7 @@
   @else if $currentUnit == "em"
 
     @if $convertUnit == px
-      @return $value * $emfactor + 0px
+      @return math.div($value * $emfactor, 100) + 0px
     
     @else if $convertUnit == percent
       @return percentage($value)
@@ -39,19 +40,19 @@
   @else if $currentUnit == "%"
   
     @if $convertUnit == px
-      @return $value * $emfactor / 100 + 0px
+      @return math.div($value * $emfactor, 100) + 0px
     
     @else if $convertUnit == em
-      @return $value / 100 + 0em
+      @return math.div($value,  100) + 0em
     
 
   @else if $currentUnit == "pt"
 
     @if $convertUnit == px
-      @return $value * 1.3333 +0px
+      @return $value * 1.3333 + 0px
     
     @else if $convertUnit == em
-      @return $value / 12 + 0em
+      @return math.div($value, 12) + 0em
     
     @else if $convertUnit == percent
       @return percentage($value / 12)

@@ -6,8 +6,9 @@
  *
  *  NOTE: The element must have an explicit $width set as per proportional_height()
  */
+@use "sass:math";
 
-=proportional_thumbnail($width: 100%,$proportion: 1/$scale)
+=proportional_thumbnail($width: 100%, $proportion: math.div(1, $scale))
   +proportional_height($width,$proportion)
 
   img

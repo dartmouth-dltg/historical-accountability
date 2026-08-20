@@ -4,6 +4,7 @@
  * 
  * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
  */
+@use "sass:map";
  
 $basetypesize: 1.2rem // Body font size relative to rootsize above. Establishes core unit for other font sizes (rem, em, px, etc.).
 
@@ -76,9 +77,9 @@ $row_zebra_stripe_color: neutral(3)
 
 // Aliases
 
-$h1fontsize: $basetypesize * map-get($sizefactors,'h1')
-$h2fontsize: $basetypesize * map-get($sizefactors,'h2')
-$h3fontsize: $basetypesize * map-get($sizefactors,'h3')
-$h4fontsize: $basetypesize * map-get($sizefactors,'h4')
-$h5fontsize: $basetypesize * map-get($sizefactors,'h5')
-$h6fontsize: $basetypesize * map-get($sizefactors,'h6')
+$h1fontsize: $basetypesize * map.get($sizefactors,'h1')
+$h2fontsize: $basetypesize * map.get($sizefactors,'h2')
+$h3fontsize: $basetypesize * map.get($sizefactors,'h3')
+$h4fontsize: $basetypesize * map.get($sizefactors,'h4')
+$h5fontsize: $basetypesize * map.get($sizefactors,'h5')
+$h6fontsize: $basetypesize * map.get($sizefactors,'h6')

@@ -16,15 +16,21 @@ This theme includes build files (final CSS, Javascript, and Image files) for por
 * Activate the theme via the Omeka Admin UI
 
 #REQUIREMENTS FOR THEME DEVELOPERS
-* node.js 10+
-* npm 6+
-* gulp 4 (installed globally, though package is included)
+* node.js 22.11+ (see .nvmrc; run `nvm use` if you use nvm)
+* npm 10+
+* gulp 5 (installed locally via npm install; no global install needed)
 
 #INSTALLATION FOR THEME DEVELOPERS
 * Run npm install to load vendor packages
 
 #USAGE FOR THEME DEVELOPERS
-* gulp build:  Builds entire asset folder (sass, scripts, etc.)
-* gulp watch:  Watches for changes in source directory and builds automatically
-* gulp js: Builds scripts only
-* gulp sass: Builds SASS files only
+Use the npm scripts below rather than a globally-installed `gulp` command - this
+avoids "Unsupported gulp version" errors caused by an outdated global `gulp-cli`.
+* npm run build:  Builds entire asset folder (sass, scripts, etc.)
+* npm run watch:  Watches for changes in source directory and builds automatically
+* npm run js: Builds scripts only, and lints them (see eslint.config.js)
+* npm run sass: Builds SASS files only
+* npm run images: Builds image assets only (SVG/PNG/JPG)
+
+If you'd rather use the bare `gulp` command, update your global CLI first:
+`npm install --global gulp-cli@latest`.

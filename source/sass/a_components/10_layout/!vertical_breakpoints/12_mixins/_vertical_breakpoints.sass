@@ -1,5 +1,6 @@
 // Vertical breakpoints
-      
+@use "sass:map";
+     
 =vbp($point)
-  @media only #{$media_type} and ($vfeature: map-get($vbreakpoints,$point))
+  @media only #{$media_type} and ($vfeature: map.get($vbreakpoints,$point))
     @content

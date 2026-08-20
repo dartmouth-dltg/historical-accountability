@@ -8,7 +8,8 @@ $(document).ready(function(){
 
     //check for submenu links, bind enter event, stop check
 
-    checkInit(); 
+    var check;
+    checkInit();
 
     function checkInit() {
         check = setInterval(checkTrigger, 100);
@@ -127,7 +128,7 @@ $(document).ready(function(){
     });
    
     // toggle sub menu on desktop header nav
-    $(document).on("click", ".submenu-arrow > span", function(e) {
+    $(document).on("click", ".submenu-arrow > span", function() {
         $(".submenu-arrow > span").addClass("outline-add");
         $("nav.desktop-nav > .navigation > li > ul").hide();
         $(".submenu-arrow > span").css("border-top", "12px solid white");
