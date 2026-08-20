@@ -115,9 +115,6 @@ import cssnano from 'cssnano';
 
 const sass = gulpSass(dartSass);
 
-// Images
-import imagemin, { optipng } from 'gulp-imagemin';
-
 // SVGs
 import svgmin from 'gulp-svgmin';
 
@@ -323,14 +320,13 @@ const buildSVGs = (done) => {
 
 };
 
-// Optimize PNG files
+// Copy PNG files
 const buildPNGs = (done) => {
 
 	// Make sure this feature is activated before running, and the source folder exists
 	if (!settings.pngs || !existsSync(paths.pngs.base)) return done();
 
 	return src(paths.pngs.input, { allowEmpty: true, encoding: false })
-		.pipe(imagemin([optipng({ optimizationLevel: 7 })]))
 		.pipe(dest(paths.pngs.output));
 };
 
