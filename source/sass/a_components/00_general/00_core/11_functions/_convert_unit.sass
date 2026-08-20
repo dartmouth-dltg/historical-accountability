@@ -45,7 +45,7 @@
     'dpcm': 0dpcm,
     'dpi': 0dpi
 
-  @if map-has-key($units, $unit)
+  @if map.has-key($units, $unit)
     @return map.get($units, $unit) + $value
 
   @warn "Unknown unit `#{$unit}`."

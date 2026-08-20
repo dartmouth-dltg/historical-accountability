@@ -405,224 +405,210 @@
   font-style: normal;
   font-weight: 700;
   src: local("Lato Bold Regular"), local("Lato-Bold-Regular");
-  src: url("../fonts/lato-700/lato-normal-700.eot"), url("../fonts/lato-700/lato-normal-700.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-700/lato-normal-700.otf") format("opentype"), url("../fonts/lato-700/lato-normal-700.woff") format("woff"), url("../fonts/lato-700/lato-normal-700.woff") format("woff"), url("../fonts/lato-700/lato-normal-700.ttf") format("truetype"), url("../fonts/lato-700/lato-normal-700.svg#Calluna Sans") format("svg");
+  src: url("../fonts/lato-700/lato-normal-700.woff2") format("woff2"), url("../fonts/lato-700/lato-normal-700.woff") format("woff"), url("../fonts/lato-700/lato-normal-700.otf") format("opentype"), url("../fonts/lato-700/lato-normal-700.ttf") format("truetype");
 }
 @font-face {
   font-family: "Lato";
   font-style: italic;
   font-weight: 700;
   src: local("Lato Bold Italic"), local("Lato-Bold-Italic");
-  src: url("../fonts/lato-700/lato-italic-700.eot"), url("../fonts/lato-700/lato-italic-700.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-700/lato-italic-700.otf") format("opentype"), url("../fonts/lato-700/lato-italic-700.woff") format("woff"), url("../fonts/lato-700/lato-italic-700.woff") format("woff"), url("../fonts/lato-700/lato-italic-700.ttf") format("truetype"), url("../fonts/lato-700/lato-italic-700.svg#Calluna Sans") format("svg");
+  src: url("../fonts/lato-700/lato-italic-700.woff2") format("woff2"), url("../fonts/lato-700/lato-italic-700.woff") format("woff"), url("../fonts/lato-700/lato-italic-700.otf") format("opentype"), url("../fonts/lato-700/lato-italic-700.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSansBook";
   font-style: normal;
   font-weight: 400;
   src: local("BentonSansBook Regular"), local("BentonSansBook-Regular");
-  src: url("../fonts/bentonbook-400/bentonbook-normal-400.eot"), url("../fonts/bentonbook-400/bentonbook-normal-400.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonbook-400/bentonbook-normal-400.otf") format("opentype"), url("../fonts/bentonbook-400/bentonbook-normal-400.woff") format("woff"), url("../fonts/bentonbook-400/bentonbook-normal-400.woff") format("woff"), url("../fonts/bentonbook-400/bentonbook-normal-400.ttf") format("truetype"), url("../fonts/bentonbook-400/bentonbook-normal-400.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonbook-400/bentonbook-normal-400.woff2") format("woff2"), url("../fonts/bentonbook-400/bentonbook-normal-400.woff") format("woff"), url("../fonts/bentonbook-400/bentonbook-normal-400.otf") format("opentype"), url("../fonts/bentonbook-400/bentonbook-normal-400.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSansBook";
   font-style: italic;
   font-weight: 400;
   src: local("BentonSansBook Italic"), local("BentonSansBook-Italic");
-  src: url("../fonts/bentonbook-400/bentonbook-italic-400.eot"), url("../fonts/bentonbook-400/bentonbook-italic-400.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonbook-400/bentonbook-italic-400.otf") format("opentype"), url("../fonts/bentonbook-400/bentonbook-italic-400.woff") format("woff"), url("../fonts/bentonbook-400/bentonbook-italic-400.woff") format("woff"), url("../fonts/bentonbook-400/bentonbook-italic-400.ttf") format("truetype"), url("../fonts/bentonbook-400/bentonbook-italic-400.svg#Calluna Sans") format("svg");
-}
-@font-face {
-  font-family: "BentonSansBook";
-  font-style: normal;
-  font-weight: 700;
-  src: local("BentonSansBook Bold Regular"), local("BentonSansBook-Bold-Regular");
-  src: url("../fonts/bentonbook-700/bentonbook-normal-700.eot"), url("../fonts/bentonbook-700/bentonbook-normal-700.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonbook-700/bentonbook-normal-700.otf") format("opentype"), url("../fonts/bentonbook-700/bentonbook-normal-700.woff") format("woff"), url("../fonts/bentonbook-700/bentonbook-normal-700.woff") format("woff"), url("../fonts/bentonbook-700/bentonbook-normal-700.ttf") format("truetype"), url("../fonts/bentonbook-700/bentonbook-normal-700.svg#Calluna Sans") format("svg");
-}
-@font-face {
-  font-family: "BentonSansBook";
-  font-style: italic;
-  font-weight: 700;
-  src: local("BentonSansBook Bold Italic"), local("BentonSansBook-Bold-Italic");
-  src: url("../fonts/bentonbook-700/bentonbook-italic-700.eot"), url("../fonts/bentonbook-700/bentonbook-italic-700.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonbook-700/bentonbook-italic-700.otf") format("opentype"), url("../fonts/bentonbook-700/bentonbook-italic-700.woff") format("woff"), url("../fonts/bentonbook-700/bentonbook-italic-700.woff") format("woff"), url("../fonts/bentonbook-700/bentonbook-italic-700.ttf") format("truetype"), url("../fonts/bentonbook-700/bentonbook-italic-700.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonbook-400/bentonbook-italic-400.woff2") format("woff2"), url("../fonts/bentonbook-400/bentonbook-italic-400.woff") format("woff"), url("../fonts/bentonbook-400/bentonbook-italic-400.otf") format("opentype"), url("../fonts/bentonbook-400/bentonbook-italic-400.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSans";
   font-style: normal;
   font-weight: 300;
   src: local("BentonSans Light Regular"), local("BentonSans-Light-Regular");
-  src: url("../fonts/bentonsans-300/bentonsans-normal-300.eot"), url("../fonts/bentonsans-300/bentonsans-normal-300.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-300/bentonsans-normal-300.otf") format("opentype"), url("../fonts/bentonsans-300/bentonsans-normal-300.woff") format("woff"), url("../fonts/bentonsans-300/bentonsans-normal-300.woff") format("woff"), url("../fonts/bentonsans-300/bentonsans-normal-300.ttf") format("truetype"), url("../fonts/bentonsans-300/bentonsans-normal-300.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonsans-300/bentonsans-normal-300.woff2") format("woff2"), url("../fonts/bentonsans-300/bentonsans-normal-300.woff") format("woff"), url("../fonts/bentonsans-300/bentonsans-normal-300.otf") format("opentype"), url("../fonts/bentonsans-300/bentonsans-normal-300.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSans";
   font-style: italic;
   font-weight: 300;
   src: local("BentonSans Light Italic"), local("BentonSans-Light-Italic");
-  src: url("../fonts/bentonsans-300/bentonsans-italic-300.eot"), url("../fonts/bentonsans-300/bentonsans-italic-300.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-300/bentonsans-italic-300.otf") format("opentype"), url("../fonts/bentonsans-300/bentonsans-italic-300.woff") format("woff"), url("../fonts/bentonsans-300/bentonsans-italic-300.woff") format("woff"), url("../fonts/bentonsans-300/bentonsans-italic-300.ttf") format("truetype"), url("../fonts/bentonsans-300/bentonsans-italic-300.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonsans-300/bentonsans-italic-300.woff2") format("woff2"), url("../fonts/bentonsans-300/bentonsans-italic-300.woff") format("woff"), url("../fonts/bentonsans-300/bentonsans-italic-300.otf") format("opentype"), url("../fonts/bentonsans-300/bentonsans-italic-300.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSans";
   font-style: normal;
   font-weight: 400;
   src: local("BentonSans Regular"), local("BentonSans-Regular");
-  src: url("../fonts/bentonsans-400/bentonsans-normal-400.eot"), url("../fonts/bentonsans-400/bentonsans-normal-400.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-400/bentonsans-normal-400.otf") format("opentype"), url("../fonts/bentonsans-400/bentonsans-normal-400.woff") format("woff"), url("../fonts/bentonsans-400/bentonsans-normal-400.woff") format("woff"), url("../fonts/bentonsans-400/bentonsans-normal-400.ttf") format("truetype"), url("../fonts/bentonsans-400/bentonsans-normal-400.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonsans-400/bentonsans-normal-400.woff2") format("woff2"), url("../fonts/bentonsans-400/bentonsans-normal-400.woff") format("woff"), url("../fonts/bentonsans-400/bentonsans-normal-400.otf") format("opentype"), url("../fonts/bentonsans-400/bentonsans-normal-400.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSans";
   font-style: italic;
   font-weight: 400;
   src: local("BentonSans Italic"), local("BentonSans-Italic");
-  src: url("../fonts/bentonsans-400/bentonsans-italic-400.eot"), url("../fonts/bentonsans-400/bentonsans-italic-400.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-400/bentonsans-italic-400.otf") format("opentype"), url("../fonts/bentonsans-400/bentonsans-italic-400.woff") format("woff"), url("../fonts/bentonsans-400/bentonsans-italic-400.woff") format("woff"), url("../fonts/bentonsans-400/bentonsans-italic-400.ttf") format("truetype"), url("../fonts/bentonsans-400/bentonsans-italic-400.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonsans-400/bentonsans-italic-400.woff2") format("woff2"), url("../fonts/bentonsans-400/bentonsans-italic-400.woff") format("woff"), url("../fonts/bentonsans-400/bentonsans-italic-400.otf") format("opentype"), url("../fonts/bentonsans-400/bentonsans-italic-400.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSans";
   font-style: normal;
   font-weight: 500;
   src: local("BentonSans Medium Regular"), local("BentonSans-Medium-Regular");
-  src: url("../fonts/bentonsans-500/bentonsans-normal-500.eot"), url("../fonts/bentonsans-500/bentonsans-normal-500.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-500/bentonsans-normal-500.otf") format("opentype"), url("../fonts/bentonsans-500/bentonsans-normal-500.woff") format("woff"), url("../fonts/bentonsans-500/bentonsans-normal-500.woff") format("woff"), url("../fonts/bentonsans-500/bentonsans-normal-500.ttf") format("truetype"), url("../fonts/bentonsans-500/bentonsans-normal-500.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonsans-500/bentonsans-normal-500.woff2") format("woff2"), url("../fonts/bentonsans-500/bentonsans-normal-500.woff") format("woff"), url("../fonts/bentonsans-500/bentonsans-normal-500.otf") format("opentype"), url("../fonts/bentonsans-500/bentonsans-normal-500.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSans";
   font-style: italic;
   font-weight: 500;
   src: local("BentonSans Medium Italic"), local("BentonSans-Medium-Italic");
-  src: url("../fonts/bentonsans-500/bentonsans-italic-500.eot"), url("../fonts/bentonsans-500/bentonsans-italic-500.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-500/bentonsans-italic-500.otf") format("opentype"), url("../fonts/bentonsans-500/bentonsans-italic-500.woff") format("woff"), url("../fonts/bentonsans-500/bentonsans-italic-500.woff") format("woff"), url("../fonts/bentonsans-500/bentonsans-italic-500.ttf") format("truetype"), url("../fonts/bentonsans-500/bentonsans-italic-500.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonsans-500/bentonsans-italic-500.woff2") format("woff2"), url("../fonts/bentonsans-500/bentonsans-italic-500.woff") format("woff"), url("../fonts/bentonsans-500/bentonsans-italic-500.otf") format("opentype"), url("../fonts/bentonsans-500/bentonsans-italic-500.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSans";
   font-style: normal;
   font-weight: 700;
   src: local("BentonSans Bold Regular"), local("BentonSans-Bold-Regular");
-  src: url("../fonts/bentonsans-700/bentonsans-normal-700.eot"), url("../fonts/bentonsans-700/bentonsans-normal-700.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-700/bentonsans-normal-700.otf") format("opentype"), url("../fonts/bentonsans-700/bentonsans-normal-700.woff") format("woff"), url("../fonts/bentonsans-700/bentonsans-normal-700.woff") format("woff"), url("../fonts/bentonsans-700/bentonsans-normal-700.ttf") format("truetype"), url("../fonts/bentonsans-700/bentonsans-normal-700.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonsans-700/bentonsans-normal-700.woff2") format("woff2"), url("../fonts/bentonsans-700/bentonsans-normal-700.woff") format("woff"), url("../fonts/bentonsans-700/bentonsans-normal-700.otf") format("opentype"), url("../fonts/bentonsans-700/bentonsans-normal-700.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSans";
   font-style: italic;
   font-weight: 700;
   src: local("BentonSans Bold Italic"), local("BentonSans-Bold-Italic");
-  src: url("../fonts/bentonsans-700/bentonsans-italic-700.eot"), url("../fonts/bentonsans-700/bentonsans-italic-700.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-700/bentonsans-italic-700.otf") format("opentype"), url("../fonts/bentonsans-700/bentonsans-italic-700.woff") format("woff"), url("../fonts/bentonsans-700/bentonsans-italic-700.woff") format("woff"), url("../fonts/bentonsans-700/bentonsans-italic-700.ttf") format("truetype"), url("../fonts/bentonsans-700/bentonsans-italic-700.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonsans-700/bentonsans-italic-700.woff2") format("woff2"), url("../fonts/bentonsans-700/bentonsans-italic-700.woff") format("woff"), url("../fonts/bentonsans-700/bentonsans-italic-700.otf") format("opentype"), url("../fonts/bentonsans-700/bentonsans-italic-700.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSans";
   font-style: normal;
   font-weight: 900;
   src: local("BentonSans Black Regular"), local("BentonSans-Black-Regular");
-  src: url("../fonts/bentonsans-900/bentonsans-normal-900.eot"), url("../fonts/bentonsans-900/bentonsans-normal-900.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-900/bentonsans-normal-900.otf") format("opentype"), url("../fonts/bentonsans-900/bentonsans-normal-900.woff") format("woff"), url("../fonts/bentonsans-900/bentonsans-normal-900.woff") format("woff"), url("../fonts/bentonsans-900/bentonsans-normal-900.ttf") format("truetype"), url("../fonts/bentonsans-900/bentonsans-normal-900.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonsans-900/bentonsans-normal-900.woff2") format("woff2"), url("../fonts/bentonsans-900/bentonsans-normal-900.woff") format("woff"), url("../fonts/bentonsans-900/bentonsans-normal-900.otf") format("opentype"), url("../fonts/bentonsans-900/bentonsans-normal-900.ttf") format("truetype");
 }
 @font-face {
   font-family: "BentonSans";
   font-style: italic;
   font-weight: 900;
   src: local("BentonSans Black Italic"), local("BentonSans-Black-Italic");
-  src: url("../fonts/bentonsans-900/bentonsans-italic-900.eot"), url("../fonts/bentonsans-900/bentonsans-italic-900.eot?#iefix") format("embedded-opentype"), url("../fonts/bentonsans-900/bentonsans-italic-900.otf") format("opentype"), url("../fonts/bentonsans-900/bentonsans-italic-900.woff") format("woff"), url("../fonts/bentonsans-900/bentonsans-italic-900.woff") format("woff"), url("../fonts/bentonsans-900/bentonsans-italic-900.ttf") format("truetype"), url("../fonts/bentonsans-900/bentonsans-italic-900.svg#Calluna Sans") format("svg");
+  src: url("../fonts/bentonsans-900/bentonsans-italic-900.woff2") format("woff2"), url("../fonts/bentonsans-900/bentonsans-italic-900.woff") format("woff"), url("../fonts/bentonsans-900/bentonsans-italic-900.otf") format("opentype"), url("../fonts/bentonsans-900/bentonsans-italic-900.ttf") format("truetype");
 }
 @font-face {
   font-family: "NunitoSans";
   font-style: normal;
   font-weight: 500;
   src: local("NunitoSans Medium Regular"), local("NunitoSans-Medium-Regular");
-  src: url("../fonts/nunitosans-500/nunitosans-normal-500.eot"), url("../fonts/nunitosans-500/nunitosans-normal-500.eot?#iefix") format("embedded-opentype"), url("../fonts/nunitosans-500/nunitosans-normal-500.otf") format("opentype"), url("../fonts/nunitosans-500/nunitosans-normal-500.woff") format("woff"), url("../fonts/nunitosans-500/nunitosans-normal-500.woff") format("woff"), url("../fonts/nunitosans-500/nunitosans-normal-500.ttf") format("truetype"), url("../fonts/nunitosans-500/nunitosans-normal-500.svg#Calluna Sans") format("svg");
+  src: url("../fonts/nunitosans-500/nunitosans-normal-500.woff2") format("woff2"), url("../fonts/nunitosans-500/nunitosans-normal-500.woff") format("woff"), url("../fonts/nunitosans-500/nunitosans-normal-500.otf") format("opentype"), url("../fonts/nunitosans-500/nunitosans-normal-500.ttf") format("truetype");
 }
 @font-face {
   font-family: "NunitoSans";
   font-style: italic;
   font-weight: 500;
   src: local("NunitoSans Medium Italic"), local("NunitoSans-Medium-Italic");
-  src: url("../fonts/nunitosans-500/nunitosans-italic-500.eot"), url("../fonts/nunitosans-500/nunitosans-italic-500.eot?#iefix") format("embedded-opentype"), url("../fonts/nunitosans-500/nunitosans-italic-500.otf") format("opentype"), url("../fonts/nunitosans-500/nunitosans-italic-500.woff") format("woff"), url("../fonts/nunitosans-500/nunitosans-italic-500.woff") format("woff"), url("../fonts/nunitosans-500/nunitosans-italic-500.ttf") format("truetype"), url("../fonts/nunitosans-500/nunitosans-italic-500.svg#Calluna Sans") format("svg");
+  src: url("../fonts/nunitosans-500/nunitosans-italic-500.woff2") format("woff2"), url("../fonts/nunitosans-500/nunitosans-italic-500.woff") format("woff"), url("../fonts/nunitosans-500/nunitosans-italic-500.otf") format("opentype"), url("../fonts/nunitosans-500/nunitosans-italic-500.ttf") format("truetype");
 }
 @font-face {
   font-family: "NunitoSans";
   font-style: normal;
   font-weight: 700;
   src: local("NunitoSans Bold Regular"), local("NunitoSans-Bold-Regular");
-  src: url("../fonts/nunitosans-700/nunitosans-normal-700.eot"), url("../fonts/nunitosans-700/nunitosans-normal-700.eot?#iefix") format("embedded-opentype"), url("../fonts/nunitosans-700/nunitosans-normal-700.otf") format("opentype"), url("../fonts/nunitosans-700/nunitosans-normal-700.woff") format("woff"), url("../fonts/nunitosans-700/nunitosans-normal-700.woff") format("woff"), url("../fonts/nunitosans-700/nunitosans-normal-700.ttf") format("truetype"), url("../fonts/nunitosans-700/nunitosans-normal-700.svg#Calluna Sans") format("svg");
+  src: url("../fonts/nunitosans-700/nunitosans-normal-700.woff2") format("woff2"), url("../fonts/nunitosans-700/nunitosans-normal-700.woff") format("woff"), url("../fonts/nunitosans-700/nunitosans-normal-700.otf") format("opentype"), url("../fonts/nunitosans-700/nunitosans-normal-700.ttf") format("truetype");
 }
 @font-face {
   font-family: "NunitoSans";
   font-style: italic;
   font-weight: 700;
   src: local("NunitoSans Bold Italic"), local("NunitoSans-Bold-Italic");
-  src: url("../fonts/nunitosans-700/nunitosans-italic-700.eot"), url("../fonts/nunitosans-700/nunitosans-italic-700.eot?#iefix") format("embedded-opentype"), url("../fonts/nunitosans-700/nunitosans-italic-700.otf") format("opentype"), url("../fonts/nunitosans-700/nunitosans-italic-700.woff") format("woff"), url("../fonts/nunitosans-700/nunitosans-italic-700.woff") format("woff"), url("../fonts/nunitosans-700/nunitosans-italic-700.ttf") format("truetype"), url("../fonts/nunitosans-700/nunitosans-italic-700.svg#Calluna Sans") format("svg");
+  src: url("../fonts/nunitosans-700/nunitosans-italic-700.woff2") format("woff2"), url("../fonts/nunitosans-700/nunitosans-italic-700.woff") format("woff"), url("../fonts/nunitosans-700/nunitosans-italic-700.otf") format("opentype"), url("../fonts/nunitosans-700/nunitosans-italic-700.ttf") format("truetype");
 }
 @font-face {
   font-family: "Sentinel";
   font-style: normal;
   font-weight: 300;
   src: local("Sentinel Light Regular"), local("Sentinel-Light-Regular");
-  src: url("../fonts/sentinel-300/sentinel-normal-300.eot"), url("../fonts/sentinel-300/sentinel-normal-300.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinel-300/sentinel-normal-300.otf") format("opentype"), url("../fonts/sentinel-300/sentinel-normal-300.woff") format("woff"), url("../fonts/sentinel-300/sentinel-normal-300.woff") format("woff"), url("../fonts/sentinel-300/sentinel-normal-300.ttf") format("truetype"), url("../fonts/sentinel-300/sentinel-normal-300.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinel-300/sentinel-normal-300.woff2") format("woff2"), url("../fonts/sentinel-300/sentinel-normal-300.woff") format("woff"), url("../fonts/sentinel-300/sentinel-normal-300.otf") format("opentype"), url("../fonts/sentinel-300/sentinel-normal-300.ttf") format("truetype");
 }
 @font-face {
   font-family: "Sentinel";
   font-style: italic;
   font-weight: 300;
   src: local("Sentinel Light Italic"), local("Sentinel-Light-Italic");
-  src: url("../fonts/sentinel-300/sentinel-italic-300.eot"), url("../fonts/sentinel-300/sentinel-italic-300.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinel-300/sentinel-italic-300.otf") format("opentype"), url("../fonts/sentinel-300/sentinel-italic-300.woff") format("woff"), url("../fonts/sentinel-300/sentinel-italic-300.woff") format("woff"), url("../fonts/sentinel-300/sentinel-italic-300.ttf") format("truetype"), url("../fonts/sentinel-300/sentinel-italic-300.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinel-300/sentinel-italic-300.woff2") format("woff2"), url("../fonts/sentinel-300/sentinel-italic-300.woff") format("woff"), url("../fonts/sentinel-300/sentinel-italic-300.otf") format("opentype"), url("../fonts/sentinel-300/sentinel-italic-300.ttf") format("truetype");
 }
 @font-face {
   font-family: "Sentinel";
   font-style: normal;
   font-weight: 500;
   src: local("Sentinel Medium Regular"), local("Sentinel-Medium-Regular");
-  src: url("../fonts/sentinel-500/sentinel-normal-500.eot"), url("../fonts/sentinel-500/sentinel-normal-500.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinel-500/sentinel-normal-500.otf") format("opentype"), url("../fonts/sentinel-500/sentinel-normal-500.woff") format("woff"), url("../fonts/sentinel-500/sentinel-normal-500.woff") format("woff"), url("../fonts/sentinel-500/sentinel-normal-500.ttf") format("truetype"), url("../fonts/sentinel-500/sentinel-normal-500.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinel-500/sentinel-normal-500.woff2") format("woff2"), url("../fonts/sentinel-500/sentinel-normal-500.woff") format("woff"), url("../fonts/sentinel-500/sentinel-normal-500.otf") format("opentype"), url("../fonts/sentinel-500/sentinel-normal-500.ttf") format("truetype");
 }
 @font-face {
   font-family: "Sentinel";
   font-style: italic;
   font-weight: 500;
   src: local("Sentinel Medium Italic"), local("Sentinel-Medium-Italic");
-  src: url("../fonts/sentinel-500/sentinel-italic-500.eot"), url("../fonts/sentinel-500/sentinel-italic-500.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinel-500/sentinel-italic-500.otf") format("opentype"), url("../fonts/sentinel-500/sentinel-italic-500.woff") format("woff"), url("../fonts/sentinel-500/sentinel-italic-500.woff") format("woff"), url("../fonts/sentinel-500/sentinel-italic-500.ttf") format("truetype"), url("../fonts/sentinel-500/sentinel-italic-500.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinel-500/sentinel-italic-500.woff2") format("woff2"), url("../fonts/sentinel-500/sentinel-italic-500.woff") format("woff"), url("../fonts/sentinel-500/sentinel-italic-500.otf") format("opentype"), url("../fonts/sentinel-500/sentinel-italic-500.ttf") format("truetype");
 }
 @font-face {
   font-family: "Sentinel";
   font-style: normal;
   font-weight: 600;
   src: local("Sentinel Semibold Regular"), local("Sentinel-Semibold-Regular");
-  src: url("../fonts/sentinel-600/sentinel-normal-600.eot"), url("../fonts/sentinel-600/sentinel-normal-600.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinel-600/sentinel-normal-600.otf") format("opentype"), url("../fonts/sentinel-600/sentinel-normal-600.woff") format("woff"), url("../fonts/sentinel-600/sentinel-normal-600.woff") format("woff"), url("../fonts/sentinel-600/sentinel-normal-600.ttf") format("truetype"), url("../fonts/sentinel-600/sentinel-normal-600.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinel-600/sentinel-normal-600.woff2") format("woff2"), url("../fonts/sentinel-600/sentinel-normal-600.woff") format("woff"), url("../fonts/sentinel-600/sentinel-normal-600.otf") format("opentype"), url("../fonts/sentinel-600/sentinel-normal-600.ttf") format("truetype");
 }
 @font-face {
   font-family: "Sentinel";
   font-style: italic;
   font-weight: 600;
   src: local("Sentinel Semibold Italic"), local("Sentinel-Semibold-Italic");
-  src: url("../fonts/sentinel-600/sentinel-italic-600.eot"), url("../fonts/sentinel-600/sentinel-italic-600.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinel-600/sentinel-italic-600.otf") format("opentype"), url("../fonts/sentinel-600/sentinel-italic-600.woff") format("woff"), url("../fonts/sentinel-600/sentinel-italic-600.woff") format("woff"), url("../fonts/sentinel-600/sentinel-italic-600.ttf") format("truetype"), url("../fonts/sentinel-600/sentinel-italic-600.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinel-600/sentinel-italic-600.woff2") format("woff2"), url("../fonts/sentinel-600/sentinel-italic-600.woff") format("woff"), url("../fonts/sentinel-600/sentinel-italic-600.otf") format("opentype"), url("../fonts/sentinel-600/sentinel-italic-600.ttf") format("truetype");
 }
 @font-face {
   font-family: "Sentinel";
   font-style: normal;
   font-weight: 700;
   src: local("Sentinel Bold Regular"), local("Sentinel-Bold-Regular");
-  src: url("../fonts/sentinel-700/sentinel-normal-700.eot"), url("../fonts/sentinel-700/sentinel-normal-700.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinel-700/sentinel-normal-700.otf") format("opentype"), url("../fonts/sentinel-700/sentinel-normal-700.woff") format("woff"), url("../fonts/sentinel-700/sentinel-normal-700.woff") format("woff"), url("../fonts/sentinel-700/sentinel-normal-700.ttf") format("truetype"), url("../fonts/sentinel-700/sentinel-normal-700.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinel-700/sentinel-normal-700.woff2") format("woff2"), url("../fonts/sentinel-700/sentinel-normal-700.woff") format("woff"), url("../fonts/sentinel-700/sentinel-normal-700.otf") format("opentype"), url("../fonts/sentinel-700/sentinel-normal-700.ttf") format("truetype");
 }
 @font-face {
   font-family: "Sentinel";
   font-style: italic;
   font-weight: 700;
   src: local("Sentinel Bold Italic"), local("Sentinel-Bold-Italic");
-  src: url("../fonts/sentinel-700/sentinel-italic-700.eot"), url("../fonts/sentinel-700/sentinel-italic-700.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinel-700/sentinel-italic-700.otf") format("opentype"), url("../fonts/sentinel-700/sentinel-italic-700.woff") format("woff"), url("../fonts/sentinel-700/sentinel-italic-700.woff") format("woff"), url("../fonts/sentinel-700/sentinel-italic-700.ttf") format("truetype"), url("../fonts/sentinel-700/sentinel-italic-700.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinel-700/sentinel-italic-700.woff2") format("woff2"), url("../fonts/sentinel-700/sentinel-italic-700.woff") format("woff"), url("../fonts/sentinel-700/sentinel-italic-700.otf") format("opentype"), url("../fonts/sentinel-700/sentinel-italic-700.ttf") format("truetype");
 }
 @font-face {
   font-family: "Sentinel";
   font-style: normal;
   font-weight: 900;
   src: local("Sentinel Black Regular"), local("Sentinel-Black-Regular");
-  src: url("../fonts/sentinel-900/sentinel-normal-900.eot"), url("../fonts/sentinel-900/sentinel-normal-900.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinel-900/sentinel-normal-900.otf") format("opentype"), url("../fonts/sentinel-900/sentinel-normal-900.woff") format("woff"), url("../fonts/sentinel-900/sentinel-normal-900.woff") format("woff"), url("../fonts/sentinel-900/sentinel-normal-900.ttf") format("truetype"), url("../fonts/sentinel-900/sentinel-normal-900.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinel-900/sentinel-normal-900.woff2") format("woff2"), url("../fonts/sentinel-900/sentinel-normal-900.woff") format("woff"), url("../fonts/sentinel-900/sentinel-normal-900.otf") format("opentype"), url("../fonts/sentinel-900/sentinel-normal-900.ttf") format("truetype");
 }
 @font-face {
   font-family: "Sentinel";
   font-style: italic;
   font-weight: 900;
   src: local("Sentinel Black Italic"), local("Sentinel-Black-Italic");
-  src: url("../fonts/sentinel-900/sentinel-italic-900.eot"), url("../fonts/sentinel-900/sentinel-italic-900.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinel-900/sentinel-italic-900.otf") format("opentype"), url("../fonts/sentinel-900/sentinel-italic-900.woff") format("woff"), url("../fonts/sentinel-900/sentinel-italic-900.woff") format("woff"), url("../fonts/sentinel-900/sentinel-italic-900.ttf") format("truetype"), url("../fonts/sentinel-900/sentinel-italic-900.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinel-900/sentinel-italic-900.woff2") format("woff2"), url("../fonts/sentinel-900/sentinel-italic-900.woff") format("woff"), url("../fonts/sentinel-900/sentinel-italic-900.otf") format("opentype"), url("../fonts/sentinel-900/sentinel-italic-900.ttf") format("truetype");
 }
 @font-face {
   font-family: "SentinelBook";
   font-style: normal;
   font-weight: 400;
   src: local("SentinelBook Regular"), local("SentinelBook-Regular");
-  src: url("../fonts/sentinelbook-400/sentinelbook-normal-400.eot"), url("../fonts/sentinelbook-400/sentinelbook-normal-400.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinelbook-400/sentinelbook-normal-400.otf") format("opentype"), url("../fonts/sentinelbook-400/sentinelbook-normal-400.woff") format("woff"), url("../fonts/sentinelbook-400/sentinelbook-normal-400.woff") format("woff"), url("../fonts/sentinelbook-400/sentinelbook-normal-400.ttf") format("truetype"), url("../fonts/sentinelbook-400/sentinelbook-normal-400.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinelbook-400/sentinelbook-normal-400.woff2") format("woff2"), url("../fonts/sentinelbook-400/sentinelbook-normal-400.woff") format("woff"), url("../fonts/sentinelbook-400/sentinelbook-normal-400.otf") format("opentype"), url("../fonts/sentinelbook-400/sentinelbook-normal-400.ttf") format("truetype");
 }
 @font-face {
   font-family: "SentinelBook";
   font-style: italic;
   font-weight: 400;
   src: local("SentinelBook Italic"), local("SentinelBook-Italic");
-  src: url("../fonts/sentinelbook-400/sentinelbook-italic-400.eot"), url("../fonts/sentinelbook-400/sentinelbook-italic-400.eot?#iefix") format("embedded-opentype"), url("../fonts/sentinelbook-400/sentinelbook-italic-400.otf") format("opentype"), url("../fonts/sentinelbook-400/sentinelbook-italic-400.woff") format("woff"), url("../fonts/sentinelbook-400/sentinelbook-italic-400.woff") format("woff"), url("../fonts/sentinelbook-400/sentinelbook-italic-400.ttf") format("truetype"), url("../fonts/sentinelbook-400/sentinelbook-italic-400.svg#Calluna Sans") format("svg");
+  src: url("../fonts/sentinelbook-400/sentinelbook-italic-400.woff2") format("woff2"), url("../fonts/sentinelbook-400/sentinelbook-italic-400.woff") format("woff"), url("../fonts/sentinelbook-400/sentinelbook-italic-400.otf") format("opentype"), url("../fonts/sentinelbook-400/sentinelbook-italic-400.ttf") format("truetype");
 }
 /**
  * * @file
@@ -5265,7 +5251,7 @@ _::-webkit-full-page-media, _:future, :root .slideshow .item figure:before {
 .tl-slide-titleslide .tl-slide-content span {
   color: #FFFFFF;
   font-family: "BentonSansBook", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   margin-top: 0;
 }
 @media only screen and (min-width: 56.25em) {

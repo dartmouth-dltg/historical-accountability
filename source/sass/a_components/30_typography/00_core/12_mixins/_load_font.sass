@@ -38,4 +38,4 @@ $weightmap: (100: 'Hairline',200: 'Thin',300: 'Light', 400: 'Regular', 500: 'Med
             $localname: '#{$family} #{$suffix}'
           $altlocalname: str_replace($localname,' ','-')
           src: local('#{$localname}'), local('#{$altlocalname}'), 
-        src: url('#{$path}/#{$directory}/#{$filename}.eot'), url('#{$path}/#{$directory}/#{$filename}.eot?#iefix') format('embedded-opentype'), url('#{$path}/#{$directory}/#{$filename}.otf') format('opentype'), url('#{$path}/#{$directory}/#{$filename}.woff') format('woff'), url('#{$path}/#{$directory}/#{$filename}.woff') format('woff'), url('#{$path}/#{$directory}/#{$filename}.ttf') format('truetype'),url('#{$path}/#{$directory}/#{$filename}.svg#Calluna Sans') format('svg')
+        src: url('#{$path}/#{$directory}/#{$filename}.woff2') format('woff2'), url('#{$path}/#{$directory}/#{$filename}.woff') format('woff'), url('#{$path}/#{$directory}/#{$filename}.otf') format('opentype'), url('#{$path}/#{$directory}/#{$filename}.ttf') format('truetype')

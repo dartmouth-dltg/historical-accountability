@@ -306,7 +306,7 @@ const buildImages = (done) => {
 	// Make sure this feature is activated before running, and the source folder exists
 	if (!settings.img || !existsSync(paths.img.base)) return done();
 
-	return src(paths.img.input, { allowEmpty: true })
+	return src(paths.img.input, { allowEmpty: true, encoding: false })
 		.pipe(dest(paths.img.output));
 };
 
@@ -317,7 +317,7 @@ const buildSVGs = (done) => {
 	// Make sure this feature is activated before running, and the source folder exists
 	if (!settings.svgs || !existsSync(paths.svgs.base)) return done();
 
-	return src(paths.svgs.input, { allowEmpty: true })
+	return src(paths.svgs.input, { allowEmpty: true, encoding: false })
 		.pipe(svgmin())
 		.pipe(dest(paths.svgs.output));
 
@@ -329,7 +329,7 @@ const buildPNGs = (done) => {
 	// Make sure this feature is activated before running, and the source folder exists
 	if (!settings.pngs || !existsSync(paths.pngs.base)) return done();
 
-	return src(paths.pngs.input, { allowEmpty: true })
+	return src(paths.pngs.input, { allowEmpty: true, encoding: false })
 		.pipe(imagemin([optipng({ optimizationLevel: 7 })]))
 		.pipe(dest(paths.pngs.output));
 };
@@ -340,7 +340,7 @@ const buildJPGs = (done) => {
 	// Make sure this feature is activated before running, and the source folder exists
 	if (!settings.jpgs || !existsSync(paths.jpgs.base)) return done();
 
-	return src(paths.jpgs.input, { allowEmpty: true })
+	return src(paths.jpgs.input, { allowEmpty: true, encoding: false })
 		.pipe(dest(paths.jpgs.output));
 };
 
@@ -350,7 +350,7 @@ const buildFonts = (done) => {
 	// Make sure this feature is activated before running, and the source folder exists
 	if (!settings.fonts || !existsSync(paths.fonts.base)) return done();
 
-	return src(paths.fonts.input, { allowEmpty: true })
+	return src(paths.fonts.input, { allowEmpty: true, encoding: false })
 		.pipe(dest(paths.fonts.output));
 };
 
@@ -361,7 +361,7 @@ const copyFiles = (done) => {
 	// Make sure this feature is activated before running, and the source folder exists
 	if (!settings.copy || !existsSync(paths.copy.base)) return done();
 
-	return src(paths.copy.input, { allowEmpty: true })
+	return src(paths.copy.input, { allowEmpty: true, encoding: false })
 		.pipe(dest(paths.copy.output));
 
 };
