@@ -1,3 +1,5 @@
+@use "toolkit" as *
+@use "sass:color"
 /*
    @file _cards.sass
    @category 60_site_elements
@@ -71,7 +73,7 @@ main
   > .btn
     margin: rv(1) 0
     border-radius: 10px
-    border-color: neutral(40)
+    border-color: neutral(40, $black, $white)
     font-family: $basefont
     margin-left: 0
     +bp($stack)

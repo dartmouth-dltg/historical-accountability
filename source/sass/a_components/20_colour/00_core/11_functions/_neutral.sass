@@ -3,10 +3,14 @@
 /* Based on a preset neutral array. Must be a factor of 10 between 10 and 90. */
 @use "sass:color";
 
-@function neutral($intensity: 50, $dark: $black,$light: $white)
+// $dark/$light default to the module system's own black/white rather than the theme's
+// $black/$white config vars, to avoid a circular dependency between this function and the
+// colour configuration (which calls neutral() to compute its derived values). Callers that
+// want the theme's palette must pass $dark/$light explicitly.
+@function neutral($intensity: 50, $dark: black,$light: white)
   @return  neutral_mix(($intensity * 1%),$dark,$light)
 
 /* Creates a neutral by mixing dark and light colours to the provided percentage. */
-  
-@function neutral_mix($intensity: 50%, $dark: $black,$light: $white)
+
+@function neutral_mix($intensity: 50%, $dark: black,$light: white)
   @return color.mix($dark,$light,$intensity)

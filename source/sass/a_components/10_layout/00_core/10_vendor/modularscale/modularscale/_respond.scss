@@ -3,6 +3,9 @@
 // http://madebymike.com.au/writing/precise-control-responsive-typography/
 @use "sass:math";
 @use "sass:meta";
+@use "vars" as *;
+@use "strip-units" as *;
+@use "function" as *;
 
 @function ms-fluid($val1: 1em, $val2: 1em, $break1: 0, $break2: 0) {
   $diff: ms-unitless($val2) - ms-unitless($val1);

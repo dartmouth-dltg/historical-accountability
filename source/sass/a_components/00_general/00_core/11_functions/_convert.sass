@@ -8,6 +8,7 @@
  * 
  */
 @use "sass:math";
+@use "_strip_unit" as *
 
 @function convert($value, $convertUnit, $emfactor: 16)
   $currentUnit: math.unit($value)

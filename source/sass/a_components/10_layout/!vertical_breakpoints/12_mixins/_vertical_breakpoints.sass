@@ -1,6 +1,8 @@
 // Vertical breakpoints
 @use "sass:map";
-     
+@use "c_local/00_configuration/_index" as *
+@use "../_00_configuration_vertical_breakpoints" as *
+
 =vbp($point)
   @media only #{$media_type} and ($vfeature: map.get($vbreakpoints,$point))
     @content

@@ -1,5 +1,11 @@
 @use "sass:list";
 @use "sass:math";
+@use "vars" as *;
+@use "settings" as *;
+@use "target" as *;
+@use "round-px" as *;
+@use "pow" as *;
+@use "sort" as *;
 
 @function ms-function($v: 0, $base: false, $ratio: false, $thread: false, $settings: $modularscale) {
 

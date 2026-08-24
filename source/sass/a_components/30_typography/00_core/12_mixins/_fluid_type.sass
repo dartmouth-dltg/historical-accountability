@@ -1,5 +1,9 @@
+@use "c_local/00_configuration/_index" as *
 @use "sass:map";
 @use "sass:math";
+@use "00_general/00_core/11_functions/_type_checking" as *;
+@use "00_general/00_core/11_functions/_strip_unit" as *;
+@use "30_typography/00_core/11_functions/_font_value" as *;
 
 /* Scales typography for any screen size. h/t https://www.madebymike.com.au/writing/precise-control-responsive-typography/
   and Indrek Paas https://www.sassmeister.com/gist/7f22e44ace49b5124eec

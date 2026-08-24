@@ -5,6 +5,8 @@
  * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
  */
 @use "sass:map";
+@use "20_colour/00_core/_02_configuration_colour" as *;
+@use "20_colour/00_core/11_functions/_neutral" as *;
 
 $basetypesize: 1rem // Body font size relative to rootsize above. Establishes core unit for other font sizes (rem, em, px, etc.).
 
@@ -61,9 +63,9 @@ $headingfw: $bold
 
 // Tables
 
-$row_header_bg: neutral(10)
-$row_border_color: neutral(10)
-$row_zebra_stripe_color: neutral(3)
+$row_header_bg: neutral(10, $black, $white)
+$row_border_color: neutral(10, $black, $white)
+$row_zebra_stripe_color: neutral(3, $black, $white)
 
 // Aliases
 

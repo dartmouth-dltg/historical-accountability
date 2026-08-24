@@ -54,25 +54,19 @@
  * * With thanks to https://css-tricks.com/snippets/sass/advanced-type-checking/
  * * 
  * */
-/**
- * * @file _get_asset_url.sass
- * * @category 00_general
- * * @group a_components
- * * @description A suite of functions that compose asset urls from configured values.
- * * 
- * */
-/**
- * * @file _convert_unit.sass
- * * @category 00_general
- * * @group a_components
- * * @description Converts value to chosen unit.
- * *
- * * With thanks to https://www.sitepoint.com/converting-typographic-units-sass/
- * * 
- * */
+/* @theme Local
+ * @folder c_local/00_configuration
+ * @file _index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
 /* @folder 10_layout/00_core
  * @file _index.sass 
  * @description  Loads all sass files or subdirectory indices in its directory. */
+/**
+ * * @file
+ * * General Configuration.
+ * *
+ * * Copy this file to your theme configuration folder of your local theme or component and adjust its _index file to import.
+ * */
 /**
  * * @file
  * * Layout Configuration. Set a modular scale and standardized spacing. Define breakpoints.
@@ -108,10 +102,13 @@
  * minor-third      : 1.2               
  * major-second     : 1.125             
  * minor-second     : 1.066666667       */
-/* @file index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
-/* @file index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
+/**
+ * * @file _01a_layout_base.sass
+ * * @description Split out from _01_configuration_layout.sass so that _relative_value.sass
+ * * (rv()/rs()) can depend on the theme's base unit and scale without creating a circular
+ * * @use between the layout configuration and the function that some of its own derived
+ * * values (e.g. $title_area_outside_padding) call.
+ * */
 /**
  * * @file _relative_value.sass
  * * @category 10_layout
@@ -122,125 +119,66 @@
  * * @args  $base: The base unit (e.g. 1.5rem) to be evaluated. Defaults to $blh (from 00_layout_configuration)
  * * @args  $ratio: The ratio (with a denominator of 1) denoting the distance between steps on the scale.
  * *
- * * Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale). 
+ * * Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale).
  * */
-/* @file index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
-/* Sets standard viewport to the device-width */
-/** 
- * *  @file _proportional_thumbnail.sass 
- * *  @category 10_layout
- * *  @component 00_core
- * *  @description Creates a fixed container with aspect ratio. Overflow content is hidden Proportion defaults to 1/$scale. 
- * *
- * *  Note: The element MUST have a defined width. Set to 'none' if the default is set elsewhere.
- * */
-/** 
- * *  @file _proportional_thumbnail.sass 
- * *  @category 10_layout
- * *  @component 00_core
- * *  @description Sets a thumbnail image to a proportion of its with. Proportion defaults to 1/$scale. 
- * *
- * *  NOTE: The element must have an explicit $width set as per proportional_height()
- * */
-/**
- * * @file _responsive_inset.sass
- * * @category 10_layout
- * * @group a_components
- * * @description Mixins pertaining to standardized content widths using relative values.
- * *
- * */
-/* @file _separated_row.sass 
- * @category 10_layout
- * @component 00_core
- * @description  Mixin to create a rudimentary grid. $wrap and $rows are legacy parameters.  */
-/**
- * *  @file Block Spacing Mixin
- * *  @group 10_layout
- * *  @description Sets a standardized space for stacked content blocks.
- * * 
- * */
-/* @file index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
-/* @folder 20_colour/00_core
- * @file _index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
 /**
  * * @file
- * * Colour System Configuration. A standardized approach to defining and modulating colour.
- * * 
- * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
+ * * Layout Configuration. Set a modular scale and standardized spacing. Define breakpoints.
+ * *
+ * * Copy this file to your theme configuration folder of your local theme or component and adjust its _index file to import.
  * */
-/** 
- * *  @file _index.sass 
- * *  @description  Loads all sass files or subdirectory indices in its directory.
- * *  @directory  Contains a library of SASS functions  */
-/* Retrives a derivative colour from a colour map */
-/* @file
- * * Converts HSB colours (e.g. as defined in Adobe CC or Sketch) into SASS-supported HSL colours. */
+/* !BREAKPOINTS */
+/*  Values for your responsive design breakpoints. This has now been rethought 
+ *  thanks to https://medium.freecodecamp.com/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862#.rduwqht4g
+ * 336px 	  21em       xsml
+ * 600px 	  37.5em     sml
+ * 900px 	  46.25      med
+ * 1200px    75em       lrg
+ * 1800px	  100em      xlrg   */
+/* Modular scale reference
+ *
+ * double-octave    : 4                 
+ * pi               : 3.14159265359     
+ * major-twelfth    : 3                 
+ * major-eleventh   : 2.666666667       
+ * major-tenth      : 2.5               
+ * octave           : 2                 
+ * major-seventh    : 1.875             
+ * minor-seventh    : 1.777777778       
+ * major-sixth      : 1.666666667       
+ * phi              : 1.618034          
+ * golden           : $phi              
+ * minor-sixth      : 1.6               
+ * fifth            : 1.5               
+ * augmented-fourth : 1.41421           
+ * fourth           : 1.333333333       
+ * major-third      : 1.25              
+ * minor-third      : 1.2               
+ * major-second     : 1.125             
+ * minor-second     : 1.066666667       */
 /* Retrieves a neutral based on intensity. Higher intensities are darker. */
 /* Based on a preset neutral array. Must be a factor of 10 between 10 and 90. */
 /* Creates a neutral by mixing dark and light colours to the provided percentage. */
-/* @file index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
+/**
+ * * @file
+ * * Colour System Configuration. A standardized approach to defining and modulating colour.
+ * *
+ * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
+ * */
+/**
+ * * @file
+ * * Colour System Configuration. A standardized approach to defining and modulating colour.
+ * *
+ * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
+ * */
 /**
  * * @file
  * * Typography Configuration. Used to define a standard proportion across the site as per the modularscale library.
  * * 
  * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
  * */
-/** 
- * *  @file _index.sass 
- * *  @description  Loads all sass files or subdirectory indices in its directory.
- * *  @directory  Contains a library of SASS functions  */
 /**
- * * @file _font_value.sass
- * * @category 20_typography
- * * @group a_components
- * * @description Function to return value based on relative value $factor, $basetypesize and $scale.
- * *
- * */
-/* Scales typography for any screen size. h/t https://www.madebymike.com.au/writing/precise-control-responsive-typography/
- * @var
- * $min_size: Minimum font size in em or rem
- * $max_size: Maximum font size in em or rem
- * $min_viewport_width: Sets the lower bound breakpoint to stop scaling. E.g. map.get($breakpoints,'med')
- * $max_viewport_width: Sets the upper bound breakpoint to stop scaling. E.g. map.get($breakpoints,'xxlrg') */
-/* @file index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
-/* Scales typography for any screen size. h/t https://www.madebymike.com.au/writing/precise-control-responsive-typography/
- * and Indrek Paas https://www.sassmeister.com/gist/7f22e44ace49b5124eec
- *
- * @var
- * $min_size: Minimum font size in em or rem
- * $max_size: Maximum font size in em or rem
- * $min_viewport_width: Sets the lower bound breakpoint to stop scaling. E.g. map.get($breakpoints,'med')
- * */
-/**
- * * @file _font_size.sass
- * * @category 20_typography
- * * @group a_components
- * * @description Creates a font-size declaration based on relative value $factor, $basetypesize and $scale.
- * *
- * */
-/* @file _horizontal_list.sass 
- * @category 30_typography */
-/**
- * * @file _image_bullets.sass
- * * @category 30_typography
- * * @group a_components
- * * @description Places an image to the left of an element.
- * * 
- * */
-/**
- * * @file _icons.sass
- * * @component 30_typography
- * * @group a_components
- * * @description Handy icon-related mixins.
- * *
- * */
-/**
- * * @file _load_font.sass 
+ * * @file _load_font.sass
  * * @description  A font loading utility based on standardized filenames. 
  * *
  * * The font loader is keyed to standardized naming.
@@ -254,150 +192,10 @@
  * * 
  * * TO DO: Not happy with how this handles local names, which are specific and too idiosyncratic for an standardized treatment.
  * */
-/* Thankyou Natalia Onischuk http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation */
-/**
- * *  @file _link_underline.sass 
- * *  @category 30_typography
- * *  @component 00_Core
- * *  @description  Adds an underline. Allows themes to override with by redefining it, e.g. to change from a text-underline to border-bottom approach */
-/* @file index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
-/**
- * * @file
- * * UI Configuration. A standardized approach to defining buttons and other ui elements.
- * * 
- * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
- * */
-/** 
- * *  @file _index.sass 
- * *  @description  Loads all sass files or subdirectory indices in its directory. */
-/* @file index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
-/**
- * * @file
- * * Animation Configuration. A standardized approach to site animation.  WORK IN PROGRESS.
- * * 
- * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
- * */
-/* @file index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
-/**
- * * @file _relative_duration.sass
- * * @category 50_animation
- * * @group a_components
- * * @description Returns a value in seconds according to the standardized site scale. Uses the modular scale SASS library. See https://www.modularscale.com
- * *
- * * @args  $factor: An integer corresponding to a step on the scale. Defaults to 0.
- * * @args  $base: A value in seconds. Defaults to the site’s $heartbeat
- * * @args  $ratio: The ratio (with a denominator of 1) denoting the distance between steps on the scale. Defaults to the site’s $scale
- * *
- * * Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale). 
- * */
-/* @file index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory.
- * @directory  Contains a library of mixins  */
-/* @file _standard_transition.sass 
- * @category 50_animation
- * @group a_components
- * @description  Creates a standard transition property based on configuration values. */
-/* @file index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
-@keyframes build {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes build-08 {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.8;
-  }
-}
-@keyframes build-05 {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.5;
-  }
-}
-@keyframes pulse {
-  0% {
-    opacity: 0.5;
-    transform: scale(1, 1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.1, 1.1);
-  }
-  100% {
-    opacity: 0.5;
-    transform: scale(1, 1);
-  }
-}
-/* @file _index.sass 
- * @theme Local
- * @description  Loads SASS files for local theme. */
-/* @theme Local
- * @folder c_local/00_configuration
- * @file _index.sass 
- * @description  Loads all sass files or subdirectory indices in its directory. */
-/**
- * * @file
- * * General Configuration.
- * * 
- * * Copy this file to your theme configuration folder of your local theme or component and adjust its _index file to import.
- * */
-/**
- * * @file
- * * Layout Configuration. Set a modular scale and standardized spacing. Define breakpoints.
- * * 
- * * Copy this file to your theme configuration folder of your local theme or component and adjust its _index file to import.
- * */
-/* !BREAKPOINTS */
-/*  Values for your responsive design breakpoints. This has now been rethought 
- *  thanks to https://medium.freecodecamp.com/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862#.rduwqht4g
- * 336px 	  21em       xsml
- * 600px 	  37.5em     sml
- * 900px 	  46.25      med
- * 1200px    75em       lrg
- * 1800px	  100em      xlrg   */
-/* Modular scale reference
- *
- * double-octave    : 4                 
- * pi               : 3.14159265359     
- * major-twelfth    : 3                 
- * major-eleventh   : 2.666666667       
- * major-tenth      : 2.5               
- * octave           : 2                 
- * major-seventh    : 1.875             
- * minor-seventh    : 1.777777778       
- * major-sixth      : 1.666666667       
- * phi              : 1.618034          
- * golden           : $phi              
- * minor-sixth      : 1.6               
- * fifth            : 1.5               
- * augmented-fourth : 1.41421           
- * fourth           : 1.333333333       
- * major-third      : 1.25              
- * minor-third      : 1.2               
- * major-second     : 1.125             
- * minor-second     : 1.066666667       */
-/**
- * * @file
- * * Colour System Configuration. A standardized approach to defining and modulating colour.
- * *
- * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
- * */
 /**
  * * @file
  * * Typography Configuration. Used to define a standard proportion across the site as per the modularscale library.
- * * 
+ * *
  * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
  * */
 @font-face {
@@ -613,13 +411,49 @@
 /**
  * * @file
  * * UI Configuration. A standardized approach to defining buttons and other ui elements.
- * * 
+ * *
+ * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
+ * */
+/**
+ * * @file
+ * * UI Configuration. A standardized approach to defining buttons and other ui elements.
+ * *
+ * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
+ * */
+/**
+ * * @file _relative_value.sass
+ * * @category 10_layout
+ * * @group a_components
+ * * @description Returns a value in the standardized site scale. Uses the modular scale SASS library. See https://www.modularscale.com
+ * *
+ * * @args  $factor: An integer corresponding to a step on the scale. Defaults to 0.
+ * * @args  $base: The base unit (e.g. 1.5rem) to be evaluated. Defaults to $blh (from 00_layout_configuration)
+ * * @args  $ratio: The ratio (with a denominator of 1) denoting the distance between steps on the scale.
+ * *
+ * * Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale).
+ * */
+/**
+ * * @file _relative_duration.sass
+ * * @category 50_animation
+ * * @group a_components
+ * * @description Returns a value in seconds according to the standardized site scale. Uses the modular scale SASS library. See https://www.modularscale.com
+ * *
+ * * @args  $factor: An integer corresponding to a step on the scale. Defaults to 0.
+ * * @args  $base: A value in seconds. Defaults to the site’s $heartbeat
+ * * @args  $ratio: The ratio (with a denominator of 1) denoting the distance between steps on the scale. Defaults to the site’s $scale
+ * *
+ * * Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale). 
+ * */
+/**
+ * * @file
+ * * Animation Configuration. A standardized approach to site animation.  WORK IN PROGRESS.
+ * *
  * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
  * */
 /**
  * * @file
  * * Animation Configuration. A standardized approach to site animation.  WORK IN PROGRESS.
- * * 
+ * *
  * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
  * */
 /**
@@ -628,6 +462,254 @@
  * * 
  * * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
  * */
+/**
+ * * @file _get_asset_url.sass
+ * * @category 00_general
+ * * @group a_components
+ * * @description A suite of functions that compose asset urls from configured values.
+ * * 
+ * */
+/**
+ * * @file _convert_unit.sass
+ * * @category 00_general
+ * * @group a_components
+ * * @description Converts value to chosen unit.
+ * *
+ * * With thanks to https://www.sitepoint.com/converting-typographic-units-sass/
+ * * 
+ * */
+/* @folder 10_layout/00_core
+ * @file _index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* Sets standard viewport to the device-width */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/** 
+ * *  @file _proportional_thumbnail.sass 
+ * *  @category 10_layout
+ * *  @component 00_core
+ * *  @description Creates a fixed container with aspect ratio. Overflow content is hidden Proportion defaults to 1/$scale. 
+ * *
+ * *  Note: The element MUST have a defined width. Set to 'none' if the default is set elsewhere.
+ * */
+/**
+ * *  @file _proportional_thumbnail.sass
+ * *  @category 10_layout
+ * *  @component 00_core
+ * *  @description Sets a thumbnail image to a proportion of its with. Proportion defaults to 1/$scale. 
+ * *
+ * *  NOTE: The element must have an explicit $width set as per proportional_height()
+ * */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/**
+ * * @file _responsive_inset.sass
+ * * @category 10_layout
+ * * @group a_components
+ * * @description Mixins pertaining to standardized content widths using relative values.
+ * *
+ * */
+/* @file _separated_row.sass 
+ * @category 10_layout
+ * @component 00_core
+ * @description  Mixin to create a rudimentary grid. $wrap and $rows are legacy parameters.  */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/**
+ * *  @file Block Spacing Mixin
+ * *  @group 10_layout
+ * *  @description Sets a standardized space for stacked content blocks.
+ * *
+ * */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* @folder 20_colour/00_core
+ * @file _index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/** 
+ * *  @file _index.sass 
+ * *  @description  Loads all sass files or subdirectory indices in its directory.
+ * *  @directory  Contains a library of SASS functions  */
+/* Retrives a derivative colour from a colour map */
+/* @file
+ * * Converts HSB colours (e.g. as defined in Adobe CC or Sketch) into SASS-supported HSL colours. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/** 
+ * *  @file _index.sass 
+ * *  @description  Loads all sass files or subdirectory indices in its directory.
+ * *  @directory  Contains a library of SASS functions  */
+/**
+ * * @file _font_value.sass
+ * * @category 20_typography
+ * * @group a_components
+ * * @description Function to return value based on relative value $factor, $basetypesize and $scale.
+ * *
+ * */
+/* Scales typography for any screen size. h/t https://www.madebymike.com.au/writing/precise-control-responsive-typography/
+ * @var
+ * $min_size: Minimum font size in em or rem
+ * $max_size: Maximum font size in em or rem
+ * $min_viewport_width: Sets the lower bound breakpoint to stop scaling. E.g. map.get($breakpoints,'med')
+ * $max_viewport_width: Sets the upper bound breakpoint to stop scaling. E.g. map.get($breakpoints,'xxlrg') */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/** 
+ * *  @file _index.sass 
+ * *  @description  Loads all sass files or subdirectory indices in its directory.
+ * *  @directory  Contains a library of SASS functions  */
+/* Scales typography for any screen size. h/t https://www.madebymike.com.au/writing/precise-control-responsive-typography/
+ * and Indrek Paas https://www.sassmeister.com/gist/7f22e44ace49b5124eec
+ *
+ * @var
+ * $min_size: Minimum font size in em or rem
+ * $max_size: Maximum font size in em or rem
+ * $min_viewport_width: Sets the lower bound breakpoint to stop scaling. E.g. map.get($breakpoints,'med')
+ * */
+/** 
+ * *  @file _index.sass 
+ * *  @description  Loads all sass files or subdirectory indices in its directory.
+ * *  @directory  Contains a library of SASS functions  */
+/**
+ * * @file _font_size.sass
+ * * @category 20_typography
+ * * @group a_components
+ * * @description Creates a font-size declaration based on relative value $factor, $basetypesize and $scale.
+ * *
+ * */
+/* @file _horizontal_list.sass 
+ * @category 30_typography */
+/**
+ * * @file _image_bullets.sass
+ * * @category 30_typography
+ * * @group a_components
+ * * @description Places an image to the left of an element.
+ * *
+ * */
+/**
+ * * @file _icons.sass
+ * * @component 30_typography
+ * * @group a_components
+ * * @description Handy icon-related mixins.
+ * *
+ * */
+/* Thankyou Natalia Onischuk http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation */
+/**
+ * *  @file _link_underline.sass 
+ * *  @category 30_typography
+ * *  @component 00_Core
+ * *  @description  Adds an underline. Allows themes to override with by redefining it, e.g. to change from a text-underline to border-bottom approach */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/** 
+ * *  @file _index.sass 
+ * *  @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory.
+ * @directory  Contains a library of mixins  */
+/* @file _standard_transition.sass
+ * @category 50_animation
+ * @group a_components
+ * @description  Creates a standard transition property based on configuration values. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* @folder 10_layout/00_core
+ * @file _index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/**
+ * * @file _toolkit.sass
+ * * @description Flattened access point for every configuration variable, function, and mixin
+ * * shared across the theme. Any partial that references a shared symbol without defining it
+ * * itself should `@use "toolkit" as *` (resolved via the "source/sass" load path).
+ * *
+ * * Do NOT @use this file from any configuration file, or from any function/mixin file that a
+ * * configuration file depends on directly — those already pin their specific dependencies and
+ * * forwarding this toolkit back into them would create a circular @use.
+ * */
+/**
+ * * @file Vertical Breakpoint Configuration. Defines vertical breakpoints.
+ * * 
+ * * Load _index_local_config
+ * */
+/* Vertical Breakpoints 
+ * In pixels:
+ * xxshort: 400px
+ * xshort: 480px
+ * short: 640px
+ * med: 800px
+ * tall: 1024px // iPad
+ * xtall: 1200px */
+/* @folder 20_colour/00_core
+ * @file _index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+/* @file _index.sass 
+ * @theme LOCAL
+ * @description  Loads SASS files for local theme. */
+/* * Standardized Huronia drop shadow mixin.
+ * *
+ * */
+/* @file _index.sass 
+ * @theme Local
+ * @description  Loads SASS files for local theme. */
+/* @file index.sass 
+ * @description  Loads all sass files or subdirectory indices in its directory. */
+@keyframes build {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes build-08 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+@keyframes build-05 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1, 1);
+  }
+}
+/* @file _index.sass 
+ * @theme Local
+ * @description  Loads SASS files for local theme. */
 /* @profile ah_standard_base
  * @file _index.sass 
  * @description  Loads all sass files or subdirectory indices in its directory. */
@@ -751,19 +833,6 @@ main > div {
 
 /* @file index.sass 
  * @description  Loads all sass files or subdirectory indices in its directory. */
-/**
- * * @file Vertical Breakpoint Configuration. Defines vertical breakpoints.
- * * 
- * * Load _index_local_config
- * */
-/* Vertical Breakpoints 
- * In pixels:
- * xxshort: 400px
- * xshort: 480px
- * short: 640px
- * med: 800px
- * tall: 1024px // iPad
- * xtall: 1200px */
 /* @file index.sass 
  * @description  Loads all sass files or subdirectory indices in its directory. */
 img {
@@ -1335,14 +1404,14 @@ p > a:hover, p > a:active, p li > a:hover, p li > a:active, blockquote > a:hover
  * * Overrides browser default form element styling.
  * * Values are set in the configuration file.
  * */
-textarea:hover, .btn-ghost:hover, .btn-outline:hover, .btn-inverted:hover, input[type=reset]:hover, input[type=submit]:hover, .btn-submit:hover, input[type=button]:hover, button:hover, .btn:hover, input[type=url]:hover, input[type=date]:hover, input[type=email]:hover, input[type=password]:hover, input[type=search]:hover, input[type=text]:hover, select:hover, textarea:focus, .btn-ghost:focus, .btn-outline:focus, .btn-inverted:focus, input[type=reset]:focus, input[type=submit]:focus, .btn-submit:focus, input[type=button]:focus, button:focus, .btn:focus, input[type=url]:focus, input[type=date]:focus, input[type=email]:focus, input[type=password]:focus, input[type=search]:focus, input[type=text]:focus, select:focus, textarea:active, .btn-ghost:active, .btn-outline:active, .btn-inverted:active, input[type=reset]:active, input[type=submit]:active, .btn-submit:active, input[type=button]:active, button:active, .btn:active, input[type=url]:active, input[type=date]:active, input[type=email]:active, input[type=password]:active, input[type=search]:active, input[type=text]:active, select:active {
+textarea:hover, .btn-ghost:hover, .btn-outline:hover, .btn-inverted:hover, input[type=reset]:hover, input[type=submit]:hover, .btn-submit:hover, input[type=button]:hover, .btn:hover, button:hover, input[type=text]:hover, input[type=search]:hover, input[type=url]:hover, input[type=date]:hover, input[type=email]:hover, input[type=password]:hover, select:hover, textarea:focus, .btn-ghost:focus, .btn-outline:focus, .btn-inverted:focus, input[type=reset]:focus, input[type=submit]:focus, .btn-submit:focus, input[type=button]:focus, .btn:focus, button:focus, input[type=text]:focus, input[type=search]:focus, input[type=url]:focus, input[type=date]:focus, input[type=email]:focus, input[type=password]:focus, select:focus, textarea:active, .btn-ghost:active, .btn-outline:active, .btn-inverted:active, input[type=reset]:active, input[type=submit]:active, .btn-submit:active, input[type=button]:active, .btn:active, button:active, input[type=text]:active, input[type=search]:active, input[type=url]:active, input[type=date]:active, input[type=email]:active, input[type=password]:active, select:active {
   text-decoration: none;
   border-color: #ad3722;
   box-shadow: inset 0 0 0 2px #ad3722;
   transition: all 0.5s ease-in 0s;
 }
 
-.btn-ghost, .btn-outline, .btn-inverted, input[type=reset], button[type=submit], input[type=submit], .btn-submit, input[type=button], button, .btn, input[type=url], input[type=date], input[type=email], input[type=password], input[type=search], input[type=text], select {
+.btn-ghost, .btn-outline, .btn-inverted, input[type=reset], button[type=submit], input[type=submit], .btn-submit, input[type=button], .btn, button, input[type=text], input[type=search], input[type=url], input[type=date], input[type=email], input[type=password], select {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -1367,7 +1436,7 @@ textarea:hover, .btn-ghost:hover, .btn-outline:hover, .btn-inverted:hover, input
   max-width: 100%;
 }
 
-input[type=url], input[type=date], input[type=email], input[type=password], input[type=search], input[type=text], select {
+input[type=text], input[type=search], input[type=url], input[type=date], input[type=email], input[type=password], select {
   appearance: none;
   height: 50px;
   min-height: 50px;
@@ -1395,7 +1464,7 @@ textarea {
  * * has borders and buttons do not.
  * *
  * */
-.btn-ghost, .btn-outline, .btn-inverted, input[type=reset], button[type=submit], input[type=submit], .btn-submit, input[type=button], button, .btn {
+.btn-ghost, .btn-outline, .btn-inverted, input[type=reset], button[type=submit], input[type=submit], .btn-submit, input[type=button], .btn, button {
   height: 50px;
   flex-shrink: 0;
   border-color: rgb(27.2850438048%, 41.1855444305%, 36.9061326658%);
@@ -1410,22 +1479,22 @@ textarea {
   white-space: nowrap;
 }
 @media only screen and (min-width: 46.25em) {
-  .btn-ghost, .btn-outline, .btn-inverted, input[type=reset], button[type=submit], input[type=submit], .btn-submit, input[type=button], button, .btn {
+  .btn-ghost, .btn-outline, .btn-inverted, input[type=reset], button[type=submit], input[type=submit], .btn-submit, input[type=button], .btn, button {
     width: 320px;
   }
 }
-.btn-ghost:hover, .btn-outline:hover, .btn-inverted:hover, input[type=reset]:hover, input[type=submit]:hover, .btn-submit:hover, input[type=button]:hover, button:hover, .btn:hover, .btn-ghost:focus, .btn-outline:focus, .btn-inverted:focus, input[type=reset]:focus, input[type=submit]:focus, .btn-submit:focus, input[type=button]:focus, button:focus, .btn:focus, .btn-ghost:active, .btn-outline:active, .btn-inverted:active, input[type=reset]:active, input[type=submit]:active, .btn-submit:active, input[type=button]:active, button:active, .btn:active {
+.btn-ghost:hover, .btn-outline:hover, .btn-inverted:hover, input[type=reset]:hover, input[type=submit]:hover, .btn-submit:hover, input[type=button]:hover, .btn:hover, button:hover, .btn-ghost:focus, .btn-outline:focus, .btn-inverted:focus, input[type=reset]:focus, input[type=submit]:focus, .btn-submit:focus, input[type=button]:focus, .btn:focus, button:focus, .btn-ghost:active, .btn-outline:active, .btn-inverted:active, input[type=reset]:active, input[type=submit]:active, .btn-submit:active, input[type=button]:active, .btn:active, button:active {
   text-decoration: none;
   box-shadow: none;
   transition: all 0.1186538269s ease-in 0s;
 }
 
-input[type=button], button, .btn {
+input[type=button], .btn, button {
   color: rgb(27.2850438048%, 41.1855444305%, 36.9061326658%);
   background-color: transparent;
   border: 2px solid rgb(27.2850438048%, 41.1855444305%, 36.9061326658%);
 }
-input[type=button]:hover, button:hover, .btn:hover, input[type=button]:focus, button:focus, .btn:focus, input[type=button]:active, button:active, .btn:active {
+input[type=button]:hover, .btn:hover, button:hover, input[type=button]:focus, .btn:focus, button:focus, input[type=button]:active, .btn:active, button:active {
   background-color: #FFFFFF;
   color: #ad3722;
   border: 2px solid #ad3722;
@@ -1489,8 +1558,14 @@ input[type=reset]:hover, input[type=reset]:focus, input[type=reset]:active {
  * @category 40_ui
  * @group a_components
  * @description  Loads all sass files or subdirectory indices in its directory. */
+/** 
+ * *  @file _index.sass 
+ * *  @description  Loads all sass files or subdirectory indices in its directory. */
 /* @file index.sass 
  * @description  Loads all sass files or subdirectory indices in its directory. */
+/** 
+ * *  @file _index.sass 
+ * *  @description  Loads all sass files or subdirectory indices in its directory. */
 /* * Defines a common set of rules for form elements.
  * * Definitions are set in a_core/10_Definitions/_forms.sass
  * */
@@ -1574,15 +1649,6 @@ svg .cls-1, svg .cls-2, svg .cls-3 {
  * @folder c_local/00_general
  * @file _index.sass 
  * @description  Loads all sass files or subdirectory indices in its directory. */
-/* @file _index.sass 
- * @theme LOCAL
- * @description  Loads SASS files for local theme. */
-/* * Standardized Huronia drop shadow mixin.
- * *
- * */
-/* @file _index.sass 
- * @theme Local
- * @description  Loads SASS files for local theme. */
 /* @file _index.sass 
  * @theme Local
  * @description  Loads SASS files for local theme. */
@@ -5576,6 +5642,9 @@ li ul, li ol {
 /* @file _index.sass 
  * @theme LOCAL
  * @description  Loads SASS files for local theme. */
+/** 
+ * *  @file _index.sass 
+ * *  @description  Loads all sass files or subdirectory indices in its directory. */
 .scroll-down {
   margin: 1.9rem 0;
   width: 4.503669926rem;

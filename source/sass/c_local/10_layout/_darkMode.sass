@@ -1,3 +1,4 @@
+@use "toolkit" as *
 body
   &.dark
     background: $black
@@ -7,7 +8,7 @@ body
     h1>a, h2>a, h3>a, h4>a, h5>a, h6>a 
       color: $white
     #secondary-content
-      background: neutral(85)
+      background: neutral(85, $black, $white)
     .site-guide-cont i
       background: $white
     .resource-list .item>a
@@ -18,7 +19,7 @@ body
     .tl-timenav
       background-color: $black !important
     .tl-timeaxis-background
-      background: neutral(90) !important
+      background: neutral(90, $black, $white) !important
       border-color: $black !important
     .tl-timeaxis-tick
       &:before
@@ -29,15 +30,15 @@ body
       &.tl-slide-titleslide
         background: $white
     .tl-attribution
-      background-color: neutral(85)
+      background-color: neutral(85, $black, $white)
     .cards
       background-color: #283A44
     main 
       th  
-        background: neutral(85)
+        background: neutral(85, $black, $white)
     main 
       tr:nth-child(2n)>td
-        background: neutral(95)
+        background: neutral(95, $black, $white)
     .card 
       figure
         filter: drop-shadow(.47461rem .47461rem .47461rem #1c1c1c)

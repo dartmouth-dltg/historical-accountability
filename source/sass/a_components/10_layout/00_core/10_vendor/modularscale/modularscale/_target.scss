@@ -1,6 +1,8 @@
 // Convert number string to number
 @use "sass:list";
 @use "sass:string";
+@use "pow" as *;
+@use "strip-units" as *;
 
 @function ms-to-num($n) {
   $l: string.length($n);

@@ -8,9 +8,14 @@
  * @args  $base: The base unit (e.g. 1.5rem) to be evaluated. Defaults to $blh (from 00_layout_configuration)
  * @args  $ratio: The ratio (with a denominator of 1) denoting the distance between steps on the scale.
  *
- * Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale). 
+ * Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale).
  */
- 
+@use "00_general/00_core/11_functions/_type_checking" as *;
+@use "10_layout/00_core/10_vendor/modularscale/_modularscale" as *;
+// $base/$ratio bind to the local theme's layout base (not this component's own default),
+// since that is the theme actually built by this repository's style.sass.
+@use "00_configuration/_01a_layout_base" as *;
+
 @function relative_value($factor: 0,$base: $blh, $ratio:$scale)
   @if $factor == null
     @return 0

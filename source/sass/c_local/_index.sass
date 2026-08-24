@@ -3,14 +3,16 @@
    @theme Local
    @description  Loads SASS files for local theme. */
 
-@import 00_configuration/_index
-@import 00_general/_index
-@import 10_layout/_index
-@import _storymap/_index
-@import _slick/_index
-@import _timeline/index
-@import 30_typography/standardized_typography/_index
-@import 30_typography/standardized_lists/_index
-@import 40_ui/_index
-@import 60_site_elements/_index
-@import 70_contexts/_index
+@forward "00_configuration/_index"
+@forward "00_configuration/_profiles"
+@forward "00_configuration/_components"
+@forward "00_general/_index"
+@forward "10_layout/_index"
+@forward "_storymap/_index"
+@forward "_slick/_index"
+@forward "_timeline/index"
+@forward "30_typography/standardized_typography/_index"
+@forward "30_typography/standardized_lists/_index"
+@forward "40_ui/_index"
+@forward "60_site_elements/_index"
+@forward "70_contexts/_index"

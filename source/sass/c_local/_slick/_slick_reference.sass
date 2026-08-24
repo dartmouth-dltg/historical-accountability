@@ -1,3 +1,4 @@
+@use "toolkit" as *
 /* 
    @file _slick.sass 
    @theme Local
@@ -127,7 +128,7 @@
     cursor: pointer
     &:before
       content: "\2022"
-      color: neutral(25)
+      color: neutral(25, $black, $white)
       font-size: rv(1)
       font-weight: $bold
       display: inline-block

@@ -1,3 +1,4 @@
+@use "toolkit" as *
 body
   #user-bar
     position: relative
@@ -102,7 +103,7 @@ body
             +bp($stack)
               display: none
               position: absolute
-              background: neutral(10)
+              background: neutral(10, $black, $white)
               width: 100%
               left: 0
               padding-top: rv(-2)

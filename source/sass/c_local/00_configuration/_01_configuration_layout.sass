@@ -1,14 +1,17 @@
+@forward "10_layout/00_core/_01_configuration_layout" hide $rootsize, $blh, $scale, $max_width, $legible_inset_width, $masthead_height, $footer_height, $admin_bar_height, $proportional_width_unit, $standard_sidebar_width, $right_sidebar_width, $left_sidebar_width, $block_spacing, $mobile_block_spacing, $edge_padding_factor, $mobile_edge_padding_factor, $stack_breakpoint, $tablet_breakpoint, $desktop_breakpoint, $ultrawide_breakpoint, $stack, $tablet, $desktop, $ultrawide, $media_type, $feature, $breakpoints
+@forward "_01a_layout_base"
+@use "sass:math"
+@use "_01a_layout_base" as *
+@use "10_layout/00_core/11_functions/_relative_value" as *
+
 /**
  * @file
  * Layout Configuration. Set a modular scale and standardized spacing. Define breakpoints.
- * 
+ *
  * Copy this file to your theme configuration folder of your local theme or component and adjust its _index file to import.
  */
-@use "sass:math";
- 
+
 $rootsize: 100%    // Assigned to HTML element. 100% = 16px. Referenced as 1rem.
-$blh: 1.9rem  // Base size unit in rem (relative to the HTML root size).
-$scale: 1.33333 // Sets an size interval mapped over integers. See https://www.modularscale.com for a demonstration.
 
 $max_width: 1400px
 $legible_inset_width: 800px

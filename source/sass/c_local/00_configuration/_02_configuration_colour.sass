@@ -1,3 +1,8 @@
+@forward "20_colour/00_core/_02_configuration_colour" hide $clr1, $clr2, $clr3, $clr4, $clr5, $clr6, $clr1_map, $clr2_map, $clr3_map, $clr4_map, $clr5_map, $black, $white, $lightest_neutral, $lighter_neutral, $light_neutral, $neutral, $mid_neutral, $dark_neutral, $darker_neutral, $darkest_neutral, $bgcolor, $impact, $cta, $de_emphasized, $de_activated, $link_colour
+@use "sass:color"
+@use "20_colour/00_core/11_functions/_neutral" as *
+@use "sass:map"
+
 /**
  * @file
  * Colour System Configuration. A standardized approach to defining and modulating colour.
@@ -5,7 +10,7 @@
  * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
  */
 
-    
+
  /* !COLOUR GRID
     Define your design’s palette by choosing the main colours */
 
@@ -41,14 +46,14 @@ $clr5_map: (dark: color.mix($black,$clr1,30%), shade: color.mix($black,$clr5,20%
 // Neutrals
 // neutral() function mixes blackpoint and whitepoint.
 
-$lightest_neutral: neutral(5)
-$lighter_neutral: neutral(30)
-$light_neutral: neutral(40)
-$neutral: neutral()
-$mid_neutral: neutral(60)
-$dark_neutral: neutral(70)
-$darker_neutral: neutral(80)
-$darkest_neutral: neutral(90)
+$lightest_neutral: neutral(5, $black, $white)
+$lighter_neutral: neutral(30, $black, $white)
+$light_neutral: neutral(40, $black, $white)
+$neutral: neutral(50, $black, $white)
+$mid_neutral: neutral(60, $black, $white)
+$dark_neutral: neutral(70, $black, $white)
+$darker_neutral: neutral(80, $black, $white)
+$darkest_neutral: neutral(90, $black, $white)
 
 // Background
 
@@ -62,7 +67,7 @@ $bgcolor6: #F7F6F5
 // Aliases
 
 $impact: $clr2
-$cta: color.adjust(set-color(4,'dark'), $lightness: -10%)
+$cta: color.adjust(map.get($clr4_map, 'dark'), $lightness: -10%)
 $de_emphasized: $light_neutral
 $de_activated: $lighter_neutral
 $link_colour: $clr6
@@ -71,7 +76,7 @@ $link_colour: $clr6
 
 // Gradients
 
-$dark_interior: color.adjust(set-color(4,'dark'), $lightness: -20%)
+$dark_interior: color.adjust(map.get($clr4_map, 'dark'), $lightness: -20%)
 
 $ltr_dark_gradient: linear-gradient(270deg, rgba($black, 0.8) 36%, rgba($dark_interior,0.7) 100%)
 $rtl_dark_gradient: linear-gradient(90deg, rgba($black, 0.8) 36%, rgba($dark_interior,0.7) 100%)

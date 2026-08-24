@@ -2,6 +2,7 @@
 // Settings should cascade down like you would expect in CSS.
 // More specific overrides previous settings.
 @use "sass:map";
+@use "vars" as *;
 
 @function ms-settings($b: false, $r: false, $t: false, $m: $modularscale) {
   $base: $ms-base;

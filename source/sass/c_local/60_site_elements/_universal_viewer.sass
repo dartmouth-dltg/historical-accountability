@@ -1,3 +1,4 @@
+@use "toolkit" as *
 .universal-viewer.viewer
 
   .uv-iiif-extension-host.uv-openseadragon-extension .centerPanel .content .viewer
@@ -43,7 +44,7 @@
     color: $white !important
     
     .options
-      background-color: neutral(95) !important
+      background-color: neutral(95, $black, $white) !important
   
     
   .overlays
@@ -61,7 +62,7 @@
         text-decoration: underline
     
   .leftPanel, .rightPanel
-    background: neutral(95) !important
+    background: neutral(95, $black, $white) !important
     
   .rightPanel
     main

@@ -6,6 +6,9 @@
 // @args $$item_spacing: Item spacing.  $bullets: Include bullets. Default is off.  @mode: flex \ inline Sets the display mode. Flex is now default
 
 @use "sass:math";
+@use "00_general/00_core/11_functions/_type_checking" as *
+@use "10_layout/00_core/11_functions/_relative_value" as *
+@use "10_layout/00_core/12_mixins/_vertical_align" as *
 
 =horizontal-list($item_spacing:-1, $vertical-align: center, $bullets: false, $display_mode: 'flex') 
   @if $display_mode == 'flex'

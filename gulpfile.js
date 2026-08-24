@@ -38,7 +38,7 @@ const paths = {
 		input: source_dir + '/sass/**/*.{scss,sass}',
 		output: build_dir + '/css',
 		vfilename: 'vendor', // Output file name for vendor styles
-		sassIncludePaths: [source_dir + '/sass/a_components', source_dir + '/sass/b_profiles', source_dir + '/sass/c_local', source_dir + '/sass/a_components/00_general', source_dir + '/sass/a_components/10_layout', source_dir + '/sass/a_components/20_colour', source_dir + '/sass/a_components/30_typography', source_dir + '/sass/a_components/40_ui', source_dir + '/sass/a_components/50_animation', source_dir + '/sass/a_components/60_site_elements', 'node_modules']
+		sassIncludePaths: [source_dir + '/sass', source_dir + '/sass/a_components', source_dir + '/sass/b_profiles', source_dir + '/sass/c_local', source_dir + '/sass/a_components/00_general', source_dir + '/sass/a_components/10_layout', source_dir + '/sass/a_components/20_colour', source_dir + '/sass/a_components/30_typography', source_dir + '/sass/a_components/40_ui', source_dir + '/sass/a_components/50_animation', source_dir + '/sass/a_components/60_site_elements', 'node_modules']
 	},
 	img: {
 		base: source_dir + '/img',

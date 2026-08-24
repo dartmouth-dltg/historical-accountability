@@ -1,3 +1,7 @@
+@use "00_configuration/_index" as *
+@use "10_layout/00_core/11_functions/_relative_value" as *
+@use "10_layout/00_core/12_mixins/_breakpoints" as *
+@use "_asymmetry_tilt" as *
 
 =splash_area_title_common($desktop_width: 33%,$splash_area_mobile_padding: rv($mobile_edge_padding_factor) * 2)
   position: relative
