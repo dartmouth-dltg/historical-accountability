@@ -97,7 +97,11 @@ if ($activePage) {
           <?php if ( $footerText = $this->themeSetting('footer') ): ?>
             <?php echo $footerText; ?>
           <?php else: ?>
-            <p> Go to Theme > Edit Theme Settings > Footer Content to enter content here</p>
+              Email: <a href="mailto:HASRP@dartmouth.edu">HASRP@dartmouth.edu</a><br />
+              Phone: (603) 646-0538<br />
+              <br />
+              © <?php echo date("Y"); ?> Trustees of Dartmouth College<br />
+              Designed by Agile Humanities          
           <?php endif; ?>
         </p>
       </div>
@@ -107,11 +111,15 @@ if ($activePage) {
         <?php else: ?>
           <nav>
             <ul>
-              <li>LINKS</li>
-              <li><a href='#'>Link 1</a></li>
-              <li><a href='#'>Link 2</a></li>
-              <li><a href='#'>Link 3</a></li>
-              <li><a href='#'>Admin Login</a></li>
+              <li>
+                <a href='https://sites.dartmouth.edu/teaaa/accountability/'>IDE’s Accountability Priority</a>
+              </li>
+              <li>
+                <a href='https://www.library.dartmouth.edu/'>Dartmouth Libraries</a>
+              </li>
+              <li>
+                <a href='https://home.dartmouth.edu/'>Dartmouth</a>
+              </li>
             </ul>
           </nav>
         <?php endif; ?>

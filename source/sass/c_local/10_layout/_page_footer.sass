@@ -23,7 +23,7 @@ body
       padding: rv(2) rv(4)
     
     div
-      margin: auto
+      margin: 0 auto
       +bp($stack)
         grid-column: auto
         margin-top: 0
@@ -53,7 +53,12 @@ body
     .footer--text
       margin-top: 2rem
       +bp($small)
-        margin-top: auto
+        margin-top: unset
+      a
+        color: $white
+        text-decoration: underline
+        &:hover
+          color: $clr2
     
     nav
       grid-column: 2 /2
@@ -71,9 +76,10 @@ body
         li
           list-style-type: none
           &:first-child
-            margin-bottom: rv(-3)
             list-style-type: none
 
           a
             color: $white
             text-decoration: underline
+            &:hover
+              color: $clr2
