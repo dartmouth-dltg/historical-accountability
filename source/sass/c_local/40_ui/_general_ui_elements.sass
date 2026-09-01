@@ -33,5 +33,7 @@
   .scroll-down
     float: right
     
-button[type='submit']
-  @extend %btn-submit
+button
+  flex: 1
+  &[type='submit']
+    @extend %btn-submit

@@ -5637,6 +5637,7 @@ p > a:hover, p li > a:hover, blockquote > a:hover {
 /* @file index.sass 
  * @description  Loads all sass files or subdirectory indices in its directory. */
 ol, ul {
+  display: flow-root;
   margin-top: 1.4250035625rem;
   margin-bottom: 1.4250035625rem;
   box-sizing: border-box;
@@ -5688,6 +5689,9 @@ li ul, li ol {
   float: right;
 }
 
+button {
+  flex: 1;
+}
 /* @file _index.sass 
  * @theme LOCAL
  * @description  Loads SASS files for local theme. */
