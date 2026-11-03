@@ -1,5 +1,6 @@
 @use "toolkit" as *
 @use "sass:color"
+@use "sass:math"
 /*
    @file _cards.sass
    @category 60_site_elements
@@ -23,6 +24,7 @@ main
 
 .card
   position: relative
+
   .representative-image
     &:before
       content: ""
@@ -83,6 +85,22 @@ main
       color: $clr4
 
 .card-compact
+
+  .no-rep-image
+    display: block
+    background-color: set-colour(1,'fade')
+    padding-top: 100% * math.div(1, $scale)
+
+    &:before
+      content: ''
+      position: absolute
+      background: url("../../asset/img/svg/marks/green_outline_mark.svg") no-repeat
+      background-size: contain;
+      background-position: center center;
+      top: 20%;
+      left: 25%;
+      width: 50%;
+      height: 50%;
 
   figure
     +proportional_thumbnail()

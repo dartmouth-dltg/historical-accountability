@@ -33,6 +33,8 @@ if ($itemCount % 2 == 1) {
             <div class="card-compact">
                 <?php if ($page['hasEmbeddedBlocks'] && array_key_exists('representativeImage',$page['embeddedBlocks'])): ?>
                     <?php echo $page['embeddedBlocks']['representativeImage'][0]; ?>
+                <?php else: ?>
+                    <span class="no-rep-image"></span>
                 <?php endif; ?>
                 <h3><a href='<?php echo $page['o:url']; ?>'><?php echo $page['o:title']; ?></a></h3>
             </div>

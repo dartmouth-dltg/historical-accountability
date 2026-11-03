@@ -5872,6 +5872,22 @@ main > div .listing-cards {
   color: #ad3722;
 }
 
+.card-compact .no-rep-image {
+  display: block;
+  background-color: rgb(72.7450980392%, 84.3137254902%, 80.7843137255%);
+  padding-top: 75.0001875005%;
+}
+.card-compact .no-rep-image:before {
+  content: "";
+  position: absolute;
+  background: url("../../asset/img/svg/marks/green_outline_mark.svg") no-repeat;
+  background-size: contain;
+  background-position: center center;
+  top: 20%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+}
 .card-compact figure {
   position: relative;
   overflow: hidden;
