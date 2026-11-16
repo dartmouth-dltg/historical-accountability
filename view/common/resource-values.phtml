@@ -14,7 +14,7 @@ $filterLocaleCallback = function ($value) use ($lang) {
 };
 
 ?>
-
+<?php if (count($values) > 0): ?>
 <dl>
 <?php foreach ($values as $term => $propertyData):
   $propertyValues = $propertyData['values'];
@@ -52,6 +52,8 @@ $filterLocaleCallback = function ($value) use ($lang) {
                 $class[] = $escape($value->valueResource()->resourceName());
             } elseif ('uri' == $valueType) {
                 $class[] = 'uri';
+            } else {
+                $class[] = $escape(str_replace(['_', ':'], '-', $valueType));
             }
             ?>
             <?php if ((!$filterLocale) || ($valueLang == '') || (strcasecmp($valueLang, $lang) == 0)): ?>
@@ -60,7 +62,7 @@ $filterLocaleCallback = function ($value) use ($lang) {
                 <span class="language"><?php echo $valueLang; ?></span>
                <?php endif; ?>
                <span class="value-content"><?php echo $filterLocale ? $value->asHtml($lang) : $value->asHtml(); ?></span>
-               <?php if(!$value->isPublic()): ?>
+               <?php if (!$value->isPublic()): ?>
                 <span class="o-icon-private" role="img" title="<?php echo $this->escapeHtml($translate('Private')); ?>" aria-label="<?php echo $this->escapeHtml($translate('Private')); ?>"></span>               <?php endif; ?>
                <?php if ($valueAnnotation && $showValueAnnotations): ?>
                  <a href="#" class="<?php echo ('expanded' === $showValueAnnotations) ? 'collapse' : 'expand'; ?>" aria-label="<?php echo ('expanded' === $showValueAnnotations) ? $this->escapeHtml($translate('Collapse')) : $this->escapeHtml($translate('Expand')); ?>">
@@ -76,3 +78,4 @@ $filterLocaleCallback = function ($value) use ($lang) {
         </div>
 <?php endforeach; ?>
 </dl>
+<?php endif; ?>

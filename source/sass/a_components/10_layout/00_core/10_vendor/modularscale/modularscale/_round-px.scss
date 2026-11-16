@@ -1,9 +1,10 @@
 // No reason to have decimal pixel values,
 // normalize them to whole numbers.
+@use "sass:math";
 
 @function ms-round-px($r) {
-  @if unit($r) == 'px' {
-    @return round($r);
+  @if math.unit($r) == 'px' {
+    @return math.round($r);
   }
   @return $r;
 }

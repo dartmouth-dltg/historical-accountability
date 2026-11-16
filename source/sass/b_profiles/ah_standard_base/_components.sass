@@ -6,38 +6,38 @@
 
   
 // 10 Layout  
-@import layout_foundation_basic/_index
-@import layout_css_variables/_index
-@import !vertical_breakpoints/_index
-@import responsive_images/_index
-@import standardized_top_level_primitives/_index
-@import mobile_classes/_index
+@forward "layout_foundation_basic/_index"
+@forward "layout_css_variables/_index"
+@forward "!vertical_breakpoints/_index"
+@forward "responsive_images/_index"
+@forward "standardized_top_level_primitives/_index"
+@forward "mobile_classes/_index"
 
 // 20 Colour
 
-@import root_colour_variables/_index
+@forward "root_colour_variables/_index" hide $rootvar
 
 // 30 Typography
 
-@import standardized_typography/_index
-@import standardized_lists/_index
-@import body_text_anchor_1/_index
+@forward "standardized_typography/_index"
+@forward "standardized_lists/_index"
+@forward "body_text_anchor_1/_index"
 
 
 // 40 UI
 
-@import ui_element_base/_index
-@import standardized_buttons/_index
-@import standardized_forms/_index
+@forward "ui_element_base/_index"
+@forward "standardized_buttons/_index"
+@forward "standardized_forms/_index"
 
 // 50 Animation
 
-@import standardized_animation/_index
+@forward "standardized_animation/_index" hide $rootvar
 
 
 // 60 Site Elements
 
-@import figure_normalization/_index
-@import svg_symbol_support/_index
+@forward "figure_normalization/_index"
+@forward "svg_symbol_support/_index"
 
 

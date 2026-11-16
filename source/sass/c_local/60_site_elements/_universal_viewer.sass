@@ -1,3 +1,4 @@
+@use "toolkit" as *
 .universal-viewer.viewer
 
   .uv-iiif-extension-host.uv-openseadragon-extension .centerPanel .content .viewer
@@ -21,7 +22,7 @@
     color: $clr2 !important
     text-decoration: underline
   
-  margin-bottom: rv(2) + rv(-4) +rv(2)
+  margin-bottom: rv(2) + rv(-4) + rv(2)
 
   .loaded
     max-width: unset !important
@@ -43,7 +44,7 @@
     color: $white !important
     
     .options
-      background-color: neutral(95) !important
+      background-color: neutral(95, $black, $white) !important
   
     
   .overlays
@@ -61,14 +62,14 @@
         text-decoration: underline
     
   .leftPanel, .rightPanel
-    background: neutral(95) !important
+    background: neutral(95, $black, $white) !important
     
   .rightPanel
     main
       color: $white !important
     
 .uv .centerPanel .content .attribution
-  display: none!important
+  display: none !important
 .uv .centerPanel .content .viewer .paging.btn
   min-width: auto
 .uv .btn

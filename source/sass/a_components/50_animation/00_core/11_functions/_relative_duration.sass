@@ -10,13 +10,18 @@
  *
  * Note: if the $factor is set to null this function will return a 0 value (as a factor of “0” is the base point on the modular scale). 
  */
- 
-@function relative_duration($factor: 0,$base: $heartbeat, $ratio:$scale)
+@use "10_layout/00_core/10_vendor/modularscale/_modularscale" as *
+
+// $base/$ratio default to literal fallbacks rather than the theme's $heartbeat/$scale config
+// vars, to avoid a circular dependency between this function and the animation configuration
+// (which calls relative_duration() to compute its derived values). Callers that want the
+// theme's timing scale must pass $base/$ratio explicitly.
+@function relative_duration($factor: 0,$base: 0.5s, $ratio: 1.5)
   @if $factor == null
     @return 0s
   @else
     @return ms($factor,$base,$ratio)
-  
-// Alias  
-@function rd($factor: 0,$base: $heartbeat, $ratio:$scale)
+
+// Alias
+@function rd($factor: 0,$base: 0.5s, $ratio: 1.5)
   @return relative_duration($factor,$base,$ratio)

@@ -1,3 +1,4 @@
+@use "toolkit" as *
 /*
    @file _layout.sass
    @theme Local
@@ -10,7 +11,7 @@ video
   width: 100%
 
 #secondary-content
-  // background: neutral(10)
+  // background: neutral(10, $black, $white)
   // margin-top: rv(5)
   // padding: rv(5) 0
   // h2
@@ -38,16 +39,16 @@ section
               margin-left: auto
               margin-right: auto
             &:first-child
-              margin-top: rv(3)!important
+              margin-top: rv(3) !important
           > .storymap
               margin-left: auto
               margin-right: auto
-              margin-top: 0!important
+              margin-top: 0 !important
           > .tl-timeline
-              max-width: 100%!important
+              max-width: 100% !important
               margin-left: auto
               margin-right: auto
-              margin-top: 0!important
+              margin-top: 0 !important
           &.property-wrapper > *
             margin-top: 0 !important
       > div[class*="block-"]
@@ -76,7 +77,7 @@ main, #feature-tier-1
         > .slideshow
           +negative-content-margin(4)
         > .tl-timeline
-          max-width: 100%!important
+          max-width: 100% !important
           +inset-full()
         > #feature-1
           +negative-content-margin(6)
@@ -205,11 +206,11 @@ main, #feature-tier-1
   blockquote
     background: $bgcolor2
     color: $clr4
-    padding: rv(1) rv(3)!important
+    padding: rv(1) rv(3) !important
     font-family: $codefont
-    padding-bottom: rv(4)!important
-    margin-top: rv(4)!important
-    margin-bottom: rv(4)!important
+    padding-bottom: rv(4) !important
+    margin-top: rv(4) !important
+    margin-bottom: rv(4) !important
     +tilt
     &:after
       content: " "
@@ -271,11 +272,11 @@ main, #feature-tier-1
     color: $white
   tr:nth-child(even)
     > td
-      background: neutral(10)
+      background: neutral(10, $black, $white)
       border-top: 5px solid $white
   tr
     > td
-      background: neutral(5)
+      background: neutral(5, $black, $white)
       border-top: 5px solid white
 
   table
@@ -373,7 +374,7 @@ input:checked + .slider:before
 .profile-overlay-btn
   display: none
 .profile-overlay-logo
-  display: none!important
+  display: none !important
 
 .preview-block
   .resource-list
@@ -396,4 +397,4 @@ section
   main
     > div > div
       > .preview-block
-        margin-top: 0!important
+        margin-top: 0 !important

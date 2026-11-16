@@ -1,0 +1,10 @@
+/**
+ * @file _01a_layout_base.sass
+ * @description Split out from _01_configuration_layout.sass so that _relative_value.sass
+ * (rv()/rs()) can depend on the theme's base unit and scale without creating a circular
+ * @use between the layout configuration and the function that some of its own derived
+ * values (e.g. $title_area_outside_padding) call.
+ */
+
+$blh: 1.9rem  // Base size unit in rem (relative to the HTML root size).
+$scale: 1.33333 // Sets an size interval mapped over integers. See https://www.modularscale.com for a demonstration.

@@ -1,5 +1,8 @@
+@use "toolkit" as *
+@use "sass:map";
+
 p, ol, ul, th, td, dl, dd, dt, address
-  +font-size(map-get($sizefactors,'base'))
+  +font-size(map.get($sizefactors,'base'))
   +standard-line-height()
   +standardized-block-spacing($block_spacing - 3)
   

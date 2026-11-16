@@ -7,7 +7,7 @@
  * With thanks to https://www.sitepoint.com/understanding-sass-units/
  * 
  */
-
+@use "sass:map";
 
 /// Convert one unit into another
 /// @author Hugo Giraudel
@@ -45,7 +45,7 @@
     'dpcm': 0dpcm,
     'dpi': 0dpi
 
-  @if map-has-key($units, $unit)
-    @return map-get($units, $unit) + $value
+  @if map.has-key($units, $unit)
+    @return map.get($units, $unit) + $value
 
   @warn "Unknown unit `#{$unit}`."

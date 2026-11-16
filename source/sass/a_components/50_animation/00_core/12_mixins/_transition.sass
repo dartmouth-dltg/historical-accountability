@@ -1,16 +1,19 @@
-/* 
-   @file _standard_transition.sass 
+@use "c_local/00_configuration/_index" as *
+@use "50_animation/00_core/11_functions/_relative_duration" as *
+/*
+   @file _standard_transition.sass
    @category 50_animation
    @group a_components
    @description  Creates a standard transition property based on configuration values. */
+@use "sass:list";
 
 =transition($properties: all,$timing: 0, $delay: $base_delay, $easing: $standard_easing)
 
   $transitions: ()
   
   @each $property in $properties
-    $transition: $property rd($timing) $easing rd($delay)
-    $transitions: append($transitions,$transition,comma)
+    $transition: $property rd($timing, $heartbeat, $scale) $easing rd($delay, $heartbeat, $scale)
+    $transitions: list.append($transitions,$transition,comma)
       
   transition: $transitions
 

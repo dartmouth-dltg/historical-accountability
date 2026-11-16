@@ -1,13 +1,16 @@
-/** 
- *  @file _proportional_thumbnail.sass 
+@use "c_local/00_configuration/_index" as *
+@use "_proportional_height" as *
+/**
+ *  @file _proportional_thumbnail.sass
  *  @category 10_layout
  *  @component 00_core
  *  @description Sets a thumbnail image to a proportion of its with. Proportion defaults to 1/$scale. 
  *
  *  NOTE: The element must have an explicit $width set as per proportional_height()
  */
+@use "sass:math";
 
-=proportional_thumbnail($width: 100%,$proportion: 1/$scale)
+=proportional_thumbnail($width: 100%, $proportion: math.div(1, $scale))
   +proportional_height($width,$proportion)
 
   img

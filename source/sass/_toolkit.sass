@@ -1,0 +1,34 @@
+/**
+ * @file _toolkit.sass
+ * @description Flattened access point for every configuration variable, function, and mixin
+ * shared across the theme. Any partial that references a shared symbol without defining it
+ * itself should `@use "toolkit" as *` (resolved via the "source/sass" load path).
+ *
+ * Do NOT @use this file from any configuration file, or from any function/mixin file that a
+ * configuration file depends on directly — those already pin their specific dependencies and
+ * forwarding this toolkit back into them would create a circular @use.
+ */
+
+// Fully-resolved (local-theme-overridden) configuration values.
+@forward "c_local/00_configuration/_index"
+
+// Shared functions and mixins.
+// NOTE: several sibling folders (layout_foundation_grid/13_mixins, legacy_spacing_library,
+// callout_blocks/13_mixins, legacy_typography_library, !animate_visibility, legacy_libraries)
+// are not reachable from style.sass in this theme (confirmed unreferenced) and are
+// intentionally left out here rather than forced to compile.
+@forward "a_components/00_general/00_core/11_functions/_index"
+@forward "a_components/10_layout/00_core/11_functions/_index"
+@forward "a_components/10_layout/00_core/12_mixins/_index"
+@forward "a_components/10_layout/00_core/10_vendor/_index"
+@forward "a_components/10_layout/!vertical_breakpoints/12_mixins/_vertical_breakpoints"
+@forward "a_components/20_colour/00_core/11_functions/_index"
+@forward "a_components/30_typography/00_core/11_functions/_index"
+@forward "a_components/30_typography/00_core/12_mixins/_index"
+@forward "a_components/40_ui/00_core/12_mixins/_index"
+@forward "a_components/50_animation/00_core/11_functions/_index"
+@forward "a_components/50_animation/00_core/12_mixins/_index"
+
+// Local-theme-only functions and mixins.
+@forward "c_local/00_general/12_mixins/_index"
+@forward "c_local/10_layout/13_mixins/_index"

@@ -1,10 +1,15 @@
+@forward "40_ui/00_core/_04_configuration_ui" hide $ui_element_height, $ui_border_radius, $ui_border_width, $ui_border_color, $ui_hover_border_color, $ui_font_family, $ui_color, $ui_padding, $ui_font_size, $border_radius, $buttonfontsize, $btn_padding, $btn_border_width, $btn_border_radius, $btn_min_width, $btn_width, $btn_max_width, $btn_color, $btn_bg_color, $btn_border_color, $btn_hover_color, $btn_hover_border_color, $btn_hover_bg_color, $btn_submit_color, $btn_submit_bg_color, $btn_submit_border_color, $btn_submit_hover_color, $btn_submit_hover_border_color, $btn_submit_hover_bg_color, $outline_btn_color, $outline_btn_hover_color
+@use "sass:color"
+@use "_02_configuration_colour" as *
+@use "_03_configuration_typography" as *
+
 /**
  * @file
  * UI Configuration. A standardized approach to defining buttons and other ui elements.
- * 
+ *
  * Copy this file to your theme configuration folder of your local theme or component and adjust it _index file to import.
  */
-  
+
 $ui_element_height: 50px  // Standard height for single-line input, select and button elements.
 $ui_border_radius: 12px
 $ui_border_width: 2px

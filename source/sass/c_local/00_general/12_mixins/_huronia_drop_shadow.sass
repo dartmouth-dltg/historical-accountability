@@ -1,7 +1,11 @@
+@use "00_configuration/_index" as *
+@use "10_layout/00_core/11_functions/_relative_value" as *
+@use "20_colour/00_core/11_functions/_neutral" as *
+
 /*
  * Standardized Huronia drop shadow mixin.
  *
  */
- 
+
 =huronia-drop-shadow
-  filter: drop-shadow(rv(-4) rv(-4) rv(-4) neutral(40));
+  filter: drop-shadow(rv(-4) rv(-4) rv(-4) neutral(40, $black, $white));

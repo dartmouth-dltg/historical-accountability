@@ -1,3 +1,5 @@
+@use "toolkit" as *
+@use "sass:color"
 /*
  * @file _form_elements
  * @component ui_element_base
@@ -193,7 +195,7 @@ $btnBorderAllowance: $ui_border_width
       border: 1px solid $white
     @else
       border: $btn_border_width solid $white
-    background-color: darken($btn_hover_color,5%)
+    background-color: color.adjust($btn_hover_color, $lightness: -5%)
     color: $white
     
 

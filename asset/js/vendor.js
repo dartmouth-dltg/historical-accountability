@@ -1,7 +1,7 @@
 /*!
  * dhap-theme v1.0.0
  * A custom Omeka theme for the Dartmouth Historical Accountability project.
- * (c) 2025 Agile Humanities Agency
+ * (c) 2026 Agile Humanities Agency
  * MIT License
  * https://agile.git.beanstalkapp.com/agile-theme-builder-v002.git
  */
@@ -20,7 +20,7 @@
 
 /* jshint unused: true, undef: true, strict: true */
 
-( (function( global, factory ) {
+( function( global, factory ) {
   // universal module definition
   /* jshint strict: false */ /* globals define, module, window */
   if ( typeof define == 'function' && define.amd ) {
@@ -34,7 +34,7 @@
     global.EvEmitter = factory();
   }
 
-})( typeof window != 'undefined' ? window : this, (function() {
+}( typeof window != 'undefined' ? window : this, function() {
 
 
 
@@ -123,7 +123,7 @@ proto.allOff = function() {
 
 return EvEmitter;
 
-})));
+}));
 
 /*!
  * imagesLoaded v4.1.4
@@ -131,7 +131,7 @@ return EvEmitter;
  * MIT License
  */
 
-( (function( window, factory ) { 'use strict';
+( function( window, factory ) { 'use strict';
   // universal module definition
 
   /*global define: false, module: false, require: false */
@@ -140,9 +140,9 @@ return EvEmitter;
     // AMD
     define( [
       'ev-emitter/ev-emitter'
-    ], (function( EvEmitter ) {
+    ], function( EvEmitter ) {
       return factory( window, EvEmitter );
-    }));
+    });
   } else if ( typeof module == 'object' && module.exports ) {
     // CommonJS
     module.exports = factory(
@@ -157,11 +157,11 @@ return EvEmitter;
     );
   }
 
-}))( typeof window !== 'undefined' ? window : this,
+})( typeof window !== 'undefined' ? window : this,
 
 // --------------------------  factory -------------------------- //
 
-(function factory( window, EvEmitter ) {
+function factory( window, EvEmitter ) {
 
 
 
@@ -340,15 +340,15 @@ ImagesLoaded.prototype.check = function() {
 
   function onProgress( image, elem, message ) {
     // HACK - Chrome triggers event before object properties have changed. #83
-    setTimeout( (function() {
+    setTimeout( function() {
       _this.progress( image, elem, message );
-    }));
+    });
   }
 
-  this.images.forEach( (function( loadingImage ) {
+  this.images.forEach( function( loadingImage ) {
     loadingImage.once( 'progress', onProgress );
     loadingImage.check();
-  }));
+  });
 };
 
 ImagesLoaded.prototype.progress = function( image, elem, message ) {
@@ -501,5 +501,5 @@ ImagesLoaded.makeJQueryPlugin();
 
 return ImagesLoaded;
 
-}));
+});
 
